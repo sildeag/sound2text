@@ -1,0 +1,21 @@
+@keyframes pulse {
+    0%   { -fx-border-color: red; }
+    50%  { -fx-border-color: darkred; }
+    100% { -fx-border-color: red; }
+}
+
+.notes-area {
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+    -fx-padding: 5px;
+}
+
+.notes-area.recording {
+    -fx-border-color: red;
+    -fx-effect: dropshadow(gaussian, red, 5, 0.5, 0, 0);
+    -fx-animation: pulse 1s infinite;
+}
+
+.notes-area.idle {
+    -fx-border-color: green;
+}

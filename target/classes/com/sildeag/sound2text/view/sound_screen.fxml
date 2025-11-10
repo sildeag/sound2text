@@ -1,0 +1,76 @@
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.geometry.Insets?>
+<StackPane xmlns="http://javafx.com/javafx/24.0.1"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:id="rootPane">
+    <!-- Main UI inside ScrollPane -->
+    <ScrollPane fitToWidth="true" prefHeight="400.0" prefWidth="600.0">
+        <content>
+            <VBox alignment="CENTER" spacing="10">
+                <padding>
+                    <Insets bottom="20" left="20" right="20" top="20" />
+                </padding>
+
+                <Label text="Name:" />
+                <TextField fx:id="nameField" promptText="Enter your name" />
+
+                <Label text="Email:" />
+                <TextField fx:id="emailField" promptText="Enter your email" />
+
+                <Label text="Notes:" />
+                <HBox spacing="5">
+                    <TextArea fx:id="notesArea"
+                              prefRowCount="5" prefWidth="300"
+                              styleClass="notes-area" wrapText="true" />
+                    <CheckBox fx:id="soundToggle" text="Enable Sound Feedback" />
+                    <Button fx:id="micButton" onAction="#onToggleMic" text="🎤 Start">
+                        <tooltip>
+                            <Tooltip text="Toggle microphone" />
+                        </tooltip>
+                    </Button>
+                </HBox>
+
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="Mic Sensitivity:" />
+                    <Slider fx:id="sensitivitySlider" blockIncrement="0.1" max="2.0" min="0.5" showTickLabels="true" showTickMarks="true" value="1.0" />
+                    <Label fx:id="sensitivityLabel" text="1.0x" />
+                    <Button fx:id="resetSensitivityButton" onAction="#onResetSensitivity" text="Reset">
+                        <tooltip>
+                            <Tooltip text="Restore default sensitivity (1.0x)" />
+                        </tooltip>
+                    </Button>
+                </HBox>
+
+                <Button onAction="#onGeneratePdf" text="Generate PDF" />
+                <Button fx:id="simulatePdfButton" text="Simulate PDF" onAction="#onSimulatePdf"/>
+                <Button fx:id="restoreDefaultsButton" onAction="#onRestoreDefaults" text="Restore All Defaults">
+                    <tooltip>
+                        <Tooltip text="Reset mic sensitivity and sound feedback to default" />
+                    </tooltip>
+                </Button>
+                <Circle fx:id="pulseCircle" fill="#3b5680" radius="40" stroke="white" strokeWidth="2">
+                    <effect>
+                        <DropShadow color="deepskyblue" radius="20" spread="0.5" />
+                    </effect>
+                </Circle>
+            </VBox>
+        </content>
+    </ScrollPane>
+
+    <!-- Toast container overlay -->
+    <VBox fx:id="toastContainer" alignment="BOTTOM_CENTER" spacing="10"
+          style="-fx-padding: 10;" mouseTransparent="true"/>
+</StackPane>

@@ -1,4 +1,7 @@
-MIT License
+📄 License
+This project is licensed under the [MIT License](LICENSE). You’re free to use,
+modify, and distribute it — just include the original license and attribution.
+Contributions are welcome and encouraged.
 
 Copyright (c) 2025 sildeag
 

@@ -36,6 +36,7 @@ replay_pid*
 # Build outputs
 build/
 out/
+target/
 
 # IDE and tooling
 .idea/

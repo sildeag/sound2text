@@ -1,0 +1,284 @@
+[versions]
+# Core Toolchains
+agp = "8.13.1"
+kotlin = "2.0.21"
+jvm = "17" # Compile Target. You can use JDK 21 to run Gradle.
+
+android-compileSdk = "36"
+android-minSdk = "24"
+android-targetSdk = "36"
+# Compose (AndroidX and Multiplatform)
+compose-plugin = "1.9.2"  # For Multiplatform (Desktop, etc.)
+compose-bom = "2025.10.01" # For AndroidX (Android UI)
+#compose-compiler = "1.5.14" # The version compatible with the BOM and Kotlin 1.9.22/2.0.0 via AGP
+compose-compiler = "1.5.10"
+activity-compose = "1.9.3"
+# This is the version we want to access.
+#compose-compiler-extension = "1.5.14"
+
+# Core KTX Libraries
+core-ktx = "1.13.1"
+lifecycle-ktx = "2.8.0"
+
+# Koin (Updated for K2/KSP2)
+#koin = "3.5.6"
+koin = "4.1.0"
+koin-annotations = "2.3.0"
+# KSP version should align with annotations
+# *** FIX #1: RENAME this variable to be specific to the Koin COMPILER ***
+# This makes it clear what this version is for.
+koin-compiler-version = "2.3.0"
+
+# *** FIX #2: ADD a NEW variable for the KSP PLUGIN version ***
+# This version MUST match your Kotlin version format.
+ksp = "2.3.0"
+
+
+# Testing
+#junit 4.13.2
+junitVersion = "1.1.5"
+junit = "4.13.2"
+androidx-test-ext = "1.1.5"
+#espresso-core = "3.5.1"
+espressoCore = "3.5.1"
+kotlin-test = "2.0.0" # Align with Kotlin version
+
+# JavaFX
+javafx = "21.0.8"
+
+# Coroutines
+kotlinx-coroutines = "1.8.0"
+
+# Logging
+kotlin-logging = "7.0.7"
+
+# iText
+itext = "9.3.0"
+
+# Vosk
+vosk = "0.3.70"
+
+# TestFX
+testfx = "4.0.18"
+
+# Misc
+mockk = "1.12.4"
+jna = "5.13.0"
+validatorfx = "0.5.0"
+controlsfx = "11.2.2"
+tilesfx = "21.0.3"
+formsfx = "11.6.0"
+ikonli = "12.3.1"
+snakeyaml = "2.0"
+
+# Logging
+slf4j = "2.0.9"
+logback = "1.4.14"
+
+
+[plugins]
+# *** FIX #3: UPDATE the version reference for the KSP plugin ***
+# Change from "koin-ksp" to the new "ksp-plugin-version".
+# The KSP plugin definition uses the version ref, so it will pick up the change automatically.
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+androidLibrary = { id = "com.android.library", version.ref = "agp" }
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+##jetbrains-compose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
+##kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+#compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "compose-plugin" }
+#org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+
+jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
+kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+#compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+#composeCompiler = { id = "org.jetbrains.compose.compiler", version.ref = "compose-compiler" }
+#jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
+#kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+#compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+#androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+#junit = { group = "junit", name = "junit", version.ref = "junit" }
+#androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+#androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+#androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+#material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+#androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+#androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
+#androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
+#
+#
+#android-application = { id = "com.android.application", version.ref = "agp" }
+#kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+
+
+
+[libraries]
+# --- Core KTX ---
+core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
+lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle-ktx" }
+
+# --- Compose (AndroidX) ---
+# The BOM manages versions for all libraries below it
+composeCompiler = { module = "org.jetbrains.compose.compiler:compiler", version.ref = "compose-compiler" }
+compose-bom = { module = "androidx.compose:compose-bom", version.ref = "compose-bom" }
+compose-ui = { module = "androidx.compose.ui:ui" }
+compose-material3 = { module = "androidx.compose.material3:material3" }
+compose-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
+compose-tooling = { module = "androidx.compose.ui:ui-tooling" }
+activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
+
+
+# --- Koin ---
+koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
+koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin" }
+koin-annotations = { module = "io.insert-koin:koin-annotations", version.ref = "koin-annotations" }
+# *** FIX #4: UPDATE the version reference for the Koin compiler library ***
+# Change from "koin-ksp" to the new "koin-compiler-version".
+koin-compiler = { module = "io.insert-koin:koin-ksp-compiler", version.ref = "koin-compiler-version" }
+koin-test = { module = "io.insert-koin:koin-test", version.ref = "koin" }
+koin-test-junit5 = { module = "io.insert-koin:koin-test-junit5", version.ref = "koin" }
+
+# --- Kotlinx Coroutines (for multiplatform) ---
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx-coroutines" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinx-coroutines" }
+
+# --- Testing ---
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+#junit = { module = "junit:junit", version.ref = "junit" }
+androidx-test-ext-junit = { module = "androidx.test.ext:junit", version.ref = "androidx-test-ext" }
+#espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso-core" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin-test" }
+# junit
+junit-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
+junit-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
+
+
+# --- JavaFX (individual libraries for the bundle) ---
+javafx-base = { module = "org.openjfx:javafx-base", version.ref = "javafx" }
+javafx-controls = { module = "org.openjfx:javafx-controls", version.ref = "javafx" }
+javafx-fxml = { module = "org.openjfx:javafx-fxml", version.ref = "javafx" }
+javafx-graphics = { module = "org.openjfx:javafx-graphics", version.ref = "javafx" }
+javafx-swing = { module = "org.openjfx:javafx-swing", version.ref = "javafx" }
+javafx-media = { module = "org.openjfx:javafx-media", version.ref = "javafx" }
+javafx-web = { module = "org.openjfx:javafx-web", version.ref = "javafx" }
+
+# itext
+itext-barcodes = { module = "com.itextpdf:barcodes", version.ref = "itext" }
+itext-bouncy-castle-connector = { module = "com.itextpdf:bouncy-castle-connector", version.ref = "itext" }
+itext-commons = { module = "com.itextpdf:commons", version.ref = "itext" }
+itext-font-asian = { module = "com.itextpdf:font-asian", version.ref = "itext" }
+itext-forms = { module = "com.itextpdf:forms", version.ref = "itext" }
+itext-hyph = { module = "com.itextpdf:hyph", version.ref = "itext" }
+itext-io = { module = "com.itextpdf:io", version.ref = "itext" }
+itext-kernel = { module = "com.itextpdf:kernel", version.ref = "itext" }
+itext-layout = { module = "com.itextpdf:layout", version.ref = "itext" }
+itext-pdfa = { module = "com.itextpdf:pdfa", version.ref = "itext" }
+itext-pdfua = { module = "com.itextpdf:pdfua", version.ref = "itext" }
+itext-sign = { module = "com.itextpdf:sign", version.ref = "itext" }
+itext-styled-xml-parser = { module = "com.itextpdf:styled-xml-parser", version.ref = "itext" }
+itext-svg = { module = "com.itextpdf:svg", version.ref = "itext" }
+
+# testfx
+testfx-core = { module = "org.testfx:testfx-core", version.ref = "testfx" }
+testfx-junit5 = { module = "org.testfx:testfx-junit5", version.ref = "testfx" }
+
+# misc
+misc-mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+misc-jna = { module = "net.java.dev.jna:jna", version.ref = "jna" }
+misc-validatorfx = { module = "net.synedra:validatorfx", version.ref = "validatorfx" }
+misc-controlsfx = { module = "org.controlsfx:controlsfx", version.ref = "controlsfx" }
+misc-tilesfx = { module = "eu.hansolo:tilesfx", version.ref = "tilesfx" }
+misc-formsfx-core = { module = "com.dlsc.formsfx:formsfx-core", version.ref = "formsfx" }
+misc-ikonli = { module = "org.kordamp.ikonli:ikonli-javafx", version.ref = "ikonli" }
+misc-snakeyaml = { module = "org.yaml:snakeyaml", version.ref = "snakeyaml" }
+misc-eu-hansolo-tilesfx = { module = "eu.hansolo:tilesfx", version.ref = "tilesfx" }
+misc-vosk = { module = "com.alphacephei:vosk-model-en", version.ref = "vosk" }
+misc-vosk-android = { module = "com.alphacephei:vosk-android", version.ref = "vosk" }
+
+# Logging
+slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
+logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
+kotlin-logging = { module = "io.github.oshai:kotlin-logging", version.ref = "kotlin-logging" }
+
+
+# =====================================================================
+#                BUNDLES - Answering your specific question
+# =====================================================================
+[bundles]
+
+# Bundle for the Android UI module, to be used in AndroidApplicationComposeConventionPlugin
+compose-android = ["compose-ui", "compose-material3", "activity-compose"]
+
+# Bundle for Koin, used in the android-ui module.
+koin-android = ["koin-core", "koin-android", "koin-androidx-compose"]
+
+# A multiplatform Koin bundle for the :core module
+koin-multiplatform = ["koin-core", "koin-annotations"]
+
+koin-test = ["koin-test", "koin-test-junit5"]
+
+# Bundle for Kotlinx Coroutines, used in the :core module (often with `api`)
+kotlinx-coroutines = ["kotlinx-coroutines-core", "kotlinx-coroutines-android"]
+
+# A common testing bundle
+test-android = ["junit", "androidx-test-ext-junit"]
+
+# A bundle for all the JavaFX modules, used by our smart helper in `buildSrc`
+javafx = ["javafx-base", "javafx-controls", "javafx-fxml",
+    "javafx-graphics", "javafx-swing"]
+
+logging = ["slf4j-api", "logback-classic", "kotlin-logging"]
+
+test = ["junit-api", "junit-engine", "misc-mockk", "koin-test",
+    "testfx-core", "testfx-junit5"]
+
+itext = [
+    "itext-barcodes", "itext-bouncy-castle-connector", "itext-commons",
+    "itext-font-asian",
+    "itext-forms", "itext-hyph", "itext-io", "itext-kernel", "itext-layout",
+    "itext-pdfa", "itext-pdfua", "itext-sign", "itext-styled-xml-parser",
+    "itext-svg"]
+
+
+#test = ["junit-api", "junit-engine", "misc-mockk", "koin-test",
+#    "testfx-core", "testfx-junit5"]
+
+
+#kotlinx = ["kotlinx-coroutines-core", "kotlinx-coroutines-test"]
+#javafx = [
+#   "javafx-base", "javafx-graphics", "javafx-controls", "javafx-fxml",
+#    "javafx-media", "javafx-swing", "javafx-web"]
+###############################################
+##agp  8.13.0
+#kotli 2.0.21
+#coreKtx 1.10.1"
+#junit 4.13.2
+#junitVersion 1.1.5
+#espressoCore 3.5.1
+#appcompat = "1.6.1
+#material = "1.10.0"
+#constraintlayout = "2.1.4"
+#navigationFragmentKtx = "2.6.0"
+#navigationUiKtx = "2.6.0"
+#
+#androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+#junit = { group = "junit", name = "junit", version.ref = "junit" }
+#androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+#androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+#androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+#material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+#androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+#androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
+#androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
+#
+#
+#android-application = { id = "com.android.application", version.ref = "agp" }
+#kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+
+

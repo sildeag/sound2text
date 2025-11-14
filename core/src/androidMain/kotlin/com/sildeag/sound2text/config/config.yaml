@@ -1,0 +1,21 @@
+environment: PROD
+uiMode: DesktopFxml
+defaultLanguage: en
+
+assets:
+  sounds:
+    micOn: "resources/sounds/mic_on.wav"
+    micOff: "resources/sounds/mic_off.wav"
+    error: "resources/sounds/error_beep.wav"
+  styles:
+    main: "resources/styles/main.css"
+    alt: "resources/styles/alt.css"
+  fxml:
+    soundScreen: "resources/fxml/sound_screen.fxml"
+    soundScreen_es: "resources/fxml/sound_screen_es.fxml"
+
+labels:
+  name: "Name"
+  email: "Email"
+  notes: "Notes"
+  submit: "Submit"

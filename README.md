@@ -22,7 +22,7 @@ Sound2Text is a Kotlin Multiplatform Compose application architected from scratc
 - Provide a stable, working baseline for Compose Multiplatform development
 - Serve as a contributor‑friendly reference for onboarding and extension
 - Document hard‑won insights into plugin placement, TOML version catalogs, and multiplatform quirks
-- Offer a type‑safe, TOML‑driven Gradle setup using Kotlin 2.2.20 and Compose 1.9.1
+- Offer a type‑safe, TOML‑driven Gradle setup using Kotlin 2.3.0 and Compose 1.9.3 and 2.2.21
 - Enable future integration of sound‑to‑text input, voice‑activated dropdowns, and multilingual support (starting with Spanish)
 
 ## 🧠 What We Learned the Hard Way

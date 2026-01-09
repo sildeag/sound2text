@@ -1,26 +1,18 @@
-//import org.gradle.kotlin.dsl.implementation
-//import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-
 plugins {
-    //alias(libs.plugins.androidLibrary)
-    alias(libs.plugins.kotlinMultiplatform)   // Core KMP plugin
-    //alias(libs.plugins.composeCompiler)      // Kotlin Compose compiler plugin (matches Kotlin version)
+    alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.kotlinx.serialization)
-    alias(libs.plugins.ksp) // KSP plugin if you use annotation processing in core
+    alias(libs.plugins.ksp)
     alias(libs.plugins.dokka)
+    jacoco
 }
 
 kotlin {
-
     jvmToolchain(17)
     jvm()
 
     sourceSets {
         val commonMain by getting {
             dependencies {
-                //implementation(libs.compose.mpp.runtime)
-                //implementation(libs.compose.mpp.foundation)
-                //implementation(libs.compose.mpp.material3)
                 implementation(libs.koin.core)
                 implementation(libs.bundles.coroutines)
                 implementation(libs.bundles.logging)
@@ -29,28 +21,13 @@ kotlin {
         }
         val commonTest by getting {
             dependencies {
-                //implementation(libs.compose.mpp.runtime)
-                //implementation(libs.compose.mpp.foundation)
-                //implementation(libs.compose.mpp.material3)
                 implementation(kotlin("test"))
-                // the above is same as implementation(libs.kotlin.test)
                 implementation(libs.koin.core)
                 implementation(libs.bundles.coroutines)
                 implementation(libs.bundles.logging)
                 implementation(libs.kotlinx.serialization.json)
             }
         }
-
-
-
-
-        /*jvm("jvm") {
-            compilations["main"].defaultSourceSet {
-            /*java.srcDirs("src/jvmMain/java")*/
-            kotlin.srcDirs("src/jvmMain/kotlin")
-            resources.srcDirs("src/jvmMain/resources")
-            }
-        }*/
 
         val platform = "win"
         val jvmMain by getting {
@@ -63,9 +40,8 @@ kotlin {
                 implementation(libs.snakeyaml)
                 implementation(libs.kotlinx.serialization.json)
                 libs.bundles.javafx.get().forEach {
-                    val module = it.module.toString() // e.g., "org.openjfx:javafx-base"
-
-                    val version = it.versionConstraint.requiredVersion // e.g., "20"
+                    val module = it.module.toString()
+                    val version = it.versionConstraint.requiredVersion
                     implementation("$module:$version:$platform")
                 }
             }
@@ -73,11 +49,6 @@ kotlin {
 
         val jvmTest by getting {
             dependencies {
-                //testImplementation(kotlin("test"))
-                //testImplementation(libs.junit.jupiter.api)
-                //testRuntimeOnly(libs.junit.jupiter.engine)
-                //implementation(libs.mockk)
-                //implementation(libs.koin.test.junit5)
                 implementation(libs.bundles.testJvm)
                 implementation(libs.koin.core)
                 implementation(libs.bundles.itext)
@@ -92,8 +63,40 @@ kotlin {
 
 dokka {
     moduleName.set(":core")
-
     dokkaSourceSets.configureEach {
         includes.from("DEVLOG.md")
     }
+}
+
+tasks.named<Test>("jvmTest") {
+    useJUnitPlatform()
+}
+
+jacoco {
+    toolVersion = "0.8.11"
+}
+
+tasks.register<JacocoReport>("jacocoTestReport") {
+    dependsOn(tasks.named("jvmTest"))
+    reports {
+        xml.required.set(true)
+        html.required.set(true)
+    }
+    val mainSrc = files("src/commonMain/kotlin", "src/jvmMain/kotlin")
+    sourceDirectories.setFrom(mainSrc)
+    classDirectories.setFrom(files(layout.buildDirectory.dir("classes/kotlin/jvm/main")))
+    executionData.setFrom(files(layout.buildDirectory.file("jacoco/jvmTest.exec")))
+}
+
+tasks.named<JacocoReport>("jacocoTestReport") {
+    classDirectories.setFrom(
+        files(classDirectories.files.map {
+            fileTree(it) {
+                exclude(
+                    "**/commonTest/**",
+                    "**/jvmTest/**"
+                )
+            }
+        })
+    )
 }

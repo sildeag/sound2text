@@ -1,21 +1,21 @@
-import org.jetbrains.compose.desktop.application.dsl.TargetFormat.*
+import org.gradle.api.tasks.testing.Test
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.composeMultiplatform)
-    alias(libs.plugins.composeCompiler)   // Required for Kotlin 2.x
+    alias(libs.plugins.composeCompiler)
     alias(libs.plugins.ksp)
     alias(libs.plugins.dokka)
+    jacoco
 }
 
-val platform = "win" // JavaFX native classifier
+val platform = "win"
 
 kotlin {
     jvmToolchain(17)
     jvm()
 
     sourceSets {
-
         val commonMain by getting {
             dependencies {
                 implementation(compose.runtime)
@@ -40,20 +40,15 @@ kotlin {
             }
         }
 
-
         val jvmMain by getting {
             dependencies {
                 implementation(project(":core"))
                 implementation(compose.desktop.currentOs)
-                //{
-                //    exclude("org.jetbrains.compose.material", "material")
-                //}
                 implementation(libs.koin.core)
                 implementation(libs.bundles.itext)
                 implementation(libs.vosk)
                 implementation(libs.bundles.logging)
 
-                // JavaFX platform-specific modules
                 libs.bundles.javafx.get().forEach {
                     val module = it.module.toString()
                     val version = it.versionConstraint.requiredVersion
@@ -66,24 +61,8 @@ kotlin {
             dependencies {
                 implementation(project(":core"))
                 implementation(compose.desktop.currentOs)
-                //{
-                //    exclude("org.jetbrains.compose.material", "material")
-                //}
                 implementation(kotlin("test"))
             }
-        }
-    }
-}
-
-compose.desktop {
-    application {
-        mainClass = "MainKt"
-
-        nativeDistributions {
-            targetFormats(Dmg, Msi, Deb)
-
-            packageName = "Sound2Text"
-            packageVersion = "1.0.0"
         }
     }
 }
@@ -93,4 +72,37 @@ dokka {
     dokkaSourceSets.configureEach {
         includes.from("DEVLOG.md")
     }
+}
+
+tasks.named<Test>("jvmTest") {
+    useJUnitPlatform()
+}
+
+jacoco {
+    toolVersion = "0.8.11"
+}
+
+tasks.register<JacocoReport>("jacocoTestReport") {
+    dependsOn(tasks.named("jvmTest"))
+    reports {
+        xml.required.set(true)
+        html.required.set(true)
+    }
+    val mainSrc = files("src/commonMain/kotlin", "src/jvmMain/kotlin")
+    sourceDirectories.setFrom(mainSrc)
+    classDirectories.setFrom(files(layout.buildDirectory.dir("classes/kotlin/jvm/main")))
+    executionData.setFrom(files(layout.buildDirectory.file("jacoco/jvmTest.exec")))
+}
+
+tasks.named<JacocoReport>("jacocoTestReport") {
+    classDirectories.setFrom(
+        files(classDirectories.files.map {
+            fileTree(it) {
+                exclude(
+                    "**/commonTest/**",
+                    "**/jvmTest/**"
+                )
+            }
+        })
+    )
 }

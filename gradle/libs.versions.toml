@@ -61,6 +61,7 @@ tilesfx-ver = "21.0.3"
 formsfx-ver = "11.6.0"
 ikonli-ver = "12.3.1"
 cardview-ver = "1.0.0"
+jacoco-ver = "0.8.11"
 
 # ============================================================
 #                          PLUGINS
@@ -170,6 +171,7 @@ tilesfx = { module = "eu.hansolo:tilesfx", version.ref = "tilesfx-ver" }
 formsfx = { module = "com.dlsc.formsfx:formsfx-core", version.ref = "formsfx-ver" }
 ikonli = { module = "org.kordamp.ikonli:ikonli-javafx", version.ref = "ikonli-ver" }
 cardview = { module = "androidx.cardview:cardview", version.ref = "cardview-ver" }
+jacoco-core = { module = "org.jacoco:org.jacoco.core", version.ref = "jacoco-ver" }
 
 # ============================================================
 #                          BUNDLES

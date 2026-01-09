@@ -1,27 +1,9 @@
-import org.gradle.kotlin.dsl.desktop
-
-//val libs = extensions.getByName("libs") as VersionCatalog
-/*
 plugins {
-    id("com.android.application") version "8.4.1"
-    kotlin("multiplatform") version "2.1.21"
-    id("org.jetbrains.kotlin.plugin.compose") version "2.1.21"
-    id("com.google.devtools.ksp") version "2.3.0"
-    //alias(libs.plugins.ksp)
+    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.composeCompiler)
+    //alias(libs.plugins.dokka)
 }
 
- */
-plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
-    //alias(libs.plugins.kotlinMultiplatform)
-    //kotlin("multiplatform") version "2.0.21"
-    //id("org.jetbrains.kotlin.plugin.compose") version "2.1.21"
-    alias(libs.plugins.jetbrainsCompose)
-    alias(libs.plugins.compose.compiler)
-    //id("com.google.devtools.ksp") version "2.3.0"
-    alias(libs.plugins.ksp)
-}
 
 android {
     namespace = "com.sildeag.sound2text"
@@ -35,6 +17,7 @@ android {
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+
 
     buildTypes {
         release {
@@ -77,14 +60,20 @@ android {
 dependencies {
     implementation(project(":core"))
     implementation(platform(libs.compose.bom))
-    implementation(libs.bundles.compose.android)
+    implementation(libs.compose.ui)
+    implementation(libs.compose.material3)
+    implementation(libs.activity.compose)
     implementation(libs.core.ktx)
     implementation(libs.activity.compose)
     implementation(libs.bundles.koin.android)
-    implementation(libs.misc.vosk.android)
+    implementation(libs.vosk.android)
 
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.bundles.koin.test)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    testImplementation(libs.junit.jupiter.api)
+    testRuntimeOnly(libs.junit.jupiter.engine)
+
+    androidTestImplementation(libs.bundles.testAndroid)
+    //androidTestImplementation(libs.androidx.junit)
+    //androidTestImplementation(libs.androidx.espresso.core)
 }
+
+

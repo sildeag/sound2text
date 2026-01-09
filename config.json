@@ -1,0 +1,27 @@
+{
+  "platform": "desktop",
+  "mode": "DEV",
+  "ui": {
+    "type": "fxml"
+  },
+  "audio": {
+    "inputDevice": "default",
+    "outputDevice": "default",
+    "soundFiles": [
+      "sounds/start.wav",
+      "sounds/stop.wav",
+      "sounds/error.wav"
+    ]
+  },
+  "speechToText": {
+    "provider": "vosk",
+    "model": "base",
+    "apiKey": "",
+    "endpoint": ""
+  },
+  "services": {
+    "soundPlayer": "none",
+    "logger": "console",
+    "storage": "json"
+  }
+}

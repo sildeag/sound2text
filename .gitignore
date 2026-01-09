@@ -48,3 +48,7 @@ local.properties
 .DS_Store
 Thumbs.db
 *.hprof
+
+# Legacy code
+
+legacy_di_modules/

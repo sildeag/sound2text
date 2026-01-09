@@ -1,6 +1,7 @@
 package com.sildeag.sound2text.service.note
 
-interface NoteEditor {
+interface
+NoteEditor {
     fun append(text: String)
     fun getText(): String
     fun setText(newText: String)

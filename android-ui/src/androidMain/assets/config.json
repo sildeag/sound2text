@@ -1,0 +1,27 @@
+{
+  "platform": "android",
+  "mode": "DEV",
+  "ui": {
+    "type": "compose"
+  },
+  "audio": {
+    "inputDevice": "default",
+    "outputDevice": "default",
+    "soundFiles": [
+      "sounds/start.wav",
+      "sounds/stop.wav",
+      "sounds/error.wav"
+    ]
+  },
+  "speechToText": {
+    "provider": "vosk",
+    "model": "base",
+    "apiKey": "",
+    "endpoint": ""
+  },
+  "services": {
+    "soundPlayer": "default",
+    "logger": "console",
+    "storage": "json"
+  }
+}

@@ -5,7 +5,8 @@ pluginManagement {
         google()
         gradlePluginPortal()
         mavenCentral()
-        maven("https://plugins.gradle.org/m2/") // ✅ Ensures plugin resolution
+        maven("https://plugins.gradle.org/m2/")
+        // ✅ JetBrains Compose plugin repo
         maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
     }
 }
@@ -17,19 +18,12 @@ dependencyResolutionManagement {
         mavenCentral()
         gradlePluginPortal()
         mavenLocal()
+        // ✅ JetBrains Compose artifacts repo
         maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
         maven("https://repo.itextsupport.com/releases")
         maven("https://repo.clojars.org/")
         maven("https://mvnrepository.com/artifact/app.softwork/kotlinx-uuid-core")
     }
-/*
-    versionCatalogs {
-        create("libs") {
-            from(files("gradle/libs.versions.toml")) // ✅ Only one call to 'from'
-        }
-    }
-
- */
 }
 
 buildCache {
@@ -41,16 +35,5 @@ buildCache {
 rootProject.name = "sound2text"
 include(":android-ui")
 include(":core")
-include(":desktop-ui")
-
-
-buildCache {
-    local {
-        isEnabled = true
-    }
-}
-
-rootProject.name = "sound2text"
-include(":android-ui")
-include(":core")
+include(":ui-shared")
 include(":desktop-ui")

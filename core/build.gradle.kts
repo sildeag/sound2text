@@ -72,11 +72,6 @@ jacoco {
     toolVersion = "0.8.11"
 }
 
-// KMP: jvmTest exists, but is NOT a Test task, so no type parameter
-tasks.named("jvmTest") {
-    // no useJUnitPlatform() needed in KMP
-}
-
 tasks.register<JacocoReport>("jacocoTestReport") {
     dependsOn("jvmTest")
 
@@ -101,6 +96,7 @@ tasks.register<JacocoReport>("jacocoTestReport") {
         files(layout.buildDirectory.file("jacoco/jvmTest.exec"))
     )
 }
+
 
 
 //tasks.named<Test>("jvmTest") {

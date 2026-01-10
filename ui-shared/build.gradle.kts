@@ -1,5 +1,3 @@
-import org.gradle.api.tasks.testing.Test
-
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.composeMultiplatform)
@@ -74,17 +72,8 @@ dokka {
     }
 }
 
-//tasks.named<Test>("jvmTest") {
-//    useJUnitPlatform()
-//}
-
 jacoco {
     toolVersion = "0.8.11"
-}
-
-// KMP: jvmTest exists, but is NOT a Test task, so no type parameter
-tasks.named("jvmTest") {
-    // no useJUnitPlatform() needed in KMP
 }
 
 tasks.register<JacocoReport>("jacocoTestReport") {
@@ -111,36 +100,3 @@ tasks.register<JacocoReport>("jacocoTestReport") {
         files(layout.buildDirectory.file("jacoco/jvmTest.exec"))
     )
 }
-
-/*
-jacoco {
-    toolVersion = "0.8.11"
-}
-
-tasks.register<JacocoReport>("jacocoTestReport") {
-    dependsOn(tasks.named("jvmTest"))
-    reports {
-        xml.required.set(true)
-        html.required.set(true)
-    }
-    val mainSrc = files("src/commonMain/kotlin", "src/jvmMain/kotlin")
-    sourceDirectories.setFrom(mainSrc)
-    classDirectories.setFrom(files(layout.buildDirectory.dir("classes/kotlin/jvm/main")))
-    executionData.setFrom(files(layout.buildDirectory.file("jacoco/jvmTest.exec")))
-}
-
-tasks.named<JacocoReport>("jacocoTestReport") {
-    classDirectories.setFrom(
-        files(classDirectories.files.map {
-            fileTree(it) {
-                exclude(
-
-                )
-            }
-        })
-    )
-}
-
-*/
-//        "**/commonTest/**",
-//"**/jvmTest/**"

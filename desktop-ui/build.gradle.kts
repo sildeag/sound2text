@@ -78,19 +78,8 @@ dokka {
 //tasks.named<Test>("jvmTest") {
 //    useJUnitPlatform()
 //}
-tasks.named("jvmTest") {
-    // This works even though the task is not a Test task
-    // because Gradle will still apply the configuration lazily.
-    dependsOn("jvmTest")
-}
-
 jacoco {
     toolVersion = "0.8.11"
-}
-
-// KMP: jvmTest exists, but is NOT a Test task, so no type parameter
-tasks.named("jvmTest") {
-    // no useJUnitPlatform() needed in KMP
 }
 
 tasks.register<JacocoReport>("jacocoTestReport") {
@@ -117,6 +106,7 @@ tasks.register<JacocoReport>("jacocoTestReport") {
         files(layout.buildDirectory.file("jacoco/jvmTest.exec"))
     )
 }
+
 
 
 /*

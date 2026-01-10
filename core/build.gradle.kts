@@ -68,10 +68,45 @@ dokka {
     }
 }
 
-tasks.named<Test>("jvmTest") {
-    useJUnitPlatform()
+jacoco {
+    toolVersion = "0.8.11"
 }
 
+// KMP: jvmTest exists, but is NOT a Test task, so no type parameter
+tasks.named("jvmTest") {
+    // no useJUnitPlatform() needed in KMP
+}
+
+tasks.register<JacocoReport>("jacocoTestReport") {
+    dependsOn("jvmTest")
+
+    reports {
+        xml.required.set(true)
+        html.required.set(true)
+    }
+
+    val mainSrc = files("src/jvmMain/kotlin")
+    sourceDirectories.setFrom(mainSrc)
+
+    classDirectories.setFrom(
+        fileTree(layout.buildDirectory.dir("classes/kotlin/jvm/main")) {
+            exclude(
+                "**/commonTest/**",
+                "**/jvmTest/**"
+            )
+        }
+    )
+
+    executionData.setFrom(
+        files(layout.buildDirectory.file("jacoco/jvmTest.exec"))
+    )
+}
+
+
+//tasks.named<Test>("jvmTest") {
+//    useJUnitPlatform()
+//}
+/*
 jacoco {
     toolVersion = "0.8.11"
 }
@@ -93,10 +128,10 @@ tasks.named<JacocoReport>("jacocoTestReport") {
         files(classDirectories.files.map {
             fileTree(it) {
                 exclude(
-                    "**/commonTest/**",
-                    "**/jvmTest/**"
+
                 )
             }
         })
     )
 }
+*/

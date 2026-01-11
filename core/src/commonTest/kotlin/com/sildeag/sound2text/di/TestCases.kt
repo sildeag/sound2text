@@ -11,7 +11,7 @@ val allCases = listOf(
     EnvUiCase(fakeConfigProdCompose, Environment.PROD,
         UiMode.DesktopCompose),
     EnvUiCase(fakeConfigProdFxml, Environment.PROD,
-        UiMode.DesktopFxml),
+
     EnvUiCase(fakeConfigTestCompose, Environment.TEST,
         UiMode.DesktopCompose),
     EnvUiCase(fakeConfigTestFxml, Environment.TEST,

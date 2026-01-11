@@ -1,0 +1,26 @@
+@startuml
+title Unidirectional Data Flow (UI → VM → Logic → Platform → VM → UI)
+skinparam shadowing false
+skinparam defaultTextAlignment center
+skinparam packageStyle rectangle
+actor User
+participant "UI Layer\n(Compose Screens)" as UI
+participant "ViewModel\n(ui-shared)" as VM
+participant "Shared Logic\n(core)" as Logic
+participant "Platform Services\n(Android/Desktop)" as Platform
+== User Interaction ==
+User -> UI: User Action (tap, type, gesture)
+UI -> VM: onEvent(Event)
+== ViewModel Processing ==
+VM -> VM: Update State
+VM -> Logic: Invoke shared logic\n(audio, storage, STT, etc.)
+== Shared Logic ==
+Logic -> Platform: Call platform implementation
+Platform --> Logic: Return results
+== Back to ViewModel ==
+Logic --> VM: Processed data
+VM -> VM: Reduce into new State
+VM --> UI: Emit State + Effects
+== UI Update ==
+UI -> User: Render updated UI
+@enduml

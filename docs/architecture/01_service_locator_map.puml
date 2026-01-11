@@ -1,0 +1,41 @@
+@startuml
+title Project-Wide DI Map (KMP + Koin)
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam defaultTextAlignment center
+package "core (commonMain)" {
+ interface StorageService
+ interface AudioSession
+ interface STTService
+ class TranscriptionController
+ class AudioProcessing
+}
+package "ui-shared (commonMain)" {
+ class ProfileViewModel
+ class OtherFeatureViewModels
+}
+package "androidMain" {
+ class AndroidStorageService
+ class AndroidAudioSession
+ class AndroidSTTService
+}
+package "desktopMain" {
+ class DesktopStorageService
+ class DesktopAudioSession
+ class DesktopSTTService
+}
+StorageService <|.. AndroidStorageService
+StorageService <|.. DesktopStorageService
+AudioSession <|.. AndroidAudioSession
+AudioSession <|.. DesktopAudioSession
+STTService <|.. AndroidSTTService
+STTService <|.. DesktopSTTService
+ProfileViewModel --> StorageService
+OtherFeatureViewModels --> StorageService
+OtherFeatureViewModels --> AudioSession
+OtherFeatureViewModels --> STTService
+OtherFeatureViewModels --> TranscriptionController
+TranscriptionController --> AudioSession
+TranscriptionController --> STTService
+TranscriptionController --> AudioProcessing
+@enduml

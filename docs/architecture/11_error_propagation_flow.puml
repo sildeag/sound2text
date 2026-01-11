@@ -1,0 +1,27 @@
+@startuml
+title Error Propagation Across Layers (UI → VM → Logic → Platform → VM → UI)
+skinparam shadowing false
+skinparam defaultTextAlignment center
+skinparam packageStyle rectangle
+actor User
+participant "UI Layer\n(Compose)" as UI
+participant "ViewModel\n(ui-shared)" as VM
+participant "Shared Logic\n(core)" as Logic
+participant "Platform Services\n(Android/Desktop)" as Platform
+== User Action ==
+User -> UI: Trigger action
+UI -> VM: onEvent(Event)
+== ViewModel Delegates Work ==
+VM -> Logic: performOperation()
+== Shared Logic Calls Platform ==
+Logic -> Platform: platformCall()
+Platform --> Logic: error/exception
+== Logic Handles Error ==
+Logic -> Logic: wrap error\n(domain-specific error)
+Logic --> VM: return Failure(error)
+== ViewModel Reduces Error ==
+VM -> VM: update state to ErrorState
+VM --> UI: emit Effect(ShowError)
+== UI Displays Error ==
+UI -> User: show error message
+@enduml

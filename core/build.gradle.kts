@@ -1,18 +1,44 @@
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
+    alias(libs.plugins.androidKmp)
     alias(libs.plugins.kotlinx.serialization)
     alias(libs.plugins.ksp)
     alias(libs.plugins.dokka)
     jacoco
 }
 
+// Dynamic platform detection for JavaFX
+val platform = System.getProperty("os.name").lowercase().let { os ->
+    when {
+        os.contains("win") -> "win"
+        os.contains("mac") -> if (System.getProperty("os.arch") == "aarch64") "mac-aarch64" else "mac"
+        os.contains("linux") -> "linux"
+        else -> "win" // Fallback
+    }
+}
+
 kotlin {
+    // KMP
     jvmToolchain(17)
+
     jvm()
+    
+    androidLibrary {
+        namespace = "com.sildeag.sound2text.core"
+        compileSdk = libs.versions.android.compileSdk.get().toInt()
+        minSdk = libs.versions.android.minSdk.get().toInt()
+        
+        withHostTest {}
+        
+        compilerOptions {
+            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
+        }
+    }
 
     sourceSets {
         val commonMain by getting {
             dependencies {
+                implementation(project(":config"))
                 implementation(libs.koin.core)
                 implementation(libs.bundles.coroutines)
                 implementation(libs.bundles.logging)
@@ -21,6 +47,7 @@ kotlin {
         }
         val commonTest by getting {
             dependencies {
+                implementation(project(":config"))
                 implementation(kotlin("test"))
                 implementation(libs.koin.core)
                 implementation(libs.bundles.coroutines)
@@ -29,12 +56,12 @@ kotlin {
             }
         }
 
-        val platform = "win"
         val jvmMain by getting {
             dependencies {
+                implementation(project(":config"))
                 implementation(libs.koin.core)
                 implementation(libs.bundles.itext)
-                implementation(libs.vosk)
+                implementation(libs.vosk.api)
                 implementation(libs.bundles.coroutines)
                 implementation(libs.bundles.logging)
                 implementation(libs.snakeyaml)
@@ -49,13 +76,26 @@ kotlin {
 
         val jvmTest by getting {
             dependencies {
+                implementation(project(":config"))
                 implementation(libs.bundles.testJvm)
                 implementation(libs.koin.core)
                 implementation(libs.bundles.itext)
-                implementation(libs.vosk)
+                implementation(libs.vosk.api)
                 implementation(libs.bundles.logging)
                 implementation(libs.snakeyaml)
                 implementation(libs.kotlinx.serialization.json)
+            }
+        }
+
+        val androidMain by getting {
+            dependencies {
+                implementation(libs.vosk.android)
+            }
+        }
+        
+        val androidHostTest by getting {
+            dependencies {
+                implementation(kotlin("test"))
             }
         }
     }
@@ -80,7 +120,7 @@ tasks.register<JacocoReport>("jacocoTestReport") {
         html.required.set(true)
     }
 
-    val mainSrc = files("src/jvmMain/kotlin")
+    val mainSrc = files("src/commonMain/kotlin", "src/jvmMain/kotlin")
     sourceDirectories.setFrom(mainSrc)
 
     classDirectories.setFrom(
@@ -96,38 +136,3 @@ tasks.register<JacocoReport>("jacocoTestReport") {
         files(layout.buildDirectory.file("jacoco/jvmTest.exec"))
     )
 }
-
-
-
-//tasks.named<Test>("jvmTest") {
-//    useJUnitPlatform()
-//}
-/*
-jacoco {
-    toolVersion = "0.8.11"
-}
-
-tasks.register<JacocoReport>("jacocoTestReport") {
-    dependsOn(tasks.named("jvmTest"))
-    reports {
-        xml.required.set(true)
-        html.required.set(true)
-    }
-    val mainSrc = files("src/commonMain/kotlin", "src/jvmMain/kotlin")
-    sourceDirectories.setFrom(mainSrc)
-    classDirectories.setFrom(files(layout.buildDirectory.dir("classes/kotlin/jvm/main")))
-    executionData.setFrom(files(layout.buildDirectory.file("jacoco/jvmTest.exec")))
-}
-
-tasks.named<JacocoReport>("jacocoTestReport") {
-    classDirectories.setFrom(
-        files(classDirectories.files.map {
-            fileTree(it) {
-                exclude(
-
-                )
-            }
-        })
-    )
-}
-*/

@@ -16,9 +16,11 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation(compose.runtime)
-                implementation(compose.foundation)
-                implementation(compose.material3)
+                //implementation(project(":core"))
+                implementation(project(":config"))
+                implementation(libs.compose.mpp.runtime)
+                implementation(libs.compose.mpp.foundation)
+                implementation(libs.compose.mpp.material3)
                 implementation(libs.koin.core)
                 implementation(libs.bundles.itext)
                 implementation(libs.vosk)
@@ -28,9 +30,9 @@ kotlin {
 
         val commonTest by getting {
             dependencies {
-                implementation(compose.runtime)
-                implementation(compose.foundation)
-                implementation(compose.material3)
+                implementation(libs.compose.mpp.runtime)
+                implementation(libs.compose.mpp.foundation)
+                implementation(libs.compose.mpp.material3)
                 implementation(libs.koin.core)
                 implementation(libs.bundles.itext)
                 implementation(libs.vosk)
@@ -40,7 +42,8 @@ kotlin {
 
         val jvmMain by getting {
             dependencies {
-                implementation(project(":core"))
+                implementation(project(":config"))
+                //implementation(project(":config"))
                 implementation(compose.desktop.currentOs)
                 implementation(libs.koin.core)
                 implementation(libs.bundles.itext)
@@ -59,6 +62,7 @@ kotlin {
             dependencies {
                 implementation(project(":core"))
                 implementation(compose.desktop.currentOs)
+                implementation(libs.bundles.testJvm)
                 implementation(kotlin("test"))
             }
         }

@@ -33,7 +33,15 @@ buildCache {
 }
 
 rootProject.name = "sound2text"
-include(":android-ui")
-include(":core")
-include(":ui-shared")
-include(":desktop-ui")
+
+include(
+    ":core",
+    ":config",
+    ":core-ui",
+    ":ui-shared",
+    ":stt",
+    ":android-stt",
+    ":desktop-ui",
+    ":android-ui"
+)
+

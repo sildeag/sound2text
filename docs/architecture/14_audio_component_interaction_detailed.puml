@@ -1,0 +1,49 @@
+@startuml
+title Audio Subsystem — Detailed Component Interaction
+skinparam shadowing false
+skinparam defaultTextAlignment center
+skinparam packageStyle rectangle
+package "UI Layer" {
+ class AudioScreen
+ class WaveformRenderer
+}
+package "ViewModel Layer" {
+ class AudioViewModel
+}
+package "Shared Logic (core)" {
+ class TranscriptionController
+ class AudioProcessing
+ class VAD
+ class AGC
+ class RMS
+ class ChunkBuffer
+}
+package "Platform Layer" {
+ class AudioSession
+ class PlatformAudioSession
+ class STTService
+ class PlatformSTTService
+}
+AudioScreen --> AudioViewModel : onEvent(Start/Stop)
+AudioViewModel --> TranscriptionController : startRecording()
+TranscriptionController --> AudioSession : start()
+AudioSession --> PlatformAudioSession : begin capture
+PlatformAudioSession --> AudioSession : PCM chunk
+AudioSession --> TranscriptionController : PCM chunk
+TranscriptionController --> ChunkBuffer : enqueue(chunk)
+ChunkBuffer --> TranscriptionController : dequeue(chunk)
+TranscriptionController --> AudioProcessing : process(chunk)
+AudioProcessing --> VAD : detect speech
+AudioProcessing --> AGC : adjust gain
+AudioProcessing --> RMS : compute amplitude
+AudioProcessing --> TranscriptionController : processed chunk
+TranscriptionController --> AudioViewModel : update waveform
+AudioViewModel --> WaveformRenderer : draw waveform
+VAD --> TranscriptionController : speech/no-speech
+TranscriptionController --> STTService : sendAudio()
+STTService --> PlatformSTTService : platform STT
+PlatformSTTService --> STTService : partial/final text
+STTService --> TranscriptionController : transcription results
+TranscriptionController --> AudioViewModel : update transcript
+AudioViewModel --> AudioScreen : show text
+@enduml

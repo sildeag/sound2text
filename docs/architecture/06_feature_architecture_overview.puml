@@ -1,0 +1,91 @@
+@startuml
+title Feature-First Architecture Overview (KMP + DI + Navigation)
+skinparam shadowing false
+skinparam defaultTextAlignment center
+skinparam packageStyle rectangle
+' ===========================
+' FEATURE PACKAGES
+' ===========================
+package "Profile Feature" {
+ class ProfileScreen
+ class ProfileViewModel
+ class ProfileState
+ class ProfileEvent
+ class ProfileEffect
+}
+package "Audio Feature" {
+ class AudioScreen
+ class AudioViewModel
+ class AudioState
+ class AudioEvent
+ class AudioEffect
+}
+package "Navigation" {
+ class NavHost
+ class Routes
+}
+package "DI Modules" {
+ class coreModules
+ class uiSharedModules
+ class androidPlatformModules
+ class desktopPlatformModules
+}
+package "Shared Logic (core)" {
+ interface StorageService
+ interface AudioSession
+ interface STTService
+ class TranscriptionController
+ class AudioProcessing
+}
+package "Platform Implementations" {
+ class AndroidStorageService
+ class DesktopStorageService
+ class AndroidAudioSession
+ class DesktopAudioSession
+ class AndroidSTTService
+ class DesktopSTTService
+}
+' ===========================
+' NAVIGATION FLOW
+' ===========================
+NavHost --> ProfileScreen : navigate("profile")
+NavHost --> AudioScreen : navigate("audio")
+' ===========================
+' VIEWMODEL RESOLUTION
+' ===========================
+ProfileScreen --> ProfileViewModel : koinInject()
+AudioScreen --> AudioViewModel : koinInject()
+' ===========================
+' PROFILE FEATURE DEPENDENCIES
+' ===========================
+ProfileViewModel --> StorageService
+StorageService <|.. AndroidStorageService
+StorageService <|.. DesktopStorageService
+' ===========================
+' AUDIO FEATURE DEPENDENCIES
+' ===========================
+AudioViewModel --> TranscriptionController
+AudioViewModel --> AudioSession
+AudioViewModel --> STTService
+AudioSession <|.. AndroidAudioSession
+AudioSession <|.. DesktopAudioSession
+STTService <|.. AndroidSTTService
+STTService <|.. DesktopSTTService
+TranscriptionController --> AudioSession
+TranscriptionController --> STTService
+TranscriptionController --> AudioProcessing
+' ===========================
+' DI MODULE RELATIONSHIPS
+' ===========================
+coreModules --> StorageService : declares interface
+coreModules --> AudioSession : declares interface
+coreModules --> STTService : declares interface
+uiSharedModules --> ProfileViewModel
+uiSharedModules --> AudioViewModel
+androidPlatformModules --> AndroidStorageService
+androidPlatformModules --> AndroidAudioSession
+androidPlatformModules --> AndroidSTTService
+desktopPlatformModules --> DesktopStorageService
+desktopPlatformModules --> DesktopAudioSession
+desktopPlatformModules --> DesktopSTTService
+@enduml

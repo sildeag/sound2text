@@ -4,7 +4,6 @@ import com.sildeag.sound2text.config.AppSettings
 import com.sildeag.sound2text.service.logic.PulseLogic
 import com.sildeag.sound2text.service.note.NoteEditor
 import com.sildeag.sound2text.service.note.NoteProvider
-
 class SoundViewModel(
     private val noteEditor: NoteEditor,
     val pulseLogic: PulseLogic,
@@ -17,11 +16,8 @@ class SoundViewModel(
     private val onPulse: (String) -> Unit,
     private val environment: (String)
 ) {
-
     internal var isListening = false
-
     init {
-        /*
         pulseLogic.pulseConfig(
             onText = { text ->
                 noteEditor.append(text)
@@ -35,34 +31,28 @@ class SoundViewModel(
                 onPulseColor(color)
             }
         )
-
-         */
     }
-
-
     fun toggleMic() {
         isListening = !isListening
-        onMic.invoke(isListening)
-        if (isListening) pulseLogic.startListening() else pulseLogic.stopListening()
+        onMic(isListening)
+        if (isListening) pulseLogic.startListening() else
+            pulseLogic.stopListening()
     }
-
     fun correctGrammar(): String {
         val corrected = noteEditor.grammarCheck()
         noteEditor.setText(corrected)
         return corrected
     }
-
     fun onFocusLost() {
         if (isListening) {
             pulseLogic.stopListening()
-            onMic.invoke(false)
+            onMic(false)
         }
     }
-
-    fun generatePDF(outputPath: String){
+    fun generatePDF(outputPath: String) {
         noteProvider.generatePDF(outputPath)
     }
-
-    fun showToast(message: String) { println(message) }
-
+    fun showToast(message: String) {
+        println(message)
+    }
 }

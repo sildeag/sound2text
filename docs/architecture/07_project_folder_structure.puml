@@ -1,0 +1,135 @@
+@startuml
+title Project Folder Structure (Modules → Features → Platform Code)
+skinparam shadowing false
+skinparam defaultTextAlignment center
+skinparam packageStyle rectangle
+' ===========================
+' ROOT PROJECT
+' ===========================
+package "root/" {
+ package "core/" {
+ package "src/commonMain/kotlin/core/" {
+ package "storage" {
+ interface StorageService
+ }
+ package "audio" {
+ interface AudioSession
+ interface STTService
+ class TranscriptionController
+ class AudioProcessing
+ }
+ package "di" {
+ class coreModules
+ }
+ }
+ package "src/androidMain/kotlin/core/" {
+ package "storage" {
+ class AndroidStorageService
+ }
+ package "audio" {
+ class AndroidAudioSession
+ class AndroidSTTService
+ }
+ package "di" {
+ class androidPlatformModules
+ }
+ }
+ package "src/desktopMain/kotlin/core/" {
+ package "storage" {
+ class DesktopStorageService
+ }
+ package "audio" {
+ class DesktopAudioSession
+ class DesktopSTTService
+ }
+ package "di" {
+ class desktopPlatformModules
+ }
+ }
+ }
+ package "ui-shared/" {
+ package "src/commonMain/kotlin/ui/" {
+ package "architecture" {
+ class BaseViewModel
+ class UiState
+ class UiEvent
+ class UiEffect
+ }
+ package "screens" {
+ package "profile" {
+ class ProfileScreen
+ class ProfileViewModel
+ class ProfileState
+ class ProfileEvent
+ class ProfileEffect
+ }
+ package "audio" {
+ class AudioScreen
+ class AudioViewModel
+ class AudioState
+ class AudioEvent
+ class AudioEffect
+ }
+ }
+ package "di" {
+ class uiSharedModules
+ }
+ }
+ }
+ package "androidApp/" {
+ package "src/main/java/" {
+ class AndroidMainActivity
+ class AndroidApp
+ }
+ package "src/main/res/" {
+ folder "layout/" {
+ }
+ folder "drawable/" {
+ }
+ }
+ }
+ package "desktopApp/" {
+ package "src/jvmMain/kotlin/" {
+ class DesktopMain
+ class DesktopWindow
+ }
+ }
+ package "docs/architecture/" {
+ file "01_service_locator_map.puml"{
+ }
+ file "02_di_startup_sequence.puml"{
+ }
+ file "03_module_loading_order.puml"{
+ }
+ file "04_runtime_profile_storage.puml"{
+ }
+ file "05_runtime_navigation_audio.puml"{
+ }
+ file "06_project_folder_structure.puml"{
+ }
+ }
+}
+' ===========================
+' RELATIONSHIPS
+' ===========================
+' Shared ViewModels depend on shared interfaces
+ProfileViewModel --> StorageService
+AudioViewModel --> AudioSession
+AudioViewModel --> STTService
+AudioViewModel --> TranscriptionController
+' Platform implementations satisfy shared interfaces
+StorageService <|.. AndroidStorageService
+StorageService <|.. DesktopStorageService
+AudioSession <|.. AndroidAudioSession
+AudioSession <|.. DesktopAudioSession
+STTService <|.. AndroidSTTService
+STTService <|.. DesktopSTTService
+' DI modules connect everything
+coreModules --> StorageService
+coreModules --> AudioSession
+coreModules --> STTService
+uiSharedModules --> ProfileViewModel
+uiSharedModules --> AudioViewModel
+androidPlatformModules --> AndroidStorageService
+desktopPlatformModules --> DesktopStorageService
+@enduml

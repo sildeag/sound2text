@@ -1,0 +1,16 @@
+@startuml
+title Profile Feature — State Machine
+skinparam shadowing false
+skinparam defaultTextAlignment center
+[*] --> Idle
+Idle --> Loading : Load event
+Loading --> Loaded : username loaded
+Loading --> Error : load failed
+Loaded --> Editing : Update(value)
+Editing --> Editing : Update(value)
+Editing --> Saving : Save event
+Saving --> Loaded : save success
+Saving --> Error : save failed
+Error --> Loading : Retry
+Error --> Idle : Cancel
+@enduml

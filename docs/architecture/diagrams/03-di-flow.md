@@ -1,0 +1,24 @@
+# DI Flow Diagram
+
+```mermaid
+flowchart LR
+    %% CONFIG MODULE
+    subgraph CONFIG [":config (Koin Module)"]
+        A["AppSettings\n(loaded from JSON / default)"]
+        S["SpeechToTextSettings\n(provider, language,\noutputFormat,engineConfig)"]
+    end
+
+    %% STT MODULE
+    subgraph STT [":stt (Koin Module + Engines)"]
+        EC["SttEngineConfig\n(VoskConfig,\nWhisperConfig,\nAzureConfig,\nGoogleConfig)"]
+        CST["createSpeechToText(settings)\n(expect/actual)"]
+        ES["SttService\n(JvmSttService /\nAndroidSttService)"]
+    end
+
+    %% FLOW
+    A --> S
+    S --> EC
+    S --> CST
+    EC --> CST
+    CST --> ES
+```

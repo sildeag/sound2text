@@ -1,0 +1,67 @@
+@startuml
+title Glossary of Architectural Terms (Visual Map)
+skinparam shadowing false
+skinparam defaultTextAlignment center
+skinparam packageStyle rectangle
+package "Glossary" {
+ class UI {
+ note right
+ The Compose UI layer.
+ Renders state and sends events.
+ end note
+ }
+ class ViewModel {
+ note right
+ Holds state.
+ Processes events.
+ Calls shared logic.
+ Emits effects.
+ end note
+ }
+ class State {
+ note right
+ Immutable UI state.
+ Produced by the ViewModel.
+ end note
+ }
+ class Event {
+ note right
+ User or system actions.
+ Sent from UI to ViewModel.
+ end note
+ }
+ class Effect {
+ note right
+ One-time actions:
+ navigation, toasts, dialogs.
+ end note
+ }
+ class SharedLogic {
+ note right
+ Platform-agnostic logic.
+ Audio pipeline, storage abstraction,
+ transcription controller.
+ end note
+ }
+ class PlatformService {
+ note right
+ Android/Desktop implementations
+ of shared interfaces.
+ end note
+ }
+ class DI {
+ note right
+ Koin modules that wire
+ shared and platform layers.
+ end note
+ }
+}
+UI --> ViewModel
+ViewModel --> State
+UI --> Event
+ViewModel --> Effect
+ViewModel --> SharedLogic
+SharedLogic --> PlatformService
+DI --> ViewModel
+DI --> PlatformService
+@enduml

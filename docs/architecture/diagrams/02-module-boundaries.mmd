@@ -1,0 +1,47 @@
+flowchart TB
+%% CONFIG MODULE
+    subgraph CONFIG[":config"]
+        C1[AppSettings\nSpeechToTextSettings\nAudioSettings\nUiSettings]
+    end
+%% CORE MODULE
+subgraph CORE[":core"]
+CR1[Pure Logic\nUtilities\nDomain Models]
+CR2["Structured Text Layer\n(FieldDetector, etc.)"]
+end
+%% STT MODULE
+subgraph STT[":stt"]
+direction TB
+subgraph STT_COMMON["commonMain"]
+S1["SttService (interface)"]
+S2["SttEngine (interface)"]
+S3["SttEngineConfig (sealed)"]
+S4["VoskConfig / WhisperConfig /\nAzureConfig /GoogleConfig"]
+S5["createSpeechToText (expect)"]
+end
+subgraph STT_JVM["jvmMain"]
+SJ1[JvmSttService]
+SJ2[VoskSttEngine]
+SJ3[VoskLiveRecognizerJvm]
+SJ4[DesktopAudioSource]
+SJ5[DesktopSoundPlayer]
+SJ6["createSpeechToText (actual)"]
+end
+subgraph STT_ANDROID["androidMain"]
+SA1[AndroidSttService]
+SA2[VoskAndroidSttEngine]
+SA3[VoskLiveRecognizerAndroid]
+SA4[AndroidAudioSource]
+SA5["createSpeechToText (actual)"]
+end
+end
+%% UI MODULES
+subgraph UI_DESKTOP[":desktop-ui"]
+UD1["Desktop UI\n(FXML / Compose Desktop)"]
+end
+subgraph UI_ANDROID[":android-ui"]
+UA1["Android UI\n(Compose / Activities)"]
+end
+%% DEPENDENCY ARROWS
+CORE --> CONFIG
+STT --> CORE
+UI_DESKTOP --> STT

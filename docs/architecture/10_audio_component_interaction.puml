@@ -1,0 +1,186 @@
+@startuml
+title Audio Subsystem — Component Interaction Overview
+skinparam shadowing false
+skinparam defaultTextAlignment center
+skinparam packageStyle rectangle
+package "UI Layer" {
+ class AudioScreen
+ class WaveformRenderer
+}
+package "ViewModel Layer" {
+ class AudioViewModel
+}
+package "Shared Logic (core)" {
+ class TranscriptionController
+ class AudioProcessing
+ class VAD
+ class AGC
+ class RMS
+}
+package "Platform Layer" {
+ class AudioSession
+ class PlatformAudioSession
+ class STTService
+ class PlatformSTTService
+}
+AudioScreen --> AudioViewModel : onEvent(Start/Stop/Update)
+AudioViewModel --> TranscriptionController : startRecording(), stopRecording()
+TranscriptionController --> AudioSession : start(), stop()
+AudioSession --> PlatformAudioSession : platform audio capture
+PlatformAudioSession --> TranscriptionController : PCM chunks
+TranscriptionController --> AudioProcessing : process(chunk)
+AudioProcessing --> VAD : detect speech
+AudioProcessing --> AGC : normalize gain
+AudioProcessing --> RMS : compute amplitude
+AudioProcessing --> TranscriptionController : processed chunk
+TranscriptionController --> STTService : sendAudio()
+STTService --> PlatformSTTService : platform STT engine
+PlatformSTTService --> STTService : partial/final text
+STTService --> TranscriptionController : transcription results
+TranscriptionController --> AudioViewModel : update transcript
+AudioViewModel --> AudioScreen : update UI
+AudioViewModel --> WaveformRenderer : update waveform
+@enduml
+This is the complete audio subsystem in one diagram:
+• UI
+• ViewModel
+• Shared logic
+• DSP pipeline
+• Platform audio capture
+• Platform STT engine
+• UI updates
+It’s the most comprehensive view of your audio architecture.
+You now have a complete architectural atlas
+Your docs/architecture/ folder now contains:
+Code
+01_service_locator_map.puml
+02_di_startup_sequence.puml
+03_module_loading_order.puml
+04_runtime_profile_storage.puml
+05_runtime_navigation_audio.puml
+06_project_folder_structure.puml
+07_data_flow_architecture.puml
+08_profile_state_machine.puml
+09_audio_component_interaction.puml
+README.md
+This is the kind of documentation that makes a complex KMP project understandable, maintainable,
+and extensible.
+If you want, I can help you generate:
+• A tenth diagram showing error propagation across layers
+• Or a glossary of architectural terms
+• Or a developer onboarding guide that ties all diagrams together
+Just say the word.
+all three would help.
+Gordon, you’re building something genuinely substantial here, and I want to make sure you have every
+conceptual tool you need to navigate it with confidence. Below are the three final diagrams you asked
+for — each one crafted to complement the architectural atlas you’ve already assembled.
+They’re designed to give you clarity, not overwhelm you. You’ll be able to trace errors, understand
+flows, and see how everything fits together as a coherent system.
+All three are ready to drop into your docs/architecture/ folder.
+📄 10_error_propagation_flow.puml
+How errors move through UI → ViewModel → Logic → Platform → back to UI
+plantuml
+@startuml
+title Error Propagation Across Layers (UI → VM → Logic → Platform →
+VM → UI)
+skinparam shadowing false
+skinparam defaultTextAlignment center
+skinparam packageStyle rectangle
+actor User
+participant "UI Layer\n(Compose)" as UI
+participant "ViewModel\n(ui-shared)" as VM
+participant "Shared Logic\n(core)" as Logic
+participant "Platform Services\n(Android/Desktop)" as Platform
+== User Action ==
+User -> UI: Trigger action
+UI -> VM: onEvent(Event)
+== ViewModel Delegates Work ==
+VM -> Logic: performOperation()
+== Shared Logic Calls Platform ==
+Logic -> Platform: platformCall()
+Platform --> Logic: error/exception
+== Logic Handles Error ==
+Logic -> Logic: wrap error\n(domain-specific error)
+Logic --> VM: return Failure(error)
+== ViewModel Reduces Error ==
+VM -> VM: update state to ErrorState
+VM --> UI: emit Effect(ShowError)
+== UI Displays Error ==
+UI -> User: show error message
+@enduml
+This diagram helps you reason about:
+• Where errors originate
+• How they propagate
+• Where they’re transformed
+• How they surface in UI
+It’s invaluable when debugging.
+📄 11_glossary_of_architecture_terms.puml
+A visual glossary of the architectural vocabulary your project uses
+plantuml
+@startuml
+title Glossary of Architectural Terms (Visual Map)
+skinparam shadowing false
+skinparam defaultTextAlignment center
+skinparam packageStyle rectangle
+package "Glossary" {
+ class UI {
+ note right
+ The Compose UI layer.
+ Renders state and sends events.
+ end note
+ }
+ class ViewModel {
+ note right
+ Holds state.
+ Processes events.
+ Calls shared logic.
+ Emits effects.
+ end note
+ }
+ class State {
+ note right
+ Immutable UI state.
+ Produced by the ViewModel.
+ end note
+ }
+ class Event {
+ note right
+ User or system actions.
+ Sent from UI to ViewModel.
+ end note
+ }
+ class Effect {
+ note right
+ One-time actions:
+ navigation, toasts, dialogs.
+ end note
+ }
+ class SharedLogic {
+ note right
+ Platform-agnostic logic.
+ Audio pipeline, storage abstraction,
+ transcription controller.
+ end note
+ }
+ class PlatformService {
+ note right
+ Android/Desktop implementations
+ of shared interfaces.
+ end note
+ }
+ class DI {
+ note right
+ Koin modules that wire
+ shared and platform layers.
+ end note
+ }
+}
+UI --> ViewModel
+ViewModel --> State
+UI --> Event
+ViewModel --> Effect
+ViewModel --> SharedLogic
+SharedLogic --> PlatformService
+DI --> ViewModel
+DI --> PlatformService
+@enduml

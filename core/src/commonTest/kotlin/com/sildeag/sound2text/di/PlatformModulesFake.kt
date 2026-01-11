@@ -1,6 +1,6 @@
 package com.sildeag.sound2text.di
 
-import com.sildeag.sound2text.storage.StorageService
+import com.sildeag.sound2text.core.storage.StorageService
 import org.koin.dsl.module
 
 // You can add an actual implementation in commonTest (or jvmTest /

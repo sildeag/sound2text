@@ -1,5 +1,6 @@
 package com.sildeag.sound2text.ui
 
+import com.sildeag.sound2text.desktop.ui.PulseLogic
 import javafx.fxml.FXMLLoader
 import javafx.scene.Parent
 import org.junit.jupiter.api.Test
@@ -8,7 +9,6 @@ import org.koin.core.parameter.parametersOf
 import org.koin.test.KoinTest
 import org.koin.test.get
 import com.sildeag.sound2text.di.devModule
-import com.sildeag.sound2text.service.logic.PulseLogic
 import com.sildeag.sound2text.ui.MainController
 import kotlin.test.assertNotNull
 class UILifecycleTest : KoinTest {

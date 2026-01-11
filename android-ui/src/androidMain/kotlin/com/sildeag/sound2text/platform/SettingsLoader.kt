@@ -3,26 +3,16 @@ package com.sildeag.sound2text.platform
 import android.content.Context
 import com.sildeag.sound2text.config.AppSettings
 import kotlinx.serialization.json.Json
+
 actual object SettingsLoader {
-    lateinit var context: Context
+    private lateinit var appContext: Context
+    fun init(context: Context) {
+        appContext = context.applicationContext
+    }
     actual fun load(): AppSettings {
-        val input = context.assets.open("config.json")
+        val json = Json { ignoreUnknownKeys = true }
+        val input = appContext.assets.open("config.json")
         val text = input.bufferedReader().use { it.readText() }
-        return Json.decodeFromString(text)
+        return json.decodeFromString(AppSettings.serializer(), text)
     }
 }
-
-/*
-import com.sildeag.sound2text.config.AppSettings
-
-actual object `SettingsLoader` {
-    actual fun load(): AppSettings {
-        val context = androidContext() // or inject via DI
-        val jsonText = context.assets.open("config.json")
-            .bufferedReader()
-            .readText()
-        return Json.decodeFromString<AppSettings>(jsonText)
-    }
-}
-
- */

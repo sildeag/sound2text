@@ -1,0 +1,18 @@
+package com.sildeag.sound2text.coreui.logic
+
+import com.sildeag.sound2text.core.stt.SpeechToTextService
+import com.sildeag.sound2text.stt.SpeechToTextService
+import kotlinx.coroutines.flow.Flow
+class TranscriptionController(
+    private val stt: SpeechToTextService,
+    private val pulse: PulseLogic
+) {
+    fun start(audio: Flow<ShortArray>): Flow<String> {
+        pulse.toggle()
+        return stt.transcribe(audio)
+    }
+    fun stop() {
+        pulse.toggle()
+        stt.stop()
+    }
+}

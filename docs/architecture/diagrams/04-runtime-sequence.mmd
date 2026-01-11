@@ -1,0 +1,29 @@
+sequenceDiagram
+    autonumber
+    participant K as Koin
+    participant CM as configModule
+    participant SM as sttModule
+    participant A as AppSettings
+    participant S as SpeechToTextSettings
+    participant EC as SttEngineConfig
+    participant CST as createSpeechToText()
+    participant ST as SttService
+    Note over K: Application starts<br/>Koin modules loaded
+    K->>CM: load configModule
+    CM-->>K: provides AppSettings.default()
+    K->>CM: resolve AppSettings
+    CM-->>K: AppSettings instance
+    K->>CM: resolve SpeechToTextSettings
+    CM-->>K: AppSettings.stt
+    Note over S: Contains provider + engineConfig
+    K->>SM: load sttModule
+    K->>SM: resolve SttService
+    SM->>S: request SpeechToTextSettings
+    S-->>SM: provider + engineConfig
+    SM->>EC: read engineConfig<br/>(VoskConfig, WhisperConfig, etc.)
+    EC-->>SM: engine-specific config
+    SM->>CST: call createSpeechToText(settings)
+    CST->>CST: dispatch based on provider<br/>and engineConfig type
+    CST-->>SM: SttService instance
+    SM-->>K: SttService
+    K-->>ST: inject SttService into UI layer

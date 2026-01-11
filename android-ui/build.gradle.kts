@@ -58,10 +58,12 @@ android {
 }
 
 dependencies {
-    implementation(project(":core"))
+    implementation(project(":config"))
+    implementation(project(":android-stt"))
     implementation(platform(libs.compose.bom))
     implementation(libs.compose.ui)
     implementation(libs.compose.material3)
+    implementation(libs.koin.android)
     implementation(libs.activity.compose)
     implementation(libs.core.ktx)
     implementation(libs.activity.compose)

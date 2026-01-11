@@ -4,7 +4,14 @@
   "ui": {
     "type": "fxml"
   },
+
   "audio": {
+    "input": "file", // "file" | "microphone" | "ffmpeg"
+    "sampleRate": 16000,
+    "channels": "auto", // "auto" | "mono" | "stereo"
+    "bitDepth": 16,
+    "normalize": true,
+    "downmixToMono": true, // if stereo, mix to mono before
     "inputDevice": "default",
     "outputDevice": "default",
     "soundFiles": [
@@ -13,12 +20,55 @@
       "sounds/error.wav"
     ]
   },
-  "speechToText": {
+
+  "stt": {
     "provider": "vosk",
-    "model": "base",
-    "apiKey": "",
-    "endpoint": ""
+    "modelPath": "models/vosk-model-small-en-us-0.15",
+    "trimSilence": true,
+    "noiseReduction": false
   },
+
+  "stt": {
+    "provider": "vosk", // "vosk" | "whisper" | "azure" | "google" | ...
+    "language": "en-US",
+    "outputFormat": "plain", // "plain" | "json" | "srt" | "vtt"
+    "vosk": {
+      "modelPath": "models/vosk-model-small-en-us-0.15",
+      "sampleRateOverride": null, // or 8000, 16000, etc. (null = use audio.sampleRate)
+      "useGrammar": false,
+      "grammar": []
+    },
+    "whisper": {
+      "modelPath": "models/whisper-small.en.bin",
+      "task": "transcribe", // "transcribe" | "translate"
+      "language": "en",
+      "temperature": 0.0,
+      "beamSize": 5,
+      "bestOf": 3
+    },
+    "azure": {
+      "key": "",
+      "region": "",
+      "endpoint": "",
+      "language": "en-US"
+    },
+    "google": {
+      "credentialsPath": "",
+      "language": "en-US",
+      "apiKey": "",
+      "useEnhancedModel": false
+    }
+
+  },
+
+  "ffmpeg": {
+    "enabled": true,
+    "forceSampleRate": true, // enforce audio.sampleRate via ffmpeg
+    "forceChannels": "mono", // "mono" | "stereo" | "auto"
+    "decodeChunkSize": 4096, // bytes
+    "extraArgs": [] // reserved for advanced tuning later
+  },
+
   "services": {
     "soundPlayer": "none",
     "logger": "console",

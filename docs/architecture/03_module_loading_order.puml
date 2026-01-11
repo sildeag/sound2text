@@ -1,0 +1,41 @@
+@startuml
+title Module Loading Order (KMP + Koin)
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam defaultTextAlignment center
+package "coreModules\n(commonMain)" {
+ class TranscriptionController
+ class AudioProcessing
+ interface StorageService
+ interface AudioSession
+ interface STTService
+}
+package "uiSharedModules\n(commonMain)" {
+ class ProfileViewModel
+ class OtherFeatureViewModels
+}
+package "androidPlatformModules\n(androidMain)" {
+ class AndroidStorageService
+ class AndroidAudioSession
+ class AndroidSTTService
+}
+package "desktopPlatformModules\n(desktopMain)" {
+ class DesktopStorageService
+ class DesktopAudioSession
+ class DesktopSTTService
+}
+ProfileViewModel --> StorageService
+OtherFeatureViewModels --> StorageService
+OtherFeatureViewModels --> AudioSession
+OtherFeatureViewModels --> STTService
+OtherFeatureViewModels --> TranscriptionController
+TranscriptionController --> AudioSession
+TranscriptionController --> STTService
+TranscriptionController --> AudioProcessing
+StorageService <|.. AndroidStorageService
+StorageService <|.. DesktopStorageService
+AudioSession <|.. AndroidAudioSession
+AudioSession <|.. DesktopAudioSession
+STTService <|.. AndroidSTTService
+STTService <|.. DesktopSTTService
+@enduml

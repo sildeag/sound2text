@@ -1,0 +1,47 @@
+flowchart LR
+    %% CONFIGURATION LAYER
+    subgraph CONFIG ["Configuration Layer (:config)"]
+        C1["AppSettings"]
+        C2["SpeechToTextSettings\n(provider, language,\noutputFormat,engineConfig)"]
+        C3["AudioSettings / UiSettings"]
+    end
+
+    %% CORE LOGIC LAYER
+    subgraph CORE ["Core Logic Layer (:core)"]
+        CR1["Pure Logic\nUtilities"]
+        CR2["Structured Text Layer\n(FieldDetector,\nStructuredSttResult)"]
+    end
+
+    %% STT ENGINE LAYER
+    subgraph STT ["STT Engine Layer (:stt)"]
+        direction LR
+        subgraph STT_COMMON ["commonMain"]
+            S1["SttService (interface)"]
+            S2["SttEngine (interface)"]
+            S3["SttEngineConfig (sealed)"]
+            S4["VoskConfig / WhisperConfig /\nAzureConfig / GoogleConfig"]
+            S5["createSpeechToText (expect)"]
+        end
+        subgraph STT_JVM ["jvmMain"]
+            SJ1["JvmSttService"]
+            SJ2["VoskSttEngine"]
+            SJ3["VoskLiveRecognizerJvm"]
+            SJ4["DesktopAudioSource"]
+        end
+        subgraph STT_ANDROID ["androidMain"]
+            SA1["AndroidSttService"]
+            SA2["VoskAndroidSttEngine"]
+            SA3["VoskLiveRecognizerAndroid"]
+            SA4["AndroidAudioSource"]
+        end
+    end
+
+    %% UI LAYER
+    subgraph UI ["UI Layer"]
+        UD["Desktop UI (:desktop-ui)"]
+        UA["Android UI (:android-ui)"]
+    end
+
+    %% ARROWS
+    CONFIG --> CORE
+    CORE --> STT

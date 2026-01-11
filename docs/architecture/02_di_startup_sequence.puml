@@ -1,0 +1,31 @@
+@startuml
+title Koin Startup Sequence (Android & Desktop)
+skinparam shadowing false
+skinparam defaultTextAlignment center
+actor "App Startup" as App
+participant "Koin" as K
+participant "coreModules\n(commonMain)" as Core
+participant "uiSharedModules\n(commonMain)" as UIShared
+participant "androidPlatformModules\n(androidMain)" as Android
+participant "desktopPlatformModules\n(desktopMain)" as Desktop
+== Android Startup ==
+App -> K: startKoin([coreModules, uiSharedModules,
+androidPlatformModules])
+K -> Core: load coreModules
+Core --> K: loaded
+K -> UIShared: load uiSharedModules
+UIShared --> K: loaded
+K -> Android: load androidPlatformModules
+Android --> K: platform services bound
+K --> App: Android DI ready
+== Desktop Startup ==
+App -> K: startKoin([coreModules, uiSharedModules,
+desktopPlatformModules])
+K -> Core: load coreModules
+Core --> K: loaded
+K -> UIShared: load uiSharedModules
+UIShared --> K: loaded
+K -> Desktop: load desktopPlatformModules
+Desktop --> K: platform services bound
+K --> App: Desktop DI ready
+@enduml

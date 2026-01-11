@@ -1,0 +1,97 @@
+@startuml
+title Runtime Flow: Profile Feature Using StorageService
+skinparam shadowing false
+skinparam defaultTextAlignment center
+skinparam packageStyle rectangle
+actor User
+participant "ProfileScreen\n(Compose UI)" as Screen
+participant "ProfileViewModel\n(ui-shared)" as VM
+participant "StorageService\n(interface)" as SS
+participant "AndroidStorageService\nOR\nDesktopStorageService" as Impl
+User -> Screen: Navigate to Profile
+Screen -> VM: onEvent(Load)
+VM -> SS: loadString("profile_username")
+SS -> Impl: platform load
+Impl --> SS: return username
+SS --> VM: return username
+VM -> VM: setState(username)
+VM --> Screen: state update
+Screen -> User: show username
+User -> Screen: Type new username
+Screen -> VM: onEvent(Update)
+VM -> VM: setState
+VM --> Screen: update UI
+User -> Screen: Tap Save
+Screen -> VM: onEvent(Save)
+VM -> SS: saveString(...)
+SS -> Impl: platform save
+Impl --> SS: complete
+SS --> VM: complete
+VM -> Screen: effect (ShowMessage)
+@enduml
+📄 05_runtime_navigation_audio.puml
+plantuml
+@startuml
+title Navigation + Audio Pipeline + DI Resolution
+skinparam shadowing false
+skinparam defaultTextAlignment center
+skinparam packageStyle rectangle
+actor User
+participant "NavHost\n(Compose)" as Nav
+participant "ProfileScreen\n(UI)" as ProfileUI
+participant "AudioScreen\n(UI)" as AudioUI
+participant "ProfileViewModel\n(ui-shared)" as ProfileVM
+participant "AudioViewModel\n(ui-shared)" as AudioVM
+participant "Koin DI" as DI
+participant "StorageService\n(interface)" as SS
+participant "AudioSession\n(interface)" as AS
+participant "STTService\n(interface)" as STT
+participant "Platform StorageService" as PSS
+participant "Platform AudioSession" as PAS
+participant "Platform STT Engine" as PSTT
+participant "TranscriptionController\n(core)" as TC
+participant "AudioProcessing\n(core)" as DSP
+User -> Nav: Launch App
+Nav -> ProfileUI: Navigate to Profile
+ProfileUI -> DI: request ProfileViewModel
+DI -> SS: resolve StorageService
+SS -> PSS: bind platform impl
+DI --> ProfileVM: inject(StorageService)
+User -> ProfileUI: Save
+ProfileUI -> ProfileVM: onEvent(Save)
+ProfileVM -> SS: saveString()
+SS -> PSS: write
+ProfileVM --> ProfileUI: effect
+User -> Nav: Navigate to Audio
+Nav -> AudioUI: show AudioScreen
+AudioUI -> DI: request AudioViewModel
+DI -> AS: resolve AudioSession
+DI -> STT: resolve STTService
+DI -> TC: resolve TranscriptionController
+DI --> AudioVM: inject(AudioSession, STTService, TC)
+User -> AudioUI: Start Recording
+AudioUI -> AudioVM: onEvent(StartRecording)
+AudioVM -> TC: startRecording()
+TC -> AS: start()
+AS -> PAS: start capture
+PAS --> AS: PCM chunks
+AS --> TC: PCM chunks
+TC -> DSP: process(chunk)
+DSP --> TC: processed chunk
+TC --> AudioVM: update waveform
+AudioVM --> AudioUI: update UI
+DSP -> TC: VAD speechDetected
+TC --> AudioVM: speaking indicator
+AudioVM --> AudioUI: update UI
+TC -> STT: sendAudio()
+STT -> PSTT: platform STT
+PSTT --> STT: partial text
+STT --> TC: partial text
+TC --> AudioVM: update transcript
+AudioVM --> AudioUI: show partial text
+User -> AudioUI: Stop
+AudioUI -> AudioVM: onEvent(StopRecording)
+AudioVM -> TC: stopRecording()
+TC -> AS: stop()
+PAS --> AS: stopped
+@enduml

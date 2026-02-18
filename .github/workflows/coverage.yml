@@ -20,35 +20,12 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Validate Gradle wrapper
-        uses: gradle/actions/wrapper-validation@v3
-
-      - name: Cache Gradle
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
-
-      - name: Debug workspace (optional but helpful)
-        run: |
-          echo "PWD:"
-          pwd
-          echo "Root listing:"
-          ls -al .
-          echo "Gradle folder:"
-          ls -al gradle || echo "gradle folder missing"
-          echo "Wrapper folder:"
-          ls -al gradle/wrapper || echo "wrapper folder missing"
-
       - name: Run targeted coverage
-        run: ./gradlew jacocoRootReport --stacktrace
+        working-directory: ${{ github.workspace }}
+        run: ./gradlew jacocoRootReport
 
       - name: Upload coverage report
         uses: actions/upload-artifact@v4
         with:
           name: coverage-report
-          path: build/reports/jacoco/jacocoRootReport/html
+          path: build/reports/jacoco

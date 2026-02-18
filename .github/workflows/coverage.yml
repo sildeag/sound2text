@@ -20,8 +20,18 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
+      - name: Debug workspace
+        run: |
+          echo "PWD:"
+          pwd
+          echo "Root listing:"
+          ls -al .
+          echo "Gradle folder:"
+          ls -al gradle || echo "gradle folder missing"
+          echo "Wrapper folder:"
+          ls -al gradle/wrapper || echo "wrapper folder missing"
+
       - name: Run targeted coverage
-        working-directory: ${{ github.workspace }}
         run: ./gradlew jacocoRootReport
 
       - name: Upload coverage report

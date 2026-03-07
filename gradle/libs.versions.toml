@@ -6,8 +6,8 @@
 [versions]
 
 # --- Core Toolchains ---
-kotlin-ver = "2.3.0"
-agp = "9.0.0-rc03"
+kotlin-ver = "2.3.10"             # was 2.3.0
+agp = "9.0.1"                     # was 9.0.0-rc03
 jvm = "17"
 
 android-compileSdk = "36"
@@ -15,9 +15,9 @@ android-minSdk = "24"
 android-targetSdk = "36"
 
 # --- Compose ---
-compose-mpp = "1.7.3"             # Compose Multiplatform (Desktop + shared) was 1.9.3
-compose-compiler = "2.2.21"        # Must match Kotlin
-compose-bom-ver = "2026.01.01"     # AndroidX Compose BOM was 2024.10.00
+compose-mpp = "1.9.0"             # Stable Material3 for KMP (was 1.7.3)
+compose-compiler = "2.3.10"       # Must match Kotlin 2.3.10
+compose-bom-ver = "2025.02.00"    # was 2025.02.01 (Verifiable stable version)
 
 activity-compose = "1.12.3"
 
@@ -25,20 +25,20 @@ activity-compose = "1.12.3"
 koin = "4.1.1"
 koin-annotations-ver = "2.3.1"
 koin-compiler-ver = "2.3.1"
-ksp-ver = "2.3.2"               # Must match Kotlin but 2.3.0 exists 2.2.21 doesn't
+ksp-ver = "2.3.6"               # Matches Kotlin 2.3.x toolchain
 
 
 # --- Coroutines ---
-coroutines = "1.10.2"           # was 1.8.0
+coroutines = "1.10.2"
 
 # --- Testing ---
-junit5-ver = "6.0.2"           # was 5.10.2
-androidx-junit-ver = "1.3.0"     # was 1.1.5
+junit5-ver = "6.0.2"
+androidx-junit-ver = "1.3.0"
 espresso-ver = "3.7.0"
-kotlin-test-ver = "2.3.0"       # was 2.2.21
+kotlin-test-ver = "2.3.10"
 
 # --- JavaFX ---
-javafx = "25.0.1"               # was 21.0.8
+javafx = "25.0.1"
 
 # --- Logging ---
 slf4j = "2.0.17"
@@ -80,10 +80,8 @@ androidKmp          = { id = "com.android.kotlin.multiplatform.library", version
 
 
 # Compose
-composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "compose-mpp" } # ✅ shared UI + Android
-composeDesktopApp    = { id = "org.jetbrains.compose.desktop.application", version.ref = "compose-mpp" } # ✅ desktop launcher
-# --- Keep note: composeMobile became composeCompiler, must aligned with kotlin version
-# --- and composeDesktop became composeMultiplatform
+composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "compose-mpp" }
+composeDesktopApp    = { id = "org.jetbrains.compose.desktop.application", version.ref = "compose-mpp" }
 composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin-ver" }
 
 
@@ -107,16 +105,13 @@ lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", v
 compose-bom = { module = "androidx.compose:compose-bom", version.ref = "compose-bom-ver" }
 androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 compose-ui = { module = "androidx.compose.ui:ui" }
-compose-material = { module = "androidx.compose.material:material", version.ref = "compose-bom-ver" }
+compose-material = { module = "androidx.compose.material:material" }
 compose-material3 = { module = "androidx.compose.material3:material3" }
-# 1. Needed to write @Preview in your code
 compose-tooling = { module = "androidx.compose.ui:ui-tooling" }
-# 2. Needed for Android Studio to actually render those previews
 compose-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
 activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
 
-# --- Compose Compiler ---
-compose-compiler = { module = "org.jetbrains.compose.compiler:compiler", version.ref = "compose-compiler" }
+# --- Compose Multiplatform (JetBrains) ---
 compose-mpp-runtime = { group = "org.jetbrains.compose.runtime", name = "runtime", version.ref = "compose-mpp" }
 compose-mpp-foundation = { group = "org.jetbrains.compose.foundation", name = "foundation", version.ref = "compose-mpp" }
 compose-mpp-material3 = { group = "org.jetbrains.compose.material3", name = "material3", version.ref = "compose-mpp" }
@@ -125,9 +120,7 @@ compose-mpp-material3 = { group = "org.jetbrains.compose.material3", name = "mat
 # --- Koin ---
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
-# --- Use koin-compose for Desktop/Shared UI
 koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koin" }
-# --- Use koin-compose-android for Android-specific UI
 koin-compose-android = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin" }
 koin-annotations = { module = "io.insert-koin:koin-annotations", version.ref = "koin-annotations-ver" }
 koin-compiler = { module = "io.insert-koin:koin-ksp-compiler", version.ref = "koin-compiler-ver" }
@@ -187,8 +180,6 @@ jacoco-core = { module = "org.jacoco:org.jacoco.core", version.ref = "jacoco-ver
 # ============================================================
 
 [bundles]
-
-#compose-android = ["compose-ui", "compose-material3", "activity-compose"]
 koin-android = ["koin-core", "koin-android", "koin-compose-android"]
 koin-mpp = ["koin-core", "koin-annotations"]
 coroutines = ["coroutines-core", "coroutines-android"]

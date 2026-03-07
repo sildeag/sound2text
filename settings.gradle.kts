@@ -37,11 +37,12 @@ rootProject.name = "sound2text"
 include(
     ":core",
     ":config",
-    ":core-ui",
-    ":ui-shared",
+    ":di",
     ":stt",
-    ":android-stt",
-    ":desktop-ui",
-    ":android-ui"
+    ":stt-android",
+    ":ui-android",
+    ":ui-core",
+    ":ui-common",
+    ":ui-desktop"
 )
 

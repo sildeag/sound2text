@@ -1,6 +1,6 @@
 package com.sildeag.sound2text.stt
 
-interface peechToTextService {
+interface SpeechToTextService {
     suspend fun transcribe(audioData: ByteArray): String
 }
 

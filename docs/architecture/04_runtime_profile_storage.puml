@@ -5,7 +5,7 @@ skinparam defaultTextAlignment center
 skinparam packageStyle rectangle
 actor User
 participant "ProfileScreen\n(Compose UI)" as Screen
-participant "ProfileViewModel\n(ui-shared)" as VM
+participant "ProfileViewModel\n(ui-common)" as VM
 participant "StorageService\n(interface)" as SS
 participant "AndroidStorageService\nOR\nDesktopStorageService" as Impl
 User -> Screen: Navigate to Profile
@@ -40,8 +40,8 @@ actor User
 participant "NavHost\n(Compose)" as Nav
 participant "ProfileScreen\n(UI)" as ProfileUI
 participant "AudioScreen\n(UI)" as AudioUI
-participant "ProfileViewModel\n(ui-shared)" as ProfileVM
-participant "AudioViewModel\n(ui-shared)" as AudioVM
+participant "ProfileViewModel\n(ui-common)" as ProfileVM
+participant "AudioViewModel\n(ui-common)" as AudioVM
 participant "Koin DI" as DI
 participant "StorageService\n(interface)" as SS
 participant "AudioSession\n(interface)" as AS

@@ -35,7 +35,6 @@ kotlin {
             dependencies {
                 implementation(project(":core"))
                 implementation(project(":config"))
-                implementation(project(":ui-core"))
                 implementation(project(":ui-common"))
                 implementation(project(":stt"))
                 implementation(compose.desktop.currentOs)
@@ -47,7 +46,6 @@ kotlin {
             dependencies {
                 implementation(project(":core"))
                 implementation(project(":config"))
-                implementation(project(":ui-core"))
                 implementation(project(":ui-common"))
                 implementation(project(":stt"))
                 implementation(compose.desktop.currentOs)
@@ -60,7 +58,6 @@ kotlin {
             dependencies {
                 implementation(project(":core"))
                 implementation(project(":config"))
-                implementation(project(":ui-core"))
                 implementation(project(":ui-common"))
                 implementation(project(":stt"))
                 implementation(compose.desktop.currentOs)
@@ -82,7 +79,6 @@ kotlin {
         val jvmTest by getting {
             dependencies {
                 implementation(project(":core"))
-                implementation(project(":ui-core"))
                 implementation(project(":ui-common"))
                 implementation(compose.desktop.currentOs)
                 implementation(libs.bundles.testJvm)

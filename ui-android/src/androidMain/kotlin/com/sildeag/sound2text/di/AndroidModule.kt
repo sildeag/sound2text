@@ -4,7 +4,7 @@ import com.sildeag.sound2text.androidui.viewmodel.AndroidSoundViewModel
 import com.sildeag.sound2text.coreui.viewmodel.CoreSoundViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
-
+/*
 val AndroidModule = module {
     // Shared ViewModel
     single { CoreSoundViewModel(get(), get(), get()) }
@@ -16,7 +16,24 @@ val AndroidModule = module {
         )
     }
 }
+*/
 
+package com.sildeag.sound2text.android.di
+import com.sildeag.sound2text.android.audio.AndroidAudioRecorder
+import com.sildeag.sound2text.android.viewmodel.AndroidSttViewModel
+import org.koin.dsl.module
+import org.koin.androidx.viewmodel.dsl.viewModel
+val androidModule = module {
+    single { AndroidAudioRecorder() }
+    viewModel {
+        AndroidSttViewModel(
+            audio = get(),
+            stt = get(),
+            pulse = get(),
+            controller = get()
+        )
+    }
+}
 
 /*
 import com.sildeag.sound2text.config.AppSettings

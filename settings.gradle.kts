@@ -41,7 +41,6 @@ include(
     ":stt",
     ":stt-android",
     ":ui-android",
-    ":ui-core",
     ":ui-common",
     ":ui-desktop"
 )

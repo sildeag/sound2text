@@ -5,26 +5,26 @@ skinparam defaultTextAlignment center
 actor "App Startup" as App
 participant "Koin" as K
 participant "coreModules\n(commonMain)" as Core
-participant "uiSharedModules\n(commonMain)" as UIShared
-participant "androidPlatformModules\n(androidMain)" as Android
-participant "desktopPlatformModules\n(desktopMain)" as Desktop
+participant "uiCommonModules\n(commonMain)" as UICommon
+participant "androidPlatformModules\n(androidMain)" as UIAndroid
+participant "desktopPlatformModules\n(desktopMain)" as UIDesktop
 == Android Startup ==
-App -> K: startKoin([coreModules, uiSharedModules,
+App -> K: startKoin([coreModules, uiCommonModules,
 androidPlatformModules])
 K -> Core: load coreModules
 Core --> K: loaded
-K -> UIShared: load uiSharedModules
+K -> UICommon: load uiCommonModules
 UIShared --> K: loaded
 K -> Android: load androidPlatformModules
 Android --> K: platform services bound
 K --> App: Android DI ready
 == Desktop Startup ==
-App -> K: startKoin([coreModules, uiSharedModules,
+App -> K: startKoin([coreModules, uiCommonModules,
 desktopPlatformModules])
 K -> Core: load coreModules
 Core --> K: loaded
-K -> UIShared: load uiSharedModules
-UIShared --> K: loaded
+K -> UICommon: load uiCommonModules
+UICommon --> K: loaded
 K -> Desktop: load desktopPlatformModules
 Desktop --> K: platform services bound
 K --> App: Desktop DI ready

@@ -10,7 +10,7 @@ package "coreModules\n(commonMain)" {
  interface AudioSession
  interface STTService
 }
-package "uiSharedModules\n(commonMain)" {
+package "uiCommonModules\n(commonMain)" {
  class ProfileViewModel
  class OtherFeatureViewModels
 }

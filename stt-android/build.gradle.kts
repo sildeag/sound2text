@@ -6,7 +6,7 @@ plugins {
 
 
 android {
-    namespace = "com.sildeag.sound2text"
+    namespace = "com.sildeag.sound2text.android.stt"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {

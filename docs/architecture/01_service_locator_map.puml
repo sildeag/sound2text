@@ -10,7 +10,7 @@ package "core (commonMain)" {
  class TranscriptionController
  class AudioProcessing
 }
-package "ui-shared (commonMain)" {
+package "ui-common (commonMain)" {
  class ProfileViewModel
  class OtherFeatureViewModels
 }

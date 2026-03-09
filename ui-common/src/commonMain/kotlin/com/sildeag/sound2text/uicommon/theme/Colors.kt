@@ -1,5 +1,7 @@
-package sound2text.uicore.theme
+package sound2text.uicommon.theme
+
 import androidx.compose.ui.graphics.Color
+
 val Primary = Color(0xFF4A90E2)
 val PrimaryDark = Color(0xFF003C8F)
 val Secondary = Color(0xFF50E3C2)

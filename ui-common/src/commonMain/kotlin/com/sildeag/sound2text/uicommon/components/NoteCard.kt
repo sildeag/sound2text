@@ -13,9 +13,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import sound2text.uicore.theme.Typography
-import sound2text.core.model.Note // or wherever your Note model
-lives
+import uicommon.theme.Typography
+import sound2text.uicommon.model.Note // or wherever your Note model
+
 @Composable
 fun NoteCard(
     note: Note,

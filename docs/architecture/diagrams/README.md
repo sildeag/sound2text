@@ -34,12 +34,18 @@ Briefly describe each module:
 Engine-agnostic configuration, settings, and defaults.
 ### `:core`
 Pure logic, structured text processing, utilities.
+### `:di`
+Koin dependency injection.
 ### `:stt`
 Engine abstraction, engine configs, platform-specific
 implementations.
-### `:desktop-ui`
+### `:ui-common`
+Pure logic, common UI.
+### `:ui-desktop`
 Desktop application UI.
-### `:android-ui`
+### `:stt-android`
+Android STT engine.
+### `:ui-android`
 Android application UI.
 ---
 ## Diagrams

@@ -1,3 +1,3 @@
-package sound2text.uicore.theme
+package sound2text.uicommon.theme
 import androidx.compose.material3.Typography
 val AppTypography = Typography()

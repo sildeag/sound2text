@@ -4,8 +4,8 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.window.singleWindowApplication
 import com.sildeag.sound2text.config.AppSettings
-import com.sildeag.sound2text.logging.Logger
-import com.sildeag.sound2text.storage.StorageService
+import com.sildeag.sound2text.core.logging.Logger
+import com.sildeag.sound2text.core.storage.StorageService
 import com.sildeag.sound2text.stt.SpeechToTextService
 
 object DesktopComposeApp {

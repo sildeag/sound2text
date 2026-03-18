@@ -20,8 +20,9 @@ object DesktopComposeApp {
         Window(
             onCloseRequest = ::exitApplication,
             title = "Sound2Text"
-        ) {
+        ) {/*
             DesktopMainScreen(controller)
+            */
         }
     }
 }

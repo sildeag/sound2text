@@ -1,9 +1,10 @@
 package com.sildeag.sound2text.uidesktop.ui
 
 import com.sildeag.sound2text.config.AppSettings
-import com.sildeag.sound2text.logging.Logger
-import com.sildeag.sound2text.storage.StorageService
+import com.sildeag.sound2text.core.logging.Logger
+import com.sildeag.sound2text.core.storage.StorageService
 import com.sildeag.sound2text.stt.SpeechToTextService
+
 object DesktopFxmlApp {
     fun launch(
         storage: StorageService,

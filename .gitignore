@@ -35,9 +35,14 @@ replay_pid*
 .kotlin/
 
 # Build outputs
-build/
-out/
-target/
+**/build/
+**/out/
+**/target/
+
+# Build-logic specific artifacts
+build-logic/.gradle/
+build-logic/build/
+build-logic/.kotlin/
 
 # IDE and tooling
 .idea/

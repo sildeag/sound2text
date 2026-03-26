@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.plugin.compose")
-    // id("org.jetbrains.dokka") // Dokka removed due to AGP 9.x compatibility issues
+    id("org.jetbrains.dokka") // Re-enabled
     id("jacoco")
 }
 
@@ -20,9 +20,9 @@ android {
 
     buildTypes {
         release {
-            // Reverting to standard AGP 8.7.3 syntax (is- prefix)
+            // Modern notation (non-prefixed) for AGP 9.1+
             isMinifyEnabled = false
-            
+
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -31,8 +31,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.toVersion(libs.findVersion("jvm").get().requiredVersion)
+        targetCompatibility = JavaVersion.toVersion(libs.findVersion("jvm").get().requiredVersion)
     }
 
     buildFeatures {
@@ -53,8 +53,15 @@ dependencies {
     implementation(libs.findLibrary("core-ktx").get())
 }
 
-// Solution for: The archives configuration has been deprecated for artifact declaration
+// Re-enabled Dokka configuration
 afterEvaluate {
+    extensions.findByType<org.jetbrains.dokka.gradle.DokkaExtension>()?.apply {
+        dokkaSourceSets.configureEach {
+            includes.from(project.layout.projectDirectory.file("DEVLOG.md"))
+        }
+    }
+
+    // Solution for: The archives configuration has been deprecated for artifact declaration
     configurations.findByName("archives")?.let { archivesConfig ->
         val legacyArtifacts = archivesConfig.artifacts
         if (legacyArtifacts.isNotEmpty()) {

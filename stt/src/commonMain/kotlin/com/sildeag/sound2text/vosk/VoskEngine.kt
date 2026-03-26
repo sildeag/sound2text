@@ -2,7 +2,7 @@ package com.sildeag.sound2text.vosk
 
 import com.sildeag.sound2text.core.engine.AudioSource
 import com.sildeag.sound2text.core.engine.SpeechToTextEngine
-import com.sildeag.sound2text.config.model.SttSettings
+import com.sildeag.sound2text.pdf.model.SttSettings
 import com.sildeag.sound2text.vosk.diagnostics.VoskDiagnostics
 import org.vosk.Model
 import org.vosk.Recognizer

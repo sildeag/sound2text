@@ -1,6 +1,5 @@
 package com.sildeag.com.sound2text.di
 
-import com.sildeag.sound2text.config.Environment
 import org.koin.test.KoinTest
 import org.koin.test.inject
 import kotlin.test.Test

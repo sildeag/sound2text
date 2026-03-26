@@ -1,6 +1,6 @@
 package com.sildeag.sound2text.di
 
-import com.sildeag.sound2text.config.*
+import com.sildeag.sound2text.pdf.*
 data class EnvUiCase(val config: Config, val expectedEnv:
 Environment, val expectedUi: UiMode)
 val allCases = listOf(

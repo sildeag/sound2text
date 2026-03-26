@@ -11,7 +11,6 @@ android {
 }
 
 dependencies {
-    implementation(project(":config"))
     implementation(project(":stt"))
     implementation(libs.vosk.android)
 }

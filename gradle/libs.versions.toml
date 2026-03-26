@@ -5,61 +5,61 @@
 
 [versions]
 
-# --- Core Toolchains (Moved to stable versions) ---
-kotlin-ver = "2.1.0"             # was 2.3.10
-agp = "8.7.3"                     # was 9.0.1
-jvm = "17"
+# --- Core Toolchains (Upgraded to Modern Stack) ---
+kotlin-ver = "2.3.20"             # was 2.1.10
+agp = "9.1.0"                     # was 8.8.0
+jvm = "24"
 
-android-compileSdk = "35"
+android-compileSdk = "36"         # was 35
 android-minSdk = "24"
-android-targetSdk = "35"
+android-targetSdk = "36"         # was 35
 
 # --- Compose ---
-compose-mpp = "1.7.3"             # was 1.9.0
-compose-compiler = "2.1.0"        # Matches Kotlin 2.1.0
-compose-bom-ver = "2025.01.00"
+compose-mpp = "1.10.3"             # was 1.7.3
+compose-compiler = "2.3.20"        # Matches Kotlin version
+compose-bom-ver = "2026.03.01"    # was 2025.02.00
 
-activity-compose = "1.9.3"
+activity-compose = "1.12.3"       # was 1.9.3
 
 # --- Koin + KSP ---
-koin = "4.0.0"
-koin-annotations-ver = "1.4.0"
-koin-compiler-ver = "1.4.0"
-ksp-ver = "2.1.0-1.0.29"               # Matches Kotlin 2.1.0
+koin = "4.2.0"                    # was 4.1.1
+koin-annotations-ver = "2.3.1"    # was 1.4.0
+koin-compiler-ver = "2.3.1"       # was 1.4.0
+# ksp-ver = "2.3.20-1.0.31"        # was 2.3.20-1.0.31 (Disabled as not used/unresolved)
 
 
 # --- Coroutines ---
-coroutines = "1.9.0"
+coroutines = "1.10.2"             # was 1.10.1
 
 # --- Testing ---
-junit5-ver = "5.11.0"
-androidx-junit-ver = "1.2.1"
-espresso-ver = "3.6.1"
-kotlin-test-ver = "2.1.0"
+junit5-ver = "6.0.2"              # was 5.11.0
+androidx-junit-ver = "1.3.0"      # was 1.2.1
+espresso-ver = "3.7.0"            # was 3.6.1
+kotlin-test-ver = "2.3.20"         # was 2.1.10
 
 # --- JavaFX ---
-javafx = "23.0.1"
+javafx = "25.0.1"                 # was 23.0.1
 
 # --- Logging ---
-slf4j = "2.0.16"
-logback = "1.5.12"
-kotlin-logging = "7.0.0"
+slf4j = "2.0.17"                  # was 2.0.16
+logback = "1.5.24"                # was 1.5.12
+kotlin-logging = "7.0.14"         # was 7.0.0
 
 # --- iText ---
-itext-ver = "8.0.5"
+itext-ver = "9.5.0"               # was 8.0.5
 
 # --- Misc ---
-kotlinxSerialization = "1.7.3"
-mockk-ver = "1.13.13"
-jna-ver = "5.15.0"
-snakeyaml-ver = "2.3"
-dokka-ver = "1.9.20"
+kotlinxSerialization = "1.9.0"    # was 1.7.3
+mockk-ver = "1.14.7"              # was 1.13.13
+jna-ver = "5.18.1"                # was 5.15.0
+snakeyaml-ver = "2.5"             # was 2.3
+dokka-ver = "2.1.0"               # was 1.9.20
 vosk-ver = "0.3.32"
 vosk-ver-android = "0.3.75"
-controlsfx-ver = "11.2.1"
-tilesfx-ver = "21.0.3"
+controlsfx-ver = "12.3.1"         # was 11.2.1
+tilesfx-ver = "21.0.9"            # was 21.0.3
 formsfx-ver = "11.6.0"
-ikonli-ver = "12.3.1"
+ikonli-ver = "12.4.0"             # was 12.3.1
 cardview-ver = "1.0.0"
 jacoco-ver = "0.8.12"
 
@@ -86,7 +86,7 @@ composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "k
 
 
 # Tooling
-ksp   = { id = "com.google.devtools.ksp", version.ref = "ksp-ver" }
+# ksp   = { id = "com.google.devtools.ksp", version.ref = "ksp-ver" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka-ver" }
 kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin-ver" }
 
@@ -103,12 +103,12 @@ kotlin-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-p
 kotlin-serialization-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-serialization", version.ref = "kotlin-ver" }
 compose-gradle-plugin = { group = "org.jetbrains.compose", name = "compose-gradle-plugin", version.ref = "compose-mpp" }
 compose-compiler-gradle-plugin = { group = "org.jetbrains.kotlin", name = "compose-compiler-gradle-plugin", version.ref = "kotlin-ver" }
-ksp-gradle-plugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp-ver" }
+# ksp-gradle-plugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp-ver" }
 dokka-gradle-plugin = { group = "org.jetbrains.dokka", name = "dokka-gradle-plugin", version.ref = "dokka-ver" }
 
 # --- AndroidX Core ---
-core-ktx = { module = "androidx.core:core-ktx", version = "1.15.0" }
-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version = "2.8.7" }
+core-ktx = { module = "androidx.core:core-ktx", version = "1.18.0" } # was 1.17.0
+lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version = "2.10.0" }
 
 # --- Compose (AndroidX) ---
 compose-bom = { module = "androidx.compose:compose-bom", version.ref = "compose-bom-ver" }
@@ -132,7 +132,7 @@ koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
 koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koin" }
 koin-compose-android = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin" }
 koin-annotations = { module = "io.insert-koin:koin-annotations", version.ref = "koin-annotations-ver" }
-koin-compiler = { module = "io.insert-koin:koin-ksp-compiler", version.ref = "koin-compiler-ver" }
+# koin-compiler = { module = "io.insert-koin:koin-ksp-compiler", version.ref = "koin-compiler-ver" } # Disabled as KSP not used
 koin-test = { module = "io.insert-koin:koin-test", version.ref = "koin" }
 koin-test-junit5 = { module = "io.insert-koin:koin-test-junit5", version.ref = "koin" }
 
@@ -150,11 +150,11 @@ espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref =
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin-test-ver" }
 
 # --- JavaFX ---
-javafx-base = { module = "org.openjfx:javafx-base", version.ref = "javafx" }
-javafx-controls = { module = "org.openjfx:javafx-controls", version.ref = "javafx" }
-javafx-fxml = { module = "org.openjfx:javafx-fxml", version.ref = "javafx" }
-javafx-graphics = { module = "org.openjfx:javafx-graphics", version.ref = "javafx" }
-javafx-swing = { module = "org.openjfx:javafx-swing", version.ref = "javafx" }
+javafx-base = { module = "org.openjfx:javafx-base", version = "25.0.1" }
+javafx-controls = { module = "org.openjfx:javafx-controls", version = "25.0.1" }
+javafx-fxml = { module = "org.openjfx:javafx-fxml", version = "25.0.1" }
+javafx-graphics = { module = "org.openjfx:javafx-graphics", version = "25.0.1" }
+javafx-swing = { module = "org.openjfx:javafx-swing", version = "25.0.1" }
 
 # --- iText ---
 itext-barcodes = { module = "com.itextpdf:barcodes", version.ref = "itext-ver" }

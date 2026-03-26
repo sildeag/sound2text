@@ -1,25 +1,42 @@
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 plugins {
-    // Extend base KMP setup
     id("internal.kmp.base")
     id("com.android.kotlin.multiplatform.library")
+    id("org.jetbrains.dokka")
 }
 
 val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
-kotlin {
-    // Add Android Library target to the base JVM/Common setup
-    androidLibrary {
+// Explicitly target the Kotlin Multiplatform Extension to avoid DSL ambiguity
+configure<KotlinMultiplatformExtension> {
+    // In AGP 9.1+, 'androidLibrary' is renamed back to 'android' within 'kotlin'
+    @Suppress("OPT_IN_USAGE")
+    android {
         namespace = project.group.toString()
         compileSdk = libs.findVersion("android-compileSdk").get().requiredVersion.toInt()
         minSdk = libs.findVersion("android-minSdk").get().requiredVersion.toInt()
-    }
 
-    /* 
-       UPGRADE NOTE (AGP 9.0.1+ Stable): 
-       When upgrading to AGP 9.0.1 or higher:
-       1. Add the 'withHostTest' block inside androidLibrary for host-side unit tests.
-       2. Re-enable Dokka.
-    */
+        // In AGP 9.1+, host-side unit tests are enabled and configured via withHostTest
+        withHostTest {
+            // Configuration for host-side unit tests
+        }
+
+        // On-device tests are enabled and configured via withDeviceTest
+        withDeviceTest {
+            // Configuration for device-side unit tests
+        }
+
+        compilerOptions {
+            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.fromTarget(libs.findVersion("jvm").get().requiredVersion))
+        }
+    }
+}
+
+afterEvaluate {
+    extensions.findByType<org.jetbrains.dokka.gradle.DokkaExtension>()?.apply {
+        dokkaSourceSets.configureEach {
+            includes.from(project.layout.projectDirectory.file("DEVLOG.md"))
+        }
+    }
 }

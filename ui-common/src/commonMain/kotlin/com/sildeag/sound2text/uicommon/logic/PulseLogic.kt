@@ -1,7 +1,9 @@
 package com.sildeag.sound2text.uicommon.logic
 
+import androidx.compose.ui.graphics.Color
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.map
 
 class PulseLogic {
     private val _isListening = MutableStateFlow(false)

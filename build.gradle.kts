@@ -15,13 +15,12 @@ plugins {
     alias(libs.plugins.composeCompiler) apply false
 
     // Tooling
-    alias(libs.plugins.ksp) apply false
-    // Removed Dokka plugin application from root to prevent AGP 9.x / KMP Android incompatibility
+    //alias(libs.plugins.ksp) apply false
+    alias(libs.plugins.dokka) apply false // Re-enabled for AGP 9.1+
     jacoco
 }
 
-// Dokka tasks are disabled until a compatible version for AGP 9.x is available
-/*
+// Global Dokka task
 tasks.register("dokkaAll") {
     dependsOn(
         subprojects.mapNotNull { sub ->
@@ -29,4 +28,3 @@ tasks.register("dokkaAll") {
         }
     )
 }
-*/

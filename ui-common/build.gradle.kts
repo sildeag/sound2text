@@ -1,5 +1,5 @@
 plugins {
-    id("internal.kmp.compose.library") // Stable Classic Android + Compose
+    id("internal.kmp.compose.library")
 }
 
 // Dynamic platform detection for JavaFX
@@ -13,16 +13,14 @@ val platform = System.getProperty("os.name").lowercase().let { os ->
 }
 
 kotlin {
-    androidTarget {
-        // Classic target configuration
-        @Suppress("DEPRECATION")
-        publishLibraryVariants("release")
+    // The modern way to configure Android for KMP in AGP 9.1+
+    android {
+        namespace = "com.sildeag.sound2text.ui.common"
     }
 
     sourceSets {
         commonMain {
             dependencies {
-                implementation(project(":config"))
                 implementation(project(":core"))
                 implementation(libs.bundles.itext)
                 implementation(libs.vosk)
@@ -42,7 +40,7 @@ kotlin {
         }
 
         androidMain {
-            // Android specific common dependencies if any
+            // Android specific dependencies
         }
 
         jvmTest {
@@ -51,8 +49,4 @@ kotlin {
             }
         }
     }
-}
-
-android {
-    namespace = "com.sildeag.sound2text.ui.common"
 }

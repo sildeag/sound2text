@@ -13,14 +13,13 @@ val platform = System.getProperty("os.name").lowercase().let { os ->
 }
 
 kotlin {
-    androidLibrary {
+    android {
         namespace = "com.sildeag.sound2text.di"
     }
 
     sourceSets {
         commonMain {
             dependencies {
-                implementation(project(":config"))
                 implementation(project(":core"))
             }
         }

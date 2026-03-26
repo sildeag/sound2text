@@ -3,14 +3,15 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 plugins {
     id("org.jetbrains.kotlin.multiplatform")
     id("org.jetbrains.kotlin.plugin.serialization")
-    id("com.google.devtools.ksp")
+    //id("com.google.devtools.ksp")
     id("jacoco")
+    id("internal.dokka") // Applied here to cover all KMP modules
 }
 
 val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
 kotlin {
-    jvmToolchain(17)
+    jvmToolchain(libs.findVersion("jvm").get().requiredVersion.toInt())
     jvm()
 
     sourceSets {

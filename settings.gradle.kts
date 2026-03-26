@@ -11,6 +11,9 @@ pluginManagement {
         maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
     }
 }
+plugins {
+    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
+}
 
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
@@ -37,11 +40,12 @@ rootProject.name = "sound2text"
 
 include(
     ":core",
-    ":config",
     ":di",
+    ":pdf",
     ":stt",
     ":stt-android",
     ":ui-android",
     ":ui-common",
-    ":ui-desktop"
+    ":ui-desktop",
+    ":ui-legacy"
 )

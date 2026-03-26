@@ -13,13 +13,12 @@ val platform = System.getProperty("os.name").lowercase().let { os ->
 }
 
 kotlin {
-    // Note: jvmToolchain(17) and jvm() are provided by internal.kmp.compose (via internal.kmp.base)
+    // Note: jvmToolchain and jvm() are provided by internal.kmp.compose (via internal.kmp.base)
 
     sourceSets {
         commonMain {
             dependencies {
                 implementation(project(":core"))
-                implementation(project(":config"))
                 implementation(project(":ui-common"))
                 implementation(project(":stt"))
                 implementation(compose.desktop.currentOs)

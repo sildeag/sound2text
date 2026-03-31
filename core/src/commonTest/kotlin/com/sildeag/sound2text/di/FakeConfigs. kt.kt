@@ -1,7 +1,7 @@
 package com.sildeag.sound2text.di
 
-import com.sildeag.sound2text.pdf.AppSettings
-import com.sildeag.sound2text.pdf.UiSettings
+import com.sildeag.sound2text.pdfdesktop.AppSettings
+import com.sildeag.sound2text.pdfdesktop.UiSettings
 
 
 val fakeConfigDevCompose = AppSettings(mode = "DEV", ui = UiSettings("compose"),

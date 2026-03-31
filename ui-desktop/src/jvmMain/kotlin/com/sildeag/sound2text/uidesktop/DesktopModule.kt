@@ -1,16 +1,16 @@
 package com.sildeag.sound2text.uidesktop
 
-import com.sildeag.sound2text.pdf.AppSettings
+import com.sildeag.sound2text.pdfdesktop.AppSettings
 import com.sildeag.sound2text.logging.ConsoleLogger
 import com.sildeag.sound2text.logging.FileLogger
 import com.sildeag.sound2text.logging.Logger
 import com.sildeag.sound2text.logging.NoOpLogger
 import com.sildeag.sound2text.storage.DesktopStorageService
 import com.sildeag.sound2text.storage.StorageService
-import com.sildeag.sound2text.stt.MockSpeechService
-import com.sildeag.sound2text.stt.OpenAIWhisperService
-import com.sildeag.sound2text.stt.SpeechToTextService
-import com.sildeag.sound2text.stt.WhisperCppService
+import com.sildeag.sound2text.sttdesktop.MockSpeechService
+import com.sildeag.sound2text.sttdesktop.OpenAIWhisperService
+import com.sildeag.sound2text.sttdesktop.SpeechToTextService
+import com.sildeag.sound2text.sttdesktop.WhisperCppService
 import org.koin.dsl.module
 import java.io.File
 fun desktopModule(settings: AppSettings) = module {

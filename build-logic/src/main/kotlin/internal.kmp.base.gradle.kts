@@ -41,7 +41,7 @@ jacoco {
     toolVersion = libs.findVersion("jacoco-ver").get().requiredVersion
 }
 
-val jacocoTestReport = tasks.register<JacocoReport>("jacocoTestReport") {
+val jacocoTestReport = tasks.register<JacocoReport>("jacocoKmpTestReport") {
     val jvmTestTask = tasks.named<Test>("jvmTest")
     dependsOn(jvmTestTask)
 

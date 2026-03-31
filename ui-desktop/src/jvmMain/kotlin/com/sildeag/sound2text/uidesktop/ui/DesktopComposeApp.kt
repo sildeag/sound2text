@@ -3,10 +3,10 @@ package com.sildeag.sound2text.uidesktop.ui
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.window.singleWindowApplication
-import com.sildeag.sound2text.pdf.AppSettings
+import com.sildeag.sound2text.pdfdesktop.AppSettings
 import com.sildeag.sound2text.core.logging.Logger
 import com.sildeag.sound2text.core.storage.StorageService
-import com.sildeag.sound2text.stt.SpeechToTextService
+import com.sildeag.sound2text.sttdesktop.SpeechToTextService
 
 object DesktopComposeApp {
     fun launch(

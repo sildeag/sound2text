@@ -6,9 +6,9 @@ plugins {
 
     // Kotlin
     alias(libs.plugins.kotlinJvm) apply false
-    alias(libs.plugins.kotlinAndroid) apply false
     alias(libs.plugins.kotlinMultiplatform) apply false
     alias(libs.plugins.kotlinx.serialization) apply false
+    alias(libs.plugins.javafx) apply false
 
     // Compose
     alias(libs.plugins.composeMultiplatform) apply false

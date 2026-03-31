@@ -1,6 +1,6 @@
 package com.sildeag.sound2text.uidesktop.settings
 
-import com.sildeag.sound2text.pdf.AppSettings
+import com.sildeag.sound2text.pdfdesktop.AppSettings
 import java.util.prefs.Preferences
 class DesktopAppSettings : AppSettings {
     private val prefs = Preferences.userRoot().node("sound2text")

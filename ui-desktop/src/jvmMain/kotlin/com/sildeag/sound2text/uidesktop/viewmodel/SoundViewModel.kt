@@ -1,6 +1,6 @@
 package com.sildeag.sound2text.uidesktop.viewmodel
 
-import com.sildeag.sound2text.pdf.AppSettings
+import com.sildeag.sound2text.pdfdesktop.AppSettings
 import com.sildeag.sound2text.service.logic.PulseLogic
 import com.sildeag.sound2text.service.note.NoteEditor
 import com.sildeag.sound2text.service.note.NoteProvider

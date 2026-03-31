@@ -1,6 +1,6 @@
 package com.sildeag.sound2text.di
 
-import com.sildeag.sound2text.pdf.*
+import com.sildeag.sound2text.pdfdesktop.*
 import org.koin.dsl.module
 fun harnessModule(config: Config) = module {
     single { config }

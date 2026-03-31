@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "com.sildeag.sound2text.stt.android"
+    namespace = "com.sildeag.sound2text.sttdesktop.android"
     
     defaultConfig {
         applicationId = "com.sildeag.sound2text.stt"
@@ -11,6 +11,5 @@ android {
 }
 
 dependencies {
-    implementation(project(":stt"))
     implementation(libs.vosk.android)
 }

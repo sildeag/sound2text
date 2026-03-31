@@ -1,6 +1,6 @@
 package com.sildeag.sound2text.uidesktop.harness
 
-import com.sildeag.sound2text.pdf.*
+import com.sildeag.sound2text.pdfdesktop.*
 import com.sildeag.sound2text.di.initKoin
 import org.koin.test.KoinTest
 import org.koin.test.inject

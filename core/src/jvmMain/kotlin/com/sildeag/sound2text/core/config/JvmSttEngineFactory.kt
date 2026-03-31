@@ -1,6 +1,6 @@
-import com.sildeag.sound2text.pdf.SpeechToTextSettings
-import com.sildeag.sound2text.pdf.SttProvider
-import com.sildeag.sound2text.pdf.VoskEngine
+import com.sildeag.sound2text.pdfdesktop.SpeechToTextSettings
+import com.sildeag.sound2text.pdfdesktop.SttProvider
+import com.sildeag.sound2text.pdfdesktop.VoskEngine
 
 class JvmSttEngineFactory : SttEngineFactory {
     override fun create(settings: SpeechToTextSettings): SttEngine {

@@ -1,9 +1,9 @@
 package com.sildeag.sound2text.uidesktop
 
 import com.sildeag.sound2text.core.logging.Logger
-import com.sildeag.sound2text.stt.SttConfig
-import com.sildeag.sound2text.stt.SttEngine
-import com.sildeag.sound2text.stt.SttService
+import com.sildeag.sound2text.sttdesktop.SttConfig
+import com.sildeag.sound2text.sttdesktop.SttEngine
+import com.sildeag.sound2text.sttdesktop.SttService
 import org.koin.core.qualifier.named
 import org.koin.java.KoinJavaComponent.getKoin
 fun resolveEngineOrExit(

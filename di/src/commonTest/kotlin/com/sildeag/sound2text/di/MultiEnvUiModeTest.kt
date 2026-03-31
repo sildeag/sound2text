@@ -1,6 +1,6 @@
 package com.sildeag.sound2text.di
 
-import com.sildeag.sound2text.pdf.*
+import com.sildeag.sound2text.pdfdesktop.*
 import org.koin.core.context.startKoin
 import org.koin.test.KoinTest
 import org.koin.test.inject

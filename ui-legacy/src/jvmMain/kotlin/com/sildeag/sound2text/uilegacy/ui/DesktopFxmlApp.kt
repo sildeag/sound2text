@@ -1,9 +1,9 @@
 package com.sildeag.sound2text.uidesktop.ui
 
-import com.sildeag.sound2text.pdf.AppSettings
+import com.sildeag.sound2text.pdfdesktop.AppSettings
 import com.sildeag.sound2text.core.logging.Logger
 import com.sildeag.sound2text.core.storage.StorageService
-import com.sildeag.sound2text.stt.SpeechToTextService
+import com.sildeag.sound2text.sttdesktop.SpeechToTextService
 
 object DesktopFxmlApp {
     fun launch(

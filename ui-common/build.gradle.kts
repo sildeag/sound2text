@@ -50,3 +50,14 @@ kotlin {
         }
     }
 }
+
+compose.desktop {
+    application {
+        mainClass = "com.sildeag.sound2text.uicommon.MainKt"
+        nativeDistributions {
+            targetFormats(org.jetbrains.compose.desktop.application.dsl.TargetFormat.Dmg, org.jetbrains.compose.desktop.application.dsl.TargetFormat.Msi, org.jetbrains.compose.desktop.application.dsl.TargetFormat.Deb)
+            packageName = "Sound2Text"
+            packageVersion = "1.0.0"
+        }
+    }
+}

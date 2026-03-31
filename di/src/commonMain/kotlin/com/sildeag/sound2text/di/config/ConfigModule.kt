@@ -1,6 +1,6 @@
 package com.sildeag.sound2text.di.config
 
-import com.sildeag.sound2text.pdf.AppSettings
+import com.sildeag.sound2text.pdfdesktop.AppSettings
 import org.koin.dsl.module
 
 val configModule = module {

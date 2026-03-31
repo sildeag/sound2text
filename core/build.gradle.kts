@@ -2,7 +2,7 @@ plugins {
     id("internal.kmp.library")
 }
 
-// Dynamic platform detection for JavaFX
+// Dynamic platform detection
 val platform = System.getProperty("os.name").lowercase().let { os ->
     when {
         os.contains("win") -> "win"
@@ -19,23 +19,9 @@ kotlin {
 
     sourceSets {
         commonMain {
-            dependencies {
-                implementation(libs.bundles.itext)
-            }
+            // commonMain dependencies are in internal.kmp.base
         }
         
-        jvmMain {
-            dependencies {
-                implementation(libs.vosk.api)
-                implementation(libs.snakeyaml)
-                libs.bundles.javafx.get().forEach {
-                    val module = it.module.toString()
-                    val version = it.versionConstraint.requiredVersion
-                    implementation("$module:$version:$platform")
-                }
-            }
-        }
-
         androidMain {
             dependencies {
                 implementation(libs.vosk.android)

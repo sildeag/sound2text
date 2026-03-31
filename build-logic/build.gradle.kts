@@ -16,4 +16,5 @@ dependencies {
     implementation(libs.compose.compiler.gradle.plugin)
     //implementation(libs.ksp.gradle.plugin)
     implementation(libs.dokka.gradle.plugin) // Re-enabled for AGP 9.1+ compatibility
+    implementation(libs.javafx.gradle.plugin)
 }

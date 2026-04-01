@@ -1,5 +1,5 @@
 plugins {
-    id("internal.android.application")
+    id("internal.android.library")
 }
 
 android {

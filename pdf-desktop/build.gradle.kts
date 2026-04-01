@@ -1,6 +1,6 @@
 plugins {
     id("internal.kmp.library")
-    //id("internal.jvm")
+    //id("internal.jvm") must not use this as it conflicts with KMP sourceSets
 }
 
 kotlin {

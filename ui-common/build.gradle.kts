@@ -2,7 +2,7 @@ plugins {
     id("internal.kmp.compose.library")
 }
 
-// Dynamic platform detection for JavaFX
+/* Dynamic platform detection for JavaFX old way
 val platform = System.getProperty("os.name").lowercase().let { os ->
     when {
         os.contains("win") -> "win"
@@ -11,6 +11,7 @@ val platform = System.getProperty("os.name").lowercase().let { os ->
         else -> "win" // Fallback
     }
 }
+*/
 
 kotlin {
     // The modern way to configure Android for KMP in AGP 9.1+
@@ -29,6 +30,11 @@ kotlin {
         
         jvmMain {
             dependencies {
+                implementation("org.openjfx:javafx-base:$jfxVersion:$desktopPlatform")
+                implementation("org.openjfx:javafx-controls:$jfxVersion:$desktopPlatform")
+                implementation("org.openjfx:javafx-fxml:$jfxVersion:$desktopPlatform")
+                implementation("org.openjfx:javafx-graphics:$jfxVersion:$desktopPlatform")
+                /* example of old way to set JavaFX modules
                 implementation(compose.desktop.currentOs)
                 libs.bundles.javafx.get().forEach { dep ->
                     val group = dep.module.group
@@ -36,6 +42,7 @@ kotlin {
                     val version = dep.versionConstraint.requiredVersion
                     implementation("$group:$name:$version:$platform")
                 }
+                */
             }
         }
 

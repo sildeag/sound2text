@@ -11,7 +11,11 @@ android {
 }
 
 dependencies {
+    implementation(project(":core"))
     implementation(project(":ui-common"))
     implementation(project(":stt-android"))
-    implementation(libs.vosk.android)
+    implementation(project(":di"))
+    implementation(libs.koin.android)
+    implementation(libs.koin.compose)
+    implementation(libs.compose.material3)
 }

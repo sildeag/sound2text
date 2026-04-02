@@ -1,33 +1,71 @@
+import org.openjfx.gradle.JavaFXOptions
+
+plugins {
+    id("internal.kmp.base")
+    id("org.openjfx.javafxplugin")
+}
+
+val jfxVersion = libs.versions.javafx.ver.get()
+
+kotlin {
+    // Standard KMP JVM target
+    jvm()
+
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation(project(":core"))
+                implementation(libs.bundles.itext)
+                implementation(libs.vosk)
+            }
+        }
+
+        jvmMain {
+            dependencies {
+                // Using the clean extension property from build-logic
+                implementation("org.openjfx:javafx-base:$jfxVersion:$desktopPlatform")
+                implementation("org.openjfx:javafx-controls:$jfxVersion:$desktopPlatform")
+                implementation("org.openjfx:javafx-fxml:$jfxVersion:$desktopPlatform")
+                implementation("org.openjfx:javafx-graphics:$jfxVersion:$desktopPlatform")
+            }
+        }
+
+        jvmTest {
+            dependencies {
+                implementation(libs.bundles.testJvm)
+            }
+        }
+    }
+}
+
+// Robust configuration for the JavaFX plugin to avoid red underlines
+configure<JavaFXOptions> {
+    version = jfxVersion
+    modules("javafx.controls", "javafx.fxml", "javafx.graphics")
+}
+
+/**
+ * Entry point task for the JavaFX Legacy UI.
+ * Run this task to start the application.
+ */
+tasks.register<JavaExec>("runLegacy") {
+    group = "application"
+    description = "Runs the legacy JavaFX application"
+    
+    mainClass.set("com.sildeag.sound2text.uilegacy.MainKt")
+    
+    val jvmTarget = kotlin.targets.getByName("jvm")
+    val mainCompilation = jvmTarget.compilations.getByName("main")
+    
+    classpath = mainCompilation.output.allOutputs + 
+                configurations.getByName("jvmRuntimeClasspath")
+}
+
+/*
+// This was the kmp.compose version you wanted to keep as a reference:
 plugins {
     id("internal.kmp.compose")
 }
-
-// Dynamic platform detection for JavaFX
-/**
- * Returns the platform string (win, linux, mac, mac-aarch64)
- * for native dependency resolution.
- * Define it once at the top of the file
- * val platform = run {
- *     val os = System.getProperty("os.name").lowercase()
- *     val arch = System.getProperty("os.arch")
- *
- *     when {
- *         os.contains("win")   -> "win"
- *         os.contains("linux") -> "linux"
- *         os.contains("mac")   -> if (arch == "aarch64") "mac-aarch64" else "mac"
- *         else -> "win"
- *     }
- * }
- *
- * dependencies {
- *     implementation("org.openjfx:javafx-base:$jfxVersion:$platform")
- * }
- */
-
-
-
-val jfxVersion = libs.versions.javafx.ver.get() // Gets "21.0.2" from TOML
-
 
 kotlin {
     sourceSets {
@@ -66,9 +104,4 @@ compose.desktop {
         }
     }
 }
-/*
-application {
-    mainClass.set("com.sildeag.sound2text.uilegacy.MainKt") // Your original JavaFX main class
-}
-
- */
+*/

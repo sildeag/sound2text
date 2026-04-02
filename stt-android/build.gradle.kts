@@ -3,11 +3,18 @@ plugins {
 }
 
 android {
-    namespace = "com.sildeag.sound2text.sttdesktop.android"
-    
+    namespace = "com.sildeag.sound2text.stt.android" // Standardized name
+
     defaultConfig {
-        applicationId = "com.sildeag.sound2text.stt"
+        // REMOVE THIS LINE:
+        // applicationId = "com.sildeag.sound2text.stt"
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+}
+
+dependencies {
+    implementation(libs.vosk.android)
 }
 
 dependencies {

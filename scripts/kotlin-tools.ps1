@@ -13,14 +13,15 @@ param(
 
 $basePath = "D:\Android\Projects\sound2text"
 $modules  = @(
-    "android-ui",
-    "android-stt",
+    "ui-android",
+    "stt-android",
     "config",
     "core",
-    "core-ui",
-    "desktop-ui",
-    "stt",
-    "ui-shared"
+    "ui-common",
+    "ui-desktop",
+    "ui-legacy",
+    "stt-desktop",
+    "pdf-desktop"
 )
 
 $sourceSets = @("androidMain", "commonMain", "jvmMain")

@@ -1,18 +1,18 @@
 plugins {
-    id("internal.android.library")
+    id("internal.kmp.android.library")
 }
 
-android {
-    namespace = "com.sildeag.sound2text.stt.android" // Standardized name
-
-    defaultConfig {
-        // REMOVE THIS LINE:
-        // applicationId = "com.sildeag.sound2text.stt"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+kotlin {
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation(project(":core"))
+            }
+        }
+        androidMain {
+            dependencies {
+                implementation(libs.vosk.android)
+            }
+        }
     }
-}
-
-dependencies {
-    implementation(libs.vosk.android)
 }

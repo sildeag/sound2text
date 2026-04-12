@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "com.sildeag.sound2text.ui.android"
+    namespace = "com.sildeag.sound2text"
     
     defaultConfig {
         applicationId = "com.sildeag.sound2text"

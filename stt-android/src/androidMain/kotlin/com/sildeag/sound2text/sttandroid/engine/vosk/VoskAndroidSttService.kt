@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.stt.android
+package com.sildeag.sound2text.sttandroid.engine.vosk
 
 import android.content.Context
 import com.sildeag.sound2text.stt.*

@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.androidstt.di
+package com.sildeag.sound2text.sttandroid.di
 
 
 import com.sildeag.sound2text.stt.*

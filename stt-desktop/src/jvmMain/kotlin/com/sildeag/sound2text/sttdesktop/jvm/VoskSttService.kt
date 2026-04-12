@@ -1,5 +1,6 @@
 package com.sildeag.sound2text.sttdesktop.jvm
 
+import com.sildeag.sound2text.core.stt.SttConfig
 import com.sildeag.sound2text.sttdesktop.*
 import org.vosk.Model
 import org.vosk.Recognizer

@@ -1,10 +1,11 @@
-package com.sildeag.sound2text.androidstt
+package com.sildeag.sound2text.sttandroid.engine.vosk
 
 import android.content.Context
 import com.sildeag.sound2text.stt.*
 import org.vosk.Model
 import org.vosk.android.Recognizer
 import org.vosk.android.SpeechService
+
 class VoskAndroidSttEngine(
     private val context: Context,
     private val model: Model

@@ -1,9 +1,9 @@
-package com.sildeag.sound2text.sttdesktop.jvm
+package com.sildeag.sound2text.sttdesktop.service
 
-import com.sildeag.sound2text.sttdesktop.SttConfig
-import com.sildeag.sound2text.sttdesktop.SttEngine
+import com.sildeag.sound2text.core.stt.SttConfig
+import com.sildeag.sound2text.core.stt.SttEngine
+import com.sildeag.sound2text.core.stt.SttService
 import com.sildeag.sound2text.sttdesktop.SttResult
-import com.sildeag.sound2text.sttdesktop.SttService
 
 class JvmSttService(
     private val engine: SttEngine,

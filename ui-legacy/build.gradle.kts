@@ -62,7 +62,7 @@ tasks.register<JavaExec>("runLegacy") {
 }
 
 /*
-// This was the kmp.compose version you wanted to keep as a reference:
+// The kmp.compose version kept as a reference:
 plugins {
     id("internal.kmp.compose")
 }

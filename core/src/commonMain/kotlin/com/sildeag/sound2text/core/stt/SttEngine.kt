@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.core.config
+package com.sildeag.sound2text.core.stt
 
 interface SttEngine {
     suspend fun start()

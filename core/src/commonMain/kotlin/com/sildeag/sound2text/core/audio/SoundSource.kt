@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.sttdesktop
+package com.sildeag.sound2text.core.audio
 
 expect interface SoundSource {
     val id: String // could be a path, URI, or anything platform-specific

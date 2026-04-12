@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.plugin.compose")
-    id("org.jetbrains.dokka") // Re-enabled
+    id("internal.dokka")
     id("jacoco")
 }
 
@@ -55,12 +55,6 @@ dependencies {
 
 // Re-enabled Dokka configuration
 afterEvaluate {
-    extensions.findByType<org.jetbrains.dokka.gradle.DokkaExtension>()?.apply {
-        dokkaSourceSets.configureEach {
-            includes.from(project.layout.projectDirectory.file("DEVLOG.md"))
-        }
-    }
-
     // Solution for: The archives configuration has been deprecated for artifact declaration
     configurations.findByName("archives")?.let { archivesConfig ->
         val legacyArtifacts = archivesConfig.artifacts

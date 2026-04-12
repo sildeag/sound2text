@@ -1,9 +1,7 @@
-package com.sildeag.sound2text.vosk.engine.stt
+package com.sildeag.sound2text.sttdesktop.engine.vosk
 
-import com.sildeag.sound2text.pdfdesktop.AudioSettings
 import com.sildeag.sound2text.core.logging.Logger
-import com.sildeag.sound2text.pdfdesktop.*
-
+import javax.sound.sampled.AudioFormat
 
 class VoskLiveRecognizer(
     private val model: Model,

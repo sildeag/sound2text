@@ -2,6 +2,7 @@ import org.jetbrains.dokka.gradle.DokkaExtension
 
 plugins {
     id("com.android.library")
+    id("org.jetbrains.kotlin.plugin.compose")
     id("internal.dokka")
     id("jacoco")
 }

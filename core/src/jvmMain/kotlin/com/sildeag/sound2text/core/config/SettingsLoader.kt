@@ -1,5 +1,5 @@
 package com.sildeag.sound2text.core.config
-
+/*
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
 import java.io.File

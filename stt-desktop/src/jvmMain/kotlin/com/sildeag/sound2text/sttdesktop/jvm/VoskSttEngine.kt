@@ -1,5 +1,7 @@
 package com.sildeag.sound2text.sttdesktop.jvm
 
+import com.sildeag.sound2text.core.stt.SttConfig
+import com.sildeag.sound2text.core.stt.SttEngine
 import com.sildeag.sound2text.sttdesktop.*
 
 class VoskSttEngine(
@@ -8,7 +10,7 @@ class VoskSttEngine(
         language = TODO(),
         modelFile = TODO()
     )
-) : SttEngine { 
+) : SttEngine {
     override fun loadModel(config: SttConfig): SttService {
         val effectiveConfig = config.copy(
             modelPath = config.modelPath ?: defaultConfig.modelPath
@@ -20,5 +22,9 @@ class VoskSttEngine(
             model = model,
             config = effectiveConfig
         )
+    }
+
+    class VoskModelLoader {
+
     }
 }

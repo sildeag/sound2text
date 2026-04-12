@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.platform
+package com.sildeag.sound2text.core.platform
 
 expect class PlatformEnvironment {
     val environment: String

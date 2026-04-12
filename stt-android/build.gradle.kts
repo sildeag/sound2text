@@ -16,7 +16,3 @@ android {
 dependencies {
     implementation(libs.vosk.android)
 }
-
-dependencies {
-    implementation(libs.vosk.android)
-}

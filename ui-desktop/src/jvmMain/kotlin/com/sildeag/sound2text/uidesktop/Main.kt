@@ -2,9 +2,9 @@ package com.sildeag.sound2text.desktop
 import com.sildeag.sound2text.pdfdesktop.AppSettings
 import com.sildeag.sound2text.core.logging.Logger
 import com.sildeag.sound2text.core.storage.StorageService
-import com.sildeag.sound2text.sttdesktop.SttEngine
-import com.sildeag.sound2text.sttdesktop.SttService
-import com.sildeag.sound2text.sttdesktop.SttConfig
+import com.sildeag.sound2text.core.stt.SttEngine
+import com.sildeag.sound2text.core.stt.SttService
+import com.sildeag.sound2text.core.stt.SttConfig
 import com.sildeag.sound2text.sttdesktop.di.SttCommonModule
 import com.sildeag.sound2text.sttdesktop.jvm.di.SttJvmModule
 import com.sildeag.sound2text.uidesktop.desktopModule

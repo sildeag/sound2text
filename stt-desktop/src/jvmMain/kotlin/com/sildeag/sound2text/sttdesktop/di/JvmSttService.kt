@@ -1,8 +1,11 @@
-package com.sildeag.sound2text.sttdesktop.jvm.di
+package com.sildeag.sound2text.sttdesktop.di
 
-import com.sildeag.sound2text.sttdesktop.*
-import com.sildeag.sound2text.sttdesktop.jvm.JvmSttService
+import com.sildeag.sound2text.core.stt.SttConfig
+import com.sildeag.sound2text.core.stt.SttEngine
+import com.sildeag.sound2text.core.stt.SttService
+import com.sildeag.sound2text.sttdesktop.service.JvmSttService
 import com.sildeag.sound2text.sttdesktop.jvm.VoskSttEngine
+import com.sildeag.sound2text.sttdesktop.jvm.WhisperCppSttEngine
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import org.vosk.Model
@@ -16,6 +19,7 @@ val sttJvmModule = module {
         VoskSttEngine(model) // your engine class
     }
     // Whisper-CPP engine (placeholder for future)
+
     single<SttEngine>(named("whisper")) {
         WhisperCppSttEngine() // implement later
     }

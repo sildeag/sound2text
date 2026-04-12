@@ -1,6 +1,6 @@
 package com.sildeag.sound2text.sttdesktop.jvm
 
-import com.sildeag.sound2text.sttdesktop.SttConfig
+import com.sildeag.sound2text.core.stt.SttConfig
 
 actual class SttService actual constructor() {
     private val engine = vosk.DesktopVoskService()

@@ -4,8 +4,7 @@ import com.sildeag.sound2text.core.stt.SttConfig
 import com.sildeag.sound2text.core.stt.SttEngine
 import com.sildeag.sound2text.core.stt.SttService
 import com.sildeag.sound2text.sttdesktop.service.JvmSttService
-import com.sildeag.sound2text.sttdesktop.jvm.VoskSttEngine
-import com.sildeag.sound2text.sttdesktop.jvm.WhisperCppSttEngine
+import com.sildeag.sound2text.sttdesktop.engine.whisper.WhisperCppSttEngine
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import org.vosk.Model

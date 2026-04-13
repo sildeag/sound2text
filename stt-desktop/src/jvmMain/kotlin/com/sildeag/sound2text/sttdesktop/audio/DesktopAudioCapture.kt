@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.sttdesktop.jvm
+package com.sildeag.sound2text.sttdesktop.audio
 
 // Placeholder for desktop audio capture integration
 class DesktopAudioCapture {

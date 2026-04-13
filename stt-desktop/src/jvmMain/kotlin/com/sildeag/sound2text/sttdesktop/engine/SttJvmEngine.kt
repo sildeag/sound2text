@@ -2,7 +2,7 @@ package com.sildeag.sound2text.sttdesktop.engine
 
 import com.sildeag.sound2text.core.stt.SttConfig
 import com.sildeag.sound2text.core.stt.SttEngine
-import com.sildeag.sound2text.sttdesktop.jvm.SttService
+import com.sildeag.sound2text.sttdesktop.service.SttService
 
 class SttJvmEngine(
     private val configProvider: () -> SttConfig = { SttConfig() }

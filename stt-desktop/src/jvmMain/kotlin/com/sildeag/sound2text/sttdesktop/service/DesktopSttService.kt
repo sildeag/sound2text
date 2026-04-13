@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.sttdesktop.jvm
+package com.sildeag.sound2text.sttdesktop.service
 
 import com.sildeag.sound2text.core.stt.SttConfig
 

@@ -1,11 +1,13 @@
-package com.sildeag.sound2text.sttdesktop.jvm
+package com.sildeag.sound2text.sttdesktop.service.vosk
 
 import com.sildeag.sound2text.core.stt.SttConfig
-import com.sildeag.sound2text.sttdesktop.*
+import com.sildeag.sound2text.sttdesktop.SttResult
+import com.sildeag.sound2text.sttdesktop.service.SttService
 import org.vosk.Model
 import org.vosk.Recognizer
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
+
 class VoskSttService(
     private val model: Model,
     private val config: SttConfig

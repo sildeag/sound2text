@@ -1,8 +1,9 @@
-package com.sildeag.sound2text.vosk.engine.vosk.jvm
+package com.sildeag.sound2text.sttdesktop.service.vosk
 
 import com.sildeag.sound2text.core.stt.SpeechToTextService
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
+
 class VoskSpeechService(
     private val recognizer: VoskLiveRecognizer
 ) : SpeechToTextService {

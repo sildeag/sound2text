@@ -1,7 +1,7 @@
 package com.sildeag.sound2text.di
 
-import com.sildeag.sound2text.config.AppEnvironment
-import com.sildeag.sound2text.config.AppSettings
+import com.sildeag.sound2text.uiandroid.config.AppEnvironment
+import com.sildeag.sound2text.uiandroid.config.AppSettings
 import org.koin.dsl.module
 
 val appSettingsModule = module {

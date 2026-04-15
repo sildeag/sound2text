@@ -22,6 +22,12 @@ kotlin {
 
         jvmMain {
             dependencies {
+                implementation(project(":core"))
+                implementation(project(":ui-common"))
+                implementation(project(":stt-desktop"))
+                implementation(project(":pdf-desktop"))
+                implementation(libs.bundles.itext)
+                implementation(libs.vosk)
                 // Using the clean extension property from build-logic
                 implementation("org.openjfx:javafx-base:$jfxVersion:$desktopPlatform")
                 implementation("org.openjfx:javafx-controls:$jfxVersion:$desktopPlatform")

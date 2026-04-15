@@ -1,8 +1,5 @@
 package com.sildeag.sound2text.di
 
-import com.sildeag.sound2text.config.AppSettings
-import com.sildeag.sound2text.config.Environment
-import com.sildeag.sound2text.config.provideAppSettings
 import com.sildeag.sound2text.service.grammar.GrammarService
 import com.sildeag.sound2text.service.grammar.MockGrammarService
 import com.sildeag.sound2text.service.note.NoteEditor

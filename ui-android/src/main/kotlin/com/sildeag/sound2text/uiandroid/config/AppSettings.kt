@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.config
+package com.sildeag.sound2text.uiandroid.config
 
 data class AppSettings(
     val soundDirectory: String,

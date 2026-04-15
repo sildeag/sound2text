@@ -1,7 +1,7 @@
 package com.sildeag.sound2text.di
 
-import com.sildeag.sound2text.config.AppEnvironment
-import com.sildeag.sound2text.config.Environment
+import com.sildeag.sound2text.uiandroid.config.AppEnvironment
+import com.sildeag.sound2text.uiandroid.config.Environment
 import org.koin.core.module.Module
 
 fun loadEnvironmentModules(

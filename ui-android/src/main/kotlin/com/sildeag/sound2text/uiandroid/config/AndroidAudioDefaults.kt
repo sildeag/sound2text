@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.config
+package com.sildeag.sound2text.uiandroid.config
 
 import android.media.AudioRecord
 import android.media.MediaRecorder

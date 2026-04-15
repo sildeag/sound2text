@@ -1,6 +1,6 @@
 package com.sildeag.sound2text
 
-import com.sildeag.sound2text.config.AppSettings
+import com.sildeag.sound2text.uiandroid.config.AppSettings
 import com.sildeag.sound2text.logging.ConsoleLogger
 import com.sildeag.sound2text.logging.Logger
 import com.sildeag.sound2text.logging.NoOpLogger

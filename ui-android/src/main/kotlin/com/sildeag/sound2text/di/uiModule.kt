@@ -1,11 +1,9 @@
 package com.sildeag.sound2text.di
 
-import com.sildeag.sound2text.config.AppSettings
+import com.sildeag.sound2text.uiandroid.config.AppSettings
 import com.sildeag.sound2text.service.logic.PulseLogic
-import com.sildeag.sound2text.service.logic.PulseLogicParams
 import com.sildeag.sound2text.ui.SoundScreen
 import com.sildeag.sound2text.ui.SoundViewModel
-import com.sildeag.sound2text.ui.SoundViewModelParams
 import org.koin.core.parameter.parametersOf
 import org.koin.dsl.module
 

@@ -1,7 +1,8 @@
-package com.sildeag.sound2text.config
+package com.sildeag.sound2text.uiandroid.config
 
 import org.yaml.snakeyaml.Yaml
 import java.io.File
+import kotlin.text.get
 
 enum class UiMode {
     DesktopCompose,

@@ -3,7 +3,7 @@ package com.sildeag.sound2text
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.sildeag.sound2text.config.AppSettings
+import com.sildeag.sound2text.uiandroid.config.AppSettings
 import com.sildeag.sound2text.logging.Logger
 import com.sildeag.sound2text.platform.SettingsLoader
 import com.sildeag.sound2text.storage.StorageService

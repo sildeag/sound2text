@@ -1,7 +1,7 @@
 package com.sildeag.sound2text.di
 
-import com.sildeag.sound2text.config.AppUiMode
-import com.sildeag.sound2text.config.UiMode
+import com.sildeag.sound2text.uiandroid.config.AppUiMode
+import com.sildeag.sound2text.uiandroid.config.UiMode
 import com.sildeag.sound2text.ui.ComposeUiLauncher
 import com.sildeag.sound2text.ui.FxmlUiLauncher
 import com.sildeag.sound2text.ui.UiLauncher

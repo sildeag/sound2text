@@ -1,7 +1,7 @@
 package com.sildeag.sound2text.di
 
-import com.sildeag.sound2text.config.AppSettings
-import com.sildeag.sound2text.config.Environment
+import com.sildeag.sound2text.uiandroid.config.AppSettings
+import com.sildeag.sound2text.uiandroid.config.Environment
 
 fun provideAppSettings(env: Environment): AppSettings {
     return when (env) {

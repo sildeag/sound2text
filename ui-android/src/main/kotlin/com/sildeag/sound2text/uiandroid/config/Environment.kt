@@ -1,7 +1,8 @@
-package com.sildeag.sound2text.config
+package com.sildeag.sound2text.uiandroid.config
 
 import java.io.File
 import org.yaml.snakeyaml.Yaml
+import kotlin.text.get
 
 enum class Environment { DEV, PROD, TEST }
 object AppEnvironment {

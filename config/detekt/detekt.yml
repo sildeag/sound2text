@@ -1,0 +1,32 @@
+style:
+  ForbiddenImport:
+    active: true
+    forbiddenPatterns:
+      # commonMain must stay pure
+      - 'android\..*'
+      - 'androidx\.(?!compose).*' # allow compose only
+      - 'java\.awt\..*'
+      - 'javax\..*'
+      - 'org\.koin\.android\..*'
+      - 'org\.koin\.androidx\..*'
+    excludes:
+      - '**/androidMain/**'
+      - '**/jvmMain/**'
+
+  ForbiddenImportInAndroid:
+    active: true
+    forbiddenPatterns:
+      - 'java\.awt\..*'
+      - 'org\.jetbrains\.skiko\..*'
+      - 'compose\.desktop\..*'
+    includes:
+      - '**/androidMain/**'
+
+  ForbiddenImportInJvm:
+    active: true
+    forbiddenPatterns:
+      - 'android\..*'
+      - 'androidx\.(lifecycle|activity|navigation)\..*'
+      - 'android\.util\..*'
+    includes:
+      - '**/jvmMain/**'

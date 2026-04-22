@@ -3,6 +3,8 @@ package com.sildeag.sound2text
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import com.sildeag.sound2text.core.storage.StorageService
+import com.sildeag.sound2text.core.stt.SpeechToTextService
 import com.sildeag.sound2text.uiandroid.config.AppSettings
 import com.sildeag.sound2text.logging.Logger
 import com.sildeag.sound2text.platform.SettingsLoader
@@ -42,8 +44,7 @@ class MainActivity : ComponentActivity() {
         val logger: Logger by inject()
         val storage: StorageService by inject()
         val stt: SpeechToTextService by inject()
-        logger.info("Sound2Text Android starting in ${settings.mode}
-                mode")
+        logger.info("Sound2Text Android starting in ${settings.mode} mode")
                 setContent {
             AndroidComposeApp(storage, stt, settings, logger)
         }

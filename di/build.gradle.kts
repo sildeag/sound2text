@@ -10,24 +10,22 @@ kotlin {
     }
 
     sourceSets {
-        commonMain {
-            dependencies {
-                implementation(project(":core"))
-            }
-        }
-        
-        jvmMain {
-            dependencies {
-                implementation(libs.vosk.api)
-                implementation(libs.snakeyaml)
-                implementation(libs.bundles.itext)
-            }
+        commonMain.dependencies {
+            implementation(project(":core"))
         }
 
-        androidMain {
-            dependencies {
-                implementation(libs.vosk.android)
-            }
+        androidMain.dependencies {
+            //implementation(project(":stt-android"))
+            //implementation(project(":pdf-android"))
+            implementation(libs.vosk.android)
+        }
+
+        jvmMain.dependencies {
+            //implementation(project(":stt-desktop"))
+            //implementation(project(":pdf-desktop"))
+            implementation(libs.vosk.api)
+            //implementation(libs.snakeyaml)
+            //implementation(libs.bundles.itext)
         }
     }
 }

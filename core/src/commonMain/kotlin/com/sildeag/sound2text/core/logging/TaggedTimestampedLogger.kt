@@ -6,9 +6,18 @@ class TaggedTimestampedLogger(
     private val tag: String,
     private val delegate: Logger
 ) : Logger {
-    override fun log(level: LogLevel, message: String, throwable: Throwable?) {
+    private fun format(message: String): String {
         val ts = Clock.System.now().toString()
-        val tagged = "[$ts][$tag] $message"
-        delegate.log(level, tagged, throwable)
+        return "[$ts][$tag] $message"
     }
+    override fun debug(message: String) =
+        delegate.debug(format(message))
+    override fun info(message: String) =
+        delegate.info(format(message))
+    override fun warning(message: String) =
+        delegate.warning(format(message))
+    override fun error(message: String, throwable: Throwable?) =
+        delegate.error(format(message), throwable)
+    override fun severe(message: String, throwable: Throwable?) =
+        delegate.severe(format(message), throwable)
 }

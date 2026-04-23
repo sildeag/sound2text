@@ -6,4 +6,5 @@ interface Logger {
     fun error(message: String, throwable: Throwable? = null)
     fun warning(message: String)
     fun severe(message: String, throwable: Throwable? = null)
+    fun log(level: LogLevel, message: String, throwable: Throwable?)
 }

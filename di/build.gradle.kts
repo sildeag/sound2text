@@ -15,12 +15,14 @@ kotlin {
         }
 
         androidMain.dependencies {
+            implementation(project(":core"))
             //implementation(project(":stt-android"))
             //implementation(project(":pdf-android"))
             implementation(libs.vosk.android)
         }
 
         jvmMain.dependencies {
+            implementation(project(":core"))
             //implementation(project(":stt-desktop"))
             //implementation(project(":pdf-desktop"))
             implementation(libs.vosk.api)

@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.di.logging
+package com.sildeag.sound2text.di.core.logging
 
 import org.koin.core.module.Module
 

@@ -14,19 +14,23 @@ kotlin {
         commonMain {
             dependencies {
                 implementation(project(":core"))
+                implementation(project(":di"))
                 implementation(libs.vosk)
             }
         }
         
         jvmMain {
             dependencies {
+                implementation(project(":core"))
+                implementation(project(":di"))
                 implementation(libs.vosk.api)
-                implementation(libs.bundles.itext)
             }
         }
 
         androidMain {
             dependencies {
+                implementation(project(":core"))
+                implementation(project(":di"))
                 implementation(libs.vosk.android)
             }
         }

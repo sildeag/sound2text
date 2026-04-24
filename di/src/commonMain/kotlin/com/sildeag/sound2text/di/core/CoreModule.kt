@@ -6,6 +6,7 @@ import com.sildeag.sound2text.core.logging.ConsoleLogger
 import com.sildeag.sound2text.core.storage.StorageService
 import com.sildeag.sound2text.core.storage.FileStorageService
 import org.koin.dsl.module
+
 val coreModule = module {
     // Logging
     single<Logger> { ConsoleLogger() }

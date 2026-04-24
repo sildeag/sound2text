@@ -39,6 +39,7 @@ buildCache {
 rootProject.name = "sound2text"
 
 include(
+    ":app-common",
     ":core",
     ":di",
     ":pdf-android",

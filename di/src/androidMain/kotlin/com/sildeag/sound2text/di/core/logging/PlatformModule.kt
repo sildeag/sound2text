@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.di.core
+package com.sildeag.sound2text.di.core.logging
 
 import com.sildeag.sound2text.core.logging.AndroidLogger
 import com.sildeag.sound2text.core.logging.Logger

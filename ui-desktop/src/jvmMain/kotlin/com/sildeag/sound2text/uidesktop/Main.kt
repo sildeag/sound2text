@@ -1,17 +1,19 @@
 package com.sildeag.sound2text.desktop
-import com.sildeag.sound2text.pdfdesktop.AppSettings
+
+import com.sildeag.sound2text.core.config.AppSettings
+import com.sildeag.sound2text.core.config.SettingsLoader
 import com.sildeag.sound2text.core.logging.Logger
 import com.sildeag.sound2text.core.storage.StorageService
 import com.sildeag.sound2text.core.stt.SttEngine
 import com.sildeag.sound2text.core.stt.SttService
 import com.sildeag.sound2text.core.stt.SttConfig
-import com.sildeag.sound2text.sttdesktop.di.SttCommonModule
-import com.sildeag.sound2text.sttdesktop.jvm.di.SttJvmModule
+import com.sildeag.sound2text.di.common.sttCommonModule
 import com.sildeag.sound2text.uidesktop.desktopModule
 import com.sildeag.sound2text.uidesktop.ui.DesktopComposeApp
 import com.sildeag.sound2text.uidesktop.ui.fxml.FxmlLauncher
 import org.koin.core.context.startKoin
 import org.koin.java.KoinJavaComponent.inject
+
 fun main() {
 // Load settings from your config module
     val settings: AppSettings = SettingsLoader.load()
@@ -20,15 +22,15 @@ fun main() {
     startKoin {
         modules(
             desktopModule(settings), // your existing desktop module
-            SttCommonModule, // shared STT API
-            SttJvmModule // JVM Vosk engine
+            sttCommonModule, // shared STT API
+//            sttJvmModule // JVM Vosk engine
         )
     }
-// Resolve core services
+    // Resolve core services
     val logger: Logger by inject(Logger::class.java)
     logger.info("Sound2Text starting in ${settings.mode} mode on ${settings.platform}")
         val storage: StorageService by inject(StorageService::class.java)
-// Resolve the new STT engine and create a service instance
+    // Resolve the new STT engine and create a service instance
     val engine: SttEngine by inject(SttEngine::class.java)
     val stt: SttService = engine.loadModel(
         SttConfig(
@@ -51,7 +53,18 @@ fun main() {
         }
     }
 }
+/*
+val koinApp = koinApplication {
+ modules(
+ pdfCommonModule,
+ pdfPlatformModule,
+ // coreModule,
+ // uiModule,
+ // loggerModule,
+ )
+ }
 
+ */
 
 /*
 fun main() {

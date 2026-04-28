@@ -9,29 +9,23 @@ kotlin {
     }
 
     sourceSets {
-        commonMain {
-            dependencies {
+        commonMain.dependencies {
                 implementation(project(":core"))
-                implementation(project(":di"))
+                //implementation(project(":di"))
                 implementation(libs.bundles.itext)
-            }
         }
 
-        jvmMain {
-            dependencies {
+        jvmMain.dependencies {
                 implementation(project(":core"))
-                implementation(project(":di"))
+                //implementation(project(":di"))
                 implementation(libs.snakeyaml)
                 implementation(libs.bundles.itext)
-            }
         }
 
-        androidMain {
-            dependencies {
+        androidMain.dependencies {
                 implementation(project(":core"))
-                implementation(project(":di"))
+                //implementation(project(":di"))
                 implementation(libs.vosk.android)
-            }
         }
     }
 }

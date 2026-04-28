@@ -23,8 +23,8 @@ kotlin {
 
         jvmMain.dependencies {
             implementation(project(":core"))
-            //implementation(project(":stt-desktop"))
-            //implementation(project(":pdf-desktop"))
+            implementation(project(":stt-desktop"))
+            implementation(project(":pdf-desktop"))
             implementation(libs.vosk.api)
             //implementation(libs.snakeyaml)
             //implementation(libs.bundles.itext)

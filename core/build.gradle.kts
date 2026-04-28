@@ -10,14 +10,14 @@ kotlin {
     }
 
     sourceSets {
-        commonMain {
+        commonMain.dependencies {
+            //implementation(libs.koin.compose)
+            //implementation(libs.compose.material3)
             // commonMain dependencies are in internal.kmp.base
         }
         
-        androidMain {
-            dependencies {
-                implementation(libs.vosk.android)
-            }
+        androidMain.dependencies {
+            //implementation(libs.vosk.android)
         }
     }
 }

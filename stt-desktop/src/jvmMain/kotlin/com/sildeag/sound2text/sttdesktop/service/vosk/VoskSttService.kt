@@ -1,8 +1,9 @@
 package com.sildeag.sound2text.sttdesktop.service.vosk
 
 import com.sildeag.sound2text.core.stt.SttConfig
-import com.sildeag.sound2text.sttdesktop.SttResult
-import com.sildeag.sound2text.sttdesktop.service.SttService
+import com.sildeag.sound2text.core.stt.SttResult
+import com.sildeag.sound2text.core.stt.SttService
+import com.sildeag.sound2text.core.stt.SttTranscriptionData
 import org.vosk.Model
 import org.vosk.Recognizer
 import java.nio.ByteBuffer
@@ -14,7 +15,15 @@ class VoskSttService(
 ) : SttService {
     // Vosk expects 16kHz mono PCM 16-bit
     private val sampleRate = 16_000f
-    override fun transcribe(audio: ByteArray): SttResult {
+    override suspend fun start() {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun stop() {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun transcribe(audio: ByteArray): SttResult {
         return try {
             val pcm = toShortArray(audio)
 
@@ -28,7 +37,14 @@ class VoskSttService(
                 val resultJson = recognizer.finalResult
                 // You can parse JSON here if you want just the text
                 val text = extractTextFromResult(resultJson)
-                SttResult.Success(text)
+                return SttResult.Success(
+                    SttTranscriptionData(
+                        text = text,
+                        confidence = null,
+                        engineName = "vosk"
+                    )
+                )
+
             }
         } catch (e: Exception) {
             SttResult.Failure("Vosk transcription failed", e)

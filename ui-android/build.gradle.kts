@@ -16,6 +16,6 @@ dependencies {
     implementation(project(":stt-android"))
     implementation(project(":di"))
     implementation(libs.koin.android)
-    implementation(libs.koin.compose)
-    implementation(libs.compose.material3)
+    //implementation(libs.koin.compose)
+    //implementation(libs.compose.material3)
 }

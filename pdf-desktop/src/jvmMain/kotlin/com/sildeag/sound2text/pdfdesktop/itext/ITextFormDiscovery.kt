@@ -1,11 +1,12 @@
 package com.sildeag.sound2text.pdfdesktop.itext
+
 import com.itextpdf.forms.PdfAcroForm
 import com.itextpdf.kernel.pdf.PdfDocument
 import com.itextpdf.kernel.pdf.PdfReader
 import com.sildeag.sound2text.core.pdf.*
 import java.io.File
 
-private val PdfAcroForm.fields: Any
+//private val PdfAcroForm.fields: Any
 
 class ITextFormDiscovery : PdfFormDiscovery {
     override fun discoverForms(basePath: String): List<PdfFormDescriptor> {

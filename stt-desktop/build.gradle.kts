@@ -11,34 +11,26 @@ kotlin {
     }
 
     sourceSets {
-        commonMain {
-            dependencies {
+        commonMain.dependencies {
                 implementation(project(":core"))
-                implementation(project(":di"))
+                //implementation(project(":di"))
                 implementation(libs.vosk)
-            }
         }
         
-        jvmMain {
-            dependencies {
+        jvmMain.dependencies {
                 implementation(project(":core"))
-                implementation(project(":di"))
+                //implementation(project(":di"))
                 implementation(libs.vosk.api)
-            }
         }
 
-        androidMain {
-            dependencies {
+        androidMain.dependencies {
                 implementation(project(":core"))
-                implementation(project(":di"))
+                //implementation(project(":di"))
                 implementation(libs.vosk.android)
-            }
         }
 
-        jvmTest {
-            dependencies {
+        jvmTest.dependencies {
                 implementation(libs.bundles.testJvm)
-            }
         }
     }
 }

@@ -11,16 +11,15 @@ kotlin {
     }
 
     sourceSets {
-        commonMain {
-            dependencies {
+        commonMain.dependencies {
                 implementation(project(":core"))
+                //implementation(libs.koin.compose)
+                //implementation(libs.compose.material3)
                 implementation(libs.bundles.itext)
                 implementation(libs.vosk)
-            }
         }
         
-        jvmMain {
-            dependencies {
+        jvmMain.dependencies {
                 implementation("org.openjfx:javafx-base:$jfxVersion:$desktopPlatform")
                 implementation("org.openjfx:javafx-controls:$jfxVersion:$desktopPlatform")
                 implementation("org.openjfx:javafx-fxml:$jfxVersion:$desktopPlatform")
@@ -34,17 +33,14 @@ kotlin {
                     implementation("$group:$name:$version:$platform")
                 }
                 */
-            }
         }
 
         androidMain {
             // Android specific dependencies
         }
 
-        jvmTest {
-            dependencies {
+        jvmTest.dependencies {
                 implementation(libs.bundles.testJvm)
-            }
         }
     }
 }

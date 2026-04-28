@@ -1,5 +1,58 @@
 package com.sildeag.sound2text.core.config
 
-//expect object SettingsLoader {
-//    fun load(): AppSettings
-//}
+import kotlinx.serialization.*
+import kotlinx.serialization.json.*
+import java.io.File
+object SettingsLoader {
+    private val json = Json {
+        ignoreUnknownKeys = true
+        encodeDefaults = false
+        prettyPrint = true
+    }
+    private val configFile = File("config/appsettings.json")
+    fun load(): AppSettings {
+        // If no file exists, return defaults and write them out
+        if (!configFile.exists()) {
+            save(DefaultConfig.app)
+            return DefaultConfig.app
+        }
+        return try {
+            val text = configFile.readText()
+            val loaded = json.decodeFromString<AppSettings>(text)
+            mergeWithDefaults(loaded)
+        } catch (e: Exception) {
+            println("Error loading settings: ${e.message}")
+            DefaultConfig.app
+        }
+    }
+    fun save(settings: AppSettings) {
+        configFile.parentFile?.mkdirs()
+        configFile.writeText(json.encodeToString(settings))
+    }
+    private fun mergeWithDefaults(loaded: AppSettings): AppSettings {
+        val def = DefaultConfig.app
+        return AppSettings(
+            platform = loaded.platform.ifBlank { def.platform },
+            mode = loaded.mode.ifBlank { def.mode },
+            ui = loaded.ui ?: def.ui,
+            audio = loaded.audio ?: def.audio,
+            stt = mergeStt(loaded.stt, def.stt),
+            services = loaded.services ?: def.services,
+            theme = loaded.theme ?: def.theme,
+            logging = loaded.logging ?: def.logging
+        )
+    }
+    private fun mergeStt(loaded: SpeechToTextSettings, def:
+    SpeechToTextSettings): SpeechToTextSettings {
+        return SpeechToTextSettings(
+            provider = loaded.provider,
+            language = loaded.language,
+            outputFormat = loaded.outputFormat,
+            engineConfig = loaded.engineConfig ?: def.engineConfig,
+            apiKey = loaded.apiKey.ifBlank { def.apiKey },
+            endpoint = loaded.endpoint.ifBlank { def.endpoint },
+            model = loaded.model.ifBlank { def.model }
+        )
+    }
+}
+

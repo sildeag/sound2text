@@ -32,6 +32,24 @@ class MyApplication : Application() {
 }
 */
 
+// Thin MainActivity using appcommon
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        SettingsLoader.context = this
+        val settings = SettingsLoader.load()
+        startKoin {
+            androidContext(this@MainActivity)
+            modules(androidModule(settings))
+        }
+        setContent {
+            com.sildeag.sound2text.appcommon.runApp()
+        }
+    }
+}
+
+/*
+// Original ManiActivity using :ui-android
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,7 +68,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
+*/
 
 /****** Test stub keep for future reference
 import android.os.Bundle

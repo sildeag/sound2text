@@ -9,7 +9,7 @@ class JvmSttService(
     private val engine: SttEngine,
     private val config: SttConfig
 ) : SttService {
-    override fun transcribe(audio: ByteArray): SttResult {
+    override suspend fun transcribe(audio: ByteArray): SttResult {
         return try {
             val stt = engine.loadModel(config)
             stt.transcribe(audio)

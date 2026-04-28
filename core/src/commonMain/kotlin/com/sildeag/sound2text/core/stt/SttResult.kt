@@ -1,8 +1,9 @@
 package com.sildeag.sound2text.core.stt
 
-data class SttResult(
-    val text: String,
-    val confidence: Float? = null,
-    val engineName: String? = null,
-    val timestamp: Long = System.currentTimeMillis()
-)
+sealed class SttResult {
+    data class Success(val data: SttTranscriptionData) : SttResult()
+    data class Failure(val message: String, val cause: Throwable? =
+        null) : SttResult()
+}
+
+

@@ -12,16 +12,13 @@ kotlin {
     jvm()
 
     sourceSets {
-        commonMain {
-            dependencies {
+        commonMain.dependencies {
                 implementation(project(":core"))
                 implementation(libs.bundles.itext)
                 implementation(libs.vosk)
-            }
         }
 
-        jvmMain {
-            dependencies {
+        jvmMain.dependencies {
                 implementation(project(":core"))
                 implementation(project(":ui-common"))
                 implementation(project(":stt-desktop"))
@@ -33,13 +30,10 @@ kotlin {
                 implementation("org.openjfx:javafx-controls:$jfxVersion:$desktopPlatform")
                 implementation("org.openjfx:javafx-fxml:$jfxVersion:$desktopPlatform")
                 implementation("org.openjfx:javafx-graphics:$jfxVersion:$desktopPlatform")
-            }
         }
 
-        jvmTest {
-            dependencies {
+        jvmTest.dependencies {
                 implementation(libs.bundles.testJvm)
-            }
         }
     }
 }

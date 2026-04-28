@@ -1,19 +1,31 @@
 plugins {
     id("internal.kmp.compose")
+    //id("internal.kmp.compose.library")
 }
 
 kotlin {
     sourceSets {
-        commonMain {
+        commonMain.dependencies {
+            implementation(project(":core"))
+            implementation(project(":di"))
+            implementation(project(":ui-common"))
+            //implementation(project(":stt-desktop"))
+            implementation(compose.desktop.currentOs)
+            //implementation(libs.compose.material3)
+            implementation(libs.bundles.itext)
+            implementation(libs.vosk)
+        }
+
+        jvmMain {
             dependencies {
                 implementation(project(":core"))
+                implementation(project(":di"))
                 implementation(project(":ui-common"))
-                implementation(project(":stt-desktop"))
-                implementation(compose.desktop.currentOs)
+                //implementation(libs.compose.material3)
+                implementation(libs.bundles.itext)
+                implementation(libs.vosk)
             }
-        }
-        
-        jvmMain {
+            //implementation(project(":stt-desktop"))
             resources.srcDir("src/jvmMain/resources")
         }
     }

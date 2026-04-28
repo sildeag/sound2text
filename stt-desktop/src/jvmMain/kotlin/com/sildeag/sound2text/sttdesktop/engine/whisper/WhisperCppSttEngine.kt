@@ -24,7 +24,7 @@ class WhisperCppSttEngine : SttEngine {
 
     override fun loadModel(config: SttConfig): SttService {
         return object : SttService {
-            override fun transcribe(audio: ByteArray): SttResult {
+            override suspend fun transcribe(audio: ByteArray): SttResult {
                 return SttResult(
                     text = "Whisper-CPP engine is not implemented yet.",
                     engineName = "whisper-cpp"

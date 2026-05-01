@@ -12,19 +12,22 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-                implementation(project(":core"))
+            implementation(project(":core"))
+            implementation(project(":di"))
                 //implementation(libs.koin.compose)
                 //implementation(libs.compose.material3)
-                implementation(libs.bundles.itext)
-                implementation(libs.vosk)
+            implementation(libs.bundles.itext)
+            implementation(libs.vosk)
         }
         
         jvmMain.dependencies {
-                implementation("org.openjfx:javafx-base:$jfxVersion:$desktopPlatform")
-                implementation("org.openjfx:javafx-controls:$jfxVersion:$desktopPlatform")
-                implementation("org.openjfx:javafx-fxml:$jfxVersion:$desktopPlatform")
-                implementation("org.openjfx:javafx-graphics:$jfxVersion:$desktopPlatform")
-                /* example of old way to set JavaFX modules
+            implementation(project(":core"))
+            implementation(project(":di"))
+            implementation("org.openjfx:javafx-base:$jfxVersion:$desktopPlatform")
+            implementation("org.openjfx:javafx-controls:$jfxVersion:$desktopPlatform")
+            implementation("org.openjfx:javafx-fxml:$jfxVersion:$desktopPlatform")
+            implementation("org.openjfx:javafx-graphics:$jfxVersion:$desktopPlatform")
+            /* example of old way to set JavaFX modules
                 implementation(compose.desktop.currentOs)
                 libs.bundles.javafx.get().forEach { dep ->
                     val group = dep.module.group
@@ -32,7 +35,7 @@ kotlin {
                     val version = dep.versionConstraint.requiredVersion
                     implementation("$group:$name:$version:$platform")
                 }
-                */
+            */
         }
 
         androidMain {

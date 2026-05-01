@@ -14,6 +14,7 @@ kotlin {
             //implementation(libs.compose.material3)
             implementation(libs.bundles.itext)
             implementation(libs.vosk)
+            implementation(libs.vosk.api)
         }
 
         jvmMain {
@@ -24,8 +25,8 @@ kotlin {
                 //implementation(libs.compose.material3)
                 implementation(libs.bundles.itext)
                 implementation(libs.vosk)
+                implementation(libs.vosk.api)
             }
-            //implementation(project(":stt-desktop"))
             resources.srcDir("src/jvmMain/resources")
         }
     }

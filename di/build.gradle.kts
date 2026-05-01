@@ -16,8 +16,8 @@ kotlin {
 
         androidMain.dependencies {
             implementation(project(":core"))
-            //implementation(project(":stt-android"))
-            //implementation(project(":pdf-android"))
+            implementation(project(":stt-android"))
+            implementation(project(":pdf-android"))
             implementation(libs.vosk.android)
         }
 

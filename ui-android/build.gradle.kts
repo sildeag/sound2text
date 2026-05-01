@@ -13,7 +13,7 @@ android {
 dependencies {
     implementation(project(":core"))
     implementation(project(":ui-common"))
-    implementation(project(":stt-android"))
+    //implementation(project(":stt-android"))
     implementation(project(":di"))
     implementation(libs.koin.android)
     //implementation(libs.koin.compose)

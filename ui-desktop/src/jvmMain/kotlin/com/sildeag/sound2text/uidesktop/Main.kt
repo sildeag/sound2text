@@ -7,6 +7,7 @@ import com.sildeag.sound2text.core.storage.StorageService
 import com.sildeag.sound2text.core.stt.SttEngine
 import com.sildeag.sound2text.core.stt.SttService
 import com.sildeag.sound2text.core.stt.SttConfig
+import com.sildeag.sound2text.sttdesktop.
 import com.sildeag.sound2text.di.common.sttCommonModule
 import com.sildeag.sound2text.uidesktop.desktopModule
 import com.sildeag.sound2text.uidesktop.ui.DesktopComposeApp

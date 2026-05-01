@@ -1,6 +1,8 @@
 package com.sildeag.sound2text.sttdesktop.engine.vosk
 
+import com.sildeag.sound2text.core.config.AudioSettings
 import com.sildeag.sound2text.core.logging.Logger
+import org.vosk.Model
 import javax.sound.sampled.AudioFormat
 
 class VoskLiveRecognizer(

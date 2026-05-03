@@ -18,6 +18,7 @@ plugins {
     //alias(libs.plugins.ksp) apply false
     alias(libs.plugins.dokka) apply false // Re-enabled for AGP 9.1+
     jacoco
+    id("internal.verification")
 }
 
 // Global Dokka task
@@ -28,3 +29,10 @@ tasks.register("dokkaAll") {
         }
     )
 }
+
+// Custom/Draft Scripts
+if (File("scripts/draft-tasks.gradle.kts").exists()) {
+    apply(from = "scripts/draft-tasks.gradle.kts")
+}
+
+

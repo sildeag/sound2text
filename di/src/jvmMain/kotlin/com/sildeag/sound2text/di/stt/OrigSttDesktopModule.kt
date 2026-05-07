@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.di.core.stt
+package com.sildeag.sound2text.di.stt
 
 import com.sildeag.sound2text.core.stt.SttEngine
 import com.sildeag.sound2text.sttdesktop.DesktopSttEngine

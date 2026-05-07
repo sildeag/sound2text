@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.di.core.stt.vosk
+package com.sildeag.sound2text.di.stt.vosk
 
 import com.sildeag.sound2text.core.stt.SttConfig
 import com.sildeag.sound2text.core.stt.SttEngineFactory

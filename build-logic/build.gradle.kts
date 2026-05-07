@@ -18,3 +18,12 @@ dependencies {
     implementation(libs.dokka.gradle.plugin) // Re-enabled for AGP 9.1+ compatibility
     implementation(libs.javafx.gradle.plugin)
 }
+
+gradlePlugin {
+    plugins {
+        register("verificationV2") {
+            id = "internal.verification.v2"
+            implementationClass = "com.sildeag.buildlogic.VerificationPluginV2"
+        }
+    }
+}

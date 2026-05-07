@@ -19,6 +19,7 @@ plugins {
     alias(libs.plugins.dokka) apply false // Re-enabled for AGP 9.1+
     jacoco
     id("internal.verification")
+    id("internal.verification.v2")
 }
 
 // Global Dokka task

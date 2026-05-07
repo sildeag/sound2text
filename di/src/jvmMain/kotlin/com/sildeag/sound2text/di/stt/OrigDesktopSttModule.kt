@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.di.core.stt
+package com.sildeag.sound2text.di.stt
 
 import com.sildeag.sound2text.core.stt.SttConfig
 import org.koin.dsl.module

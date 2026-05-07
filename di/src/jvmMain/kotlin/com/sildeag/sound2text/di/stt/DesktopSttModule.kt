@@ -1,25 +1,24 @@
-package com.sildeag.sound2text.di.core.stt
+package com.sildeag.sound2text.di.stt
 
-import com.sildeag.sound2text.core.stt.SttConfig
-import com.sildeag.sound2text.core.stt.SttService
+import com.sildeag.sound2text.sttdesktop.service.SttService
 import com.sildeag.sound2text.sttdesktop.service.vosk.VoskModelFactory
 import com.sildeag.sound2text.sttdesktop.service.vosk.VoskSttService
-import com.sildeag.sound2text.sttandroid.service.vosk.VoskAndroidModelFactory
-import com.sildeag.sound2text.sttandroid.service.vosk.VoskAndroidSttService
+import org.koin.core.module.Module
 import org.koin.dsl.module
-import android.content.Context
 
-fun desktopSttModule(config: SttConfig) = module {
+fun desktopSttModule(config: SttConfig): Module = module {
     single { config }
-    single { VoskModelFactory.loadModel(get()) }
-    single<SttService> { VoskSttService(get(), get()) }
+    single {
+        VoskModelFactory.loadModel(get())
+    }
+    single<SttService> {
+        VoskSttService(
+            model = get(),
+            config = get()
+        )
+    }
 }
 
-fun androidSttModule(context: Context, config: SttConfig) = module {
-    single { config }
-    single { VoskAndroidModelFactory.loadModel(context, get()) }
-    single<SttService> { VoskAndroidSttService(get(), get()) }
-}
 
 
 /*

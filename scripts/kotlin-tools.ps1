@@ -17,6 +17,7 @@ $modules  = @(
     "stt-android",
     "config",
     "core",
+    "appcommon",
     "ui-common",
     "ui-desktop",
     "ui-legacy",

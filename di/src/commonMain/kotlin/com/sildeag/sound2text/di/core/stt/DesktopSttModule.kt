@@ -6,6 +6,7 @@ import com.sildeag.sound2text.sttdesktop.service.vosk.VoskModelFactory
 import com.sildeag.sound2text.sttandroid.service.vosk.VoskAndroidSttService
 import com.sildeag.sound2text.sttandroid.service.vosk.VoskAndroidModelFactory
 import org.koin.core.module.Module
+
 import org.koin.dsl.module
 // Desktop module (wired in desktop app)
 fun desktopSttModule(modelPath: java.nio.file.Path): Module = module {

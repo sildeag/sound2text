@@ -1,7 +1,7 @@
 package com.sildeag.sound2text.desktop
 import com.sildeag.sound2text.core.config.AppSettings
 import com.sildeag.sound2text.core.config.SettingsLoader
-import com.sildeag.sound2text.core.logging.Logger
+import com.sildeag.sound2text.core.common.logging.Logger
 import com.sildeag.sound2text.core.storage.StorageService
 import com.sildeag.sound2text.sttdesktop.SttEngine
 import com.sildeag.sound2text.sttdesktop.SttService

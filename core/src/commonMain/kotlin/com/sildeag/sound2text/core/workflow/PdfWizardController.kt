@@ -5,6 +5,8 @@ import com.sildeag.sound2text.core.pdf.UnifiedFormRegistry
 import com.sildeag.sound2text.core.stt.UnifiedEngineRegistry
 import com.sildeag.sound2text.core.stt.SttConfig
 import com.sildeag.sound2text.core.stt.SttResult
+import com.sildeag.sound2text.core.workflow.PdfWizardStep.*
+
 class PdfWizardController(
     private val formRegistry: UnifiedFormRegistry,
     private val sttRegistry: UnifiedEngineRegistry,
@@ -17,31 +19,32 @@ class PdfWizardController(
         val forms = formRegistry.listForms(formsBasePath)
         state = state.copy(
             availableForms = forms,
-            step = PdfWizardStep.SelectForm
+            step = SelectForm
         )
     }
     fun selectForm(form: PdfFormDescriptor) {
         state = state.copy(
             selectedForm = form,
-            step = PdfWizardStep.MapFields(form)
+            step = MapFields(form)
         )
     }
+
     fun setMappings(mappings: List<FieldMapping>) {
         state = state.copy(
             mappings = mappings,
             currentFieldIndex = 0,
-            step = PdfWizardStep.FillFields
+            step = PdfWizardStep.FillFields(mappings)
         )
     }
     fun nextField() {
         val nextIndex = state.currentFieldIndex + 1
         if (nextIndex >= state.mappings.size) {
-            state = state.copy(step = PdfWizardStep.Completed)
+            state = state.copy(step = Completed)
         } else {
             state = state.copy(currentFieldIndex = nextIndex)
         }
     }
-    fun fillCurrentFieldWithStt(
+    suspend fun fillCurrentFieldWithStt(
         audioBytes: ByteArray,
         outputPath: String
     ) {
@@ -50,13 +53,15 @@ class PdfWizardController(
         val plugin = formRegistry.getPlugin(form.engine) ?: return
         val factory = plugin.createFactory()
         val engine = factory.load(form)
-        val sttEnginePlugin =
-            sttRegistry.getPlugin(mapping.sttEngine) ?: return
+        val sttEnginePlugin = sttRegistry.getPlugin(mapping.sttEngine) ?: return
         val sttFactory = sttEnginePlugin.createFactory()
         val sttConfig = SttConfig(
-            engine = mapping.sttEngine,
-            modelName = mapping.modelName,
-            language = mapping.language
+            engineName = mapping.sttEngine,
+            language = mapping.language,
+            modelPath = mapping.modelPath,
+            modelFile = mapping.modelFile,
+            androidModelDir = mapping.androidModelDir,
+            androidModelFile = mapping.androidModelFile
         )
         val sttEngine = sttFactory.load(sttConfig)
         val result: SttResult = sttEngine.transcribe(audioBytes)

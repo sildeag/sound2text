@@ -1,5 +1,7 @@
 package com.sildeag.sound2text.service.note
 
+import com.sildeag.sound2text.core.model.note.NoteEditor
+import com.sildeag.sound2text.core.model.note.NoteProvider
 import com.sildeag.sound2text.service.pdf.PdfWriterFactory
 
 class NoteProviderMock(

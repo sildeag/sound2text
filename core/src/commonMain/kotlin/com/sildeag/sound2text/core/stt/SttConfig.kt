@@ -1,16 +1,15 @@
 package com.sildeag.sound2text.core.stt
 
 data class SttConfig(
-    val language: String = "en-US",
-    // Engine selection
-    val engineName: String = "vosk",
+    override val language: String,
+    override val sttEngine: String,
+    val engineName: String,
     // Desktop model location
-    val modelPath: String? = null, // directory or full path
-    val modelFile: String? = null, // optional: specific file inside modelPath
+    override val modelPath: String?,
+    override val modelFile: String?,
     // Android model location
-    val androidModelDir: String? = null, // directory under filesDir
-    val androidModelFile: String? = null,
+    override val androidModelDir: String?,
+    override val androidModelFile: String?,
     // Audio parameters
     val sampleRate: Float = 16_000f
-)
-
+) : SttModelInfo

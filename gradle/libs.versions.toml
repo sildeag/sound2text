@@ -64,6 +64,11 @@ cardview-ver = "1.0.0"
 jacoco-ver = "0.8.12"
 javafx-plugin-ver = "0.1.0"
 
+# --- SQLite ---
+room-ver = "2.7.0"
+sqlite-jdbc-ver = "3.45.1.0"
+spatialite-android-ver = "2.0.0"
+
 # ============================================================
 #                          PLUGINS
 # ============================================================
@@ -184,6 +189,14 @@ formsfx = { module = "com.dlsc.formsfx:formsfx-core", version.ref = "formsfx-ver
 ikonli = { module = "org.kordamp.ikonli:ikonli-javafx", version.ref = "ikonli-ver" }
 cardview = { module = "androidx.cardview:cardview", version.ref = "cardview-ver" }
 jacoco-ver = { module = "org.jacoco:org.jacoco.core", version = "0.8.12" }
+
+# --- Multiplatform Room / SQLite Core ---
+androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room-ver" }
+androidx-sqlite-bundled = { group = "androidx.sqlite", name = "sqlite-bundled", version.ref = "room-ver" }
+# ---Platform-specific Engines ---
+spatialite-android = { group = "com.github.sevar83", name = "android-spatialite", version.ref = "spatialite-android-ver" }
+sqlite-jdbc = { group = "org.xerial", name = "sqlite-jdbc", version.ref = "sqlite-jdbc-ver" }
+
 
 # ============================================================
 #                          BUNDLES

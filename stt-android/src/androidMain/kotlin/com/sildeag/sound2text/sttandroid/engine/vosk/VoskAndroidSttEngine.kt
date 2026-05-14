@@ -1,16 +1,59 @@
 package com.sildeag.sound2text.sttandroid.engine.vosk
 
-import android.content.Context
-import com.sildeag.sound2text.stt.*
+import com.sildeag.sound2text.core.stt.SttEngine
+import com.sildeag.sound2text.core.stt.SttResult
 import org.vosk.Model
-import org.vosk.android.Recognizer
-import org.vosk.android.SpeechService
+import org.vosk.Recognizer
 
 class VoskAndroidSttEngine(
-    private val context: Context,
-    private val model: Model
+    private val language: String,
+    private val modelPath: String?,
+    private val modelFile: String?,
+    private val androidModelDir: String?,
+    private val androidModelFile: String?,
+    private val sampleRate: Float
 ) : SttEngine {
-    override fun loadModel(config: SttConfig): SttService {
-        return VoskAndroidSttService(context, model, config)
+    private var model: Model? = null
+    private var recognizer: Recognizer? = null
+    private var callback: ((String) -> Unit)? = null
+    override fun start(onResult: (String) -> Unit) {
+        callback = onResult
+        // Android uses androidModelDir or androidModelFile
+        val path = androidModelDir ?: androidModelFile
+        ?: error("VoskAndroidSttEngine: No Android model path provided")
+                model = Model(path)
+                recognizer = Recognizer(model, sampleRate)
+    }
+    override fun processAudio(data: ByteArray) {
+        val rec = recognizer ?: return
+        val text = if (rec.acceptWaveForm(data)) {
+            rec.result
+        } else {
+            rec.partialResult
+        }
+        callback?.invoke(text)
+    }
+
+    override suspend fun start() {
+        TODO("Not yet implemented")
+    }
+
+    override fun stop() {
+        recognizer?.close()
+        model?.close()
+        recognizer = null
+        model = null
+    }
+
+    override suspend fun transcribe(chunk: ByteArray): String {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun recognizeOnce(): SttResult? {
+        TODO("Not yet implemented")
+    }
+
+    override fun finalResult(): String? {
+        return recognizer?.finalResult
     }
 }

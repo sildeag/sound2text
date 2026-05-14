@@ -1,6 +1,5 @@
 package com.sildeag.sound2text.sttandroid.service.vosk
 
-package com.sildeag.sound2text.sttandroid.service.vosk
 import com.sildeag.sound2text.core.stt.SttService
 import com.sildeag.sound2text.core.stt.SttResult
 import com.sildeag.sound2text.core.stt.SttTranscriptionData
@@ -30,7 +29,7 @@ class VoskAndroidSttService(
                     .allocate(pcm.size * 2)
                     .order(ByteOrder.LITTLE_ENDIAN)
                 pcm.forEach { buffer.putShort(it) }
-                recognizer.acceptWaveform(buffer.array(), buffer.array().size)
+                recognizer.acceptWaveForm(buffer.array(), buffer.array().size)
                 val json = recognizer.finalResult
                 val text = extractText(json)
                 SttResult.Success(

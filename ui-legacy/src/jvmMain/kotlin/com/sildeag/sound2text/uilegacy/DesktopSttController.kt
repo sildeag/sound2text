@@ -2,7 +2,7 @@ package com.sildeag.sound2text.uidesktop
 
 import androidx.compose.runtime.mutableStateOf
 import com.sildeag.sound2text.pdfdesktop.AppSettings
-import com.sildeag.sound2text.core.logging.Logger
+import com.sildeag.sound2text.core.common.logging.Logger
 import com.sildeag.sound2text.sttdesktop.SttEngine
 import com.sildeag.sound2text.sttdesktop.SttResult
 import kotlinx.coroutines.CoroutineScope

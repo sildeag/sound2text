@@ -1,7 +1,6 @@
 package com.sildeag.sound2text.sttdesktop.engine
 
 import com.sildeag.sound2text.core.stt.SttConfig
-import com.sildeag.sound2text.sttdesktop.service.JvmSttService
 
 class CreateStt(
     private val registry: UnifiedEngineRegistry

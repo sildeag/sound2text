@@ -1,5 +1,7 @@
 package com.sildeag.sound2text.service.note
 
+import com.sildeag.sound2text.core.model.note.NoteEditor
+
 class NoteEditorImpl : NoteEditor {
     private val textBuffer = StringBuilder()
     override fun append(text: String) {

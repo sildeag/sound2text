@@ -2,12 +2,11 @@ package com.sildeag.sound2text.desktop
 
 import com.sildeag.sound2text.core.config.AppSettings
 import com.sildeag.sound2text.core.config.SettingsLoader
-import com.sildeag.sound2text.core.logging.Logger
+import com.sildeag.sound2text.core.common.logging.Logger
 import com.sildeag.sound2text.core.storage.StorageService
 import com.sildeag.sound2text.core.stt.SttEngine
 import com.sildeag.sound2text.core.stt.SttService
 import com.sildeag.sound2text.core.stt.SttConfig
-import com.sildeag.sound2text.sttdesktop.
 import com.sildeag.sound2text.di.common.sttCommonModule
 import com.sildeag.sound2text.uidesktop.desktopModule
 import com.sildeag.sound2text.uidesktop.ui.DesktopComposeApp

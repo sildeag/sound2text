@@ -1,5 +1,6 @@
 package com.sildeag.sound2text.sttdesktop.engine.vosk
 
+import com.sildeag.sound2text.core.config.SttSettings
 import com.sildeag.sound2text.core.engine.AudioSource
 import com.sildeag.sound2text.core.engine.SpeechToTextEngine
 import com.sildeag.sound2text.pdfdesktop.model.SttSettings

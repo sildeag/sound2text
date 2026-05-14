@@ -1,7 +1,7 @@
 package com.sildeag.sound2text.storage
 
 import com.sildeag.sound2text.pdfdesktop.AppSettings
-import com.sildeag.sound2text.service.note.Note
+import com.sildeag.sound2text.core.model.note.Note
 class DesktopStorageService(settings: AppSettings) : StorageService {
     override fun saveNotes(notes: List<Note>) {
         println("DesktopStorageService.saveNotes called (stub)")

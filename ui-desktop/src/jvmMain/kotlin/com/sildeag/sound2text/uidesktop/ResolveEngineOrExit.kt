@@ -1,6 +1,6 @@
 package com.sildeag.sound2text.uidesktop
 
-import com.sildeag.sound2text.core.logging.Logger
+import com.sildeag.sound2text.core.common.logging.Logger
 import com.sildeag.sound2text.core.stt.SttConfig
 import com.sildeag.sound2text.core.stt.SttEngine
 import com.sildeag.sound2text.core.stt.SttService

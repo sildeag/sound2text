@@ -2,8 +2,8 @@ package com.sildeag.sound2text.viewmodel
 
 import com.sildeag.sound2text.pdfdesktop.AppSettings
 import com.sildeag.sound2text.service.logic.PulseLogic
-import com.sildeag.sound2text.service.note.NoteEditor
-import com.sildeag.sound2text.service.note.NoteProvider
+import com.sildeag.sound2text.core.model.note.NoteEditor
+import com.sildeag.sound2text.core.model.note.NoteProvider
 class CoreSoundViewModel(
     private val noteEditor: NoteEditor,
     val pulseLogic: PulseLogic,

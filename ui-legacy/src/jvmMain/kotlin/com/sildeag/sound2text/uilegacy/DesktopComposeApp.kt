@@ -4,7 +4,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import com.sildeag.sound2text.pdfdesktop.AppSettings
-import com.sildeag.sound2text.core.logging.Logger
+import com.sildeag.sound2text.core.common.logging.Logger
 import com.sildeag.sound2text.core.storage.StorageService
 import com.sildeag.sound2text.sttdesktop.SttEngine
 

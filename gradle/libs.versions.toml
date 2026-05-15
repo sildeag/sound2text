@@ -21,11 +21,11 @@ compose-bom-ver = "2026.03.01"    # was 2025.02.00
 
 activity-compose = "1.12.3"       # was 1.9.3
 
-# --- Koin + KSP ---
+# Koin + KSP ---
 koin = "4.2.0"                    # was 4.1.1
 koin-annotations-ver = "2.3.1"    # was 1.4.0
 koin-compiler-ver = "2.3.1"       # was 1.4.0
-# ksp-ver = "2.3.20-1.0.31"        # was 2.3.20-1.0.31 (Disabled as not used/unresolved)
+ksp-ver = "2.3.8"
 
 
 # --- Coroutines ---
@@ -65,9 +65,12 @@ jacoco-ver = "0.8.12"
 javafx-plugin-ver = "0.1.0"
 
 # --- SQLite ---
-room-ver = "2.7.0"
+#room-ver = "2.7.0"
 sqlite-jdbc-ver = "3.45.1.0"
 spatialite-android-ver = "2.0.0"
+sqlite-bundled-ver = "2.5.0"
+sqliteFramework = "2.6.2"
+
 
 # ============================================================
 #                          PLUGINS
@@ -75,6 +78,8 @@ spatialite-android-ver = "2.0.0"
 
 [plugins]
 # Kotlin
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp-ver" }
+#room = { id = "androidx.room", version.ref = "room-ver" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin-ver" }
 kotlinJvm           = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin-ver" }
 
@@ -108,7 +113,8 @@ kotlin-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-p
 kotlin-serialization-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-serialization", version.ref = "kotlin-ver" }
 compose-gradle-plugin = { group = "org.jetbrains.compose", name = "compose-gradle-plugin", version.ref = "compose-mpp" }
 compose-compiler-gradle-plugin = { group = "org.jetbrains.kotlin", name = "compose-compiler-gradle-plugin", version.ref = "kotlin-ver" }
-# ksp-gradle-plugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp-ver" }
+ksp-gradle-plugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp-ver" }
+#room-gradle-plugin = { group = "androidx.room", name = "room-gradle-plugin", version.ref = "room-ver" }
 dokka-gradle-plugin = { group = "org.jetbrains.dokka", name = "dokka-gradle-plugin", version.ref = "dokka-ver" }
 javafx-gradle-plugin = { module = "org.openjfx.javafxplugin:org.openjfx.javafxplugin.gradle.plugin", version.ref = "javafx-plugin-ver" }
 
@@ -188,14 +194,16 @@ tilesfx = { module = "eu.hansolo:tilesfx", version.ref = "tilesfx-ver" }
 formsfx = { module = "com.dlsc.formsfx:formsfx-core", version.ref = "formsfx-ver" }
 ikonli = { module = "org.kordamp.ikonli:ikonli-javafx", version.ref = "ikonli-ver" }
 cardview = { module = "androidx.cardview:cardview", version.ref = "cardview-ver" }
-jacoco-ver = { module = "org.jacoco:org.jacoco.core", version = "0.8.12" }
+jacoco-ver = { module = "org.jacoco:org.jacoco.core", version.ref = "jacoco-ver" }
 
 # --- Multiplatform Room / SQLite Core ---
-androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room-ver" }
-androidx-sqlite-bundled = { group = "androidx.sqlite", name = "sqlite-bundled", version.ref = "room-ver" }
+#androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room-ver" }
+#androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room-ver" }
+androidx-sqlite-bundled = { group = "androidx.sqlite", name = "sqlite-bundled", version.ref = "sqlite-bundled-ver" }
 # ---Platform-specific Engines ---
 spatialite-android = { group = "com.github.sevar83", name = "android-spatialite", version.ref = "spatialite-android-ver" }
 sqlite-jdbc = { group = "org.xerial", name = "sqlite-jdbc", version.ref = "sqlite-jdbc-ver" }
+androidx-sqlite-framework = { group = "androidx.sqlite", name = "sqlite-framework", version.ref = "sqliteFramework" }
 
 
 # ============================================================

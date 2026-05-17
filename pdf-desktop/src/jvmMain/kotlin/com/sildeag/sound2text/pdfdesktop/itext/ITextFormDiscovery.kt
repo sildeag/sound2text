@@ -25,9 +25,9 @@ class ITextFormDiscovery : PdfFormDiscovery {
                 val rawType = field.formType?.type?.toString()
                 PdfFieldDescriptor(
                     name = name,
+                    type1 = "text",
                     type = mapFieldType(rawType),
-                    voiceEnabled = rawType == "Tx",
-                    language = null
+                    voiceEnabled = rawType == "Tx"
                 )
             }
             pdf.close()

@@ -1,7 +1,6 @@
 package com.sildeag.sound2text.core.notes
 
 import androidx.sqlite.SQLiteConnection
-import androidx.sqlite.SQLiteStatement
 import com.sildeag.sound2text.core.model.note.*
 import com.sildeag.sound2text.core.serialization.NoteFieldJson
 import com.sildeag.sound2text.core.serialization.NoteFieldPayload

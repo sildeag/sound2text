@@ -1,6 +1,6 @@
 package com.sildeag.sound2text.di
 
-import com.sildeag.sound2text.service.grammar.GrammarService
+import com.sildeag.sound2text.core.grammar.GrammarService
 import com.sildeag.sound2text.service.grammar.MockGrammarService
 import com.sildeag.sound2text.core.model.note.NoteEditor
 import com.sildeag.sound2text.service.note.NoteEditorImpl

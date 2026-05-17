@@ -1,5 +1,6 @@
 package com.sildeag.sound2text.service.grammar
 
+import com.sildeag.sound2text.core.grammar.GrammarService
 import kotlinx.coroutines.delay
 
 class MockGrammarService : GrammarService {

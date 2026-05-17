@@ -1,7 +1,6 @@
 package com.sildeag.sound2text.uicommon.viewmodel
 
 import com.sildeag.sound2text.storage.StorageService
-import com.sildeag.sound2text.sttdesktop.SpeechToTextService
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 class SoundViewModel(

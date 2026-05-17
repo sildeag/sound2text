@@ -18,7 +18,7 @@ kotlin {
         jvmMain.dependencies {
                 implementation(project(":core"))
                 //implementation(project(":di"))
-                implementation(libs.snakeyaml)
+                //implementation(libs.snakeyaml)
                 implementation(libs.bundles.itext)
         }
 

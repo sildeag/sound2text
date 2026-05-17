@@ -1,7 +1,6 @@
 package com.sildeag.sound2text.uicommon.logic
 
 import com.sildeag.sound2text.core.stt.SpeechToTextService
-import com.sildeag.sound2text.sttdesktop.SpeechToTextService
 import kotlinx.coroutines.flow.Flow
 class TranscriptionController(
     private val stt: SpeechToTextService,

@@ -9,7 +9,6 @@ import com.sildeag.sound2text.storage.DesktopStorageService
 import com.sildeag.sound2text.storage.StorageService
 import com.sildeag.sound2text.sttdesktop.MockSpeechService
 import com.sildeag.sound2text.sttdesktop.OpenAIWhisperService
-import com.sildeag.sound2text.sttdesktop.SpeechToTextService
 import com.sildeag.sound2text.sttdesktop.WhisperCppService
 import org.koin.dsl.module
 import java.io.File

@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.service
+package com.sildeag.sound2text.core.util
 
 import java.io.InputStream
 import java.net.URL

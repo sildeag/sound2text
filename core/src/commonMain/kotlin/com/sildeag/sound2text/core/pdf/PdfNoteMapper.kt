@@ -7,18 +7,20 @@ class NotePdfMapper {
             when (field) {
                 is NotePdfField -> PdfFieldDescriptor(
                     name = field.pdfFieldName,
-                    type = "text",
+                    type = PdfFieldType.TEXT,
                     value = field.value,
                     language = field.language,
                     voiceEnabled = false
                 )
+
                 is NoteTextField -> PdfFieldDescriptor(
                     name = field.anchor ?: field.id,
-                    type = "text",
+                    type = PdfFieldType.TEXT,
                     value = field.text,
                     language = field.language,
                     voiceEnabled = field.voiceEnabled
                 )
+
                 else -> null
             }
         }

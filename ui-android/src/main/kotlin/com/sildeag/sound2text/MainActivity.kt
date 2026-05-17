@@ -3,15 +3,7 @@ package com.sildeag.sound2text
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.sildeag.sound2text.core.storage.StorageService
-import com.sildeag.sound2text.core.stt.SpeechToTextService
-import com.sildeag.sound2text.uiandroid.config.AppSettings
-import com.sildeag.sound2text.logging.Logger
-import com.sildeag.sound2text.platform.SettingsLoader
-import com.sildeag.sound2text.storage.StorageService
-import com.sildeag.sound2text.stt.SpeechToTextService
 import org.koin.android.ext.koin.androidContext
-import org.koin.android.ext.android.inject
 import org.koin.core.context.startKoin
 /*
 class MyApplication : Application() {

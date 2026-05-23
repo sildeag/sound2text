@@ -7,7 +7,7 @@
 
 # --- Core Toolchains (Upgraded to Modern Stack) ---
 kotlin-ver = "2.3.20"             # was 2.1.10
-agp = "9.2.1"                     # was 8.8.0
+agp = "9.3.0-alpha07"             # was 9.2.1 and earlier 8.8.0
 jvm = "24"
 
 android-compileSdk = "36"         # was 35
@@ -15,7 +15,8 @@ android-minSdk = "24"
 android-targetSdk = "36"         # was 35
 
 # --- Compose ---
-compose-mpp = "1.7.3"             # was 1.7.3 and 1.10.3 (failed)
+compose-mpp = "1.7.3"             # was 1.7.3, 1.10.3 and 2.8.0 (all had issues)
+compose-mpp-androidx = "2.8.0"    # Dedicated version for JetBrains androidx adapters
 compose-compiler = "2.3.20"        # Matches Kotlin version
 compose-bom-ver = "2026.03.01"    # was 2025.02.00
 
@@ -63,6 +64,7 @@ ikonli-ver = "12.4.0"             # was 12.3.1
 cardview-ver = "1.0.0"
 jacoco-ver = "0.8.12"
 javafx-plugin-ver = "0.1.0"
+voyager-ver = "1.0.0"
 
 # --- SQLite ---
 #room-ver = "2.7.0"
@@ -136,6 +138,7 @@ activity-compose = { module = "androidx.activity:activity-compose", version.ref 
 compose-mpp-runtime = { group = "org.jetbrains.compose.runtime", name = "runtime", version.ref = "compose-mpp" }
 compose-mpp-foundation = { group = "org.jetbrains.compose.foundation", name = "foundation", version.ref = "compose-mpp" }
 compose-mpp-material3 = { group = "org.jetbrains.compose.material3", name = "material3", version.ref = "compose-mpp" }
+compose-mpp-viewmodel = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose-multiplatform", version.ref = "compose-mpp-androidx" }
 
 
 
@@ -196,6 +199,9 @@ formsfx = { module = "com.dlsc.formsfx:formsfx-core", version.ref = "formsfx-ver
 ikonli = { module = "org.kordamp.ikonli:ikonli-javafx", version.ref = "ikonli-ver" }
 cardview = { module = "androidx.cardview:cardview", version.ref = "cardview-ver" }
 jacoco-ver = { module = "org.jacoco:org.jacoco.core", version.ref = "jacoco-ver" }
+voyager-navigator = { group = "cafe.adriel.voyager", name = "voyagernavigator", version.ref = "voyager-ver" }
+voyager-transitions = { group = "cafe.adriel.voyager", name = "voyager-transitions", version.ref = "voyager-ver" }
+
 
 # --- Multiplatform Room / SQLite Core ---
 #androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room-ver" }

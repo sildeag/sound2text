@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.di.core.stt
+package com.sildeag.sound2text.di.stt
 
 import com.sildeag.sound2text.core.stt.SttConfig
 import com.sildeag.sound2text.core.stt.SttService
@@ -7,7 +7,6 @@ import com.sildeag.sound2text.sttandroid.service.vosk.VoskAndroidSttService
 import org.koin.dsl.module
 import android.content.Context
 import org.koin.core.module.Module
-
 
 fun androidSttModule(context: Context, config: SttConfig): Module = module {
     single { config }

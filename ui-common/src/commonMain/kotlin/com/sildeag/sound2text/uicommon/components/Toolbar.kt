@@ -1,4 +1,4 @@
-package sound2text.uicore.components
+package sound2text.uicommon.components
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons

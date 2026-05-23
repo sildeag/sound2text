@@ -14,6 +14,7 @@ kotlin {
         commonMain.dependencies {
             implementation(project(":core"))
             implementation(project(":di"))
+            implementation( project(":appcommon"))
                 //implementation(libs.koin.compose)
                 //implementation(libs.compose.material3)
             implementation(libs.bundles.itext)
@@ -23,6 +24,7 @@ kotlin {
         jvmMain.dependencies {
             implementation(project(":core"))
             implementation(project(":di"))
+            implementation( project(":appcommon"))
             implementation("org.openjfx:javafx-base:$jfxVersion:$desktopPlatform")
             implementation("org.openjfx:javafx-controls:$jfxVersion:$desktopPlatform")
             implementation("org.openjfx:javafx-fxml:$jfxVersion:$desktopPlatform")
@@ -38,7 +40,8 @@ kotlin {
             */
         }
 
-        androidMain {
+        androidMain.dependencies {
+            implementation( project(":appcommon"))
             // Android specific dependencies
         }
 

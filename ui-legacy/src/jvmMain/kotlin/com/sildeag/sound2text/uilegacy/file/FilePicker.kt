@@ -1,2 +1,2 @@
-package com.sildeag.sound2text.uidesktop.file
+package com.sildeag.sound2text.uilegacy.file
 

@@ -7,10 +7,10 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.sildeag.sound2text.uicore.state.SttAction
-import com.sildeag.sound2text.uicore.viewmodel.dispatch
-import com.sildeag.sound2text.uicore.viewmodel.CoreSoundViewModel
-import com.sildeag.sound2text.uicore.state.SttState
+import com.sildeag.sound2text.uicommon.state.SttAction
+import com.sildeag.sound2text.uicommon.viewmodel.dispatch
+import com.sildeag.sound2text.uicommon.viewmodel.CoreSoundViewModel
+import com.sildeag.sound2text.uicommon.state.SttState
 
 
 @Composable

@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.uidesktop.compose
+package com.sildeag.sound2text.uilegacy.compose
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -12,7 +12,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import com.sildeag.sound2text.uidesktop.viewmodel.DesktopSttViewModel
+import com.sildeag.sound2text.uilegacy.viewmodel.DesktopSttViewModel
 import org.koin.compose.koinInject
 
 @Composable

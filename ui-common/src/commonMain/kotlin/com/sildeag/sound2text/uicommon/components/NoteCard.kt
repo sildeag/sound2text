@@ -1,4 +1,4 @@
-package sound2text.uicore.components
+package sound2text.uicommon.components
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.sildeag.sound2text.core.model.note.Note
 import uicommon.theme.Typography
 import sound2text.uicommon.model.Note // or wherever your Note model
 

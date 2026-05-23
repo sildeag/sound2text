@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.uidesktop.ui.fxml
+package com.sildeag.sound2text.uilegacy.ui.fxml
 
 import javafx.application.Application
 

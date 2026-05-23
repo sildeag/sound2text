@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.uidesktop.ui.fxml.controllers
+package com.sildeag.sound2text.uilegacy.ui.fxml.controllers
 
 import com.sildeag.sound2text.uicommon.viewmodel.SoundViewModel
 import javafx.fxml.FXML

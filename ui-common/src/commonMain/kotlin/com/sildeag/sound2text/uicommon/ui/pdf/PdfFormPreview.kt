@@ -8,6 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.sildeag.sound2text.core.pdf.PdfFormDescriptor
 import com.sildeag.sound2text.core.pdf.PdfFormDiscovery
+
 @Composable
 fun PdfFormPreview(
     discovery: PdfFormDiscovery,

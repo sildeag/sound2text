@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.core.di
+package com.sildeag.sound2text.di
 
 import com.sildeag.sound2text.core.stt.SpeechToTextService
 import com.sildeag.sound2text.core.common.logging.Logger

@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.di.common.logging
+package com.sildeag.sound2text.di.common
 
 import com.sildeag.sound2text.core.logging.DesktopLogger
 import com.sildeag.sound2text.core.common.logging.Logger

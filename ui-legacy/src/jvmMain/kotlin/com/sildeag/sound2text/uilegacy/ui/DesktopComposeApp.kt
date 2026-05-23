@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.uidesktop.ui
+package com.sildeag.sound2text.uilegacy.ui
 
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable

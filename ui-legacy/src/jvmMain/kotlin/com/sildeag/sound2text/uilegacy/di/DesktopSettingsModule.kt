@@ -1,8 +1,7 @@
-package com.sildeag.sound2text.uidesktop.di
+package com.sildeag.sound2text.uilegacy.di
 
-import com.sildeag.sound2text.pdfdesktop.AppSettings
-import com.sildeag.sound2text.uidesktop.settings.DesktopAppSettings
+import com.sildeag.sound2text.uilegacy.settings.DesktopAppSettings
 import org.koin.dsl.module
 val desktopSettingsModule = module {
-    single<AppSettings> { DesktopAppSettings() }
+    single< DesktopAppSettings> { DesktopAppSettings() }
 }

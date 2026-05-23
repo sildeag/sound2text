@@ -1,5 +1,4 @@
-package com.sildeag.sound2text.service.pdf
-
+package com.sildeag.sound2text.core.pdf
 
 import com.itextpdf.kernel.pdf.PdfWriter
 import java.io.File
@@ -16,4 +15,3 @@ class DefaultPdfWriterFactory : PdfWriterFactory {
         document.close()
     }
 }
-

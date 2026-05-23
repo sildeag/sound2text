@@ -1,4 +1,5 @@
-package sound2text.uicore.theme
+package sound2text.uicommon.theme
+
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable

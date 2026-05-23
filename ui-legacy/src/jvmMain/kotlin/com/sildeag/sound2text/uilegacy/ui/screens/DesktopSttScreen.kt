@@ -1,10 +1,10 @@
-package com.sildeag.sound2text.uidesktop.ui.screens
+package com.sildeag.sound2text.uilegacy.ui.screens
 
 import androidx.compose.runtime.*
 import androidx.compose.material.*
 import androidx.compose.foundation.layout.*
 import org.koin.compose.koinInject
-import com.sildeag.sound2text.uidesktop.viewmodel.DesktopSttViewModel
+import com.sildeag.sound2text.uilegacy.viewmodel.DesktopSttViewModel
 
 @Composable
 fun DesktopSttScreen(

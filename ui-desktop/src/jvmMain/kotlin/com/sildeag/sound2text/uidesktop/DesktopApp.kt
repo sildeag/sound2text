@@ -3,7 +3,7 @@ package com.sildeag.sound2text.uidesktop
 
 import androidx.compose.ui.window.application
 import com.sildeag.sound2text.di.common.pdfCommonModule
-import com.sildeag.sound2text.di.core.pdf.pdfPlatformModule
+import com.sildeag.sound2text.di.pdf.pdfPlatformModule
 import org.koin.core.context.startKoin
 import org.koin.dsl.koinApplication
 fun main() {

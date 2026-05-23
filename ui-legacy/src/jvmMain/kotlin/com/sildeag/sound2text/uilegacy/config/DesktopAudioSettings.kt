@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.uidesktop.config
+package com.sildeag.sound2text.uilegacy.config
 
 import kotlinx.serialization.Serializable
 

@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.uidesktop.audio
+package com.sildeag.sound2text.uilegacy.audio
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow

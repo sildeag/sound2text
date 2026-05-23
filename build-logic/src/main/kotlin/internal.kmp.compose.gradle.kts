@@ -17,6 +17,7 @@ configure<KotlinMultiplatformExtension> {
                 implementation(libs.findLibrary("compose-mpp-runtime").get())
                 implementation(libs.findLibrary("compose-mpp-foundation").get())
                 implementation(libs.findLibrary("compose-mpp-material3").get())
+                implementation(libs.findLibrary("compose-mpp-viewmodel").get())
                 implementation(libs.findLibrary("koin-compose").get())
             }
         }

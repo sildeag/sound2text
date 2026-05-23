@@ -1,9 +1,9 @@
-package com.sildeag.sound2text.uidesktop.viewmodel
+package com.sildeag.sound2text.uilegacy.viewmodel
 
 import com.sildeag.sound2text.core.stt.SpeechToTextService
 import com.sildeag.sound2text.uicommon.logic.PulseLogic
 import com.sildeag.sound2text.uicommon.logic.TranscriptionController
-import com.sildeag.sound2text.uidesktop.audio.DesktopAudioRecorder
+import com.sildeag.sound2text.uilegacy.audio.DesktopAudioRecorder
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow

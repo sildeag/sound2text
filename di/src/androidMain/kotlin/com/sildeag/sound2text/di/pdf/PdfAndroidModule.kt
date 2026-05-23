@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.di.core.pdf
+package com.sildeag.sound2text.di.pdf
 
 import com.sildeag.sound2text.core.pdf.PdfFormEngine
 import com.sildeag.sound2text.core.pdf.PdfFormDiscovery

@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.di
+package com.sildeag.sound2text.uilegacy.compose
 
 data class SoundViewModelParams(
     val onText: (String) -> Unit,

@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.uidesktop.storage
+package com.sildeag.sound2text.uilegacy.storage
 
 import com.sildeag.sound2text.core.storage.FileStorageService
 import kotlinx.coroutines.Dispatchers

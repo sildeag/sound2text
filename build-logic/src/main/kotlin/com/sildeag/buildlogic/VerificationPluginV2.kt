@@ -19,8 +19,12 @@ class VerificationPluginV2 : Plugin<Project> {
                 if (!jarFile.exists()) {
                     jarFile.parentFile.mkdirs()
                     println("Downloading PlantUML...")
-                    URL("https://github.com/plantuml/plantuml/releases/download/v1.2024.7/plantuml-1.2024.7.jar")
-                        .openStream().use { input ->
+
+                    // Create a URI first, then convert it to a URL
+                    java.net.URI("https://github.com/plantuml/plantuml/releases/download/v1.2024.7/plantuml-1.2024.7.jar")
+                        .toURL()
+                        .openStream()
+                        .use { input ->
                             jarFile.outputStream().use { output ->
                                 input.copyTo(output)
                             }

@@ -1,7 +1,8 @@
 import org.openjfx.gradle.JavaFXOptions
 
 plugins {
-    id("internal.kmp.base")
+    //id("internal.kmp.base")  was
+    id("internal.kmp.compose")
     id("org.openjfx.javafxplugin")
 }
 

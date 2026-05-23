@@ -1,1 +1,1 @@
-package com.sildeag.sound2text.uidesktop.ui.screens
+package com.sildeag.sound2text.uilegacy.ui.screens

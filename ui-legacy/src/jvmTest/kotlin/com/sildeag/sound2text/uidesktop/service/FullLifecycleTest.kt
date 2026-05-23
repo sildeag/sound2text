@@ -2,11 +2,9 @@ package com.sildeag.sound2text.uidesktop.service
 
 import kotlinx.coroutines.test.runTest
 import com.sildeag.sound2text.core.config.Environment
-import com.sildeag.sound2text.di.SoundViewModelParams
-import com.sildeag.sound2text.uidesktop.di.TestModules
+import com.sildeag.sound2text.uilegacy.compose.SoundViewModelParams
 import kotlin.test.Test
 import org.koin.core.parameter.parametersOf
-import com.sildeag.sound2text.test.KoinTestHarness
 import com.sildeag.sound2text.`desktop-ui`.ui.SoundViewModel
 import kotlinx.coroutines.delay
 import org.koin.core.component.inject

@@ -1,6 +1,6 @@
-package com.sildeag.sound2text.uidesktop.di
+package com.sildeag.sound2text.uilegacy.di
 
-import com.sildeag.sound2text.uidesktop.audio.DesktopAudioRecorder
+import com.sildeag.sound2text.uilegacy.audio.DesktopAudioRecorder
 import org.koin.dsl.module
 import org.koin.core.module.dsl.singleOf
 

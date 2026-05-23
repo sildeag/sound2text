@@ -8,7 +8,7 @@ pluginManagement {
         mavenCentral()
 
         // JetBrains Compose dev plugin repository
-        maven("jetbrains.space") {
+        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev") {
             // Correct syntax block specifically for plugin management
             mavenContent {
                 includeGroup("org.jetbrains.compose")
@@ -31,7 +31,7 @@ dependencyResolutionManagement {
         mavenLocal()
 
         // JetBrains Compose dev artifacts repo
-        maven("jetbrains.space") {
+        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev") {
             content {
                 includeGroupAndSubgroups("org.jetbrains.compose")
             }

@@ -1,9 +1,9 @@
-package com.sildeag.sound2text.uidesktop.ui.fxml
+package com.sildeag.sound2text.uilegacy.ui.fxml
 
 //import com.sildeag.sound2text.config.AppEnvironment
 //import com.sildeag.sound2text.di.SoundViewModelParams
 import com.sildeag.sound2text.uidesktop.viewmodel.SoundViewModel
-import com.sildeag.sound2text.di.SoundViewModelParams
+import com.sildeag.sound2text.uilegacy.compose.SoundViewModelParams
 import javafx.application.Platform
 import javafx.fxml.FXML
 import javafx.scene.control.*

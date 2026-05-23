@@ -1,12 +1,17 @@
-package com.sildeag.sound2text.uidesktop.settings
+package com.sildeag.sound2text.uilegacy.settings
 
-import com.sildeag.sound2text.pdfdesktop.AppSettings
+import com.sildeag.sound2text.core.config.AppSettings
 import java.util.prefs.Preferences
-class DesktopAppSettings : AppSettings {
+
+class DesktopAppSettings(private val base: AppSettings) {
     private val prefs = Preferences.userRoot().node("sound2text")
-    override fun getString(key: String, default: String): String =
+
+    fun getString(key: String, default: String): String =
         prefs.get(key, default)
-    override fun putString(key: String, value: String) {
+
+    fun putString(key: String, value: String) {
         prefs.put(key, value)
     }
 }
+
+

@@ -8,7 +8,10 @@ import com.sildeag.sound2text.di.coreModule
 import com.sildeag.sound2text.di.stt.sttDesktopModule
 import com.sildeag.sound2text.di.ui.uiDesktopModule
 import com.sildeag.sound2text.uicommon.AppRoot
-import org.koin.core.context.startKoin
+import org.koin.core.// TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context.startKoin
 import org.koin.java.KoinJavaComponent.getKoin
 actual fun runApp() {
     startKoin {

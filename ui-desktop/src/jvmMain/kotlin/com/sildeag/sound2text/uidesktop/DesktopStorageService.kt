@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.storage
+package com.sildeag.sound2text.uidesktop
 
 import com.sildeag.sound2text.pdfdesktop.AppSettings
 import com.sildeag.sound2text.core.model.note.Note

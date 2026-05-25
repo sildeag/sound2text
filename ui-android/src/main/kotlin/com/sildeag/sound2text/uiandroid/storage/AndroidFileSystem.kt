@@ -1,9 +1,24 @@
 package com.sildeag.sound2text.storage
-class AndroidFileSystem(private val context: Context) : FileSystem {
+class AndroidFileSystem(private val // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context: // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context) : FileSystem {
     override suspend fun read(path: String) =
-        context.openFileInput(path).bufferedReader().readText()
+        // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context.openFileInput(path).bufferedReader().readText()
     override suspend fun write(path: String, data: String) =
-        context.openFileOutput(path, Context.MODE_PRIVATE).use {
+        // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context.openFileOutput(path, // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context.MODE_PRIVATE).use {
             it.write(data.toByteArray())
         }
 }

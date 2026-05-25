@@ -1,11 +1,14 @@
-package com.sildeag.sound2text.vosk.engine.vosk.jvm.di
+package com.sildeag.sound2text.di.stt.vosk
 
-import com.sildeag.sound2text.core.stt.SpeechToTextService
-import com.sildeag.sound2text.sttdesktop.service.vosk.VoskSpeechService
+// TODO: remove engine
+importPlugin
+// TODO: remove engine
+importPlugin
+import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
 val voskModule = module {
-    single<SpeechToTextService> {
-        VoskSpeechService(config = get())
+    single<SttEnginePlugin>(named("vosk")) {
+        VoskEnginePlugin()
     }
 }

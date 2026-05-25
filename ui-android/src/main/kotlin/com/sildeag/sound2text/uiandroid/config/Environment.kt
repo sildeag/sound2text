@@ -5,7 +5,9 @@ import org.yaml.snakeyaml.Yaml
 import kotlin.text.get
 
 enum class Environment { DEV, PROD, TEST }
-object AppEnvironment {
+// TODO: remove global
+singleton: // TODO: remove global
+singleton: object AppEnvironment {
     val current: Environment by lazy {
         val cliEnv = System.getProperty("env")?.uppercase()
         val yamlEnv = loadYamlEnvironment()

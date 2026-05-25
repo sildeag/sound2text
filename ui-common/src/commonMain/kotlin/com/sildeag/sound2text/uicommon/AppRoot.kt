@@ -6,7 +6,7 @@ import androidx.compose.runtime.getValue
 import com.sildeag.sound2text.appcommon.navigation.NavigationState
 import com.sildeag.sound2text.uicommon.screens.*
 import com.sildeag.sound2text.uicommon.theme.SharedTheme
-import sound2text.uicommon.theme.SharedTheme
+
 
 @Composable
 fun AppRoot(

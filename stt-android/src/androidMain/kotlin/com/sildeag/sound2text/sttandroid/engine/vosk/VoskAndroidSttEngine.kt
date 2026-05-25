@@ -1,6 +1,7 @@
 package com.sildeag.sound2text.sttandroid.engine.vosk
 
-import com.sildeag.sound2text.core.stt.SttEngine
+// TODO: remove engine
+import
 import com.sildeag.sound2text.core.stt.SttResult
 import org.vosk.Model
 import org.vosk.Recognizer

@@ -1,13 +1,22 @@
 package com.sildeag.sound2text.sttandroid.engine.vosk
 
-import android.content.Context
+import android.content.// TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context
 import com.sildeag.sound2text.stt.*
 import org.vosk.Model
 import org.vosk.android.Recognizer
 import org.vosk.android.SpeechService
 
 class VoskAndroidSttService(
-    private val context: Context,
+    private val // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context: // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context,
     private val model: Model,
     private val config: SttConfig
 ) : SttService {

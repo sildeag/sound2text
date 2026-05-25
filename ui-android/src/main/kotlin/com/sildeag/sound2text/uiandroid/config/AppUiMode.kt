@@ -12,7 +12,9 @@ enum class UiMode {
 }
 
 
-object AppUiMode {
+// TODO: remove global
+singleton: // TODO: remove global
+singleton: object AppUiMode {
     val current: UiMode by lazy {
         val cliMode = System.getProperty("ui")?.uppercase()
         val yamlMode = loadYamlUiMode()

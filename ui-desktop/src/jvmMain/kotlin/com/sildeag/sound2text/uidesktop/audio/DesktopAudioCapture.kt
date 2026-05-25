@@ -1,6 +1,7 @@
 package com.sildeag.sound2text.uidesktop.audio
 
-import com.sildeag.sound2text.core.engine.AudioSource
+// TODO: remove engine
+import.AudioSource
 import javax.sound.sampled.*
 class DesktopAudioCapture : AudioSource {
     private var line: TargetDataLine? = null

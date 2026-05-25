@@ -1,4 +1,6 @@
 package com.sildeag.sound2text.uicommon.ui
 
 // Optional: helpers for previews or desktop-only tweaks
-object DesktopPreviewHelpers
+// TODO: remove global
+singleton: // TODO: remove global
+singleton: object DesktopPreviewHelpers

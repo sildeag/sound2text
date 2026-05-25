@@ -1,8 +1,9 @@
-package com.sildeag.sound2text.uidesktop
+package com.sildeag.sound2text.uilegacy
 
 import com.sildeag.sound2text.core.common.logging.Logger
 import com.sildeag.sound2text.sttdesktop.SttConfig
-import com.sildeag.sound2text.sttdesktop.SttEngine
+// TODO: remove engine
+import
 import com.sildeag.sound2text.sttdesktop.SttService
 import org.koin.core.qualifier.named
 import org.koin.java.KoinJavaComponent.getKoin

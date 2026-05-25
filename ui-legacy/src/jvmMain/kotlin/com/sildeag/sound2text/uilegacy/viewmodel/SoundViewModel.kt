@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.uidesktop.viewmodel
+package com.sildeag.sound2text.uilegacy.viewmodel
 
 import com.sildeag.sound2text.pdfdesktop.AppSettings
 import com.sildeag.sound2text.service.logic.PulseLogic

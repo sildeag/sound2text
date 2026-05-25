@@ -1,11 +1,10 @@
-package com.sildeag.sound2text.uidesktop
+package com.sildeag.sound2text.uilegacy
 
 import com.sildeag.sound2text.pdfdesktop.AppSettings
 import com.sildeag.sound2text.logging.ConsoleLogger
 import com.sildeag.sound2text.logging.FileLogger
 import com.sildeag.sound2text.logging.Logger
 import com.sildeag.sound2text.logging.NoOpLogger
-import com.sildeag.sound2text.storage.DesktopStorageService
 import com.sildeag.sound2text.storage.StorageService
 import com.sildeag.sound2text.sttdesktop.MockSpeechService
 import com.sildeag.sound2text.sttdesktop.OpenAIWhisperService

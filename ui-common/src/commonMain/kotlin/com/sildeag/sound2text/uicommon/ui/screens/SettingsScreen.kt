@@ -5,7 +5,8 @@ import androidx.compose.material3.Slider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import com.sildeag.sound2text.core.stt.SttConfig
-import com.sildeag.sound2text.core.stt.SttEngineRegistry
+// TODO: remove engine
+importRegistry
 
 // Note: Dropdown component would need to be implemented or imported
 @Composable

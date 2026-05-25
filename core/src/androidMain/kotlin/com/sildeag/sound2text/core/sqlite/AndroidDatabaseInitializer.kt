@@ -1,6 +1,9 @@
 package com.sildeag.sound2text.core.sqlite
 
-import android.content.Context
+import android.content.// TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import androidx.sqlite.driver.AndroidSQLiteDriver
@@ -8,10 +11,21 @@ import androidx.sqlite.driver.AndroidSQLiteDriver
 private const val DB_NAME = "sound2text.db"
 private const val DB_VERSION = 1
 class AndroidDatabaseInitializer(
-    private val context: Context
+    private val // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context: // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context
 ) : DatabaseInitializer {
     override fun createDriver(): SQLiteDriver {
-        val helper = object : SQLiteOpenHelper(context, DB_NAME, null, DB_VERSION) {
+        val helper = // TODO: remove global
+singleton: // TODO: remove global
+singleton: object : SQLiteOpenHelper(// TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context, DB_NAME, null, DB_VERSION) {
             override fun onCreate(db: SQLiteDatabase) {
                 createSchema(db)
             }

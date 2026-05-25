@@ -1,17 +1,20 @@
-package com.sildeag.sound2text.desktop
+package com.sildeag.sound2text.uidesktop
 
 import com.sildeag.sound2text.core.config.AppSettings
 import com.sildeag.sound2text.core.config.SettingsLoader
 import com.sildeag.sound2text.core.common.logging.Logger
 import com.sildeag.sound2text.core.storage.StorageService
-import com.sildeag.sound2text.core.stt.SttEngine
+// TODO: remove engine
+import
 import com.sildeag.sound2text.core.stt.SttService
 import com.sildeag.sound2text.core.stt.SttConfig
 import com.sildeag.sound2text.di.common.sttCommonModule
-import com.sildeag.sound2text.uidesktop.desktopModule
 import com.sildeag.sound2text.uidesktop.ui.DesktopComposeApp
 import com.sildeag.sound2text.uidesktop.ui.fxml.FxmlLauncher
-import org.koin.core.context.startKoin
+import org.koin.core.// TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context.startKoin
 import org.koin.java.KoinJavaComponent.inject
 
 fun main() {
@@ -114,7 +117,10 @@ import com.sildeag.sound2text.config.AppSettings
 import com.sildeag.sound2text.config.SettingsLoader
 import com.sildeag.sound2text.core.storage.StorageService
 import com.sildeag.sound2text.core.stt.SpeechToTextService
-import org.koin.core.context.startKoin
+import org.koin.core.// TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context.startKoin
 import com.sildeag.sound2text.desktop.ui.DesktopComposeApp
 import com.sildeag.sound2text.desktop.ui.fxml.FxmlLauncher
 import org.koin.java.KoinJavaComponent.inject
@@ -155,7 +161,10 @@ import com.sildeag.sound2text.storage.StorageService
 import com.sildeag.sound2text.desktop.ui.DesktopComposeApp
 import com.sildeag.sound2text.desktop.ui.DesktopFxmlApp
 import com.sildeag.sound2text.config.AppSettings
-import org.koin.core.context.startKoin
+import org.koin.core.// TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context.startKoin
 import org.koin.java.KoinJavaComponent.inject
 fun main() {
     // 1. Load config.json

@@ -1,8 +1,10 @@
 package com.sildeag.sound2text.di.pdf
 
-import com.sildeag.sound2text.core.pdf.PdfFormEngine
+// TODO: remove engine
+import
 import com.sildeag.sound2text.core.pdf.PdfFormDiscovery
-import com.sildeag.sound2text.pdfdesktop.itext.ITextPdfEngine
+// TODO: remove engine
+import
 import org.koin.core.module.Module
 import org.koin.dsl.module
 val pdfDesktopModule: Module = module {

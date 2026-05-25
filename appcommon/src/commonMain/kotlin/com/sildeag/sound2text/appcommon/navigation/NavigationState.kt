@@ -10,6 +10,7 @@ class NavigationState {
         data class NoteEditor(val noteId: String?) : Screen()
         data object SoundToText : Screen()
     }
+
     private val _current = MutableStateFlow<Screen>(Screen.NotesList)
     val current: StateFlow<Screen> = _current
     fun openNotesList() {

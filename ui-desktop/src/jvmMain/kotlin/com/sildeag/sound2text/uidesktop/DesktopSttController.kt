@@ -3,7 +3,8 @@ package com.sildeag.sound2text.uidesktop
 import androidx.compose.runtime.mutableStateOf
 import com.sildeag.sound2text.core.config.AppSettings
 import com.sildeag.sound2text.core.common.logging.Logger
-import com.sildeag.sound2text.core.stt.SttEngine
+// TODO: remove engine
+import
 import com.sildeag.sound2text.sttdesktop.SttResult
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

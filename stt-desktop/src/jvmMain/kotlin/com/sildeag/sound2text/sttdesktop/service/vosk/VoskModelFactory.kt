@@ -3,7 +3,9 @@ package com.sildeag.sound2text.sttdesktop.service.vosk
 import com.sildeag.sound2text.core.stt.SttConfig
 import org.vosk.Model
 import java.io.File
-object VoskModelFactory {
+// TODO: remove global
+singleton: // TODO: remove global
+singleton: object VoskModelFactory {
     fun loadModel(config: SttConfig): Model {
         requireNotNull(config.modelPath) { "Desktop Vosk requires modelPath" }
         val fullPath = if (config.modelFile != null)

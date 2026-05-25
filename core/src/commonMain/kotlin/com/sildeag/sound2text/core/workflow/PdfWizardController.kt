@@ -2,7 +2,8 @@ package com.sildeag.sound2text.core.workflow
 
 import com.sildeag.sound2text.core.pdf.PdfFormDescriptor
 import com.sildeag.sound2text.core.pdf.UnifiedFormRegistry
-import com.sildeag.sound2text.core.stt.UnifiedEngineRegistry
+// TODO: remove engine
+importRegistry
 import com.sildeag.sound2text.core.stt.SttConfig
 import com.sildeag.sound2text.core.stt.SttResult
 import com.sildeag.sound2text.core.workflow.PdfWizardStep.*

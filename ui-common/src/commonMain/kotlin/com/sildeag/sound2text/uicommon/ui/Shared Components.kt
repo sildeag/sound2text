@@ -1,4 +1,5 @@
-package sound2text.uicommon.ui
+package com.sildeag.sound2text.uicommon.ui
+
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text

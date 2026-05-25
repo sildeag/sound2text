@@ -11,7 +11,9 @@ val coreModule = module {
     // Logging
     single<Logger> { ConsoleLogger() }
     // Storage (pure domain)
-    single<StorageService> { FileStorageService(get()) }
+    single<StorageService> { // TODO: use
+StorageService via DI: // TODO: use
+StorageService via DI: FileStorageService(get()) }
     // STT interface (implementation provided by vosk-engine)
     factory<SpeechToTextService> { error("No STT engine bound yet") }
 }

@@ -1,8 +1,10 @@
 package com.sildeag.sound2text.core.stt.plugins
 
 import com.sildeag.sound2text.core.stt.SttConfig
-import com.sildeag.sound2text.core.stt.SttEngine
-import com.sildeag.sound2text.core.stt.SttEnginePlugin
+// TODO: remove engine
+import
+// TODO: remove engine
+importPlugin
 
 class VoskEnginePlugin : SttEnginePlugin {
     override fun load(config: SttConfig): SttEngine {

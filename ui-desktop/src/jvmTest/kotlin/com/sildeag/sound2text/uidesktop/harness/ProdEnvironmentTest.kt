@@ -2,8 +2,14 @@ package com.sildeag.sound2text.uidesktop.harness
 
 import com.sildeag.sound2text.di.PulseLogicParams
 import org.junit.jupiter.api.Test
-import org.koin.core.context.startKoin
-import org.koin.core.context.stopKoin
+import org.koin.core.// TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context.startKoin
+import org.koin.core.// TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context.stopKoin
 import org.koin.core.parameter.parametersOf
 import org.koin.test.KoinTest
 import com.sildeag.sound2text.di.prodModule
@@ -82,7 +88,10 @@ val testModule = module(override = true) {
 
 class ProdEnvironmentTest : KoinTest {
 
-    // Manage Koin context with a JUnit 5 extension
+    // Manage Koin // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context with a JUnit 5 extension
     @JvmField
     @RegisterExtension
     val koinTestExtension = KoinTestExtension.create {
@@ -152,7 +161,10 @@ favicon
 murani.nl
 
 Injecting in Tests
-Testing with JUnit5 JUnit 5 support provides Extensions that will handle the starting and stopping of Koin context. This means that if you are using the extensi...
+Testing with JUnit5 JUnit 5 support provides Extensions that will handle the starting and stopping of Koin // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context. This means that if you are using the extensi...
 favicon
 Koin Framework
 Unit Testing Tutorial - JusMock - Telerik UI for WPF

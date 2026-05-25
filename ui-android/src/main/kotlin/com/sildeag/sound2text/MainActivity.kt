@@ -3,14 +3,23 @@ package com.sildeag.sound2text
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import org.koin.android.ext.koin.androidContext
-import org.koin.core.context.startKoin
+import org.koin.android.ext.koin.android// TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context
+import org.koin.core.// TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context.startKoin
 /*
 class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         startKoin {
-            androidContext(this@MyApplication)
+            android// TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context(this@MyApplication)
             modules(
                 coreModule, // shared logging
                 configModule, // AppSettings loader
@@ -28,10 +37,16 @@ class MyApplication : Application() {
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        SettingsLoader.context = this
+        SettingsLoader.// TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context = this
         val settings = SettingsLoader.load()
         startKoin {
-            androidContext(this@MainActivity)
+            android// TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context(this@MainActivity)
             modules(androidModule(settings))
         }
         setContent {
@@ -45,10 +60,16 @@ class MainActivity : ComponentActivity() {
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        SettingsLoader.context = this
+        SettingsLoader.// TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context = this
         val settings: AppSettings = SettingsLoader.load()
         startKoin {
-            androidContext(this@MainActivity)
+            android// TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context(this@MainActivity)
             modules(androidModule(settings))
         }
         val logger: Logger by inject()

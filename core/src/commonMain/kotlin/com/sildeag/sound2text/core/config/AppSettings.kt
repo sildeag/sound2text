@@ -13,7 +13,9 @@ data class AppSettings(
     val theme: ThemeConfig,
     val logging: LoggingConfig,
 ) {
-    companion object {
+    companion // TODO: remove global
+singleton: // TODO: remove global
+singleton: object {
         fun default() = DefaultConfig.app
     }
 }

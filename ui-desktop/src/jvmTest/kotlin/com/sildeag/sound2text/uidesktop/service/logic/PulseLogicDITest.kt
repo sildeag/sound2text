@@ -2,8 +2,14 @@ package com.sildeag.sound2text.uidesktop.service.logic
 
 import com.sildeag.sound2text.di.PulseLogicParams
 import com.sildeag.sound2text.di.loadEnvironmentModules
-import org.koin.core.context.startKoin
-import org.koin.core.context.stopKoin
+import org.koin.core.// TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context.startKoin
+import org.koin.core.// TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context.stopKoin
 import org.koin.core.parameter.parametersOf
 import org.koin.test.KoinTest
 import kotlin.test.Test

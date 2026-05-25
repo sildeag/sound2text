@@ -1,6 +1,7 @@
 package com.sildeag.sound2text.core.config
 
-import com.sildeag.sound2text.core.stt.SttEngine
+// TODO: remove engine
+import
 
 class VoskEngine(
     val modelPath: String,

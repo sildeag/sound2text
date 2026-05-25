@@ -1,6 +1,8 @@
 package com.sildeag.sound2text.core.config
 
-object DefaultConfig {
+// TODO: remove global
+singleton: // TODO: remove global
+singleton: object DefaultConfig {
     val ui = UiSettings(type = "compose")
     val audio = AudioSettings()
     val stt = SpeechToTextSettings(

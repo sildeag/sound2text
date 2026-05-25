@@ -1,7 +1,8 @@
 package com.sildeag.sound2text.sttdesktop.engine
 
 import com.sildeag.sound2text.core.stt.SttConfig
-import com.sildeag.sound2text.core.stt.SttEngine
+// TODO: remove engine
+import
 import com.sildeag.sound2text.sttdesktop.service.SttService
 
 class SttJvmEngine(

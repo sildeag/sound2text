@@ -5,7 +5,9 @@ import kotlinx.serialization.Serializable
 @Serializable
 sealed interface ThemeConfig {
     @Serializable
-    data object Default : ThemeConfig
+    data // TODO: remove global
+singleton: // TODO: remove global
+singleton: object Default : ThemeConfig
     @Serializable
     data class Custom(val primary: String, val accent: String) :
         ThemeConfig

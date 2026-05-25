@@ -1,6 +1,7 @@
 package com.sildeag.sound2text.uidesktop.stt.vosk
 
-import com.sildeag.sound2text.core.stt.SttEngine
+// TODO: remove engine
+import
 import com.sildeag.sound2text.core.stt.SttResult
 
 class VoskSttEngine(

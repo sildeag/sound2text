@@ -1,8 +1,10 @@
 package com.sildeag.sound2text.sttdesktop.engine.vosk
 
 import com.sildeag.sound2text.core.config.SttSettings
-import com.sildeag.sound2text.core.engine.AudioSource
-import com.sildeag.sound2text.core.engine.SpeechToTextEngine
+// TODO: remove engine
+import.AudioSource
+// TODO: remove engine
+import
 import com.sildeag.sound2text.pdfdesktop.model.SttSettings
 import com.sildeag.sound2text.vosk.diagnostics.VoskDiagnostics
 import org.vosk.Model

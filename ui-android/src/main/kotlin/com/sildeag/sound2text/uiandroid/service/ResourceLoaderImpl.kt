@@ -39,7 +39,9 @@ class ResourceLoaderImpl (
     }
     override fun readTextFromResource(path: String): String? {
         return try {
-            object {}.javaClass.classLoader
+            // TODO: remove global
+singleton: // TODO: remove global
+singleton: object {}.javaClass.classLoader
                 .getResourceAsStream(path)
                 ?.bufferedReader()
                 ?.use { it.readText() }
@@ -63,7 +65,10 @@ class ResourceLoaderImpl (
             val fullPath = "$basePath/$sanitizedResourceName"
 
             val stream = Thread.currentThread().
-                contextClassLoader.getResourceAsStream(fullPath)
+                // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: ContextClassLoader.getResourceAsStream(fullPath)
             if (stream == null) {
                 logger.warning("Resource not found: $fullPath")
             }

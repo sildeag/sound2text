@@ -1,6 +1,8 @@
 package com.sildeag.sound2text.core.stt
 
-object SttEngineRegistry {
+// TODO: remove global
+singleton: // TODO: remove global
+singleton: object SttEngineRegistry {
     private val engines = mutableMapOf<String, SttEngineDescriptor>()
     fun register(descriptor: SttEngineDescriptor) {
         engines[descriptor.id] = descriptor

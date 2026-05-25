@@ -2,7 +2,7 @@ package com.sildeag.sound2text.uidesktop.ui
 
 import com.sildeag.sound2text.core.config.AppEnvironment
 import com.sildeag.sound2text.uidesktop.viewmodel.SoundViewModel
-import com.sildeag.sound2text.di.SoundViewModelParams
+import com.sildeag.sound2text.uidesktop.compose.SoundViewModelParams
 import com.sildeag.sound2text.di.loadEnvironmentModules
 import com.sildeag.sound2text.test.KoinTestHarness
 import javafx.application.Platform

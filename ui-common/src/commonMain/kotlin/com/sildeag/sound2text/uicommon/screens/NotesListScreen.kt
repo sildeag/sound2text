@@ -1,11 +1,11 @@
-package sound2text.uicommon.screens
+package com.sildeag.sound2text.uicommon.screens
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import sound2text.core.model.Note
-import sound2text.uicommon.components.NoteCard
+import com.sildeag.sound2text.core.model.Note
+import com.sildeag.sound2text.uicommon.components.NoteCard
 
 @Composable
 fun NoteListScreen(

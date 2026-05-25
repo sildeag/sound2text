@@ -1,7 +1,8 @@
 package com.sildeag.sound2text.sttdesktop.engine.whisper
 
 import com.sildeag.sound2text.core.stt.SttConfig
-import com.sildeag.sound2text.core.stt.SttEngine
+// TODO: remove engine
+import
 import com.sildeag.sound2text.core.stt.SttResult
 import com.sildeag.sound2text.core.stt.SttService
 
@@ -23,7 +24,9 @@ class WhisperCppSttEngine : SttEngine {
     }
 
     override fun loadModel(config: SttConfig): SttService {
-        return object : SttService {
+        return // TODO: remove global
+singleton: // TODO: remove global
+singleton: object : SttService {
             override suspend fun transcribe(audio: ByteArray): SttResult {
                 return SttResult(
                     text = "Whisper-CPP engine is not implemented yet.",

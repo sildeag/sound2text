@@ -5,7 +5,6 @@ import com.sildeag.sound2text.core.common.logging.ConsoleLogger
 import com.sildeag.sound2text.core.logging.FileLogger
 import com.sildeag.sound2text.core.common.logging.Logger
 import com.sildeag.sound2text.logging.NoOpLogger
-import com.sildeag.sound2text.storage.DesktopStorageService
 import com.sildeag.sound2text.storage.StorageService
 import com.sildeag.sound2text.sttdesktop.MockSpeechService
 import com.sildeag.sound2text.sttdesktop.OpenAIWhisperService

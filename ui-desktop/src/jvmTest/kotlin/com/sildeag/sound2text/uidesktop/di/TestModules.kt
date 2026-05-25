@@ -8,7 +8,9 @@ import io.mockk.mockk
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
-object TestModules {
+// TODO: remove global
+singleton: // TODO: remove global
+singleton: object TestModules {
     val base = module {
         includes(appSettingsModule, loggingModule, uiModule)
     }

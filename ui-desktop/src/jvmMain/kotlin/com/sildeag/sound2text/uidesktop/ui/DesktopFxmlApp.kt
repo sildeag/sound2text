@@ -4,7 +4,9 @@ import com.sildeag.sound2text.pdfdesktop.AppSettings
 import com.sildeag.sound2text.core.common.logging.Logger
 import com.sildeag.sound2text.core.storage.StorageService
 
-object DesktopFxmlApp {
+// TODO: remove global
+singleton: // TODO: remove global
+singleton: object DesktopFxmlApp {
     fun launch(
         storage: StorageService,
         stt: SpeechToTextService,

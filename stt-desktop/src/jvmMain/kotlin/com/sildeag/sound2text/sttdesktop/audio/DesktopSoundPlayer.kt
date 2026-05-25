@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.vosk.engine.stt
+package com.sildeag.sound2text.sttdesktop.audio
 
 import java.io.File
 import javax.sound.sampled.AudioSystem

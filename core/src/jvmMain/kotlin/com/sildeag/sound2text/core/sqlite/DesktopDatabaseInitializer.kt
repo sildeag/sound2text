@@ -9,7 +9,8 @@ class DesktopDatabaseInitializer(
 ) : DatabaseInitializer {
     override fun createDriver(): SQLiteDriver {
         val path = File(baseDir, DB_NAME).absolutePath
-        val conn: Connection = DriverManager.getConnection("jdbc:sqlite:$path")
+// TODO: replace with DI +
+ViewModel: getConnection("jdbc:sqlite:$path")
         createSchema(conn)
         return JdbcSQLiteDriver(path)
     }

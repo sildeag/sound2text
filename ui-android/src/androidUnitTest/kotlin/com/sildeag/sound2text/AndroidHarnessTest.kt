@@ -13,7 +13,10 @@ class AndroidHarnessTest : KoinTest {
     fun testAndroidUsesFakeServices() {
         initKoin(
             environmentOverride = Environment.DEV,
-            contextProvider = null
+            // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: ContextProvider = null
         )
         assertEquals("fake-audio-data", audioService.record())
     }

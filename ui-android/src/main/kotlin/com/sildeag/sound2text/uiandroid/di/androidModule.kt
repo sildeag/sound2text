@@ -40,9 +40,11 @@ package com.sildeag.sound2text.android.di
 
 
 import com.sildeag.sound2text.config.AppSettings
-import com.sildeag.sound2text.core.SpeechToTextEngine
+// TODO: remove engine
+import
 import com.sildeag.sound2text.android.viewmodel.AndroidSoundViewModel
-import com.sildeag.sound2text.engine.android.AndroidSttEngine
+// TODO: remove engine
+import
 import com.sildeag.sound2text.ui.PulseLogic
 import com.sildeag.sound2text.di.SoundViewModelParams
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -59,7 +61,13 @@ val androidModule = module {
         val settings = get<AppSettings>()
         AndroidSttEngine(
             modelPath = settings.modelPath,
-            context = get() // Android Context from Koin
+            // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context = get() // Android // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context from Koin
         )
     }
     // Shared UI logic

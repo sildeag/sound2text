@@ -3,7 +3,9 @@ package com.sildeag.sound2text.core.config
 import kotlinx.serialization.*
 import kotlinx.serialization.json.*
 import java.io.File
-actual object SettingsLoader {
+actual // TODO: remove global
+singleton: // TODO: remove global
+singleton: object SettingsLoader {
     private val json = Json {
         ignoreUnknownKeys = true
         encodeDefaults = false
@@ -60,7 +62,9 @@ actual object SettingsLoader {
 import kotlinx.serialization.json.Json
 import java.io.File
 
-actual object SettingsLoader {
+actual // TODO: remove global
+singleton: // TODO: remove global
+singleton: object SettingsLoader {
     actual fun load(): AppSettings {
         val jsonText = File("config.json").readText()
         return Json.decodeFromString<AppSettings>(jsonText)

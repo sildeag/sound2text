@@ -4,7 +4,10 @@ import com.sildeag.sound2text.uidesktop.ui.PulseLogic
 import javafx.fxml.FXMLLoader
 import javafx.scene.Parent
 import org.junit.jupiter.api.Test
-import org.koin.core.context.startKoin
+import org.koin.core.// TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context.startKoin
 import org.koin.core.parameter.parametersOf
 import org.koin.test.KoinTest
 import org.koin.test.get

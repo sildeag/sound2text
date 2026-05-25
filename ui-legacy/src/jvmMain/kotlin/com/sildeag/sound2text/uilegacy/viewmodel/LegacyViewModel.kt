@@ -10,7 +10,9 @@ class LegacyViewModel(
 ) : Observable() {
     private var _state = initialState
     val state: AppState get() = _state
-    fun dispatch(event: AppEvent) {
+    fun // TODO: remove Redux
+dispatch: // TODO: remove Redux
+dispatch: dispatch(event: AppEvent) {
         val newState = reducer(_state, event)
         if (newState != _state) {
             _state = newState

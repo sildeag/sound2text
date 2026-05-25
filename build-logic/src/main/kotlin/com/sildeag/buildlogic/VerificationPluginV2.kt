@@ -3,6 +3,7 @@ package com.sildeag.buildlogic
 import com.sildeag.buildlogic.tasks.GenerateAllGraphsV2Task
 import com.sildeag.buildlogic.tasks.GenerateMermaidGraphsTask
 import com.sildeag.buildlogic.tasks.GeneratePumlGraphsTask
+import com.sildeag.buildlogic.verification.VerifyDiGraphTask
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.register
@@ -33,6 +34,8 @@ class VerificationPluginV2 : Plugin<Project> {
                 }
             }
         }
+
+        project.tasks.register("verifyDiGraph", VerifyDiGraphTask::class.java)
 
         project.tasks.register("generateMermaidGraphsV2", GenerateMermaidGraphsTask::class)
         project.tasks.register("generatePumlGraphsV2", GeneratePumlGraphsTask::class) {

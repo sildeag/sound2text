@@ -2,7 +2,7 @@ package com.sildeag.sound2text.uidesktop.ui
 
 import com.sildeag.sound2text.core.config.Environment
 import com.sildeag.sound2text.uidesktop.viewmodel.SoundViewModel
-import com.sildeag.sound2text.di.SoundViewModelParams
+import com.sildeag.sound2text.uidesktop.compose.SoundViewModelParams
 import com.sildeag.sound2text.di.mockRecognizerModule
 import com.sildeag.sound2text.di.testPulseModule
 import com.sildeag.sound2text.test.KoinTestHarness

@@ -5,5 +5,8 @@ import com.sildeag.sound2text.android.audio.AndroidAudioRecorder
 import org.koin.dsl.module
 
 val androidAudioModule = module {
-    single<AudioRecorder> { AndroidAudioRecorder(context = get()) }
+    single<AudioRecorder> { AndroidAudioRecorder(// TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context = get()) }
 }

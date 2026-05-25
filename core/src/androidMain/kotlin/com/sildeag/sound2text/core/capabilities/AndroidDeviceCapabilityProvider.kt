@@ -1,15 +1,25 @@
 package com.sildeag.sound2text.core.capabilities
 
-import android.content.Context
+import android.content.// TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context
 import android.content.pm.PackageManager
 
 class AndroidDeviceCapabilityProvider(
-    private val context: Context
+    private val // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context: // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context
 ) : DeviceCapabilityProvider {
     override fun detect(): DeviceCapabilities {
         return DeviceCapabilities(
             hasMicrophone =
-                context.packageManager.hasSystemFeature(PackageManager.FEATURE_MICROPHONE),
+// TODO: replace with DI +
+ViewModel: FEATURE_MICROPHONE),
             isOfflineCapable = true,
             hasPulseLogic = true
         )

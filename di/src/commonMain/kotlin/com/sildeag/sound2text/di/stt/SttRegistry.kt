@@ -1,6 +1,7 @@
 package com.sildeag.sound2text.di.stt
 
-import com.sildeag.sound2text.core.stt.SttEnginePlugin
+// TODO: remove engine
+importPlugin
 
 class SttRegistry {
     private val plugins = mutableMapOf<String, SttEnginePlugin>()

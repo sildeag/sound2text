@@ -5,13 +5,25 @@ import com.sildeag.sound2text.core.stt.SttService
 import com.sildeag.sound2text.sttandroid.service.vosk.VoskAndroidModelFactory
 import com.sildeag.sound2text.sttandroid.service.vosk.VoskAndroidSttService
 import org.koin.dsl.module
-import android.content.Context
+import android.content.// TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context
 import org.koin.core.module.Module
 
-fun androidSttModule(context: Context, config: SttConfig): Module = module {
+fun androidSttModule(// TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context: // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context, config: SttConfig): Module = module {
     single { config }
     single {
-        VoskAndroidModelFactory.loadModel(context, get())
+        VoskAndroidModelFactory.loadModel(// TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context, get())
     }
     single<SttService> {
         VoskAndroidSttService(
@@ -53,9 +65,12 @@ val SttAndroidModule = module {
  */
 /*
 import com.sildeag.sound2text.core.stt.*
-import com.sildeag.sound2text.sttandroid.engine.CreateSttAndroid
-import com.sildeag.sound2text.sttandroid.engine.vosk.VoskPlugin
-import com.sildeag.sound2text.sttandroid.engine.whisper.WhisperPlugin
+// TODO: remove engine
+import.CreateSttAndroid
+// TODO: remove engine
+import.vosk.VoskPlugin
+// TODO: remove engine
+import.whisper.WhisperPlugin
 import com.sildeag.sound2text.sttandroid.service.AndroidSttService
 import org.koin.dsl.module
 
@@ -76,17 +91,22 @@ val androidSttModule = module {
         createStt.create(config)
     }
     // 4. Android audio capture (optional)
-    // single { AndroidAudioCapture(context = get()) }
+    // single { AndroidAudioCapture(// TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context = get()) }
 }
  */
 
 /*
-import com.sildeag.sound2text.core.stt.SttEngine
-import com.sildeag.sound2text.sttandroid.AndroidSttEngine
+// TODO: remove engine
+import
+// TODO: remove engine
+import
 import org.koin.core.module.Module
 import org.koin.dsl.module
 
 val sttAndroidModule: Module = module {
     single<SttEngine> { AndroidSttEngine() }
 }
-
+*/

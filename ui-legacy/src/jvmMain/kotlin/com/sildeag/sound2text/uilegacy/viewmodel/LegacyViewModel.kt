@@ -12,7 +12,7 @@ class LegacyViewModel(
     val state: AppState get() = _state
     fun // TODO: remove Redux
 dispatch: // TODO: remove Redux
-dispatch: dispatch(event: AppEvent) {
+dispatch: // TODO: remove Redux dispatch: dispatch(event: AppEvent) {
         val newState = reducer(_state, event)
         if (newState != _state) {
             _state = newState

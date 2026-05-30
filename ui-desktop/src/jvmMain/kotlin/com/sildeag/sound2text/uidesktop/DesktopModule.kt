@@ -1,9 +1,9 @@
 package com.sildeag.sound2text.uidesktop
 
 import com.sildeag.sound2text.core.config.AppSettings
-import com.sildeag.sound2text.core.common.logging.ConsoleLogger
+import com.sildeag.sound2text.core.logging.ConsoleLogger
 import com.sildeag.sound2text.core.logging.FileLogger
-import com.sildeag.sound2text.core.common.logging.Logger
+import com.sildeag.sound2text.core.logging.Logger
 import com.sildeag.sound2text.logging.NoOpLogger
 import com.sildeag.sound2text.storage.StorageService
 import com.sildeag.sound2text.sttdesktop.MockSpeechService

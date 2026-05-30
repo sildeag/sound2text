@@ -8,7 +8,11 @@ import com.sildeag.sound2text.storage.AndroidStorageService
 import com.sildeag.sound2text.storage.StorageService
 import com.sildeag.sound2text.stt.MockSpeechService
 import com.sildeag.sound2text.stt.SpeechToTextService
-import org.koin.android.ext.koin.android// TODO: inject platform // TODO: inject platform context
+import org.koin.android.ext.koin.android// TODO: inject platform // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform // TODO: inject platform context
 via DI: Context
 via DI: // TODO: inject platform context
 via DI: Context
@@ -23,7 +27,11 @@ fun androidModule(settings: AppSettings) = module {
         }
     }
     single<StorageService>
-    { AndroidStorageService(android// TODO: inject platform // TODO: inject platform context
+    { AndroidStorageService(android// TODO: inject platform // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform // TODO: inject platform context
 via DI: Context
 via DI: // TODO: inject platform context
 via DI: Context()) }

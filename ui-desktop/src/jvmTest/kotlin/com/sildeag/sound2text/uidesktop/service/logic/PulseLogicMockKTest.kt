@@ -2,7 +2,7 @@ package com.sildeag.sound2text.uidesktop.service.logic
 
 import com.sildeag.sound2text.service.recognizer.Recognizer
 import com.sildeag.sound2text.di.testModule
-import com.sildeag.sound2text.core.common.logging.Logger
+import com.sildeag.sound2text.core.logging.Logger
 import io.mockk.mockk
 import io.mockk.verify
 import io.mockk.every

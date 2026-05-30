@@ -1,6 +1,6 @@
 package com.sildeag.sound2text.uilegacy
 
-import com.sildeag.sound2text.core.common.logging.Logger
+import com.sildeag.sound2text.core.logging.Logger
 import com.sildeag.sound2text.sttdesktop.SttConfig
 // TODO: remove engine
 import

@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.core.common.logging
+package com.sildeag.sound2text.core.logging
 
 class ConsoleLogger : Logger {
     override fun debug(msg: String) = println("[INFO] $msg")

@@ -61,10 +61,18 @@ val androidModule = module {
         val settings = get<AppSettings>()
         AndroidSttEngine(
             modelPath = settings.modelPath,
-            // TODO: inject platform // TODO: inject platform context
+            // TODO: inject platform // TODO: inject platform // TODO: inject platform context
 via DI: Context
 via DI: // TODO: inject platform context
-via DI: Context = get() // Android // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context = get() // Android // TODO: inject platform // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform // TODO: inject platform context
 via DI: Context
 via DI: // TODO: inject platform context
 via DI: Context from Koin

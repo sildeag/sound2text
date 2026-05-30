@@ -36,7 +36,7 @@ fun Sound2TextScreen(viewModel: CoreSoundViewModel) {
             Spacer(Modifier.width(8.dp))
             Button(onClick = { viewModel.// TODO: remove Redux
 dispatch: // TODO: remove Redux
-dispatch: dispatch(SttEvent.StopListening) }) {
+dispatch: // TODO: remove Redux dispatch: dispatch(SttEvent.StopListening) }) {
                 Text("Stop")
             }
         }

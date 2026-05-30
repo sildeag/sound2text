@@ -1,6 +1,10 @@
 package com.sildeag.sound2text.pdfandroid.engine.vosk
 
-import android.content.// TODO: inject platform // TODO: inject platform context
+import android.content.// TODO: inject platform // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform // TODO: inject platform context
 via DI: Context
 via DI: // TODO: inject platform context
 via DI: Context
@@ -10,10 +14,18 @@ import org.vosk.android.Recognizer
 import org.vosk.android.SpeechService
 
 class VoskAndroidSttService(
-    private val // TODO: inject platform // TODO: inject platform context
+    private val // TODO: inject platform // TODO: inject platform // TODO: inject platform context
 via DI: Context
 via DI: // TODO: inject platform context
-via DI: Context: // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context: // TODO: inject platform // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform // TODO: inject platform context
 via DI: Context
 via DI: // TODO: inject platform context
 via DI: Context,

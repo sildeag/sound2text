@@ -1,7 +1,11 @@
 package com.sildeag.sound2text.core
 
 import com.sildeag.sound2text.di.core.coreModule
-import org.koin.core.// TODO: inject platform // TODO: inject platform context
+import org.koin.core.// TODO: inject platform // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform // TODO: inject platform context
 via DI: Context
 via DI: // TODO: inject platform context
 via DI: Context.startKoin

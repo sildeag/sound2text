@@ -13,7 +13,11 @@ class AndroidHarnessTest : KoinTest {
     fun testAndroidUsesFakeServices() {
         initKoin(
             environmentOverride = Environment.DEV,
-            // TODO: inject platform // TODO: inject platform context
+            // TODO: inject platform // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform // TODO: inject platform context
 via DI: Context
 via DI: // TODO: inject platform context
 via DI: ContextProvider = null

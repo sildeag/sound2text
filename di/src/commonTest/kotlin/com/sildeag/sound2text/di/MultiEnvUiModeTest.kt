@@ -1,7 +1,11 @@
 package com.sildeag.sound2text.di
 
 import com.sildeag.sound2text.pdfdesktop.*
-import org.koin.core.// TODO: inject platform // TODO: inject platform context
+import org.koin.core.// TODO: inject platform // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform // TODO: inject platform context
 via DI: Context
 via DI: // TODO: inject platform context
 via DI: Context.startKoin

@@ -1,17 +1,5 @@
 package com.sildeag.sound2text.appcommon
 
-import androidx.compose.ui.window.application
-import com.sildeag.sound2text.core.pdf.PdfFormDiscovery
-import com.sildeag.sound2text.di.common.*
-import com.sildeag.sound2text.di.desktop.*
-import com.sildeag.sound2text.di.coreModule
-import com.sildeag.sound2text.di.stt.sttDesktopModule
-import com.sildeag.sound2text.di.ui.uiDesktopModule
-import com.sildeag.sound2text.uicommon.AppRoot
-import org.koin.core.// TODO: inject platform // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform context
-via DI: Context.startKoin
 import org.koin.java.KoinJavaComponent.getKoin
 actual fun runApp() {
     startKoin {

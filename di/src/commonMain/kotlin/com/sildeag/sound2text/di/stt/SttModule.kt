@@ -7,7 +7,11 @@ import com.sildeag.sound2text.sttandroid.service.vosk.VoskAndroidModelFactory
 importRegistry.get
 
 import org.koin.dsl.module
-import android.content.// TODO: inject platform // TODO: inject platform context
+import android.content.// TODO: inject platform // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform // TODO: inject platform context
 via DI: Context
 via DI: // TODO: inject platform context
 via DI: Context
@@ -18,15 +22,27 @@ fun desktopSttModule(config: SttConfig) = module {
     single { VoskModelFactory.loadModel(get()) }
     single<SttService> { VoskSttService(get(), get()) }
 }
-fun androidSttModule(// TODO: inject platform // TODO: inject platform context
+fun androidSttModule(// TODO: inject platform // TODO: inject platform // TODO: inject platform context
 via DI: Context
 via DI: // TODO: inject platform context
-via DI: Context: // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context: // TODO: inject platform // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform // TODO: inject platform context
 via DI: Context
 via DI: // TODO: inject platform context
 via DI: Context, config: SttConfig) = module {
     single { config }
-    single { VoskAndroidModelFactory.loadModel(// TODO: inject platform // TODO: inject platform context
+    single { VoskAndroidModelFactory.loadModel(// TODO: inject platform // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform // TODO: inject platform context
 via DI: Context
 via DI: // TODO: inject platform context
 via DI: Context, get()) }

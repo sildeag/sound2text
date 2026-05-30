@@ -1,7 +1,7 @@
-package com.sildeag.sound2text.di.common
+package com.sildeag.sound2text.di.logging
 
 import com.sildeag.sound2text.core.logging.DesktopLogger
-import com.sildeag.sound2text.core.common.logging.Logger
+import com.sildeag.sound2text.core.logging.Logger
 import org.koin.dsl.module
 
 actual val loggerPlatformModule = module {

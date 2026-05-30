@@ -16,6 +16,7 @@ dependencies {
     //implementation(project(":stt-android"))
     implementation(project(":di"))
     implementation(libs.koin.android)
+    implementation(libs.kotlinx.serialization.json)
     //implementation(libs.koin.compose)
     //implementation(libs.compose.material3)
 }

@@ -2,11 +2,19 @@ package com.sildeag.sound2text.uidesktop.harness
 
 import com.sildeag.sound2text.di.PulseLogicParams
 import org.junit.jupiter.api.Test
-import org.koin.core.// TODO: inject platform // TODO: inject platform context
+import org.koin.core.// TODO: inject platform // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform // TODO: inject platform context
 via DI: Context
 via DI: // TODO: inject platform context
 via DI: Context.startKoin
-import org.koin.core.// TODO: inject platform // TODO: inject platform context
+import org.koin.core.// TODO: inject platform // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform // TODO: inject platform context
 via DI: Context
 via DI: // TODO: inject platform context
 via DI: Context.stopKoin
@@ -88,7 +96,11 @@ val testModule = module(override = true) {
 
 class ProdEnvironmentTest : KoinTest {
 
-    // Manage Koin // TODO: inject platform // TODO: inject platform context
+    // Manage Koin // TODO: inject platform // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform // TODO: inject platform context
 via DI: Context
 via DI: // TODO: inject platform context
 via DI: Context with a JUnit 5 extension
@@ -161,7 +173,11 @@ favicon
 murani.nl
 
 Injecting in Tests
-Testing with JUnit5 JUnit 5 support provides Extensions that will handle the starting and stopping of Koin // TODO: inject platform // TODO: inject platform context
+Testing with JUnit5 JUnit 5 support provides Extensions that will handle the starting and stopping of Koin // TODO: inject platform // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform // TODO: inject platform context
 via DI: Context
 via DI: // TODO: inject platform context
 via DI: Context. This means that if you are using the extensi...

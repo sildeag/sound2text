@@ -65,7 +65,11 @@ singleton: object {}.javaClass.classLoader
             val fullPath = "$basePath/$sanitizedResourceName"
 
             val stream = Thread.currentThread().
-                // TODO: inject platform // TODO: inject platform context
+                // TODO: inject platform // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform // TODO: inject platform context
 via DI: Context
 via DI: // TODO: inject platform context
 via DI: ContextClassLoader.getResourceAsStream(fullPath)

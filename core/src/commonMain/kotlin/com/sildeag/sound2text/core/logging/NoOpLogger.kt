@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.core.common.logging
+package com.sildeag.sound2text.core.logging
 
 class NoOpLogger : Logger {
     override fun info(msg: String) {}

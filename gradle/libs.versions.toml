@@ -7,7 +7,7 @@
 
 # --- Core Toolchains (Upgraded to Modern Stack) ---
 kotlin-ver = "2.3.20"             # was 2.1.10
-agp = "9.3.0-alpha07"             # was 9.2.1 and earlier 8.8.0
+agp = "9.3.0-alpha09"             # was 9.2.1 and earlier 8.8.0
 jvm = "24"
 
 android-compileSdk = "36"         # was 35
@@ -16,8 +16,8 @@ android-targetSdk = "36"         # was 35
 
 # --- Compose ---
 compose-mpp = "1.7.3"             # was 1.7.3, 1.10.3 and 2.8.0 (all had issues)
-compose-mpp-androidx = "2.8.0"    # Dedicated version for JetBrains androidx adapters
-compose-compiler = "2.3.20"        # Matches Kotlin version
+compose-mpp-androidx = "2.8.3"    # Dedicated version for JetBrains androidx adapters
+compose-compiler = "2.3.20"       # Matches Kotlin version
 compose-bom-ver = "2026.03.01"    # was 2025.02.00
 
 activity-compose = "1.12.3"       # was 1.9.3
@@ -138,7 +138,8 @@ activity-compose = { module = "androidx.activity:activity-compose", version.ref 
 compose-mpp-runtime = { group = "org.jetbrains.compose.runtime", name = "runtime", version.ref = "compose-mpp" }
 compose-mpp-foundation = { group = "org.jetbrains.compose.foundation", name = "foundation", version.ref = "compose-mpp" }
 compose-mpp-material3 = { group = "org.jetbrains.compose.material3", name = "material3", version.ref = "compose-mpp" }
-compose-mpp-viewmodel = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose-multiplatform", version.ref = "compose-mpp-androidx" }
+#  CORRECT VERSION CATALOG SYNTAX
+compose-mpp-viewmodel = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "compose-mpp-androidx" }
 
 
 

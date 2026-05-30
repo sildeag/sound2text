@@ -3,11 +3,19 @@ package com.sildeag.sound2text.test
 import com.sildeag.sound2text.core.config.AppEnvironment
 import com.sildeag.sound2text.core.config.Environment
 import com.sildeag.sound2text.di.loadEnvironmentModules
-import org.koin.core.// TODO: inject platform // TODO: inject platform context
+import org.koin.core.// TODO: inject platform // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform // TODO: inject platform context
 via DI: Context
 via DI: // TODO: inject platform context
 via DI: Context.startKoin
-import org.koin.core.// TODO: inject platform // TODO: inject platform context
+import org.koin.core.// TODO: inject platform // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform // TODO: inject platform context
 via DI: Context
 via DI: // TODO: inject platform context
 via DI: Context.stopKoin

@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.core.common.logging
+package com.sildeag.sound2text.core.logging
 
 class LogReplay(private val entries: List<String>) {
     fun filterByTag(tag: String): List<String> =

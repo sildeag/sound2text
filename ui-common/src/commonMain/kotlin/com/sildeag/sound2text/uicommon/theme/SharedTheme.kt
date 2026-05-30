@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.uicommon.ui
+package com.sildeag.sound2text.uicommon.theme
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.lightColorScheme

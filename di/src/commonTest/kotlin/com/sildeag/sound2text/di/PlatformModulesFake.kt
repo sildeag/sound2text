@@ -9,7 +9,11 @@ import org.koin.dsl.module
 // This single fake actual is shared across desktop tests and Android tests,
 // because both depend on core/commonTest.
 
-actual fun platformModules(// TODO: inject platform // TODO: inject platform context
+actual fun platformModules(// TODO: inject platform // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform // TODO: inject platform context
 via DI: Context
 via DI: // TODO: inject platform context
 via DI: ContextProvider: Any?): List<Module> =

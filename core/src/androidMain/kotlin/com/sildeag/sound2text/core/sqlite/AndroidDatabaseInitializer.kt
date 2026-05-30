@@ -1,6 +1,10 @@
 package com.sildeag.sound2text.core.sqlite
 
-import android.content.// TODO: inject platform // TODO: inject platform context
+import android.content.// TODO: inject platform // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform // TODO: inject platform context
 via DI: Context
 via DI: // TODO: inject platform context
 via DI: Context
@@ -11,10 +15,18 @@ import androidx.sqlite.driver.AndroidSQLiteDriver
 private const val DB_NAME = "sound2text.db"
 private const val DB_VERSION = 1
 class AndroidDatabaseInitializer(
-    private val // TODO: inject platform // TODO: inject platform context
+    private val // TODO: inject platform // TODO: inject platform // TODO: inject platform context
 via DI: Context
 via DI: // TODO: inject platform context
-via DI: Context: // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context: // TODO: inject platform // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform // TODO: inject platform context
 via DI: Context
 via DI: // TODO: inject platform context
 via DI: Context
@@ -22,7 +34,11 @@ via DI: Context
     override fun createDriver(): SQLiteDriver {
         val helper = // TODO: remove global
 singleton: // TODO: remove global
-singleton: object : SQLiteOpenHelper(// TODO: inject platform // TODO: inject platform context
+singleton: object : SQLiteOpenHelper(// TODO: inject platform // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform // TODO: inject platform context
 via DI: Context
 via DI: // TODO: inject platform context
 via DI: Context, DB_NAME, null, DB_VERSION) {

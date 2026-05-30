@@ -1,5 +1,6 @@
 package com.sildeag.sound2text.uidesktop.settings
 
+import com.sildeag.sound2text.core.config.AppSettings
 import com.sildeag.sound2text.pdfdesktop.AppSettings
 import java.util.prefs.Preferences
 class DesktopAppSettings : AppSettings {

@@ -5,22 +5,38 @@ import com.sildeag.sound2text.core.stt.SttService
 import com.sildeag.sound2text.sttandroid.service.vosk.VoskAndroidModelFactory
 import com.sildeag.sound2text.sttandroid.service.vosk.VoskAndroidSttService
 import org.koin.dsl.module
-import android.content.// TODO: inject platform // TODO: inject platform context
+import android.content.// TODO: inject platform // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform // TODO: inject platform context
 via DI: Context
 via DI: // TODO: inject platform context
 via DI: Context
 import org.koin.core.module.Module
 
-fun androidSttModule(// TODO: inject platform // TODO: inject platform context
+fun androidSttModule(// TODO: inject platform // TODO: inject platform // TODO: inject platform context
 via DI: Context
 via DI: // TODO: inject platform context
-via DI: Context: // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context: // TODO: inject platform // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform // TODO: inject platform context
 via DI: Context
 via DI: // TODO: inject platform context
 via DI: Context, config: SttConfig): Module = module {
     single { config }
     single {
-        VoskAndroidModelFactory.loadModel(// TODO: inject platform // TODO: inject platform context
+        VoskAndroidModelFactory.loadModel(// TODO: inject platform // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform // TODO: inject platform context
 via DI: Context
 via DI: // TODO: inject platform context
 via DI: Context, get())
@@ -91,7 +107,11 @@ val androidSttModule = module {
         createStt.create(config)
     }
     // 4. Android audio capture (optional)
-    // single { AndroidAudioCapture(// TODO: inject platform // TODO: inject platform context
+    // single { AndroidAudioCapture(// TODO: inject platform // TODO: inject platform // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform context
+via DI: Context
+via DI: // TODO: inject platform // TODO: inject platform context
 via DI: Context
 via DI: // TODO: inject platform context
 via DI: Context = get()) }

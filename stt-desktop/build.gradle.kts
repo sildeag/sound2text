@@ -20,15 +20,9 @@ kotlin {
 
         
         jvmMain.dependencies {
-            implementation(project(":core"))
-            //implementation(project(":di"))
-            implementation(libs.vosk)
-            implementation(libs.vosk.api)
         }
 
         androidMain.dependencies {
-            implementation(project(":core"))
-            //implementation(project(":di"))
             implementation(libs.vosk.android)
         }
 

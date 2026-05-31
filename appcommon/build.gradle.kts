@@ -17,13 +17,9 @@ kotlin {
         }
         
         androidMain.dependencies {
-            implementation(project(":core"))
-            implementation(project(":di"))
             implementation(libs.vosk.android)
         }
         jvmMain.dependencies {
-            implementation(project(":core"))
-            implementation(project(":di"))
             // commonMain dependencies are in internal.kmp.base
         }
     }

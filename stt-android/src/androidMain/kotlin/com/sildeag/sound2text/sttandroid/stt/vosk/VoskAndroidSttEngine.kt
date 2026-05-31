@@ -1,10 +1,11 @@
-package com.sildeag.sound2text.sttandroid.engine.vosk
+package com.sildeag.sound2text.sttandroid.stt.vosk
 
+import android.R.attr.path
+
+package com.sildeag.sound2text.stt.android.engine.vosk
 import com.sildeag.sound2text.core.stt.SttEngine
-import com.sildeag.sound2text.core.stt.SttResult
 import org.vosk.Model
 import org.vosk.Recognizer
-
 class VoskAndroidSttEngine(
     private val language: String,
     private val modelPath: String?,
@@ -24,7 +25,7 @@ class VoskAndroidSttEngine(
                 model = Model(path)
                 recognizer = Recognizer(model, sampleRate)
     }
-    override fun processAudio(data: ByteArray) {
+    fun processAudio(data: ByteArray) {
         val rec = recognizer ?: return
         val text = if (rec.acceptWaveForm(data)) {
             rec.result
@@ -33,27 +34,13 @@ class VoskAndroidSttEngine(
         }
         callback?.invoke(text)
     }
-
-    override suspend fun start() {
-        TODO("Not yet implemented")
-    }
-
-    override fun stop() {
+    override suspend fun stop() {
         recognizer?.close()
         model?.close()
         recognizer = null
         model = null
     }
-
-    override suspend fun transcribe(chunk: ByteArray): String {
-        TODO("Not yet implemented")
-    }
-
-    override suspend fun recognizeOnce(): SttResult? {
-        TODO("Not yet implemented")
-    }
-
-    override fun finalResult(): String? {
+    fun finalResult(): String? {
         return recognizer?.finalResult
     }
 }

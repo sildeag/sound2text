@@ -19,13 +19,6 @@ kotlin {
 
         jvmMain {
             dependencies {
-                implementation(project(":core"))
-                implementation(project(":di"))
-                implementation(project(":ui-common"))
-                //implementation(libs.compose.material3)
-                implementation(libs.bundles.itext)
-                implementation(libs.vosk)
-                implementation(libs.vosk.api)
             }
             resources.srcDir("src/jvmMain/resources")
         }

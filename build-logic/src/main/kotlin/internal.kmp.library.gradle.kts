@@ -2,8 +2,8 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 plugins {
     id("internal.kmp.base")
-    id("internal.kmp.android.library")
-    id("internal.kmp.jvm.library")
+    //id("internal.kmp.android.library")
+    //id("internal.kmp.jvm.library")
     id("com.android.kotlin.multiplatform.library")
     id("org.jetbrains.dokka")
 }
@@ -20,14 +20,14 @@ configure<KotlinMultiplatformExtension> {
         minSdk = libs.findVersion("android-minSdk").get().requiredVersion.toInt()
 
         // In AGP 9.1+, host-side unit tests are enabled and configured via withHostTest
-        //withHostTest {
+        withHostTest {
             // Configuration for host-side unit tests
-        //}
+        }
 
         // On-device tests are enabled and configured via withDeviceTest
-        //withDeviceTest {
+        withDeviceTest {
             // Configuration for device-side unit tests
-        //}
+        }
 
         compilerOptions {
             jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.fromTarget(libs.findVersion("jvm").get().requiredVersion))

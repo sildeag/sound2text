@@ -4,12 +4,12 @@ import kotlinx.serialization.json.Json
 import kotlin.runCatching
 import android.content.Context
 import android.content.SharedPreferences
-import com.sildeag.sound2text.core.logging.LogLevel
 import com.sildeag.sound2text.core.settings.SettingsStore
 import com.sildeag.sound2text.core.config.AppMode
 import com.sildeag.sound2text.core.config.AppSettings
 import com.sildeag.sound2text.core.config.AudioSettings
 import com.sildeag.sound2text.core.config.EngineConfig
+import com.sildeag.sound2text.core.config.LogLevel
 import com.sildeag.sound2text.core.config.LoggingConfig
 import com.sildeag.sound2text.core.config.ServiceSettings
 import com.sildeag.sound2text.core.config.SpeechToTextSettings

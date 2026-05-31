@@ -14,7 +14,6 @@ kotlin {
   commonMain.dependencies {
    implementation(project(":core"))
    implementation(project(":ui-common"))
-   implementation(libs.koin.core)
    implementation(libs.compose.mpp.runtime)
   }
 

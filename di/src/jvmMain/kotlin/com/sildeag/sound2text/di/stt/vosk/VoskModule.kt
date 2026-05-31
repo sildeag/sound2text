@@ -1,9 +1,7 @@
 package com.sildeag.sound2text.di.stt.vosk
 
-// TODO: remove engine
-importPlugin
-// TODO: remove engine
-importPlugin
+import com.sildeag.sound2text.core.stt.SttEnginePlugin
+import com.sildeag.sound2text.core.stt.plugins.VoskEnginePlugin
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 

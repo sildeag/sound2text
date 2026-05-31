@@ -16,15 +16,9 @@ kotlin {
         }
 
         jvmMain.dependencies {
-                implementation(project(":core"))
-                //implementation(project(":di"))
-                //implementation(libs.snakeyaml)
-                implementation(libs.bundles.itext)
         }
 
         androidMain.dependencies {
-                implementation(project(":core"))
-                //implementation(project(":di"))
                 implementation(libs.vosk.android)
         }
     }

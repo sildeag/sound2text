@@ -8,6 +8,7 @@ import org.vosk.Model
 import org.vosk.Recognizer
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
+
 class VoskAndroidSttService(
     private val model: Model,
     private val config: SttConfig
@@ -24,17 +25,23 @@ class VoskAndroidSttService(
     override suspend fun transcribe(audio: ByteArray): SttResult {
         return try {
             val pcm = toShortArray(audio)
+
             Recognizer(model, sampleRate).use { recognizer ->
                 val buffer = ByteBuffer
                     .allocate(pcm.size * 2)
                     .order(ByteOrder.LITTLE_ENDIAN)
+
                 pcm.forEach { buffer.putShort(it) }
+
                 recognizer.acceptWaveForm(buffer.array(), buffer.array().size)
+
                 val json = recognizer.finalResult
                 val text = extractText(json)
+
                 SttResult.Success(
                     SttTranscriptionData(
                         text = text,
+                        isFinal = true,
                         confidence = null,
                         engineName = "vosk-android"
                     )
@@ -44,6 +51,8 @@ class VoskAndroidSttService(
             SttResult.Failure("Vosk Android transcription failed", e)
         }
     }
+
+}
     private fun toShortArray(bytes: ByteArray): ShortArray {
         val buffer = ByteBuffer.wrap(bytes).order(ByteOrder.LITTLE_ENDIAN)
         val shorts = ShortArray(bytes.size / 2)

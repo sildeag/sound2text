@@ -22,9 +22,6 @@ kotlin {
         }
         
         jvmMain.dependencies {
-            implementation(project(":core"))
-            implementation(project(":di"))
-            implementation( project(":appcommon"))
             implementation("org.openjfx:javafx-base:$jfxVersion:$desktopPlatform")
             implementation("org.openjfx:javafx-controls:$jfxVersion:$desktopPlatform")
             implementation("org.openjfx:javafx-fxml:$jfxVersion:$desktopPlatform")
@@ -41,12 +38,11 @@ kotlin {
         }
 
         androidMain.dependencies {
-            implementation( project(":appcommon"))
             // Android specific dependencies
         }
 
         jvmTest.dependencies {
-                implementation(libs.bundles.testJvm)
+            implementation(libs.bundles.testJvm)
         }
     }
 }

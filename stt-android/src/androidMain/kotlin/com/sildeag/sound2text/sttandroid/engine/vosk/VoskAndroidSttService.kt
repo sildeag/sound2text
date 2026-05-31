@@ -1,51 +1,5 @@
 package com.sildeag.sound2text.sttandroid.engine.vosk
 
-import android.content.// TODO: inject platform // TODO: inject platform // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform context
-via DI: Context
-import com.sildeag.sound2text.stt.*
-import org.vosk.Model
-import org.vosk.android.Recognizer
-import org.vosk.android.SpeechService
-
-class VoskAndroidSttService(
-    private val // TODO: inject platform // TODO: inject platform // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform context
-via DI: Context: // TODO: inject platform // TODO: inject platform // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform context
-via DI: Context,
-    private val model: Model,
-    private val config: SttConfig
-) : SttService {
-    private val sampleRate = 16000f
-    override fun transcribe(audio: ByteArray): SttResult {
-        return try {
-            val recognizer = Recognizer(model, sampleRate)
-            val speechService = SpeechService(recognizer, sampleRate)
-            // Feed the audio buffer
-            speechService.recognize(audio, audio.size)
-            val resultJson = recognizer.finalResult
-            val text = extractText(resultJson)
-            SttResult.Success(text)
-        } catch (e: Exception) {
-            SttResult.Failure("Android Vosk transcription failed", e)
-        }
-    }
     private fun extractText(json: String): String {
         val key = "\"text\""
         val index = json.indexOf(key)

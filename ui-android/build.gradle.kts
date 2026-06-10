@@ -16,8 +16,11 @@ dependencies {
     implementation(project(":feature-recording"))
     //implementation(project(":pdf-android"))
     //implementation(project(":stt-android"))
-    implementation(libs.koin.android)
     implementation(libs.kotlinx.serialization.json)
-    //implementation(libs.koin.compose)
-    //implementation(libs.compose.material3)
+    
+    // Lifecycle
+    implementation(libs.lifecycle.runtime.ktx)
+    implementation(libs.lifecycle.viewmodel.ktx)
+    implementation(libs.lifecycle.runtime.compose)
+    implementation(libs.lifecycle.viewmodel.compose)
 }

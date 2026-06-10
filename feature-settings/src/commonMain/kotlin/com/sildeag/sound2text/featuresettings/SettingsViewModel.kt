@@ -1,8 +1,10 @@
-package com.sildeag.sound2text.uicommon.viewmodel
+package com.sildeag.sound2text.featuresettings
 
-import androidx.lifecycle.ViewModel
+import com.sildeag.sound2text.core.config.AppSettings
+import com.sildeag.sound2text.core.settings.SettingsStore
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.update
 
 class SettingsViewModel(
     private val settingsStore: SettingsStore,

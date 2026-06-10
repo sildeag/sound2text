@@ -7,7 +7,7 @@
 
 # --- Core Toolchains (Upgraded to Modern Stack) ---
 kotlin-ver = "2.3.20"             # was 2.1.10
-agp = "9.3.0-alpha09"             # was 9.2.1 and earlier 8.8.0
+agp = "9.3.0-alpha11"             # was 9.2.1 and earlier 8.8.0
 jvm = "24"
 
 android-compileSdk = "36"         # was 35
@@ -56,7 +56,7 @@ jna-ver = "5.18.1"                # was 5.15.0
 snakeyaml-ver = "2.5"             # was 2.3
 dokka-ver = "2.2.0"               # was 2.1.0
 vosk-ver = "0.3.38"
-vosk-ver-android = "0.3.75"
+vosk-ver-android = "0.3.38"       # was 0.3.75
 controlsfx-ver = "12.3.1"         # was 11.2.1
 tilesfx-ver = "21.0.9"            # was 21.0.3
 formsfx-ver = "11.6.0"

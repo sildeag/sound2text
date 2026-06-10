@@ -1,38 +1,10 @@
 package com.sildeag.sound2text.core.sqlite
 
-import android.content.// TODO: inject platform // TODO: inject platform // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform context
-via DI: Context
+import android.content.Context
 actual class DatabaseFactory(
-    private val // TODO: inject platform // TODO: inject platform // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform context
-via DI: Context: // TODO: inject platform // TODO: inject platform // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform context
-via DI: Context
+    private val context: Context
 ) {
     actual fun createDriver(): SQLiteDriver {
-        return AndroidDatabaseInitializer(// TODO: inject platform // TODO: inject platform // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform context
-via DI: Context).createDriver()
+        return AndroidDatabaseInitializer(context).createDriver()
     }
 }

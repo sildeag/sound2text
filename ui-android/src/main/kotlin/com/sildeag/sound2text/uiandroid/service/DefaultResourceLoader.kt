@@ -3,7 +3,6 @@ package com.sildeag.sound2text.service
 import java.io.IOException
 import java.io.InputStream
 import java.net.URL
-import com.sildeag.sound2text.logging.Logger
 
 class DefaultResourceLoader (
     private val logger: Logger): ResourceLoader {

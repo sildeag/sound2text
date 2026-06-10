@@ -4,7 +4,7 @@ package com.sildeag.sound2text.uidesktop.stt.vosk
 import
 import com.sildeag.sound2text.core.stt.SttResult
 
-class VoskSttEngine(
+class VoskDesktopSttEngine(
     private val language: String,
     private val modelPath: String?,
     private val modelFile: String?,

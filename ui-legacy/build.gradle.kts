@@ -14,9 +14,11 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            implementation(project(":core"))
-            implementation(project(":di"))
+            //implementation(project(":core"))
+            implementation(project(":feature-recording"))
             implementation(project(":ui-common"))
+            //implementation(project(":pdf-desktop"))
+            //implementation(project(":stt-desktop"))
             implementation(libs.bundles.itext)
             implementation(libs.vosk)
         }

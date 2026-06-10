@@ -1,5 +1,26 @@
 package com.sildeag.sound2text.core.stt
 
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
+@Serializable
+data class SttResult(
+    val text: String,
+    val engineName: String
+) {
+    companion object {
+        private val json = Json { ignoreUnknownKeys = true }
+        fun fromJson(raw: String): SttResult {
+            return try {
+                json.decodeFromString(SttResult.serializer(), raw)
+            } catch (_: Exception) {
+                SttResult(text = raw, engineName = "vosk")
+            }
+        }
+    }
+}
+
+
+/*
 sealed class SttResult {
     sealed class Success(sttTranscriptionData: SttTranscriptionData) : SttResult() {
         data class Partial(val data: SttTranscriptionData) : Success(
@@ -19,3 +40,4 @@ sealed class SttResult {
     }
     data class Failure(val message: String, val cause: Throwable? = null) : SttResult()
 }
+*/

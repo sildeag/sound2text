@@ -12,8 +12,8 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            implementation(project(":core"))
-            implementation(project(":di"))
+            //implementation(project(":core"))
+            //implementation(project(":di"))
             implementation( project(":appcommon"))
                 //implementation(libs.koin.compose)
                 //implementation(libs.compose.material3)

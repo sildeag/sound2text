@@ -2,7 +2,6 @@ package com.sildeag.sound2text.core.notes
 
 import androidx.sqlite.SQLiteConnection
 import com.sildeag.sound2text.core.model.note.*
-import com.sildeag.sound2text.core.serialization.NoteFieldJson
 import com.sildeag.sound2text.core.serialization.NoteFieldPayload
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

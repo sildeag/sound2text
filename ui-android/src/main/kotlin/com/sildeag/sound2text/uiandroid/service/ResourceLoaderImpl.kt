@@ -1,6 +1,5 @@
 package com.sildeag.sound2text.service
 
-import com.sildeag.sound2text.logging.Logger
 //import sun.tools.jconsole.inspector.Utils.getClass
 import java.io.IOException
 import java.io.InputStream

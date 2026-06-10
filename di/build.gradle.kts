@@ -12,18 +12,21 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(project(":core"))
+            implementation(libs.koin.core)
         }
 
         androidMain.dependencies {
             implementation(project(":stt-android"))
             implementation(project(":pdf-android"))
             implementation(libs.vosk.android)
+            implementation(libs.koin.android)
         }
 
         jvmMain.dependencies {
             implementation(project(":stt-desktop"))
             implementation(project(":pdf-desktop"))
             implementation(libs.vosk.api)
+            implementation(libs.koin.core)
             //implementation(libs.snakeyaml)
             //implementation(libs.bundles.itext)
         }

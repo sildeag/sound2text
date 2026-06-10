@@ -2,7 +2,6 @@ package com.sildeag.sound2text
 
 import com.sildeag.sound2text.uiandroid.config.AppSettings
 import com.sildeag.sound2text.logging.ConsoleLogger
-import com.sildeag.sound2text.logging.Logger
 import com.sildeag.sound2text.logging.NoOpLogger
 import com.sildeag.sound2text.storage.AndroidStorageService
 import com.sildeag.sound2text.storage.StorageService

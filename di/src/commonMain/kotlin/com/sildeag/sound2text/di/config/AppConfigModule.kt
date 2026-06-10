@@ -2,7 +2,6 @@ package com.sildeag.sound2text.di.config
 
 import com.sildeag.sound2text.core.config.AppSettings
 import com.sildeag.sound2text.core.config.Environment
-import com.sildeag.sound2text.core.config.SettingsLoader
 import org.koin.dsl.module
 
 val configModule = module {
@@ -11,7 +10,7 @@ val configModule = module {
     single { Environment.Development }
 
     // The main application configuration object, loaded via expect/actual
-    single<AppSettings> { SettingsLoader.load() }
+    single<AppSettings> { `SettingsLoader.txt`.load() }
 }
 
 

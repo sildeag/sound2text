@@ -3,7 +3,6 @@ package com.sildeag.sound2text.service.logic
 import com.sildeag.sound2text.audio.SoundPlayer
 import com.sildeag.sound2text.uiandroid.config.AppSettings
 import com.sildeag.sound2text.uiandroid.config.Environment
-import com.sildeag.sound2text.logging.Logger
 import com.sildeag.sound2text.core.model.note.NoteEditor
 import com.sildeag.sound2text.core.model.note.NoteProvider
 import com.sildeag.sound2text.service.recognizer.Recognizer

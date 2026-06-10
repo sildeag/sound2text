@@ -1,7 +1,5 @@
 package com.sildeag.sound2text.service.recognizer
 
-import com.sildeag.sound2text.logging.Logger
-
 import org.vosk.Model
 import org.vosk.Recognizer as VoskCoreRecognizer
 import java.io.File

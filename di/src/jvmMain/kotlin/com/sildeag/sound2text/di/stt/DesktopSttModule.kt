@@ -12,3 +12,8 @@ fun desktopSttModule(config: SttConfig) = module {
     single<SttEngineFactory> { VoskEngineFactory() }
     single<SttEngine> { get<SttEngineFactory>().load(get()) as SttEngine }
 }
+fun desktopSttModule(config: SttConfig) = module {
+    single { config }
+    single { VoskModelFactory(get()).load(config) }
+    single<SttService> { VoskSttService(get(), get()) }
+}

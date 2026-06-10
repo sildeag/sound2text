@@ -9,8 +9,8 @@ class DesktopDatabaseInitializer(
 ) : DatabaseInitializer {
     override fun createDriver(): SQLiteDriver {
         val path = File(baseDir, DB_NAME).absolutePath
-// TODO: replace with DI +
-ViewModel: getConnection("jdbc:sqlite:$path")
+        val conn: Connection =
+            DriverManager.getConnection("jdbc:sqlite:$path")
         createSchema(conn)
         return JdbcSQLiteDriver(path)
     }
@@ -35,7 +35,8 @@ private fun createSchema(conn: Connection) {
  anchor TEXT,
  language TEXT,
  payload TEXT NOT NULL,
- FOREIGN KEY(note_id) REFERENCES notes(id) ON DELETE CASCADE
+ FOREIGN KEY(note_id) REFERENCES notes(id) ON DELETE
+CASCADE
  )
  """.trimIndent()
         )

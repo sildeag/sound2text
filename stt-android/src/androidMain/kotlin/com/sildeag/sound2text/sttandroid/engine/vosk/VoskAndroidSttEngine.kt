@@ -6,7 +6,7 @@ import org.vosk.Model
 import org.vosk.Recognizer
 
 class VoskAndroidSttEngine(
-    private val language: String,
+    private val language: Model,
     private val modelPath: String?,
     private val modelFile: String?,
     private val androidModelDir: String?,

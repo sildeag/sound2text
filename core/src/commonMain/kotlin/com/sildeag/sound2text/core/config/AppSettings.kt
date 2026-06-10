@@ -1,6 +1,17 @@
 package com.sildeag.sound2text.core.config
 
 import kotlinx.serialization.Serializable
+
+@Serializable
+data class AppSettings(
+    val selectedEngine: String? = null,
+    val selectedPdfProcessor: String? = null,
+    val language: String = "en",
+    val autoSaveNotes: Boolean = true,
+    val enableVoiceInput: Boolean = true,
+    val theme: AppTheme = AppTheme.System
+)
+
 @Serializable
 data class AppSettings(
     val mode: AppMode = AppMode.DEV,
@@ -111,6 +122,11 @@ enum class LogLevel {
     Info,
     Warn,
     Error
+}
+
+@Serializable
+enum class AppTheme {
+    Light, Dark, System
 }
 
 

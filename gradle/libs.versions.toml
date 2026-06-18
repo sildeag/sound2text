@@ -7,7 +7,7 @@
 
 # --- Core Toolchains (Upgraded to Modern Stack) ---
 kotlin-ver = "2.3.20"             # was 2.1.10
-agp = "9.3.0-alpha11"             # was 9.2.1 and earlier 8.8.0
+agp = "9.4.0-alpha01"             # was 9.2.1 and earlier 8.8.0
 jvm = "24"
 
 android-compileSdk = "36"         # was 35
@@ -75,6 +75,7 @@ sqlite-jdbc-ver = "3.45.1.0"
 spatialite-android-ver = "2.0.0"
 sqlite-bundled-ver = "2.6.2"
 sqliteFramework = "2.6.2"
+runtime = "1.11.2"
 
 
 # ============================================================
@@ -218,6 +219,7 @@ androidx-sqlite-bundled = { group = "androidx.sqlite", name = "sqlite-bundled", 
 spatialite-android = { group = "com.github.sevar83", name = "android-spatialite", version.ref = "spatialite-android-ver" }
 sqlite-jdbc = { group = "org.xerial", name = "sqlite-jdbc", version.ref = "sqlite-jdbc-ver" }
 androidx-sqlite-framework = { group = "androidx.sqlite", name = "sqlite-framework", version.ref = "sqliteFramework" }
+androidx-compose-runtime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "runtime" }
 
 
 # ============================================================

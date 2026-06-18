@@ -4,7 +4,6 @@ import com.sildeag.sound2text.core.logging.Logger
 import com.sildeag.sound2text.core.stt.SttConfig
 // TODO: remove engine
 import
-import com.sildeag.sound2text.core.stt.SttService
 import org.koin.core.qualifier.named
 import org.koin.java.KoinJavaComponent.getKoin
 fun resolveEngineOrExit(

@@ -1,9 +1,7 @@
 package com.sildeag.sound2text.core.stt.plugins
 
-import com.sildeag.sound2text.core.stt.ModelDescriptor
 import com.sildeag.sound2text.core.stt.SttConfig
 import com.sildeag.sound2text.core.stt.SttEngine
-import com.sildeag.sound2text.core.stt.SttEngineFactory
 import com.sildeag.sound2text.core.stt.SttEnginePlugin
 
 

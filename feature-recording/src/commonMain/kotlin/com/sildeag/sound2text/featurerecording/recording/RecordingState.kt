@@ -1,6 +1,6 @@
 package com.sildeag.sound2text.featurerecording.recording
 
-import com.sildeag.sound2text.core.stt.SttResult
+import com.sildeag.sound2text.core.*
 
 sealed class RecordingState {
     object Idle : RecordingState()

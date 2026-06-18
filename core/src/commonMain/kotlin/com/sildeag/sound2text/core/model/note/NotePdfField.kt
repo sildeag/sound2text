@@ -6,5 +6,5 @@ data class NotePdfField(
     override val level: Int,
     override val language: String?,
     val pdfFieldName: String,
-    val value: String
+    val value: String?
 ) : NoteField

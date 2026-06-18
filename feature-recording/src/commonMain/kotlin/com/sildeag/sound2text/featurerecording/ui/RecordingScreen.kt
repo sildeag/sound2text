@@ -1,9 +1,6 @@
 package com.sildeag.sound2text.featurerecording.ui
 
 import androidx.compose.runtime.Composable
-import com.sildeag.sound2text.core.stt.SttService
-import com.sildeag.sound2text.featurerecording.recording.RecordingState
-import com.sildeag.sound2text.featurerecording.recording.WaveformState
 
 
 @Composable

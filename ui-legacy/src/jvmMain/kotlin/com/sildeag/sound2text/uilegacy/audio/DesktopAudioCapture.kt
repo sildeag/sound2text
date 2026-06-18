@@ -1,6 +1,5 @@
 package com.sildeag.sound2text.uilegacy.audio
 
-import com.sildeag.sound2text.core.audio.SoundSource
 import javax.sound.sampled.*
 
 class DesktopAudioCapture(override val id: String) : SoundSource {

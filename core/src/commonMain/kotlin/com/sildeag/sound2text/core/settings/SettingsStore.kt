@@ -6,3 +6,10 @@ interface SettingsStore {
     fun load(): AppSettings
     fun save(settings: AppSettings)
 }
+
+private fun migrate(settings: AppSettings): AppSettings {
+    return when (settings.version) {
+        1 -> settings // current version
+        else -> settings // fallback
+    }
+}

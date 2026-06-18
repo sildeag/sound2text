@@ -1,13 +1,17 @@
-package com.sildeag.sound2text.di.pdf
+package com.sildeag.sound2text.pdfdesktop.di
 
-// TODO: remove engine
-import
-import com.sildeag.sound2text.core.pdf.PdfFormDiscovery
-// TODO: remove engine
-import
-import org.koin.core.module.Module
+import pdf.UnifiedFormRegistry
+import pdf.PdfFormPlugin
+import com.sildeag.sound2text.pdfdesktop.itext.ITextFormPlugin
 import org.koin.dsl.module
-val pdfDesktopModule: Module = module {
-    single<PdfFormDiscovery> { ITextFormDiscovery() }
-    single< PdfFormEngine> { ITextPdfEngine() }
+
+val PdfDesktopModule = module {
+    // Register the iText plugin
+    single<PdfFormPlugin> { ITextFormPlugin() }
+    // Unified registry (can hold multiple plugins)
+    single {
+        UnifiedFormRegistry(
+            plugins = listOf(get<PdfFormPlugin>())
+        )
+    }
 }

@@ -1,17 +1,9 @@
 package com.sildeag.sound2text.sttdesktop.service.vosk
 
-class VoskSttService(
-    private val model: Model,
-    private val config: SttConfig
-) : SttService {
-    private val sampleRate = config.sampleRate
-    ...
-}
-
-import com.sildeag.sound2text.core.stt.SttService
 import com.sildeag.sound2text.core.stt.SttResult
 import com.sildeag.sound2text.core.stt.SttTranscriptionData
 import com.sildeag.sound2text.core.stt.SttConfig
+import kotlinx.coroutines.flow.Flow
 import org.vosk.Model
 import org.vosk.Recognizer
 import java.nio.ByteBuffer
@@ -21,7 +13,15 @@ class VoskSttService(
     private val config: SttConfig
 ) : SttService {
     private val sampleRate = config.sampleRate
-    override fun transcribe(audio: ByteArray): SttResult {
+    override suspend fun start(): Flow<SttResult> {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun stop() {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun transcribe(audio: ByteArray): SttResult {
         return try {
             val pcm = toShortArray(audio)
             Recognizer(model, sampleRate).use { recognizer ->
@@ -36,7 +36,9 @@ class VoskSttService(
                     SttTranscriptionData(
                         text = text,
                         confidence = null,
-                        engineName = "vosk-android"
+                        engineName = "vosk-android",
+                        isFinal = TODO(),
+                        timestamp = TODO()
                     )
                 )
             }

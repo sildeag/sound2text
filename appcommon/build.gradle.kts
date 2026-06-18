@@ -17,6 +17,7 @@ kotlin {
         }
         
         androidMain.dependencies {
+            implementation(libs.androidx.compose.runtime)
             implementation(libs.vosk.android)
         }
         jvmMain.dependencies {

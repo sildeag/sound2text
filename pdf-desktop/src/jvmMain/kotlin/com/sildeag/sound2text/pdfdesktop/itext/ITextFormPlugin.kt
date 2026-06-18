@@ -1,6 +1,9 @@
 package com.sildeag.sound2text.pdfdesktop.itext
 
-import com.sildeag.sound2text.core.pdf.*
+import pdf.PdfFormDescriptor
+import pdf.PdfFormEngineFactory
+import pdf.PdfFormPlugin
+
 class ITextFormPlugin : PdfFormPlugin {
     override val engineName: String = "itext"
     override fun createFactory(): PdfFormEngineFactory =

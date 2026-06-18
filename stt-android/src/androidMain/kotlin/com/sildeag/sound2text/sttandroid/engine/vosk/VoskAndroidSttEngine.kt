@@ -16,7 +16,7 @@ class VoskAndroidSttEngine(
     private var model: Model? = null
     private var recognizer: Recognizer? = null
     private var callback: ((String) -> Unit)? = null
-    override fun start(onResult: (String) -> Unit) {
+    override suspend fun start() {
         callback = onResult
         // Android uses androidModelDir or androidModelFile
         val path = androidModelDir ?: androidModelFile

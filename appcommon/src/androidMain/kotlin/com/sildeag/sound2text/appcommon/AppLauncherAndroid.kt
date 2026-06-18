@@ -1,19 +1,19 @@
 package com.sildeag.sound2text.appcommon
 
 import androidx.compose.runtime.Composable
+import com.sildeag.sound2text.core.config.AppSettings
 import com.sildeag.sound2text.core.logging.Logger
-import com.sildeag.sound2text.settings.AppSettings
-import com.sildeag.sound2text.stt.SpeechToTextService
 import com.sildeag.sound2text.uicommon.AppRoot
 import org.koin.android.ext.android.getKoin
 import org.vosk.android.StorageService
+
 
 @Composable
 actual fun runApp() {
     val koin = getKoin()
     val logger: Logger = koin.get()
     val storage: StorageService = koin.get()
-    val stt: SpeechToTextService = koin.get()
+    val stt: SttService = koin.get()
     val settings: AppSettings = koin.get()
     logger.info("Sound2Text Android starting in ${settings.Loglevel} LogLevel")
         val nav = NavigationState()

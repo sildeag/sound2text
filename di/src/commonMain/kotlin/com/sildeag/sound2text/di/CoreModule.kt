@@ -1,6 +1,5 @@
 package com.sildeag.sound2text.di
 
-import com.sildeag.sound2text.core.stt.SpeechToTextService
 import com.sildeag.sound2text.core.logging.Logger
 import com.sildeag.sound2text.core.logging.ConsoleLogger
 import com.sildeag.sound2text.core.storage.StorageService

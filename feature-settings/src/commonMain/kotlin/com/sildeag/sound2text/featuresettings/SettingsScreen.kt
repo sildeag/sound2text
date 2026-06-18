@@ -7,6 +7,7 @@ import androidx.compose.runtime.getValue
 
 import androidx.compose.runtime.Composable
 
+
 @Composable
 fun SettingsScreen(viewModel: SettingsViewModel) {
     val state by viewModel.state.collectAsState()
@@ -23,11 +24,21 @@ fun SettingsScreen(viewModel: SettingsViewModel) {
             selected = state.selectedPdfProcessor,
             onSelect = { viewModel.updatePdfProcessor(it) }
         )
-        Text("Language")
+        NoteFieldPayload.Text("Language")
         DropdownMenu(
             options = listOf("en", "es", "fr"),
             selected = state.language,
             onSelect = { viewModel.updateLanguage(it) }
         )
     }
+}
+
+@Composable
+fun Column(content: @Composable () -> Unit) {
+    TODO("Not yet implemented")
+}
+
+@Composable
+fun DropdownMenu(options: List<String>, selected: String?, onSelect: () -> Unit) {
+    TODO("Not yet implemented")
 }

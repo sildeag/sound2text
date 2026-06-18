@@ -8,3 +8,8 @@ interface SttModelInfo {
     val androidModelDir: String?
     val androidModelFile: String?
 }
+//data class SttModelInfo(
+//    val id: String,
+//    val displayName: String,
+//    val languageCode: String? = null
+//)

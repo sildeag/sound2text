@@ -4,6 +4,7 @@ import com.sildeag.sound2text.core.stt.SttEngine
 import com.sildeag.sound2text.core.stt.SttResult
 import org.vosk.Model
 import org.vosk.Recognizer
+
 class VoskAndroidSttEngine(
     private val language: String,
     private val modelPath: String?,

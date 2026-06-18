@@ -4,7 +4,10 @@ import com.itextpdf.forms.PdfAcroForm
 import com.itextpdf.kernel.pdf.PdfDocument
 import com.itextpdf.kernel.pdf.PdfReader
 import com.itextpdf.kernel.pdf.PdfWriter
-import com.sildeag.sound2text.core.pdf.*
+import pdf.PdfFieldDescriptor
+import pdf.PdfFormDescriptor
+import pdf.PdfFormEngine
+
 class ITextFormEngine(
     private val descriptor: PdfFormDescriptor
 ) : PdfFormEngine {

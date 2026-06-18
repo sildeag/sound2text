@@ -12,7 +12,7 @@ kotlin {
 
  sourceSets {
   commonMain.dependencies {
-   //implementation(project(":core"))
+   implementation(project(":core"))
    implementation(project(":ui-common"))
    implementation(libs.compose.mpp.runtime)
   }

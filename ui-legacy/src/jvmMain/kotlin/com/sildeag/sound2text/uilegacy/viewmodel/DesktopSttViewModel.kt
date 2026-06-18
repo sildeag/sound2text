@@ -1,6 +1,5 @@
 package com.sildeag.sound2text.uilegacy.viewmodel
 
-import com.sildeag.sound2text.core.stt.SpeechToTextService
 import com.sildeag.sound2text.uicommon.logic.PulseLogic
 import com.sildeag.sound2text.uicommon.logic.TranscriptionController
 import com.sildeag.sound2text.uilegacy.audio.DesktopAudioRecorder

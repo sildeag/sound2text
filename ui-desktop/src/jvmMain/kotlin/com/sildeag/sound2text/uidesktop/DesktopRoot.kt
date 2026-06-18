@@ -2,8 +2,8 @@ package com.sildeag.sound2text.uidesktop
 
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
-import com.sildeag.sound2text.core.pdf.PdfFormDescriptor
-import com.sildeag.sound2text.core.pdf.PdfFormDiscovery
+import pdf.PdfFormDescriptor
+import pdf.PdfFormDiscovery
 import com.sildeag.sound2text.uicommon.ui.pdf.PdfFieldEditor
 import com.sildeag.sound2text.uicommon.ui.pdf.PdfFormPreview
 import com.sildeag.sound2text.uicommon.ui.pdf.PdfPluginBrowser

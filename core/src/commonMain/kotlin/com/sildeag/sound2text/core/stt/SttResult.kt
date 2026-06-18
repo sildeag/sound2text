@@ -1,7 +1,16 @@
 package com.sildeag.sound2text.core.stt
 
+sealed class SttResult {
+    data class Success(val data: SttTranscriptionData) : SttResult()
+    data class Failure(val message: String, val cause: Throwable? =
+        null) : SttResult()
+}
+
+/*
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
+
+
 @Serializable
 data class SttResult(
     val text: String,
@@ -18,7 +27,7 @@ data class SttResult(
         }
     }
 }
-
+*/
 
 /*
 sealed class SttResult {

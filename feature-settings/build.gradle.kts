@@ -15,6 +15,7 @@ kotlin {
    implementation(project(":core"))
    implementation(project(":ui-common"))
    implementation(libs.compose.mpp.runtime)
+   implementation(libs.compose.mpp.viewmodel)
   }
 
   androidMain {

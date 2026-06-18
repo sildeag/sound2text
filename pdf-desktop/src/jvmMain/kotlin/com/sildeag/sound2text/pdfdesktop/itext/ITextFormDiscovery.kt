@@ -4,6 +4,10 @@ import com.itextpdf.forms.PdfAcroForm
 import com.itextpdf.kernel.pdf.PdfDocument
 import com.itextpdf.kernel.pdf.PdfReader
 import com.sildeag.sound2text.core.pdf.*
+import pdf.FieldType
+import pdf.PdfFieldDescriptor
+import pdf.PdfFormDescriptor
+import pdf.PdfFormDiscovery
 import java.io.File
 
 //private val PdfAcroForm.fields: Any

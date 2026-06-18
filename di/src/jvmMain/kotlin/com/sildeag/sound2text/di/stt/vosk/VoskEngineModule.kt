@@ -1,7 +1,6 @@
 package com.sildeag.sound2text.di.stt.vosk
 
 import com.sildeag.sound2text.core.stt.SttConfig
-import com.sildeag.sound2text.core.stt.SttService
 import com.sildeag.sound2text.sttdesktop.service.vosk.VoskModelFactory
 import com.sildeag.sound2text.sttdesktop.service.vosk.VoskSttService
 import org.koin.dsl.module

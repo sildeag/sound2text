@@ -6,11 +6,11 @@ plugins {
 kotlin {
     sourceSets {
         commonMain.dependencies {
-            //implementation(project(":core"))
+            implementation(project(":core"))
             implementation(project(":ui-common"))
             implementation(project(":feature-recording"))
-            //implementation(project(":pdf-desktop"))
-            //implementation(project(":stt-desktop"))
+            implementation(project(":pdf-desktop"))
+            implementation(project(":stt-desktop"))
 
             //implementation(project(":stt-desktop"))
             implementation(compose.desktop.currentOs)

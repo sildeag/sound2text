@@ -1,6 +1,6 @@
 package com.sildeag.sound2text.pdf.desktop.itext
 
-import com.sildeag.sound2text.core.pdf.FieldType
+import pdf.FieldType
 import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue

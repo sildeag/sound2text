@@ -1,14 +1,11 @@
 package com.sildeag.sound2text.uidesktop.di
 
 import com.sildeag.sound2text.core.stt.SttEngine
-import com.sildeag.sound2text.core.stt.SttService
-import com.sildeag.sound2text.uidesktop.audio.DesktopAudioRecorder
 import com.sildeag.sound2text.uidesktop.stt.vosk.VoskDesktopSttEngine
 import com.sildeag.sound2text.featurerecording.recording.DesktopRecordingSource
 import com.sildeag.sound2text.featurerecording.recording.RecordingSource
 
 import org.koin.dsl.module
-import org.koin.core.module.dsl.singleOf
 
 val desktopModule = module {
     single<RecordingSource> { DesktopRecordingSource() }

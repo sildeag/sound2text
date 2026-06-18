@@ -3,6 +3,7 @@ package com.sildeag.sound2text.core.notes
 import androidx.sqlite.SQLiteConnection
 import com.sildeag.sound2text.core.model.note.*
 import com.sildeag.sound2text.core.serialization.NoteFieldPayload
+import com.sildeag.sound2text.core.serialization.NoteFieldJson
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
@@ -37,22 +38,50 @@ class NoteRepositorySQLite(
                 val anchor = stmt.getText(3)
                 val language = stmt.getText(4)
                 val payloadRaw = stmt.getText(5)
-                
+
+                //val payload = NoteFieldJson.decode(type, payloadRaw)
                 val payload = NoteFieldJson.decode(type, payloadRaw)
                 val field = when (payload) {
                     is NoteFieldPayload.Text ->
-                        NoteTextField(id, anchor, level, language,
-                            payload.text, payload.translations, payload.voiceEnabled)
+                        NoteTextField(
+                            id = id,
+                            anchor = anchor,
+                            level = level,
+                            text = payload.text,
+                            language = language,
+                            voiceEnabled = payload.voiceEnabled
+                        )
                     is NoteFieldPayload.Checkbox ->
-                        NoteCheckboxField(id, anchor, level, language,
-                            payload.label, payload.checked)
+                        NoteCheckboxField(
+                            id = id,
+                            anchor = anchor,
+                            level = level,
+                            language = language,
+                            checked = payload.checked,
+                            label = TODO()
+                        )
                     is NoteFieldPayload.Dropdown ->
-                        NoteDropdownField(id, anchor, level, language,
-                            payload.label, payload.options, payload.selected)
+                        NoteDropdownField(
+                            id = id,
+                            anchor = anchor,
+                            level = level,
+                            language = language,
+                            options = payload.options,
+                            selected = payload.selected,
+                            label = TODO()
+                        )
                     is NoteFieldPayload.Pdf ->
-                        NotePdfField(id, anchor, level, language,
-                            payload.pdfFieldName, payload.value)
+                        NotePdfField(
+                            id = id,
+                            anchor = anchor,
+                            level = level,
+                            language = language,
+                            pdfFieldName = payload.pdfFieldName,
+                            value = payload.value
+                        )
                 }
+
+
                 fields += field
             }
         }
@@ -74,12 +103,11 @@ class NoteRepositorySQLite(
         note.fields.forEach { field ->
             val (type, payload) = when (field) {
                 is NoteTextField -> "text" to
-                        NoteFieldPayload.Text(field.text, field.translations,
-                            field.voiceEnabled)
+                        NoteFieldPayload.Text(field.text, field.voiceEnabled)
                 is NoteCheckboxField -> "checkbox" to
-                        NoteFieldPayload.Checkbox(field.label, field.checked)
+                        NoteFieldPayload.Checkbox(field.checked)
                 is NoteDropdownField -> "dropdown" to
-                        NoteFieldPayload.Dropdown(field.label, field.options, field.selected)
+                        NoteFieldPayload.Dropdown(field.options, field.selected)
                 is NotePdfField -> "pdf" to
                         NoteFieldPayload.Pdf(field.pdfFieldName, field.value)
             }

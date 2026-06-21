@@ -1,7 +1,7 @@
 package com.sildeag.sound2text.core.config
 
 import kotlinx.serialization.Serializable
-
+/*
 @Serializable
 data class AppSettings(
     val version: Int = 1,
@@ -12,16 +12,16 @@ data class AppSettings(
     val enableVoiceInput: Boolean = true,
     val theme: AppTheme = AppTheme.System
 )
-
+*/
 
 @Serializable
 data class AppSettings(
     val mode: AppMode = AppMode.DEV,
     val ui: UiSettings = UiSettings(),
     val audio: AudioSettings = AudioSettings(),
-    val stt: SpeechToTextSettings = SpeechToTextSettings(),
+    val stt: SttSettings = SttSettings(),
     val services: ServiceSettings = ServiceSettings(),
-    val theme: ThemeConfig = ThemeConfig(),
+    val theme: AppTheme = AppTheme.System,
     val logging: LoggingConfig = LoggingConfig()
 )
 @Serializable

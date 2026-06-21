@@ -67,6 +67,8 @@ include(
     ":feature-settings",
     ":pdf-android",
     ":pdf-desktop",
+    ":settings",
+    ":storage",
     ":stt-desktop",
     ":stt-android",
     ":ui-android",

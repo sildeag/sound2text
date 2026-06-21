@@ -1,7 +1,6 @@
-package com.sildeag.sound2text.core.stt.wizard
+package com.sildeag.sound2text.uicommon.wizard
 
 import com.sildeag.sound2text.core.stt.SttConfig
-import com.sildeag.sound2text.core.stt.SttModelInfo
 import com.sildeag.sound2text.di.stt.ModelDiscovery
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

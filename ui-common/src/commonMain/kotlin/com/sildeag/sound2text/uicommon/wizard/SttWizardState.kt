@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.core.stt.wizard
+package com.sildeag.sound2text.uicommon.wizard
 
 import com.sildeag.sound2text.core.stt.SttModelInfo
 data class SttWizardState(

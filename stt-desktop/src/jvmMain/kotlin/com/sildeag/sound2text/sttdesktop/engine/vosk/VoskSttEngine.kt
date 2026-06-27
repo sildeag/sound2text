@@ -6,6 +6,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.vosk.Model
 import org.vosk.Recognizer
+
 class VoskDesktopSttEngine(
     private val modelPath: String,
     private val sampleRate: Float = 16000f

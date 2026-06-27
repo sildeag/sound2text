@@ -2,8 +2,6 @@ package com.sildeag.sound2text.core.workflow
 
 import com.sildeag.sound2text.core.pdf.PdfFormDescriptor
 import com.sildeag.sound2text.core.pdf.UnifiedFormRegistry
-// TODO: remove engine
-importRegistry
 import com.sildeag.sound2text.core.stt.SttConfig
 import com.sildeag.sound2text.core.stt.SttResult
 import com.sildeag.sound2text.core.workflow.PdfWizardStep.*
@@ -34,7 +32,7 @@ class PdfWizardController(
         state = state.copy(
             mappings = mappings,
             currentFieldIndex = 0,
-            step = PdfWizardStep.FillFields(mappings)
+            step = FillFields(mappings)
         )
     }
     fun nextField() {
@@ -62,7 +60,9 @@ class PdfWizardController(
             modelPath = mapping.modelPath,
             modelFile = mapping.modelFile,
             androidModelDir = mapping.androidModelDir,
-            androidModelFile = mapping.androidModelFile
+            androidModelFile = mapping.androidModelFile,
+            sttEngine = TODO(),
+            sampleRate = TODO()
         )
         val sttEngine = sttFactory.load(sttConfig)
         val result: SttResult = sttEngine.transcribe(audioBytes)

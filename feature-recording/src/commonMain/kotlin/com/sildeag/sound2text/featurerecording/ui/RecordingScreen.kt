@@ -1,40 +1,79 @@
 package com.sildeag.sound2text.featurerecording.ui
-
-import androidx.compose.runtime.Composable
-
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import com.sildeag.sound2text.featurerecording.viewmodel.SttRecordingViewModel
+import com.sildeag.sound2text.featurerecording.recording.RecordingState
+import com.sildeag.sound2text.uicommon.ui.screens.WaveformRenderer
 
 @Composable
-fun RecordingScreen(stt: SttService) {
-    val recordingState by stt.recordingState.collectAsState()
-    val waveformState by stt.waveformState.collectAsState()
-    Column(Modifier.padding(16.dp)) {
-        // Recording indicator + timer
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            if (recordingState.isRecording) {
-                RecordingIndicator() // pulsing red dot
-                Spacer(Modifier.width(8.dp))
-                Text(formatElapsed(recordingState.elapsedMs))
-            }
-        }
-        Spacer(Modifier.height(16.dp))
-        // Waveform
+fun RecordingScreen(
+    viewModel: SttRecordingViewModel,
+    modifier: Modifier = Modifier
+) {
+    val uiState by viewModel.uiState.collectAsState()
+    val waveform by viewModel.waveform.collectAsState()
+    Column(
+        modifier = modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(24.dp)
+    ) {
+        // Waveform visualization
         WaveformRenderer(
-            amplitudes = waveformState.amplitudes,
+            amplitudes = waveform,
             modifier = Modifier
                 .fillMaxWidth()
                 .height(120.dp)
         )
-        Spacer(Modifier.height(16.dp))
-        // Transcription
-        TranscriptionView(
-            text = recordingState.text,
-            isFinal = recordingState.isFinal
-        )
-        Spacer(Modifier.height(24.dp))
-        Row {
-            Button(onClick = { stt.start() }) { Text("Start") }
-            Spacer(Modifier.width(16.dp))
-            Button(onClick = { stt.stop() }) { Text("Stop") }
+        // Partial text (live transcription)
+        if (uiState.partialText.isNotEmpty()) {
+            Text(
+                text = uiState.partialText,
+                style = MaterialTheme.typography.bodyLarge
+            )
+        }
+        // Final text (after processing)
+        if (uiState.finalText.isNotEmpty()) {
+            Text(
+                text = uiState.finalText,
+                style = MaterialTheme.typography.titleMedium
+            )
+        }
+        // Error message
+        uiState.errorMessage?.let { msg ->
+            Text(
+                text = msg,
+                color = MaterialTheme.colorScheme.error
+            )
+        }
+        // Controls
+        when (uiState.recordingState) {
+            RecordingState.Idle -> {
+                Button(onClick = { viewModel.startRecording() }) {
+                    Text("Start Recording")
+                }
+            }
+            RecordingState.Recording -> {
+                Button(onClick = { viewModel.stopRecording() }) {
+                    Text("Stop Recording")
+                }
+            }
+            RecordingState.Processing -> {
+                CircularProgressIndicator()
+            }
+            is RecordingState.Error -> {
+                Button(onClick = { viewModel.startRecording() }) {
+                    Text("Retry")
+                }
+            }
+            RecordingState.Starting -> {
+                CircularProgressIndicator()
+            }
         }
     }
 }

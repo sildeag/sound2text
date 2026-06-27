@@ -1,6 +1,6 @@
 package com.sildeag.sound2text.core.stt
 
-sealed class SttResult {
+sealed class SttResult(text: String, engineName: String) {
     data class Success(val data: SttTranscriptionData) : SttResult()
     data class Failure(val message: String, val cause: Throwable? =
         null) : SttResult()

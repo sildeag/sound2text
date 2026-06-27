@@ -1,18 +1,25 @@
 package com.sildeag.sound2text.di
 
+import com.sildeag.sound2text.core.capabilities.DeviceCapabilityProvider
+import com.sildeag.sound2text.core.capabilities.getPlatformCapabilityProvider
+import com.sildeag.sound2text.core.config.AppSettings
+import com.sildeag.sound2text.core.config.Environment
+import com.sildeag.sound2text.core.config.FeatureFlags
 import com.sildeag.sound2text.core.logging.Logger
-import com.sildeag.sound2text.core.logging.ConsoleLogger
-import com.sildeag.sound2text.core.storage.StorageService
+import com.sildeag.sound2text.core.settings.SettingsStore
 import org.koin.dsl.module
 
 val coreModule = module {
     // Logging
-    single<Logger> { ConsoleLogger() }
-    // Storage (pure domain)
-    single<StorageService> { // TODO: use
-StorageService via DI: // TODO: use
-StorageService via DI: // TODO: use
-StorageService via DI: FileStorageService(get()) }
-    // STT interface (implementation provided by vosk-engine)
-    factory<SpeechToTextService> { error("No STT engine bound yet") }
+    single<Logger> { GetPlatformLogger() }
+    // Settings
+    single<SettingsStore> { getPlatformSettingsStore() }
+    // Capabilities
+    single<DeviceCapabilityProvider>
+    { getPlatformCapabilityProvider() }
+    // Environment / config
+    single { AppSettings(get()) }
+    single { Environment(get()) }
+    single { FeatureFlags(get()) }
 }
+

@@ -1,5 +1,5 @@
 plugins {
- id("internal.kmp.library")
+ id("internal.kmp.compose.library")
  //id("internal.kmp.room")
 }
 
@@ -14,8 +14,7 @@ kotlin {
   commonMain.dependencies {
    implementation(project(":core"))
    implementation(project(":ui-common"))
-   implementation(libs.compose.mpp.runtime)
-   implementation(libs.compose.mpp.viewmodel)
+   implementation(project(":di"))
   }
 
   androidMain {

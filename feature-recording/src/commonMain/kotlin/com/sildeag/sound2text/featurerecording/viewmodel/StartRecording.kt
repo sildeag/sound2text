@@ -1,5 +1,7 @@
 package com.sildeag.sound2text.featurerecording.viewmodel
 
+import com.sildeag.sound2text.featurerecording.recording.RecordingState
+
 fun startRecording() = viewModelScope.launch {
     try {
         recognizer.start(

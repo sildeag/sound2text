@@ -1,50 +1,28 @@
 package com.sildeag.sound2text.di.stt
 
-import com.sildeag.sound2text.core.stt.SttConfig
-import com.sildeag.sound2text.sttandroid.service.vosk.VoskAndroidModelFactory
-// TODO: remove engine
-importRegistry.get
-
+import com.sildeag.sound2text.core.stt.SttController
+import com.sildeag.sound2text.core.stt.SttEngine
+import com.sildeag.sound2text.core.stt.SttEnginePlugin
 import org.koin.dsl.module
 
-// TODO: inject platform // TODO: inject platform // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform context
-via DI: Context
-
-fun desktopSttModule(config: SttConfig) = module {
-    single { config }
-    single { VoskModelFactory.loadModel(get()) }
-    single<SttService> { VoskSttService(get(), get()) }
+val sttModule = module {
+    // Engine plugin registry
+    single<SttEnginePlugin> { VoskEnginePlugin() }
+    // Engine factory
+    single<SttEngine> { SttEngine(get(), get()) }
+    // Controller
+    single { SttController(get(), get(), get()) }
+    // Wizard
+    single { SttWizardViewModel(get(), get()) }
 }
-fun androidSttModule(// TODO: inject platform // TODO: inject platform // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform context
-via DI: Context: // TODO: inject platform // TODO: inject platform // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform context
-via DI: Context, config: SttConfig) = module {
-    single { config }
-    single { VoskAndroidModelFactory.loadModel(// TODO: inject platform // TODO: inject platform // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform context
-via DI: Context, get()) }
-    single<SttService> { VoskAndroidSttService(get(), get()) }
+/*
+val sttModule = module {
+    single<SttEngine> {
+        CombinedEngine(
+            partialEngine = VoskEngine(),
+            finalEngine = WhisperEngine()
+        )
+    }
 }
 
+ */

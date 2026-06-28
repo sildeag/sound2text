@@ -24,10 +24,3 @@ interface SttEngine {
     suspend fun recognizeOnce(): SttResult?
 }
 */
-//interface SttEngine {
-//    val engineId: String
-//    val modelId: String
-//    suspend fun start()
-//    suspend fun stop()
-//    suspend fun processAudio(chunk: ByteArray)
-//}

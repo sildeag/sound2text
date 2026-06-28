@@ -6,7 +6,7 @@ val jfxVersion = libs.versions.javafx.ver.get() // Gets "21.0.2" from TOML
 
 kotlin {
     android {
-        namespace = "com.sildeag.sound2text.core"
+        namespace = "com.sildeag.sound2text.appcommon"
     }
 
     sourceSets {

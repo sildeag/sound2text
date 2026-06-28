@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.core.storage
+package com.sildeag.sound2text.storage
 
 interface FileStorageService {
     /**

@@ -1,7 +1,8 @@
-package com.sildeag.sound2text.core.stt
+package com.sildeag.sound2text.uicommon.viewmodel
 
 import com.sildeag.sound2text.core.stt.SttConfig
 import com.sildeag.sound2text.core.stt.SttController
+
 class SttViewModelFactory(
     private val controllerFactory: (SttConfig) -> SttController
 ) {

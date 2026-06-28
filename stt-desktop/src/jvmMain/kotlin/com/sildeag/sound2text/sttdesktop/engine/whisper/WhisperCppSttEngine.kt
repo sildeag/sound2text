@@ -1,7 +1,6 @@
 package com.sildeag.sound2text.sttdesktop.engine.whisper
 
 import com.sildeag.sound2text.core.stt.SttConfig
-import com.sildeag.sound2text.core.stt.SttResult
 
 class WhisperCppSttEngine : SttEngine {
     override suspend fun start() {

@@ -2,7 +2,6 @@ package com.sildeag.sound2text.uidesktop.stt.vosk
 
 // TODO: remove engine
 import
-import com.sildeag.sound2text.core.stt.SttResult
 
 class VoskDesktopSttEngine(
     private val language: String,

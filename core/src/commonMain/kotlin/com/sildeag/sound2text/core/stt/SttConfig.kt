@@ -2,7 +2,7 @@ package com.sildeag.sound2text.core.stt
 
 data class SttConfig(
     override val language: String,
-    override val sttEngine: String,
+    //override val sttEngine: String,
     val engineName: String,
     // Desktop model location
     override val modelPath: String?,

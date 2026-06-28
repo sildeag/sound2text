@@ -1,7 +1,6 @@
 package com.sildeag.sound2text.sttdesktop.engine.vosk
 
 import com.sildeag.sound2text.core.stt.SttEngine
-import com.sildeag.sound2text.core.stt.SttResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.vosk.Model

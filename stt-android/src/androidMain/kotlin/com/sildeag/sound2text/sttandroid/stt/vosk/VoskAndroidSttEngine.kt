@@ -1,7 +1,6 @@
 package com.sildeag.sound2text.sttandroid.stt.vosk
 
 import com.sildeag.sound2text.core.stt.SttEngine
-import com.sildeag.sound2text.core.stt.SttResult
 import org.vosk.Model
 import org.vosk.Recognizer
 

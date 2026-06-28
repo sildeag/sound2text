@@ -6,6 +6,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 
 import androidx.compose.runtime.Composable
+import com.sildeag.sound2text.core.serialization.NoteFieldPayload
 
 
 @Composable
@@ -24,7 +25,10 @@ fun SettingsScreen(viewModel: SettingsViewModel) {
             selected = state.selectedPdfProcessor,
             onSelect = { viewModel.updatePdfProcessor(it) }
         )
-        NoteFieldPayload.Text("Language")
+        NoteFieldPayload.Text(
+            "Language",
+            voiceEnabled = true
+        )
         DropdownMenu(
             options = listOf("en", "es", "fr"),
             selected = state.language,

@@ -74,6 +74,7 @@ include(
     ":ui-android",
     ":ui-common",
     ":ui-desktop",
+    ":test-harness",
     ":ui-legacy"
 )
 

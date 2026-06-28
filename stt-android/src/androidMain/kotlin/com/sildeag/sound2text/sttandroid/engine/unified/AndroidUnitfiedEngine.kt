@@ -4,7 +4,6 @@ import com.sildeag.sound2text.core.stt.SttConfig
 import com.sildeag.sound2text.core.stt.SttEngine
 import com.sildeag.sound2text.core.stt.SttEnginePlugin
 import com.sildeag.sound2text.core.stt.SttModelInfo
-import com.sildeag.sound2text.core.stt.SttResult
 import com.sildeag.sound2text.di.stt.EngineLoader
 
 class AndroidUnifiedEnginePlugin(

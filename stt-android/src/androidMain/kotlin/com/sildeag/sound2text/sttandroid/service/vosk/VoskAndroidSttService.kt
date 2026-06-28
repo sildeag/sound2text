@@ -1,6 +1,5 @@
 package com.sildeag.sound2text.sttandroid.service.vosk
 
-import com.sildeag.sound2text.core.stt.SttResult
 import com.sildeag.sound2text.core.stt.SttTranscriptionData
 import com.sildeag.sound2text.core.stt.SttConfig
 import org.vosk.Model

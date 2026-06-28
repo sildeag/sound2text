@@ -22,27 +22,3 @@ class FileSettingsStore(
         save(AppSettings())
     }
 }
-/*
-import com.sildeag.sound2text.core.config.AppSettings
-import kotlinx.serialization.encodeToString
-import kotlinx.serialization.decodeFromString
-import kotlinx.serialization.json.Json
-import java.io.File
-class FileSettingsStore(
-    private val file: File
-) : SettingsStore {
-    private val json = Json { prettyPrint = true }
-    override fun load(): AppSettings {
-        if (!file.exists()) {
-            return AppSettings() // defaults
-        }
-        val text = file.readText()
-        return json.decodeFromString(text)
-    }
-    override fun save(settings: AppSettings) {
-        val text = json.encodeToString(settings)
-        file.writeText(text)
-    }
-}
-
- */

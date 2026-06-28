@@ -1,7 +1,6 @@
 package com.sildeag.sound2text.sttdesktop.service.vosk
 
 import com.sildeag.sound2text.core.stt.SttConfig
-import com.sildeag.sound2text.core.stt.SttResult
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Test

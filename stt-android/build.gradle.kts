@@ -3,13 +3,15 @@ plugins {
 }
 
 kotlin {
+
     sourceSets {
         commonMain.dependencies {
             implementation(project(":core"))
             //implementation(project(":di"))
         }
         androidMain.dependencies {
-                implementation(libs.vosk.android)
+            implementation(libs.vosk.android)
+            implementation(libs.coroutines.android)
         }
     }
 }

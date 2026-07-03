@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.launch
 
-class SttController(
+class SttStreamingController(
     private val engine: SttEngine
 ) {
     private val scope = CoroutineScope(Dispatchers.Default + SupervisorJob())
@@ -21,8 +21,11 @@ class SttController(
     private val _errors = MutableSharedFlow<String>(replay = 1)
     val errors: SharedFlow<String> = _errors
 
-    suspend fun start() {
-        engine.start(
+
+    suspend fun startStreaming (
+
+    ) {
+        engine.startStreaming(
             onPartial = { text ->
                 scope.launch { _partial.emit(text) }
             },
@@ -35,7 +38,7 @@ class SttController(
         )
     }
 
-    suspend fun processAudio(bytes: ByteArray) {
+    fun processAudio(bytes: ByteArray) {
         engine.processAudio(bytes)
     }
 

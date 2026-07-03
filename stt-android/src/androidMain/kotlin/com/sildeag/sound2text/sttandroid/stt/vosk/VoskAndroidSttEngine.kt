@@ -39,6 +39,14 @@ class VoskAndroidSttEngine(
         model = null
     }
 
+    override suspend fun start(
+        onPartial: (String) -> Unit,
+        onFinal: (String) -> Unit,
+        onError: (String) -> Unit
+    ) {
+        TODO("Not yet implemented")
+    }
+
     override suspend fun transcribe(chunk: ByteArray): SttResult {
         TODO("Not yet implemented")
     }

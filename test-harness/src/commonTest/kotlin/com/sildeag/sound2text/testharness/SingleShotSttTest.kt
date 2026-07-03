@@ -1,7 +1,7 @@
 package com.sildeag.sound2text.testharness
 
-import com.sildeag.sound2text.core.stt.*
-
+import com.sildeag.sound2text.core.stt.SttConfig
+import com.sildeag.sound2text.core.stt.UnifiedEngineRegistry
 import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 import kotlin.test.assertTrue
@@ -17,23 +17,21 @@ class SingleShotSttTest {
     )
     private val harness = UnifiedSttTestHarness(registry)
     @Test
-    fun testSingleShotTranscription(): Unit = runTest {
+    fun testSingleShotTranscription() = runTest {
         val config = SttConfig(
-            engineName = "vosk",
             language = "en-US",
+            engineName = "vosk",
             modelPath = "/models/vosk/en",
             modelFile = "model.bin",
             androidModelDir = null,
             androidModelFile = null,
             sampleRate = 16000f
         )
-        val engine = harness.loadEngine(config)
-        assertNotNull(engine)
-        val audio =
-            TestAudioLoader.loadWavResource("audio/test1.wav")
-        val result = engine.processAudio(audio)
-        assertTrue(result.text.isNotBlank(),
+        val audio = TestAudioLoader.loadWavResource("hello_world.wav")
+        val result = harness.runSingleShot(config, audio)
+        assertTrue(result.transcript.isNotBlank(),
             "Transcription result should not be empty")
     }
+
 }
 

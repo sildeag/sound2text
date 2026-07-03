@@ -1,7 +1,7 @@
 package com.sildeag.sound2text.settings
 
 import com.sildeag.sound2text.core.config.AppSettings
-import com.sildeag.sound2text.core.storage.StorageProvider
+import com.sildeag.sound2text.storage.StorageProvider
 import kotlinx.serialization.json.Json
 
 class SettingsLoader(

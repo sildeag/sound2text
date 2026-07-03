@@ -1,58 +1,44 @@
 package com.sildeag.sound2text.sttandroid.engine.vosk
-
 import com.sildeag.sound2text.core.stt.SttEngine
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import org.vosk.android.StorageService
 import org.vosk.Model
 import org.vosk.Recognizer
-
 class VoskAndroidSttEngine(
-    private val language: Model,
-    private val modelPath: String?,
-    private val modelFile: String?,
-    private val androidModelDir: String?,
-    private val androidModelFile: String?,
-    private val sampleRate: Float
+    private val model: Model,
+    private val sampleRate: Float = 16000f
 ) : SttEngine {
-    private var model: Model? = null
     private var recognizer: Recognizer? = null
-    private var callback: ((String) -> Unit)? = null
-    override suspend fun start() {
-        callback = onResult
-        // Android uses androidModelDir or androidModelFile
-        val path = androidModelDir ?: androidModelFile
-        ?: error("VoskAndroidSttEngine: No Android model path provided")
-                model = Model(path)
-                recognizer = Recognizer(model, sampleRate)
+    suspend fun start() : Unit = withContext(Dispatchers.IO) {
+        recognizer = Recognizer(model, sampleRate)
     }
-    override fun processAudio(data: ByteArray) {
-        val rec = recognizer ?: return
-        val text = if (rec.acceptWaveForm(data)) {
-            rec.result
-        } else {
-            rec.partialResult
-        }
-        callback?.invoke(text)
-    }
-
-    override suspend fun start() {
-        TODO("Not yet implemented")
-    }
-
-    override fun stop() {
+    override suspend fun stop() = withContext(Dispatchers.IO) {
         recognizer?.close()
-        model?.close()
         recognizer = null
-        model = null
     }
 
-    override suspend fun transcribe(chunk: ByteArray): String {
+    suspend fun startStreaming(
+        onPartial: (String) -> Unit,
+        onFinal: (String) -> Unit,
+        onError: (String) -> Unit
+    ) {
+        TODO("Not yet implemented")
+    }
+*/
+    override suspend fun transcribe(bytes: ByteArray): String =
+        withContext(Dispatchers.IO) {
+            val rec = recognizer ?: return@withContext "Vosk engine not started"
+            val accepted = rec.acceptWaveForm(bytes, bytes.size)
+            if (accepted) rec.result else rec.partialResult
+        }
+
+    override suspend fun processAudio(chunk: ByteArray) {
         TODO("Not yet implemented")
     }
 
-    override suspend fun recognizeOnce(): SttResult? {
-        TODO("Not yet implemented")
-    }
-
-    override fun finalResult(): String? {
-        return recognizer?.finalResult
-    }
+    override suspend fun recognizeOnce(): String? =
+        withContext(Dispatchers.IO) {
+            recognizer?.finalResult
+        }
 }

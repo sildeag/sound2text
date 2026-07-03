@@ -15,7 +15,8 @@ kotlin {
     // Modern KMP Android Library target (AGP 9.1+)
     @Suppress("OPT_IN_USAGE")
     android {
-        namespace = project.group.toString()
+        namespace = "${project.group}.${project.name.replace("-", "")}"
+        //namespace = project.group.toString()
         compileSdk = libs.findVersion("android-compileSdk").get().requiredVersion.toInt()
         minSdk = libs.findVersion("android-minSdk").get().requiredVersion.toInt()
         

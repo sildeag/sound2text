@@ -6,7 +6,7 @@ import com.sildeag.sound2text.core.stt.SttModelInfo
 data class FieldMapping(
     val field: PdfFieldDescriptor,
     // STT engine selection (source of truth)
-    override val sttEngine: String = "vosk",
+    val engineName: String = "vosk",
     // Language for transcription (source of truth)
     override val language: String = "en-US",
     // Desktop model info

@@ -1,7 +1,9 @@
-package com.sildeag.sound2text.core.settings
+package com.sildeag.sound2text.settings
+
 import com.sildeag.sound2text.core.config.AppSettings
 import kotlinx.serialization.json.Json
 import java.io.File
+
 class FileSettingsStore(
     private val file: File,
     private val json: Json
@@ -14,7 +16,8 @@ class FileSettingsStore(
         return json.decodeFromString(AppSettings.serializer(), raw)
     }
     override fun save(settings: AppSettings) {
-        val raw = json.encodeToString(AppSettings.serializer(),
+        val raw = json.encodeToString(
+            AppSettings.serializer(),
             settings)
         file.writeText(raw)
     }

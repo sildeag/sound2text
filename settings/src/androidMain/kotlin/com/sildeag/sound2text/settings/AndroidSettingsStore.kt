@@ -1,10 +1,9 @@
-package com.sildeag.sound2text.core.settings
+package com.sildeag.sound2text.settings
 
 import android.content.SharedPreferences
 import com.sildeag.sound2text.core.config.AppSettings
 import kotlinx.serialization.json.Json
-import kotlinx.serialization.encodeToString
-import kotlinx.serialization.decodeFromString
+
 class AndroidSettingsStore(
     private val prefs: SharedPreferences
 ) : SettingsStore {

@@ -13,9 +13,16 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(project(":core"))
+            implementation(project(":storage"))
             // commonMain dependencies are in internal.kmp.base
             //implementation(libs.androidx.room.runtime)
             //implementation(libs.androidx.sqlite.bundled) // Bundled core SQLite
+        }
+        androidMain.dependencies {
+
+        }
+        jvmMain.dependencies {
+
         }
         
 

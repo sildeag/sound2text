@@ -15,12 +15,18 @@ kotlin {
             implementation(project(":di"))
             // commonMain dependencies are in internal.kmp.base
         }
+        commonTest.dependencies {
+
+        }
         
         androidMain.dependencies {
             implementation(libs.androidx.compose.runtime)
             implementation(libs.vosk.android)
         }
         jvmMain.dependencies {
+            // commonMain dependencies are in internal.kmp.base
+        }
+        jvmTest.dependencies {
             // commonMain dependencies are in internal.kmp.base
         }
     }

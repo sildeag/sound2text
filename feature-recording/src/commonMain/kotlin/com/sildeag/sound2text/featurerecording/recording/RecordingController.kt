@@ -1,5 +1,59 @@
 package com.sildeag.sound2text.featurerecording.recording
 
+import com.sildeag.sound2text.core.audio.RecordingSource
+import com.sildeag.sound2text.core.stt.SttService
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+class RecordingController(
+    private val recordingSource: RecordingSource,
+    private val sttService: SttService,
+    private val scope: CoroutineScope
+) {
+    private val _state = MutableStateFlow<RecordingState>(RecordingState.Idle)
+    val state: StateFlow<RecordingState> = _state
+    private val _partial = MutableStateFlow("")
+    val partial: StateFlow<String> = _partial
+    private val _final = MutableStateFlow("")
+    val final: StateFlow<String> = _final
+    private val _errors = MutableStateFlow<String?>(null)
+    val errors: StateFlow<String?> = _errors
+    fun start() {
+        scope.launch {
+            _state.value = RecordingState.Starting
+            sttService.start()
+            recordingSource.start { bytes ->
+                sttService.processAudio(bytes)
+            }
+            sttService.partial.collect { text ->
+                _partial.value = text
+            }
+            _state.value = RecordingState.Recording
+        }
+    }
+    fun stop() {
+        scope.launch {
+            _state.value = RecordingState.Stopping
+            recordingSource.stop()
+            _state.value = RecordingState.Processing
+            val finalText = sttService.recognizeOnce()
+            _final.value = finalText
+            sttService.stop()
+            _state.value = RecordingState.Finished(null)
+        }
+    }
+    fun error(message: String) {
+        _errors.value = message
+        _state.value = RecordingState.Error(message)
+    }
+}
+
+
+
+/*
+import com.sildeag.sound2text.core.audio.RecordingSource
+import com.sildeag.sound2text.core.stt.SttEngine
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -47,3 +101,5 @@ class RecordingController(
         }
     }
 }
+
+ */

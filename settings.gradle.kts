@@ -63,6 +63,8 @@ include(
     ":core",
     ":di",
     ":feature-history",
+    ":feature-pdf",
+    ":feature-pdfwizard",
     ":feature-recording",
     ":feature-settings",
     ":pdf-android",

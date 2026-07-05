@@ -23,7 +23,10 @@ data class AppSettings(
     val services: ServiceSettings = ServiceSettings(),
     val theme: AppTheme = AppTheme.System,
     val logging: LoggingConfig = LoggingConfig()
-)
+) {
+
+}
+
 @Serializable
 enum class AppMode {
     DEV,

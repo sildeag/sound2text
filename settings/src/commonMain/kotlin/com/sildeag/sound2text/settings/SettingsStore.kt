@@ -6,5 +6,3 @@ interface SettingsStore {
     fun load(): AppSettings
     fun save(settings: AppSettings)
 }
-
-

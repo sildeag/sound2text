@@ -34,7 +34,7 @@ configure<KotlinMultiplatformExtension> {
     }
 
     sourceSets {
-        val commonMain by getting {
+        val commonMain = getByName("commonMain") {
             dependencies {
                 implementation(libs.findLibrary("compose-mpp-runtime").get())
                 implementation(libs.findLibrary("compose-mpp-foundation").get())

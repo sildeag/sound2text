@@ -12,7 +12,7 @@ val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
 // Use the raw extension to avoid accessor generation issues
 configure<KotlinMultiplatformExtension> {
     sourceSets {
-        val commonMain by getting {
+        val commonMain = getByName("commonMain") {
             dependencies {
                 implementation(libs.findLibrary("compose-mpp-runtime").get())
                 implementation(libs.findLibrary("compose-mpp-foundation").get())
@@ -21,7 +21,7 @@ configure<KotlinMultiplatformExtension> {
                 implementation(libs.findLibrary("koin-compose").get())
             }
         }
-        val commonTest by getting {
+        val commonTest = getByName("commonTest") {
             dependencies {
                 implementation(libs.findLibrary("compose-mpp-runtime").get())
                 implementation(libs.findLibrary("compose-mpp-foundation").get())

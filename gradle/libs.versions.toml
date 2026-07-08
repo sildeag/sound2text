@@ -133,18 +133,24 @@ lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel
 
 # --- Compose (AndroidX) ---
 compose-bom = { module = "androidx.compose:compose-bom", version.ref = "compose-bom-ver" }
-androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
-compose-ui = { module = "androidx.compose.ui:ui" }
-compose-material = { module = "androidx.compose.material:material" }
-compose-material3 = { module = "androidx.compose.material3:material3" }
-compose-tooling = { module = "androidx.compose.ui:ui-tooling" }
-compose-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
+
+# Change all of these to use explicit 'group' and 'name' properties:
+compose-ui = { group = "androidx.compose.ui", name = "ui" }
+compose-material = { group = "androidx.compose.material", name = "material" }
+compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+compose-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+compose-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+
+# Duplicate check: You can safely delete this one since 'compose-tooling' points to the exact same artifact
+# androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+
 activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
 
 # --- Compose Multiplatform (JetBrains) ---
 compose-mpp-runtime = { group = "org.jetbrains.compose.runtime", name = "runtime", version.ref = "compose-mpp" }
 compose-mpp-foundation = { group = "org.jetbrains.compose.foundation", name = "foundation", version.ref = "compose-mpp" }
 compose-mpp-material3 = { group = "org.jetbrains.compose.material3", name = "material3", version.ref = "compose-mpp-material3-ver" }
+compose-mpp-ui = { group = "org.jetbrains.compose.ui", name = "ui", version.ref = "compose-mpp" }
 #  CORRECT VERSION CATALOG SYNTAX
 compose-mpp-viewmodel = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "compose-mpp-androidx" }
 

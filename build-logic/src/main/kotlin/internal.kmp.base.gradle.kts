@@ -15,7 +15,7 @@ kotlin {
     jvm()
 
     sourceSets {
-        val commonMain by getting {
+        val commonMain = getByName("commonMain") {
             dependencies {
                 implementation(libs.findLibrary("koin-core").get())
                 implementation(libs.findBundle("coroutines").get())
@@ -23,7 +23,7 @@ kotlin {
                 implementation(libs.findLibrary("kotlinx-serialization-json").get())
             }
         }
-        val commonTest by getting {
+        val commonTest = getByName("commonTest") {
             dependencies {
                 implementation(kotlin("test"))
             }

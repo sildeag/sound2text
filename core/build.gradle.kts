@@ -1,5 +1,5 @@
 plugins {
-    id("internal.kmp.library")
+    id("internal.kmp.compose.library")
     //id("internal.kmp.room")
 }
 
@@ -14,6 +14,7 @@ kotlin {
         commonMain.dependencies {
             // commonMain dependencies are in internal.kmp.base
             //implementation(libs.androidx.room.runtime)
+            implementation(libs.compose.mpp.ui)
             implementation(libs.androidx.sqlite.bundled) // Bundled core SQLite
         }
         

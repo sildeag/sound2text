@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.pdfandroid.pdf
+package com.sildeag.sound2text.pdfandroid.pdfbox
 
 import android.content.Context
 import com.sildeag.sound2text.core.pdf.PdfForm

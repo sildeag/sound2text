@@ -1,6 +1,6 @@
 package pdf.workflow
 
-import com.sildeag.sound2text.core.pdf.PdfFormDescriptor
+import pdf.PdfFormDescriptor
 
 sealed class PdfWizardStep {
 object SelectForm : PdfWizardStep()

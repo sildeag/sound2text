@@ -53,16 +53,3 @@ dependencies {
     implementation(libs.findLibrary("core-ktx").get())
 }
 
-// Re-enabled Dokka configuration
-afterEvaluate {
-    // Solution for: The archives configuration has been deprecated for artifact declaration
-    configurations.findByName("archives")?.let { archivesConfig ->
-        val legacyArtifacts = archivesConfig.artifacts
-        if (legacyArtifacts.isNotEmpty()) {
-            tasks.named("assemble") {
-                dependsOn(legacyArtifacts.map { it.buildDependencies })
-            }
-            archivesConfig.artifacts.clear()
-        }
-    }
-}

@@ -61,16 +61,3 @@ val jacocoTestReport = tasks.register<JacocoReport>("jacocoKmpTestReport") {
 tasks.named("check") {
     dependsOn(jacocoTestReport)
 }
-
-// Cleanup archives deprecation
-afterEvaluate {
-    configurations.findByName("archives")?.let { archivesConfig ->
-        val legacyArtifacts = archivesConfig.artifacts
-        if (legacyArtifacts.isNotEmpty()) {
-            tasks.named("assemble") {
-                dependsOn(legacyArtifacts.map { it.buildDependencies })
-            }
-            archivesConfig.artifacts.clear()
-        }
-    }
-}

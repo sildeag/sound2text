@@ -2,24 +2,30 @@ Write-Host "=== Starting One-Click Cleanup ==="
 # -------------------------
 # 1. Remove Global Singletons
 # -------------------------
-Write-Host "Removing global singletons..."
+WWrite-Host "Scanning for global singletons..."
+ Get-ChildItem -Recurse -Filter *.kt |
+  ForEach-Object {
+  $path = $_.FullName
+  $c = Get-Content $path -Raw
+  # Ignore DI modules, NavigationState, serializers, and platform objects
+  if ($c -match 'object\s+(NavigationState|Screen|Module|
+ Serializer|Companion|Platform|Desktop|Android)') {
+  return
+  }
+  # Detect only suspicious global singletons
+  if ($c -match 'object\s+\w+Manager') {
+  Write-Host "[GLOBAL SINGLETON] Manager singleton in
+ $path"
+  }
+  if ($c -match 'object\s+\w+Service') {
+  Write-Host "[GLOBAL SINGLETON] Service singleton in
+ $path"
+  }
+  if ($c -match 'object\s+AppState') {
+  Write-Host "[GLOBAL SINGLETON] AppState singleton in
+ $path"
+  }
 
-Get-ChildItem -Recurse -Filter *.kt |
-        ForEach-Object {
-            # Skip build-logic files entirely
-            if ($_.FullName -like "*build-logic*") { return }
-
-            $c = Get-Content $_.FullName
-
-            $c = $c -replace `
-            '^(?!\s*data\s+object)(\s*object\s+)', `
-            '// TODO: remove global singleton: object '
-
-            $c = $c -replace 'AppState\.', '// TODO: move to ViewModel state: AppState.'
-            $c = $c -replace '.*Manager\.', '// TODO: replace with DI + ViewModel: '
-
-            Set-Content $_.FullName $c
-        }
 
 # -------------------------
 # 2. StorageService Cleanup
@@ -73,12 +79,9 @@ Write-Host "Removing engine leaks..."
 Get-ChildItem -Recurse -Filter *.kt |
         ForEach-Object {
             $c = Get-Content $_.FullName
-            $c = $c -replace 'SqliteStorageService\(', '// TODO: use
-StorageService via DI: SqliteStorageService('
-            $c = $c -replace 'FileStorageService\(', '// TODO: use
-StorageService via DI: FileStorageService('
-            $c = $c -replace 'import .*engine', '// TODO: remove engine
-import'
+            $c = $c -replace 'SqliteStorageService\(', '// TODO: use StorageService via DI: SqliteStorageService('
+            $c = $c -replace 'FileStorageService\(', '// TODO: use StorageService via DI: FileStorageService('
+            $c = $c -replace 'import .*engine', '// TODO: remove engine import'
             Set-Content $_.FullName $c
         }
 # -------------------------

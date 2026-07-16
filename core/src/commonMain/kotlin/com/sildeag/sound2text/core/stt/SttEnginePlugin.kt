@@ -10,4 +10,5 @@ interface SttEnginePlugin {
     fun createEngine(model: SttModelInfo): SttEngine
     fun createFactory(): SttEngineFactory  // Preferred
     fun discoverModels(basePath: String): List<ModelDescriptor> // Preferred
+    fun load(config: SttConfig): SttEngine
 }

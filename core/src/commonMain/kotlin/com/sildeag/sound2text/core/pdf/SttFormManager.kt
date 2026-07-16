@@ -1,5 +1,6 @@
 package com.sildeag.sound2text.core.pdf
 
+
 class SttFormManager(
     private val scanner: PdfFormScanner,
     private val loader: PdfResourceLoader,
@@ -16,12 +17,12 @@ class SttFormManager(
             form.id.substringBefore(".part")
         }
     suspend fun loadForm(groupId: String, grouped: Map<String,
-            List<PdfForm>>): List<PdfPage> {
+            List<PdfForm>>): List<UiPdfPage> {
         val parts = grouped[groupId] ?: return emptyList()
         val sortedParts = parts.sortedBy { part ->
             part.id.substringAfter(".part", "0").toIntOrNull() ?: 0
         }
-        val allPages = mutableListOf<PdfPage>()
+        val allPages = mutableListOf<UiPdfPage>()
         for (part in sortedParts) {
             val bytes = loader.load(part.path)
             val pages = processor.loadPdf(bytes)

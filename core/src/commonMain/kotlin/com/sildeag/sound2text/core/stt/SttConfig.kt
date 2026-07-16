@@ -12,4 +12,6 @@ data class SttConfig(
     override val androidModelFile: String?,
     // Audio parameters (runtime only)
     val sampleRate: Float = 16_000f
-) : SttModelInfo
+) : SttModelInfo {
+    val engineId: Any
+}

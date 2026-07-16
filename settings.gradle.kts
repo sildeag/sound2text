@@ -18,9 +18,9 @@ pluginManagement {
 }
 
 
-//plugins {
-//    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
-//}
+plugins {
+    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
+}
 
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
@@ -50,6 +50,11 @@ dependencyResolutionManagement {
     }
 }
 
+
+
+// Add this block at the bottom:
+
+
 buildCache {
     local {
         isEnabled = true
@@ -62,11 +67,14 @@ include(
     ":appcommon",
     ":core",
     ":di",
+    ":feature-capabilitydebug",
+    ":feature-form",
     ":feature-history",
     ":feature-pdf",
     ":feature-pdfwizard",
     ":feature-recording",
     ":feature-settings",
+    ":feature-stt",
     ":pdf-android",
     ":pdf-desktop",
     ":settings",
@@ -79,6 +87,7 @@ include(
     ":test-harness",
     ":ui-legacy"
 )
+
 
 /*
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")

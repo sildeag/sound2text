@@ -6,26 +6,36 @@ param(
 )
 
 # Default modules if none provided
-if (-not $Modules -or $Modules.Count -eq 0) {
+#if (-not $PSBoundParameters.ContainsKey("Modules")) {
+#$Modules = @(
+if (-not $PSBoundParameters.ContainsKey("Modules") -or $Modules.Count -eq 0) {
     $Modules = @(
+        "appcommon",
         "core",
         "di",
-        "stt-android",
-        "stt-desktop",
-        "pdf-android",
-        "pdf-desktop",
+        "feature-capabilitydebug",
+        "feature-form",
+        "feature-history",
+        "feature-pdf",
+        "feature-pdfwizard",
         "feature-recording",
         "feature-settings",
-        "feature-history",
-        "ui-common",
+        "feature-stt",
+        "pdf-android",
+        "pdf-desktop",
+        "settings",
+        "storage",
+        "stt-desktop",
+        "stt-android",
         "ui-android",
+        "ui-common",
         "ui-desktop",
-        "ui-legacy",
-        "appcommon"
+        "test-harness"
     )
 }
 
-$sourceSets = @("commonMain", "androidMain", "jvmMain")
+# Source sets to scan
+$sourceSets = @("commonMain", "androidMain", "jvmMain", "desktopMain")
 
 function Get-PackageFromFile {
     param([string]$FilePath)

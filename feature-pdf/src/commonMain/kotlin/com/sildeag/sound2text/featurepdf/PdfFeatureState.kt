@@ -1,6 +1,5 @@
 package com.sildeag.sound2text.featurepdf
 
-import com.sildeag.sound2text.core.model.PdfPage
 import com.sildeag.sound2text.core.pdf.PdfDocument
 import com.sildeag.sound2text.uicommon.model.UiPdfPage
 

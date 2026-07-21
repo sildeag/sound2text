@@ -6,8 +6,6 @@ import com.sildeag.sound2text.core.pdf.render.PdfRenderer
 import com.sildeag.sound2text.core.pdf.extract.PdfTextExtractor
 import com.sildeag.sound2text.core.resource.ResourceLoader
 import com.sildeag.sound2text.core.logging.Logger
-import com.sildeag.sound2text.core.model.PdfPage
-import com.sildeag.sound2text.core.pdf.PdfDocument
 import com.sildeag.sound2text.uicommon.mappers.toUi
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob

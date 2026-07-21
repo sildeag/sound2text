@@ -38,4 +38,13 @@ tasks.named<JacocoReport>("jacocoTestReport") {
         xml.required.set(true)
         html.required.set(true)
     }
+    
+    // Ensure lazy configuration for classes and sources
+    sourceDirectories.setFrom(project.layout.projectDirectory.dir("src/main/kotlin"))
+    classDirectories.setFrom(
+        project.fileTree(project.layout.buildDirectory.dir("classes/kotlin/main"))
+    )
+    executionData.setFrom(
+        project.layout.buildDirectory.file("jacoco/test.exec")
+    )
 }

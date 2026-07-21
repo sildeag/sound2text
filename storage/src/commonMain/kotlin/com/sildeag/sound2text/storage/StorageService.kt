@@ -1,6 +1,6 @@
 package com.sildeag.sound2text.storage
 
-import com.sildeag.sound2text.core.model.note.Note
+import com.sildeag.sound2text.core.notes.Note
 
 interface StorageService {
     fun saveNotes(notes: List<Note>)

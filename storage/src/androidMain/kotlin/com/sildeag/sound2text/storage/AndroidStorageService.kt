@@ -1,11 +1,8 @@
 package com.sildeag.sound2text.storage
 
 import android.content.Context
-import com.sildeag.sound2text.core.model.note.Note
-import com.sildeag.sound2text.core.model.note.NoteJson
-import com.sildeag.sound2text.storage.StorageService
-import com.sildeag.sound2text.storage.StorageResult
-import com.sildeag.sound2text.storage.StorageError
+import com.sildeag.sound2text.core.notes.Note
+import com.sildeag.sound2text.core.notes.NoteJson
 import java.io.File
 
 class AndroidStorageService(

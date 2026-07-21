@@ -42,20 +42,30 @@ jacoco {
 }
 
 val jacocoTestReport = tasks.register<JacocoReport>("jacocoKmpTestReport") {
-    val jvmTestTask = tasks.named<Test>("jvmTest")
-    dependsOn(jvmTestTask)
+    // We use providers to avoid eager task realization
+    val jvmTestTaskProvider = tasks.named<Test>("jvmTest")
+    dependsOn(jvmTestTaskProvider)
 
     reports {
         xml.required.set(true)
         html.required.set(true)
     }
-    sourceDirectories.setFrom(files("src/commonMain/kotlin", "src/jvmMain/kotlin"))
+    
+    // Modern lazy property-based setup
+    sourceDirectories.setFrom(
+        project.layout.projectDirectory.dir("src/commonMain/kotlin"),
+        project.layout.projectDirectory.dir("src/jvmMain/kotlin")
+    )
+    
     classDirectories.setFrom(
-        fileTree(layout.buildDirectory.dir("classes/kotlin/jvm/main")) {
+        project.fileTree(project.layout.buildDirectory.dir("classes/kotlin/jvm/main")) {
             exclude("**/commonTest/**", "**/jvmTest/**")
         }
     )
-    executionData.setFrom(layout.buildDirectory.file("jacoco/jvmTest.exec"))
+    
+    executionData.setFrom(
+        project.layout.buildDirectory.file("jacoco/jvmTest.exec")
+    )
 }
 
 tasks.named("check") {

@@ -2,7 +2,7 @@ package com.sildeag.sound2text.di.config
 
 import com.sildeag.sound2text.core.config.AppSettings
 import com.sildeag.sound2text.core.config.Environment
-import com.sildeag.sound2text.core.settings.SettingsLoader
+import com.sildeag.sound2text.settings.SettingsLoader
 import org.koin.dsl.module
 
 val configModule = module {

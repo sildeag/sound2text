@@ -1,6 +1,9 @@
 package pdf
 
 import com.sildeag.sound2text.core.model.note.*
+import com.sildeag.sound2text.core.notes.Note
+import com.sildeag.sound2text.core.notes.NoteTextField
+
 class NotePdfMapper {
     fun mapToPdfFields(note: Note): List<PdfFieldDescriptor> {
         return note.fields.mapNotNull { field ->

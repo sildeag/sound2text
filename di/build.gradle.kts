@@ -12,6 +12,8 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(project(":core"))
+            implementation(project(":settings"))
+            implementation(project(":storage"))
             implementation(libs.koin.core)
         }
 

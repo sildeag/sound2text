@@ -1,6 +1,6 @@
 package com.sildeag.sound2text.appcommon.navigation
 
-import com.sildeag.sound2text.core.model.note.Note
+import com.sildeag.sound2text.core.notes.Note
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 class NavigationState {

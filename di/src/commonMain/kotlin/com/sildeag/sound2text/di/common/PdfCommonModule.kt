@@ -1,6 +1,6 @@
 package com.sildeag.sound2text.di.common
 
-import com.sildeag.sound2text.core.pdf.PdfFormDiscovery
+import com.sildeag.sound2text.core.pdf.discovery.PdfFormDiscovery
 import com.sildeag.sound2text.core.pdf.PdfFormEngine
 import org.koin.core.module.Module
 import org.koin.dsl.module

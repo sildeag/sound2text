@@ -7,7 +7,7 @@
 
 # --- Core Toolchains (Upgraded to Modern Stack) ---
 kotlin-ver = "2.4.0"             # was 2.3.20
-agp = "9.4.0-alpha05"             # was 9.2.1 and earlier 8.8.0
+agp = "9.4.0-alpha07"             # was 9.2.1 and earlier 8.8.0
 jvm = "24"
 
 android-compileSdk = "37"         # was 36 35 compileSd
@@ -51,6 +51,10 @@ kotlin-logging = "7.0.14"         # was 7.0.0
 
 # --- iText ---
 itext-ver = "9.5.0"               # was 8.0.5
+
+# --- PDFBox ---
+pdfbox-ver = "3.0.8"
+pdfbox-android-ver = "2.0.27.0"
 
 # --- Misc ---
 kotlinxSerialization = "1.9.0"    # was 1.7.3
@@ -194,6 +198,10 @@ itext-layout = { module = "com.itextpdf:layout", version.ref = "itext-ver" }
 itext-io = { module = "com.itextpdf:io", version.ref = "itext-ver" }
 itext-svg = { module = "com.itextpdf:svg", version.ref = "itext-ver" }
 
+# --- PDFBox ---
+pdfbox = { module = "org.apache.pdfbox:pdfbox", version.ref = "pdfbox-ver" }
+pdfbox-android = { module = "com.tom-roush:pdfbox-android", version.ref = "pdfbox-android-ver" }
+
 # Logging
 slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
 logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
@@ -240,4 +248,5 @@ testJvm = ["junit-jupiter-api", "junit-jupiter-engine", "kotlin-test", "mockk", 
 testAndroid = ["androidx-junit", "espresso-core"]
 javafx = ["javafx-base", "javafx-controls", "javafx-fxml", "javafx-graphics"]
 itext = ["itext-kernel","itext-forms","itext-layout","itext-io"]
+pdfbox = ["pdfbox"]
 logging = ["slf4j-api", "logback-classic", "kotlin-logging"]

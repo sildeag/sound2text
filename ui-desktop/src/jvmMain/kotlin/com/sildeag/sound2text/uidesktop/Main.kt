@@ -1,26 +1,42 @@
 package com.sildeag.sound2text.uidesktop
 
-import com.sildeag.sound2text.core.config.AppSettings
-import com.sildeag.sound2text.core.config.SettingsLoader
-import com.sildeag.sound2text.core.logging.Logger
-import com.sildeag.sound2text.core.storage.StorageService
-// TODO: remove engine
-import
-import com.sildeag.sound2text.core.stt.SttConfig
-import com.sildeag.sound2text.di.common.sttCommonModule
-import com.sildeag.sound2text.uidesktop.ui.DesktopComposeApp
-import com.sildeag.sound2text.uidesktop.ui.fxml.FxmlLauncher
+import androidx.compose.ui.window.Window
+import androidx.compose.ui.window.application
+import org.koin.core.context.startKoin
+import org.koin.java.KoinJavaComponent.get
+import com.sildeag.sound2text.uicommon.ui.AppRoot
+import com.sildeag.sound2text.uicommon.navigation.AppNavigator
+import com.sildeag.sound2text.uicommon.pdf.PdfViewModel
+import com.sildeag.sound2text.featurerecording.SttViewModel
+import com.sildeag.sound2text.uicommon.AppRoot
+import com.sildeag.sound2text.uidesktop.ui.screens.DesktopPdfScreen
+import com.sildeag.sound2text.uidesktop.di.pdfDesktopModule
+import com.sildeag.sound2text.uidesktop.di.sttDesktopModule
+import com.sildeag.sound2text.uicommon.di.uiCommonModule
+fun main() = application {
+    startKoin {
+        modules(
+            pdfDesktopModule,
+            sttDesktopModule,
+            uiCommonModule
+        )
+    }
+    val navigator: AppNavigator = get(AppNavigator::class.java)
+    val sttViewModel: SttViewModel = get(SttViewModel::class.java)
+    val pdfViewModel: PdfViewModel = get(PdfViewModel::class.java)
+    Window(onCloseRequest = ::exitApplication) {
+        AppRoot(
+            navigator = navigator,
+            sttViewModel = sttViewModel,
+            pdfViewModel = pdfViewModel,
+            renderPdfScreen = { path, page, vm -> DesktopPdfScreen(path, page, vm)
+            }
+        )
+    }
+}
 
-// TODO: inject platform // TODO: inject platform // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform context
-via DI: Context.startKoin
-import org.koin.java.KoinJavaComponent.inject
-
+//import org.koin.java.KoinJavaComponent.inject
+/*
 fun main() {
 // Load settings from your config module
     val settings: AppSettings = SettingsLoader.load()
@@ -60,6 +76,8 @@ fun main() {
         }
     }
 }
+
+ */
 /*
 val koinApp = koinApplication {
  modules(

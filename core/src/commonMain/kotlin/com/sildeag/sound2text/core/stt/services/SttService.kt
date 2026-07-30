@@ -8,6 +8,8 @@ class SttService(
     private val engine: SttEngine
 ) {
 
+    val partial: Any
+
     suspend fun start() = withContext(Dispatchers.IO) {
         engine.start()
     }

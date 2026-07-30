@@ -20,6 +20,8 @@ kotlin {
         
         androidMain.dependencies {
             implementation(libs.androidx.sqlite.framework)
+            implementation(libs.bundles.itext)
+            implementation(libs.pdfbox.android)
             // Android gets the spatial binary payload
             //implementation(libs.spatialite.android)
         }
@@ -27,6 +29,7 @@ kotlin {
             // Desktop native C driver via JDBC
             implementation(libs.sqlite.jdbc)
             implementation(libs.bundles.itext)
+            implementation(libs.bundles.pdfbox)
         }
     }
 }

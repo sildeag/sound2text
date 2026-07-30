@@ -22,11 +22,13 @@ kotlin {
         }
         
         jvmMain.dependencies {
+
+            /*
             implementation("org.openjfx:javafx-base:$jfxVersion:$desktopPlatform")
             implementation("org.openjfx:javafx-controls:$jfxVersion:$desktopPlatform")
             implementation("org.openjfx:javafx-fxml:$jfxVersion:$desktopPlatform")
             implementation("org.openjfx:javafx-graphics:$jfxVersion:$desktopPlatform")
-            /* example of old way to set JavaFX modules
+              example of old way to set JavaFX modules
                 implementation(compose.desktop.currentOs)
                 libs.bundles.javafx.get().forEach { dep ->
                     val group = dep.module.group

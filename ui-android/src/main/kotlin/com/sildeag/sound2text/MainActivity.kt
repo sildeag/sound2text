@@ -1,80 +1,64 @@
-package com.sildeag.sound2text
+package com.sildeag.sound2text.uiandroid
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import org.koin.android.ext.koin.android// TODO: inject platform // TODO: inject platform // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform context
-via DI: Context
-import org.koin.core.// TODO: inject platform // TODO: inject platform // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform context
-via DI: Context.startKoin
-/*
-class MyApplication : Application() {
-    override fun onCreate() {
-        super.onCreate()
+import org.koin.android.ext.koin.androidContext
+import org.koin.androidx.compose.getViewModel
+import org.koin.core.context.startKoin
+import com.sildeag.sound2text.uicommon.ui.AppRoot
+import com.sildeag.sound2text.uicommon.navigation.AppNavigator
+import com.sildeag.sound2text.uicommon.pdf.PdfViewModel
+import com.sildeag.sound2text.featurerecording.SttViewModel
+import com.sildeag.sound2text.uiandroid.ui.screens.AndroidPdfScreen
+import com.sildeag.sound2text.uiandroid.di.pdfAndroidModule
+import com.sildeag.sound2text.uiandroid.di.sttAndroidModule
+import com.sildeag.sound2text.uicommon.di.uiCommonModule
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         startKoin {
-            android// TODO: inject platform // TODO: inject platform // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform context
-via DI: Context(this@MyApplication)
+            androidContext(this@MainActivity)
             modules(
-                coreModule, // shared logging
-                configModule, // AppSettings loader
-                sttModule, // Android STT engines (when
-                added)
-            androidStorageModule, // Android storage binding
-            androidUiModule // Android UI/controller
+                pdfAndroidModule,
+                sttAndroidModule,
+                uiCommonModule
+            )
+        }
+        val navigator: AppNavigator =
+            org.koin.java.KoinJavaComponent.get(AppNavigator::class.java)
+        val sttViewModel: SttViewModel = getViewModel()
+        val pdfViewModel: PdfViewModel = getViewModel()
+        setContent {
+            AppRoot(
+                navigator = navigator,
+                sttViewModel = sttViewModel,
+                pdfViewModel = pdfViewModel,
+                renderPdfScreen = { path, page, vm ->
+                    AndroidPdfScreen(path, page, vm)
+                }
             )
         }
     }
 }
-*/
 
+
+/*
 // Thin MainActivity using appcommon
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        SettingsLoader.// TODO: inject platform // TODO: inject platform // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform context
-via DI: Context = this
         val settings = SettingsLoader.load()
         startKoin {
-            android// TODO: inject platform // TODO: inject platform // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform context
-via DI: Context(this@MainActivity)
-            modules(androidModule(settings))
+                    androidContext(this@MainActivity)
+                    modules(androidModule(settings))
         }
         setContent {
             com.sildeag.sound2text.appcommon.runApp()
         }
     }
 }
-
+*/
 /*
 // Original ManiActivity using :ui-android
 class MainActivity : ComponentActivity() {
@@ -91,13 +75,7 @@ via DI: Context = this
         val settings: AppSettings = SettingsLoader.load()
         startKoin {
             android// TODO: inject platform // TODO: inject platform // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform // TODO: inject platform context
-via DI: Context
-via DI: // TODO: inject platform context
-via DI: Context(this@MainActivity)
+I: Context(this@MainActivity)
             modules(androidModule(settings))
         }
         val logger: Logger by inject()

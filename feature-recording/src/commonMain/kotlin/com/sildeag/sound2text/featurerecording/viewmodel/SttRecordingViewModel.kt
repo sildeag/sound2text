@@ -4,10 +4,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sildeag.sound2text.core.audio.RecordingSource
 import com.sildeag.sound2text.core.audio.toAmplitude
-import com.sildeag.sound2text.core.stt.SttStreamingController
+import com.sildeag.sound2text.core.stt.streaming.SttStreamingController
 import com.sildeag.sound2text.featurerecording.recording.RecordingState
 import com.sildeag.sound2text.featurerecording.storage.TranscriptStorage
-import com.sildeag.sound2text.featurerecording.stt.SttUiState
+import com.sildeag.sound2text.uicommon.stt.SttUiState
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 

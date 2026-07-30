@@ -1,10 +1,2 @@
-package com.sildeag.sound2text.di
+package com.sildeag.sound2text.di.workflow
 
-import org.koin.dsl.module
-
-val appModule = module {
-    // App state
-    single { AppState() }
-    // Recording controller
-    single { RecordingController(get(), get(), get()) }
-}

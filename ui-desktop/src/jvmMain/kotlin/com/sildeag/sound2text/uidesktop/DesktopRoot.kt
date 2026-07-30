@@ -4,9 +4,9 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import pdf.PdfFormDescriptor
 import pdf.PdfFormDiscovery
-import com.sildeag.sound2text.uicommon.ui.pdf.PdfFieldEditor
-import com.sildeag.sound2text.uicommon.ui.pdf.PdfFormPreview
-import com.sildeag.sound2text.uicommon.ui.pdf.PdfPluginBrowser
+import com.sildeag.sound2text.uicommon.pdf.PdfFieldEditor
+import com.sildeag.sound2text.uicommon.pdf.PdfFormPreview
+import com.sildeag.sound2text.uicommon.pdf.PdfPluginBrowser
 @Composable
 fun DesktopRoot() {
     MaterialTheme {

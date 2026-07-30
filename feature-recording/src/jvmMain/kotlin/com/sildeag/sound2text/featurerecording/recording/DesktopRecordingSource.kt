@@ -1,5 +1,6 @@
 package com.sildeag.sound2text.featurerecording.recording
 
+import com.sildeag.sound2text.core.audio.RecordingSource
 import javax.sound.sampled.*
 class DesktopRecordingSource(
     private val sampleRate: Float = 16000f

@@ -1,7 +1,7 @@
 package com.sildeag.sound2text.featurerecording.recording
 
 import com.sildeag.sound2text.core.audio.RecordingSource
-import com.sildeag.sound2text.core.stt.SttService
+import com.sildeag.sound2text.core.stt.services.SttService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -19,7 +19,7 @@ class RecordingController(
     val final: StateFlow<String> = _final
     private val _errors = MutableStateFlow<String?>(null)
     val errors: StateFlow<String?> = _errors
-    fun start() {
+    fun start(collect: Any.(Any?) -> Unit) {
         scope.launch {
             _state.value = RecordingState.Starting
             sttService.start()

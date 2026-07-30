@@ -1,5 +1,9 @@
 package com.sildeag.sound2text.di.repository
 
+import com.sildeag.sound2text.core.pdf.data.PdfRepositoryImpl
+import com.sildeag.sound2text.core.repository.PdfRepository
+import com.sildeag.sound2text.core.repository.TranscriptionRepository
+
 import org.koin.dsl.module
 
 val repositoryModule = module {

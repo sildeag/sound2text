@@ -5,6 +5,9 @@ import com.sildeag.sound2text.uicommon.navigation.*
 import com.sildeag.sound2text.uicommon.screens.*
 import com.sildeag.sound2text.uicommon.pdf.PdfViewModel
 import com.sildeag.sound2text.featurerecording.SttViewModel
+import com.sildeag.sound2text.uicommon.screens.NoteEditorScreen
+import com.sildeag.sound2text.uicommon.screens.SettingsScreen
+
 @Composable
 fun AppRoot(
     navigator: AppNavigator,

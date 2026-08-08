@@ -11,8 +11,11 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(project(":core"))
-            implementation(libs.vosk)
-            implementation(libs.vosk.api)
+        }
+
+        jvmMain.dependencies {
+            implementation(libs.vosk.model.en)
+            implementation(libs.vosk.core)
         }
 
         androidMain.dependencies {

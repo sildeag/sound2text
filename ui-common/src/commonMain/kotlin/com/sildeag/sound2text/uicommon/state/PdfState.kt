@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.uicommon.pdf
+package com.sildeag.sound2text.uicommon.state
 
 import com.itextpdf.kernel.pdf.PdfPage
 

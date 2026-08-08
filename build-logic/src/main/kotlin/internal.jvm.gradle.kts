@@ -20,7 +20,7 @@ kotlin {
 }
 
 dependencies {
-    implementation(libs.findLibrary("vosk-api").get())
+    implementation(libs.findLibrary("vosk-core").get())
     implementation(libs.findBundle("itext").get())
     implementation(libs.findBundle("logging").get())
     implementation(libs.findLibrary("kotlinx-serialization-json").get())

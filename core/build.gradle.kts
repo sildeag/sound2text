@@ -29,7 +29,7 @@ kotlin {
             // Desktop native C driver via JDBC
             implementation(libs.sqlite.jdbc)
             implementation(libs.bundles.itext)
-            implementation(libs.bundles.pdfbox)
+            implementation(libs.pdfbox)
         }
     }
 }

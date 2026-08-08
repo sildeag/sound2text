@@ -7,6 +7,10 @@ android {
     
     defaultConfig {
         applicationId = "com.sildeag.sound2text"
+        ndk {
+            // Keep the APK small by only including common architectures
+            abiFilters += listOf("armeabi-v7a", "arm64-v8a", "x86", "x86_64")
+        }
     }
 }
 

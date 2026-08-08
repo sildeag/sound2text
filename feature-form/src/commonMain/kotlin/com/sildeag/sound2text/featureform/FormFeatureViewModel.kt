@@ -7,7 +7,6 @@ import com.sildeag.sound2text.core.pdf.render.PdfRenderer
 import com.sildeag.sound2text.core.pdf.extract.PdfTextExtractor
 import com.sildeag.sound2text.core.resource.ResourceLoader
 import com.sildeag.sound2text.core.stt.SttEngine
-import com.sildeag.sound2text.featureform.FormFeatureActions
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -15,7 +14,6 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import com.sildeag.sound2text.uicommon.mappers.toUi
-import com.sildeag.sound2text.uicommon.model.UiPdfPage
 
 class FormFeatureViewModel(
     private val processorSelector: PdfProcessorSelector,

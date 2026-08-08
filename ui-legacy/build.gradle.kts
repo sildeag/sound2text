@@ -20,7 +20,8 @@ kotlin {
             implementation(project(":pdf-desktop"))
             implementation(project(":stt-desktop"))
             implementation(libs.bundles.itext)
-            implementation(libs.vosk)
+            implementation(libs.vosk.core)
+            implementation(libs.vosk.model.en)
         }
 
         jvmMain.dependencies {

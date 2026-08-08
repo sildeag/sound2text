@@ -16,4 +16,3 @@ fun mapToUi(
         width = width,
         height = height
     )
-

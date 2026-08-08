@@ -16,10 +16,11 @@ kotlin {
         }
 
         jvmMain.dependencies {
+            implementation(libs.vosk.model.en)
+            implementation(libs.vosk.core)
         }
 
         androidMain.dependencies {
-                implementation(libs.vosk.android)
         }
     }
 }

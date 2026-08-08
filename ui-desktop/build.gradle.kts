@@ -16,8 +16,8 @@ kotlin {
             implementation(compose.desktop.currentOs)
             //implementation(libs.compose.material3)
             implementation(libs.bundles.itext)
-            implementation(libs.vosk)
-            implementation(libs.vosk.api)
+            implementation(libs.vosk.model.en)
+            implementation(libs.vosk.core)
         }
 
         jvmMain {

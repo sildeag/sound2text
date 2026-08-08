@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.uicommon.wizard
+package com.sildeag.sound2text.uicommon.viewmodels
 
 import com.sildeag.sound2text.core.stt.SttConfig
 import com.sildeag.sound2text.di.stt.ModelDiscovery

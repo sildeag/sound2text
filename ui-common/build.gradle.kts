@@ -5,7 +5,6 @@ plugins {
 val jfxVersion = libs.versions.javafx.ver.get()
 
 kotlin {
-    // The modern way to configure Android for KMP in AGP 9.1+
     android {
         namespace = "com.sildeag.sound2text.ui.common"
     }
@@ -15,19 +14,17 @@ kotlin {
             implementation(project(":core"))
             implementation(project(":di"))
             implementation( project(":appcommon"))
-                //implementation(libs.koin.compose)
-                //implementation(libs.compose.material3)
             implementation(libs.bundles.itext)
-            implementation(libs.vosk)
+            // implementation(libs.vosk.api)
         }
         
         jvmMain.dependencies {
 
-            /*
             implementation("org.openjfx:javafx-base:$jfxVersion:$desktopPlatform")
             implementation("org.openjfx:javafx-controls:$jfxVersion:$desktopPlatform")
             implementation("org.openjfx:javafx-fxml:$jfxVersion:$desktopPlatform")
             implementation("org.openjfx:javafx-graphics:$jfxVersion:$desktopPlatform")
+/*
               example of old way to set JavaFX modules
                 implementation(compose.desktop.currentOs)
                 libs.bundles.javafx.get().forEach { dep ->
@@ -36,11 +33,11 @@ kotlin {
                     val version = dep.versionConstraint.requiredVersion
                     implementation("$group:$name:$version:$platform")
                 }
-            */
+
+*/
         }
 
         androidMain.dependencies {
-            // Android specific dependencies
         }
 
         jvmTest.dependencies {

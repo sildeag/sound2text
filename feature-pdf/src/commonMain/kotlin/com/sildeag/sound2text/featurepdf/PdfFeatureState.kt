@@ -1,7 +1,7 @@
 package com.sildeag.sound2text.featurepdf
 
 import com.sildeag.sound2text.core.pdf.PdfDocument
-import com.sildeag.sound2text.uicommon.model.UiPdfPage
+import com.sildeag.sound2text.uicommon.models.UiPdfPage
 
 data class PdfFeatureState(
     val document: PdfDocument? = null,

@@ -6,7 +6,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.sildeag.sound2text.pdfwizard.PdfWizardState
+import com.sildeag.sound2text.uicommon.state.PdfWizardState
+
 @Composable
 fun PdfWizardScreen(
     state: PdfWizardState,
@@ -61,3 +62,5 @@ fun PdfWizardScreen(
                 }
             }
         }
+
+

@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.uicommon.components
+package com.sildeag.sound2text.uicommon.navigation
 
 import androidx.compose.foundation.layout.*
 import org.jetbrains.compose.material.icons.Icons

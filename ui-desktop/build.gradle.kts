@@ -8,6 +8,7 @@ kotlin {
         commonMain.dependencies {
             implementation(project(":core"))
             implementation(project(":ui-common"))
+            implementation(project(":platform"))
             implementation(project(":feature-recording"))
             implementation(project(":pdf-desktop"))
             implementation(project(":stt-desktop"))

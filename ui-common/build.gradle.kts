@@ -12,8 +12,8 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(project(":core"))
-            implementation(project(":di"))
-            implementation( project(":appcommon"))
+            implementation(project(":platform"))
+            //implementation( project(":appcommon"))
             implementation(libs.bundles.itext)
             // implementation(libs.vosk.api)
         }

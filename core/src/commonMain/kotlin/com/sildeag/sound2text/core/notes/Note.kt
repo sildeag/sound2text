@@ -4,4 +4,6 @@ data class Note(
     val id: String,
     val title: String,
     val fields: List<NoteField>
-)
+) {
+    val previewText: Any
+}

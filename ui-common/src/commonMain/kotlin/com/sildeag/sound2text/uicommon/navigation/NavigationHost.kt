@@ -1,7 +1,7 @@
-package com.sildeag.sound2text.uicommon.components
+package com.sildeag.sound2text.uicommon.navigation
 
 import androidx.compose.runtime.Composable
-import com.sildeag.sound2text.uicommon.state.NavigationState
+
 @Composable
 fun NavigationHost(
     route: String,

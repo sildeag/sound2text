@@ -17,6 +17,7 @@ kotlin {
             implementation(project(":core"))
             implementation(project(":feature-recording"))
             implementation(project(":ui-common"))
+            implementation(project(":platform"))
             implementation(project(":pdf-desktop"))
             implementation(project(":stt-desktop"))
             implementation(libs.bundles.itext)

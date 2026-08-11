@@ -14,8 +14,8 @@ import com.sildeag.sound2text.uicommon.theme.TextPrimary
 
 @Composable
 fun SharedTheme(content: @Composable () -> Unit) {
-    MaterialTheme(
-        colorScheme = lightColorScheme(
+
+        val AppColorScheme = lightColorScheme(
             primary = Primary,
             secondary = Secondary,
             background = Background,
@@ -24,7 +24,9 @@ fun SharedTheme(content: @Composable () -> Unit) {
             onSecondary = Color.Black,
             onBackground = TextPrimary,
             onSurface = TextPrimary
-        ),
+        )
+    MaterialTheme(
+        colorScheme = AppColorScheme,
         typography = AppTypography,
         shapes = AppShapes,
         content = content

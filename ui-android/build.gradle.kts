@@ -17,6 +17,7 @@ android {
 dependencies {
     //implementation(project(":core"))
     implementation(project(":ui-common"))
+    implementation(project(":platform"))
     implementation(project(":feature-recording"))
     //implementation(project(":pdf-android"))
     //implementation(project(":stt-android"))

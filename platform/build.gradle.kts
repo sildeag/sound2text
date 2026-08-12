@@ -1,13 +1,22 @@
 plugins {
     id("internal.kmp.platform")
+    alias(libs.plugins.buildkonfig)
 }
+
 
 val jfxVersion = libs.versions.javafx.ver.get()
 
-kotlin {
-    android {
-        namespace = "com.sildeag.sound2text.platform"
+buildkonfig {
+    packageName = "com.sildeag.sound2text.platform.config"
+    objectName = "PlatformBuildConfig"
+
+    defaultConfigs {
+        // Use the fully qualified name for Type if it's not resolved
+        buildConfigField(com.codingfeline.buildkonfig.compiler.FieldSpec.Type.BOOLEAN, "DEBUG", "true")
     }
+}
+
+kotlin {
 
     sourceSets {
         commonMain.dependencies {

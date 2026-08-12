@@ -18,7 +18,7 @@ kotlin {
         compileSdk = libs.findVersion("android-compileSdk").get().requiredVersion.toInt()
         minSdk = libs.findVersion("android-minSdk").get().requiredVersion.toInt()
 
-        // No withHostTest
+        withHostTest {}
         // No withDeviceTest
 
         compilerOptions {

@@ -73,6 +73,7 @@ cardview-ver = "1.0.0"
 jacoco-ver = "0.8.12"
 javafx-plugin-ver = "0.1.0"
 voyager-ver = "1.0.0"
+build-konfig-ver = "0.15.1"
 
 # Core Vosk versions (Ensure you use the latest stable releases)
 vosk-core-ver = "0.3.45"
@@ -116,6 +117,7 @@ composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "k
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka-ver" }
 kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin-ver" }
 javafx = { id = "org.openjfx.javafxplugin", version.ref = "javafx-plugin-ver" }
+buildkonfig = { id = "com.codingfeline.buildkonfig", version.ref = "build-konfig-ver" }
 
 # ============================================================
 #                         LIBRARIES

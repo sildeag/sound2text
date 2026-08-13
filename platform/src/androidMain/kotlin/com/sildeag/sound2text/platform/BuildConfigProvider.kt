@@ -7,3 +7,4 @@ actual object BuildConfigProvider {
     actual val buildConfig: BuildConfig =
         if (PlatformBuildConfig.DEBUG) BuildConfig.Debug else BuildConfig.Release
 }
+

@@ -4,7 +4,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import com.sildeag.sound2text.uicommon.navigation.NavigationHost
-import com.sildeag.sound2text.uicommon.viewmodel.*
+import com.sildeag.sound2text.uicommon.viewmodels.NavigationViewModel
+import com.sildeag.sound2text.uicommon.viewmodels.PdfWizardViewModel
+import com.sildeag.sound2text.uicommon.viewmodels.RecordingViewModel
+import com.sildeag.sound2text.uicommon.viewmodels.SttViewModel
+import com.sildeag.sound2text.uicommon.viewmodels.ThemeViewModel
+import com.sildeag.sound2text.uicommon.viewmodels.TranscriptListViewModel
+
 @Composable
 fun AppRoot(
     navVm: NavigationViewModel,

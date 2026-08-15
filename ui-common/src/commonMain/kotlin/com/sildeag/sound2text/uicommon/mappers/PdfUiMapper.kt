@@ -2,6 +2,7 @@ package com.sildeag.sound2text.uicommon.pdf
 
 import androidx.compose.ui.graphics.ImageBitmap
 import com.sildeag.sound2text.core.pdf.model.PdfPage
+import com.sildeag.sound2text.uicommon.models.UiPdfPage
 
 fun mapToUi(
     core: PdfPage,

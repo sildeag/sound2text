@@ -1,9 +1,10 @@
 package com.sildeag.sound2text.core.pdf.discovery
 
-import com.sildeag.sound2text.core.pdf.PdfForm
-import com.sildeag.sound2text.core.pdf.PdfFormScanner
-import com.sildeag.sound2text.core.pdf.PdfProcessor
-import com.sildeag.sound2text.core.pdf.PdfResourceLoader
+import com.sildeag.sound2text.core.pdf.io.PdfFormScanner
+import com.sildeag.sound2text.core.pdf.io.PdfResourceLoader
+import com.sildeag.sound2text.core.pdf.model.PdfForm
+import com.sildeag.sound2text.core.pdf.model.PdfPage
+import com.sildeag.sound2text.core.pdf.processor.PdfProcessor
 
 class SttFormManager(
     private val scanner: PdfFormScanner,

@@ -1,6 +1,6 @@
 package com.sildeag.sound2text.core.stt.engine
 
-import com.sildeag.sound2text.core.stt.SttConfig
+import com.sildeag.sound2text.core.stt.config.SttConfig
 
 class UnifiedEngineRegistry(
     private val plugins: List<SttEnginePlugin>

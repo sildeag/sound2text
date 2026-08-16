@@ -18,11 +18,20 @@ class UiAudioRecorder(
 
         platformRecorder.start { bytes ->
             val amp = bytes.toAmplitude()
-            _state.value = RecordingState.Recording(amplitude = amp)
+            // Convert PCM bytes to waveform values (simple example)
+            val waveform = bytes.map { it.toFloat() / 128f }
+            _state.value = RecordingState.Recording(
+                amplitude = amp,
+                waveform = waveform
+            )
+
         }
 
         // Initial recording state with amplitude = 0f
-        _state.value = RecordingState.Recording(amplitude = 0f)
+        _state.value = RecordingState.Recording(
+            amplitude = 0f,
+            waveform = emptyList()
+        )
     }
 
     suspend fun stop() {
@@ -39,6 +48,12 @@ class UiAudioRecorder(
         }
     }
 
-    fun updateWaveform(values: List<Float>) {}
-}
+    fun updateWaveform(values: List<Float>) {
+        _state.update {
+            if (it is RecordingState.Recording) {
+                it.copy(waveform = values)
+            } else it
+        }
 
+    }
+}

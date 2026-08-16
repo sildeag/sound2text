@@ -1,6 +1,7 @@
 package com.sildeag.sound2text.core.stt.services
 
-import com.sildeag.sound2text.core.stt.SttResult
+import com.sildeag.sound2text.core.stt.model.SttResult
+import com.sildeag.sound2text.core.stt.engine.SttEngine
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

@@ -1,9 +1,12 @@
 package com.sildeag.sound2text.core.stt.config
 
+import com.sildeag.sound2text.core.stt.model.SttModelInfo
+
 data class SttConfig(
     override val language: String,
     // Engine selection (source of truth)
     val engineName: String,
+    val engineID: Any,
     // Desktop model location
     override val modelPath: String?,
     override val modelFile: String?,
@@ -12,6 +15,4 @@ data class SttConfig(
     override val androidModelFile: String?,
     // Audio parameters (runtime only)
     val sampleRate: Float = 16_000f
-) : SttModelInfo {
-    val engineId: Any
-}
+) : SttModelInfo

@@ -1,5 +1,6 @@
 package com.sildeag.sound2text.core.stt.streaming
 
+import com.sildeag.sound2text.core.stt.engine.SttEngine
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob

@@ -1,8 +1,8 @@
 package com.sildeag.sound2text.core.stt.engine
 
-import com.sildeag.sound2text.core.stt.ModelDescriptor
-import com.sildeag.sound2text.core.stt.SttConfig
-import com.sildeag.sound2text.core.stt.SttModelInfo
+import com.sildeag.sound2text.core.stt.config.SttConfig
+import com.sildeag.sound2text.core.stt.model.ModelDescriptor
+import com.sildeag.sound2text.core.stt.model.SttModelInfo
 
 interface SttEnginePlugin {
     //val id: String // "vosk", "whisper", "unified"

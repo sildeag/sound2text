@@ -54,7 +54,7 @@ kotlin-logging = "7.0.14"         # was 7.0.0
 itext-ver = "9.5.0"               # was 8.0.5
 
 # --- PDFBox ---
-pdfbox-ver = "3.0.8"
+pdfbox-ver = "2.0.29"
 pdfbox-android-ver = "2.0.27.0"
 
 # --- Misc ---

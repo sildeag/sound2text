@@ -7,6 +7,7 @@ import com.sildeag.sound2text.core.pdf.render.RenderedPage
 import org.apache.pdfbox.pdmodel.PDDocument
 import org.apache.pdfbox.rendering.PDFRenderer
 import java.io.ByteArrayInputStream
+
 class PdfBoxRenderer(
     private val bytes: ByteArray
 ) : PdfRenderer {

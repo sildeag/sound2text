@@ -3,7 +3,6 @@ package com.sildeag.sound2text.core.pdf.render
 import android.graphics.Bitmap
 import android.graphics.pdf.PdfRenderer
 import androidx.compose.ui.graphics.asImageBitmap
-import com.sildeag.sound2text.core.pdf.render.PdfRenderer
 import com.sildeag.sound2text.core.pdf.render.RenderedPage
 import java.io.File
 import android.os.ParcelFileDescriptor

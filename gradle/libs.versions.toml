@@ -7,8 +7,8 @@
 
 # --- Core Toolchains (Upgraded to Modern Stack) ---
 kotlin-ver = "2.4.0"             # was 2.3.20
-agp = "9.4.0-alpha08"             # was 9.2.1 and earlier 8.8.0
-jvm = "24"
+agp = "9.5.0-alpha01"             # was 9.2.1 and earlier 8.8.0
+jvm = "21"
 
 android-compileSdk = "37"         # was 36 35 compileSd
 android-minSdk = "24"

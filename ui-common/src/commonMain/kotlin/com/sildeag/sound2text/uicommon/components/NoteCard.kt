@@ -11,9 +11,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.sildeag.sound2text.core.notes.Note
+import com.sildeag.sound2text.uicommon.theme.AppTypography
 
 @Composable
 fun NoteCard(
@@ -38,18 +40,21 @@ fun NoteCard(
         ) {
             Text(
                 text = note.title,
-                style = Typography.titleMedium,
+                style = AppTypography.titleMedium,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
             )
+
             Spacer(Modifier.height(8.dp))
             Text(
                 text = note.previewText,
-                style = Typography.bodyMedium,
+                style = AppTypography.bodyMedium,
                 maxLines = 3,
                 overflow = TextOverflow.Ellipsis
             )
+
             Spacer(Modifier.height(12.dp))
+
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.End,
@@ -57,7 +62,7 @@ fun NoteCard(
             ) {
                 Text(
                     text = note.updatedAtFormatted,
-                    style = Typography.labelSmall,
+                    style = AppTypography.labelSmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }

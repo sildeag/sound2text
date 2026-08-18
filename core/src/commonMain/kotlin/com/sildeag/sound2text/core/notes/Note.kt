@@ -5,5 +5,6 @@ data class Note(
     val title: String,
     val fields: List<NoteField>
 ) {
+    val updatedAtFormatted: Any
     val previewText: Any
 }

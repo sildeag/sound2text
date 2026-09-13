@@ -7,7 +7,7 @@
 
 # --- Core Toolchains (Upgraded to Modern Stack) ---
 kotlin-ver = "2.4.0"             # was 2.3.20
-agp = "9.5.0-alpha01"             # was 9.2.1 and earlier 8.8.0
+agp = "9.5.0-alpha05"             # was 9.2.1 and earlier 8.8.0
 jvm = "21"
 
 android-compileSdk = "37"         # was 36 35 compileSd
@@ -51,7 +51,7 @@ logback = "1.5.24"                # was 1.5.12
 kotlin-logging = "7.0.14"         # was 7.0.0
 
 # --- iText ---
-itext-ver = "9.5.0"               # was 8.0.5
+itext-ver = "9.7.0"               # was 9.5.0 and 8.0.5
 
 # --- PDFBox ---
 pdfbox-ver = "2.0.29"
@@ -59,6 +59,7 @@ pdfbox-android-ver = "2.0.27.0"
 
 # --- Misc ---
 kotlinxSerialization = "1.9.0"    # was 1.7.3
+kotlinx-datetime = "0.6.0"
 mockk-ver = "1.14.7"              # was 1.13.13
 #jna-ver = "5.18.1"                # was 5.15.0
 snakeyaml-ver = "2.5"             # was 2.3
@@ -87,6 +88,7 @@ spatialite-android-ver = "2.0.0"
 sqlite-bundled-ver = "2.6.2"
 sqliteFramework = "2.6.2"
 runtime = "1.11.2"
+datastoreCore = "1.2.1"
 
 
 # ============================================================
@@ -219,6 +221,7 @@ kotlin-logging = { module = "io.github.oshai:kotlin-logging", version.ref = "kot
 
 # --- Misc ---
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
 #vosk-model = { module = "com.alphacephei:vosk-model-en", version.ref = "vosk-ver" }
 #vosk-api = { module = "com.alphacephei:vosk", version.ref = "vosk-ver" }
 #vosk-android = { module = "com.alphacephei:vosk-android", version.ref = "vosk-ver-android" }
@@ -258,6 +261,7 @@ jna-android = { group = "net.java.dev.jna", name = "jna", version.ref = "jna-ver
 # --- Vosk Small English Model ---
 # Pre-packaged small English model (distributed via Maven Central)
 vosk-model-en = { group = "com.alphacephei", name = "vosk-model-en", version.ref = "vosk-core-ver" }
+androidx-datastore-core = { group = "androidx.datastore", name = "datastore-core", version.ref = "datastoreCore" }
 
 
 # ============================================================

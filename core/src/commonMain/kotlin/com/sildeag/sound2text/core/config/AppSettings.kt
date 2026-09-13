@@ -16,6 +16,7 @@ data class AppSettings(
 
 @Serializable
 data class AppSettings(
+    val version: Int = 1,
     val mode: AppMode = AppMode.DEV,
     val ui: UiSettings = UiSettings(),
     val audio: AudioSettings = AudioSettings(),

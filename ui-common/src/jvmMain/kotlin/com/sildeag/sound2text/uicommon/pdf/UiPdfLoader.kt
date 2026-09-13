@@ -1,6 +1,5 @@
 package com.sildeag.sound2text.uicommon.pdf
 
-import com.sildeag.sound2text.uicommon.pdf.
 import com.sildeag.sound2text.core.pdf.io.PdfResourceLoader
 import com.sildeag.sound2text.core.pdf.processor.PdfProcessor
 import com.sildeag.sound2text.core.pdf.render.PdfRenderer

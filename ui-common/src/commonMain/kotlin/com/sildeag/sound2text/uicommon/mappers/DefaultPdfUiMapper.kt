@@ -19,6 +19,6 @@ class DefaultPdfUiMapper {
             text = core.text,
             bitmap = bitmap as ImageBitmap,
             width = width,
-            height = height
+            height = height,
         )
 }

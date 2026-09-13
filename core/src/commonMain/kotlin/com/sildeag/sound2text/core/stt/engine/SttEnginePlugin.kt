@@ -1,18 +1,24 @@
 package com.sildeag.sound2text.core.stt.engine
-
-import com.sildeag.sound2text.core.stt.config.SttConfig
 import com.sildeag.sound2text.core.stt.model.ModelDescriptor
 import com.sildeag.sound2text.core.stt.model.SttModelInfo
-
 interface SttEnginePlugin {
-    //val id: String // "vosk", "whisper", "unified"
-    val engineName: String  // "vosk", "whisper", "unified"
-    val displayName: String // "Vosk", "Whisper", "Unified"
-    // e.g., model IDs or descriptors
+    val engineName: String
+    val displayName: String
     fun availableModels(): List<SttModelInfo>
-    // Create a concrete engine instance for a given model
+    fun discoverModels(basePath: String): List<ModelDescriptor>
     fun createEngine(model: SttModelInfo): SttEngine
-    fun createFactory(): SttEngineFactory  // Preferred
-    fun discoverModels(basePath: String): List<ModelDescriptor> // Preferred
-    fun load(config: SttConfig): SttEngine
 }
+
+/*
+package com.sildeag.sound2text.core.stt.engine
+import com.sildeag.sound2text.core.stt.model.ModelDescriptor
+import com.sildeag.sound2text.core.stt.model.SttModelInfo
+interface SttEnginePlugin {
+    val engineName: String
+    val displayName: String
+    fun availableModels(): List<SttModelInfo>
+    fun discoverModels(basePath: String): List<ModelDescriptor>
+    fun createEngine(model: SttModelInfo): SttEngine
+}
+
+ */

@@ -1,6 +1,7 @@
 package com.sildeag.sound2text.core.pdf.render
 
 import androidx.compose.ui.graphics.ImageBitmap
+
 interface PdfRenderer {
     suspend fun render(pageIndex: Int): RenderedPage
 }

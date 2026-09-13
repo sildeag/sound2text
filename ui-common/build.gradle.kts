@@ -13,6 +13,7 @@ kotlin {
         commonMain.dependencies {
             implementation(project(":core"))
             implementation(project(":platform"))
+
             //implementation( project(":appcommon"))
             implementation(libs.bundles.itext)
             // implementation(libs.vosk.api)

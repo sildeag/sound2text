@@ -2,9 +2,11 @@ package com.sildeag.sound2text.uicommon.screens
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.sildeag.sound2text.core.model.Note
+import androidx.compose.ui.unit.dp
+import com.sildeag.sound2text.core.notes.Note
 import com.sildeag.sound2text.uicommon.components.NoteCard
 
 @Composable
@@ -14,11 +16,12 @@ fun NoteListScreen(
 ) {
     LazyColumn(modifier = Modifier.fillMaxSize()) {
         items(notes) { note ->
-            NoteCard(
-                note = note,
-                modifier = padding(8.dp),
-                onClick = onNoteSelected
-            )
+            NoteCard(note = note, modifier = padding(
+                    8.dp,
+                    top = TODO(),
+                    end = TODO(),
+                    bottom = TODO()
+                ), onClick = onNoteSelected)
         }
     }
 }

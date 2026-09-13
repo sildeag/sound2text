@@ -1,16 +1,16 @@
 package com.sildeag.sound2text.uicommon.state
 
-import com.sildeag.sound2text.core.pdf.PdfFieldInfo
+import com.sildeag.sound2text.core.pdf.model.PdfFieldDescriptor
 
 data class PdfWizardState(
     val currentStep: PdfWizardStep = PdfWizardStep.SelectPdf,
 
     // PDF selection
-    val selectedPdf: Any? = null,          // Android URI or Desktop File
+    val selectedPdf: Any? = null,
     val pdfBytes: ByteArray? = null,
 
     // Field discovery
-    val fields: List<PdfFieldInfo> = emptyList(),
+    val fields: List<PdfFieldDescriptor> = emptyList(),
     val currentFieldIndex: Int = 0,
 
     // Field filling
@@ -27,9 +27,16 @@ data class PdfWizardState(
     val showPreview: Boolean = false,
 
     // Errors
-    val wizardError: String? = null
+    val wizardError: String? = null,
+
+    // STT integration
+    val recordingState: RecordingState = RecordingState.Idle
 ) {
+    val currentField: PdfFieldDescriptor?
+        get() = fields.getOrNull(currentFieldIndex)
+
     val isRecording: Boolean
+        get() = recordingState == RecordingState.Recording
 }
 
 enum class PdfWizardStep {
@@ -38,4 +45,10 @@ enum class PdfWizardStep {
     FillFields,
     Review,
     Save
+}
+
+enum class RecordingState {
+    Idle,
+    Recording,
+    Processing
 }

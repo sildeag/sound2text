@@ -1,5 +1,24 @@
 package com.sildeag.sound2text.core.stt.streaming
+import com.sildeag.sound2text.core.stt.engine.SttEngine
+import com.sildeag.sound2text.core.stt.model.SttResult
+class SttStreamingController(
+    private val engine: SttEngine,
+    private val onResult: (SttResult) -> Unit
+) {
+    suspend fun start() {
+        engine.start()
+    }
+    suspend fun stop() {
+        engine.stop()
+    }
+    suspend fun feed(chunk: ByteArray) {
+        val result = engine.processAudio(chunk)
+        onResult(result)
+    }
+}
 
+
+/*
 import com.sildeag.sound2text.core.stt.engine.SttEngine
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -47,3 +66,5 @@ class SttStreamingController(
         engine.stop()
     }
 }
+
+ */

@@ -12,8 +12,9 @@ kotlin {
             implementation(project(":core"))
         }
         androidMain.dependencies {
+            implementation(libs.androidx.datastore.core)
             implementation(libs.vosk.android)
-            implementation(libs.jna.android)
+            // implementation(libs.jna.android) // Remove to resolve duplicate class error with vosk-android
             implementation(libs.vosk.model.en)
             implementation(libs.coroutines.android)
         }

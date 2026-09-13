@@ -21,6 +21,7 @@ kotlin {
                 implementation(libs.findBundle("coroutines").get())
                 implementation(libs.findBundle("logging").get())
                 implementation(libs.findLibrary("kotlinx-serialization-json").get())
+                implementation(libs.findLibrary("kotlinx-datetime").get())
             }
         }
         val commonTest = getByName("commonTest") {

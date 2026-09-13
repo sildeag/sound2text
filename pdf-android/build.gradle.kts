@@ -6,6 +6,7 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(project(":core"))
+            implementation(project(":ui-common"))
             //implementation(project(":di"))
         }
         commonTest.dependencies {

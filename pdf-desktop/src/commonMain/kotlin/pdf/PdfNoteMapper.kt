@@ -1,7 +1,7 @@
 package pdf
 
-import com.sildeag.sound2text.core.model.note.*
 import com.sildeag.sound2text.core.notes.Note
+import com.sildeag.sound2text.core.notes.NotePdfField
 import com.sildeag.sound2text.core.notes.NoteTextField
 
 class NotePdfMapper {

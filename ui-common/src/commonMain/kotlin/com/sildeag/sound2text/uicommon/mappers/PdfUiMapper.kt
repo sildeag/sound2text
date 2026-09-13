@@ -15,5 +15,5 @@ fun mapToUi(
         text = core.text,
         bitmap = bitmap,
         width = width,
-        height = height
+        height = height,
     )

@@ -1,6 +1,4 @@
-package com.sildeag.sound2text.core.model.note
-
-import com.sildeag.sound2text.core.notes.NoteField
+package com.sildeag.sound2text.core.notes
 
 data class NotePdfField(
     override val id: String,

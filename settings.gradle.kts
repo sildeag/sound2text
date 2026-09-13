@@ -61,6 +61,9 @@ buildCache {
     }
 }
 
+// composite builds to not do nested builds
+includeBuild("../sentinel")
+
 rootProject.name = "sound2text"
 
 include(

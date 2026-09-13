@@ -4,6 +4,7 @@ import com.sildeag.sound2text.core.config.SettingsLoader
 import com.sildeag.sound2text.core.logging.Logger
 import com.sildeag.sound2text.core.storage.StorageService
 import com.sildeag.sound2text.core.stt.SttConfig
+import com.sildeag.sound2text.core.stt.engine.SttEngine
 // TODO: remove engine
 import
 import com.sildeag.sound2text.sttdesktop.di.SttCommonModule

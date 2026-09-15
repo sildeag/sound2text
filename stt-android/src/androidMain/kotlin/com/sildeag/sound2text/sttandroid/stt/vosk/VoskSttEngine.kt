@@ -1,6 +1,7 @@
 package com.sildeag.sound2text.sttandroid.stt.vosk
 
 import com.sildeag.sound2text.core.stt.engine.SttEngine
+import com.sildeag.sound2text.core.stt.model.SttResult
 import org.vosk.Model
 import org.vosk.Recognizer
 import java.nio.ByteBuffer
@@ -26,10 +27,10 @@ class VoskSttEngine(
         }
     }
 
-    override suspend fun processAudio(chunk: ByteArray) {
-        val rec = recognizer ?: return
+    override suspend fun processAudio(chunk: ByteArray): SttResult {
+        val rec = recognizer ?: return SttResult.Error("Vosk engine not started")
 
-        // Convert PCM ByteArray → ShortArray (required by Vosk Android)
+        // Convert PCM ByteArray → ShortArray
         val shortBuffer = ByteBuffer.wrap(chunk)
             .order(ByteOrder.LITTLE_ENDIAN)
             .asShortBuffer()
@@ -37,17 +38,26 @@ class VoskSttEngine(
         val shortArray = ShortArray(shortBuffer.remaining())
         shortBuffer.get(shortArray)
 
-        try {
+        return try {
             val isFinal = rec.acceptWaveForm(shortArray, shortArray.size)
+
             if (isFinal) {
-                onFinal(rec.result)
+                val text = rec.result
+                onFinal(text)
+                SttResult.Final(text)
             } else {
-                onPartial(rec.partialResult)
+                val text = rec.partialResult
+                onPartial(text)
+                SttResult.Partial(text)
             }
+
         } catch (e: Exception) {
-            onError("Vosk audio error: ${e.message}")
+            val msg = "Vosk audio error: ${e.message}"
+            onError(msg)
+            SttResult.Error(msg)
         }
     }
+
 
     override suspend fun stop() {
         recognizer?.close()

@@ -1,6 +1,7 @@
 package com.sildeag.sound2text.sttandroid.stt.whisper
 
 import com.sildeag.sound2text.core.stt.engine.SttEngine
+import com.sildeag.sound2text.core.stt.model.SttResult
 
 class WhisperSttEngine(
     private val modelPath: String,
@@ -10,22 +11,23 @@ class WhisperSttEngine(
 ) : SttEngine {
 
     override suspend fun start() {
-        // Load whisper.cpp model here (JNI later)
-        // For now, just a placeholder
         try {
-            // TODO: load model
+            // TODO: load whisper.cpp model via JNI
         } catch (e: Exception) {
             onError("Whisper start error: ${e.message}")
         }
     }
 
-    override suspend fun processAudio(chunk: ByteArray) {
-        try {
-            // Whisper does not produce partials.
-            // When JNI is added, call whisper.cpp here.
-            onFinal("whisper transcription placeholder")
+    override suspend fun processAudio(chunk: ByteArray): SttResult {
+        return try {
+            // Placeholder until JNI is added
+            val text = "whisper transcription placeholder"
+            onFinal(text)
+            SttResult.Final(text)
         } catch (e: Exception) {
-            onError("Whisper audio error: ${e.message}")
+            val msg = "Whisper audio error: ${e.message}"
+            onError(msg)
+            SttResult.Error(msg)
         }
     }
 

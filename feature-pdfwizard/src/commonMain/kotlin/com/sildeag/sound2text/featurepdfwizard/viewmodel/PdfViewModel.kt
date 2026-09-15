@@ -1,14 +1,16 @@
 package com.sildeag.sound2text.featurepdfwizard.viewmodel
 
-import com.sildeag.sound2text.core.pdf.PdfDocument
+import com.sildeag.sound2text.core.dispatchers.DispatcherProvider
+
+import com.sildeag.sound2text.core.pdf.model.PdfDocument
 import com.sildeag.sound2text.core.repository.PdfRepository
-import core.model.PdfDocument
+
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
-import core.dispatcher.DispatcherProvider
+
 
 class PdfViewModel(
     private val pdfRepository: PdfRepository,

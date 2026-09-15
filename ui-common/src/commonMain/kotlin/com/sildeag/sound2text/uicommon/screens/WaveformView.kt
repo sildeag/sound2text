@@ -12,7 +12,11 @@ import androidx.compose.ui.unit.dp
 import com.sildeag.sound2text.uicommon.state.WaveformState
 
 @Composable
-fun WaveformView(state: WaveformState) {
+fun WaveformView(
+    waveform: List<Float>,
+    modifier: Modifier = Modifier,
+    state: WaveformState
+)  {
     Canvas(modifier = Modifier.fillMaxWidth().height(80.dp)) {
         val barWidth = size.width / state.amplitudes.size
         state.amplitudes.forEachIndexed { i, amp ->

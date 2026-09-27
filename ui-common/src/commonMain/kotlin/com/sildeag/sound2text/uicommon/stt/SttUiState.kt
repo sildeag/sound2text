@@ -5,5 +5,6 @@ data class SttUiState(
     val partialText: String = "",
     val finalText: String = "",
     val isSaving: Boolean = false,
-    val errorMessage: String? = null
+    val errorMessage: String? = null,
+    val recordingState: com.sildeag.sound2text.featurerecording.recording.RecordingState.Starting
 )

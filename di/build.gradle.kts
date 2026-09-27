@@ -2,7 +2,7 @@ plugins {
     id("internal.kmp.library")
 }
 
-val jfxVersion = libs.versions.javafx.ver.get() // Gets "21.0.2" from TOML
+val jfxVersion: String = libs.versions.javafx.ver.get() // Gets "21.0.2" from TOML
 
 kotlin {
     android {
@@ -12,6 +12,7 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(project(":core"))
+            implementation(project(":ui-common"))
             implementation(project(":platform"))
             implementation(project(":settings"))
             implementation(project(":storage"))

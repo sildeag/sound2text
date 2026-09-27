@@ -5,6 +5,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class PdfPage(
     val index: Int,
+    val pageNumber: Int,
     val text: String
  ) {
 

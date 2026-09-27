@@ -1,8 +1,6 @@
 package com.sildeag.sound2text.uicommon.viewmodels
 
 import com.sildeag.sound2text.core.pdf.render.PdfRenderer
-import com.sildeag.sound2text.uicommon.state.PdfState
-import com.sildeag.sound2text.uicommon.models.UiPdfDocument
 import com.sildeag.sound2text.uicommon.mappers.DefaultPdfUiMapper
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

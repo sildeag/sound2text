@@ -1,6 +1,7 @@
 package com.sildeag.sound2text.uicommon.components
 
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import com.sildeag.sound2text.uicommon.models.UiTranscript
 @Composable

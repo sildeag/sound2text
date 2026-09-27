@@ -3,7 +3,7 @@ plugins {
  //id("internal.kmp.room")
 }
 
-val jfxVersion = libs.versions.javafx.ver.get() // Gets "21.0.2" from TOML
+val jfxVersion: String = libs.versions.javafx.ver.get() // Gets "21.0.2" from TOML
 
 kotlin {
  android {

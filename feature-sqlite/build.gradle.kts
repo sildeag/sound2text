@@ -3,23 +3,26 @@ plugins {
  //id("internal.kmp.room")
 }
 
-val jfxVersion = libs.versions.javafx.ver.get() // Gets "21.0.2" from TOML
+val jfxVersion:String = libs.versions.javafx.ver.get() // Gets "21.0.2" from TOML
 
 kotlin {
  android {
-  namespace = "com.sildeag.sound2text.feature.sqlite"
+     namespace = "com.sildeag.sound2text.feature.sqlite"
  }
 
  sourceSets {
   commonMain.dependencies {
-   implementation(project(":core"))
-   implementation(project(":ui-common"))
-   implementation(project(":di"))
+     implementation(project(":core"))
+     implementation(project(":ui-common"))
+     implementation(project(":di"))
+     implementation(libs.androidx.sqlite.bundled) // Bundled core SQLite
   }
 
-  androidMain {
+  androidMain.dependencies {
+     implementation(libs.androidx.sqlite.framework)
   }
-  jvmMain {
+  jvmMain.dependencies {
+     implementation(libs.sqlite.jdbc)
   }
  }
 }

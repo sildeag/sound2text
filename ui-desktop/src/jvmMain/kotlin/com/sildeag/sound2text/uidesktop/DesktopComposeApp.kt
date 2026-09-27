@@ -6,12 +6,11 @@ import androidx.compose.ui.window.application
 import com.sildeag.sound2text.core.config.AppSettings
 import com.sildeag.sound2text.core.logging.Logger
 import com.sildeag.sound2text.core.storage.StorageService
+import com.sildeag.sound2text.core.stt.engine.SttEngine
 // TODO: remove engine
 import
 
-// TODO: remove global
-singleton: // TODO: remove global
-singleton: object DesktopComposeApp {
+object DesktopComposeApp {
     fun launch(
         settings: AppSettings,
         storage: StorageService,

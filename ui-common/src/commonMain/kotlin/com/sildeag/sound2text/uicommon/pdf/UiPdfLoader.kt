@@ -1,16 +1,17 @@
 package com.sildeag.sound2text.uicommon.pdf
 
 import com.sildeag.sound2text.core.pdf.io.PdfResourceLoader
-import com.sildeag.sound2text.core.pdf.model.PdfUiMapper
 import com.sildeag.sound2text.core.pdf.processor.PdfProcessor
 import com.sildeag.sound2text.core.pdf.render.PdfRenderer
-import com.sildeag.sound2text.uicommon.models.UiPdfDocument
+import com.sildeag.sound2text.uicommon.mappers.DefaultPdfUiMapper
+import com.sildeag.sound2text.uicommon.mappers.PdfUiMapper
+import com.sildeag.sound2text.uicommon.models.UiPdfPage
 
 class UiPdfLoader(
     private val resourceLoader: PdfResourceLoader,
     private val processor: PdfProcessor,
     private val renderer: PdfRenderer,
-    private val mapper: PdfUiMapper
+    private val mapper: PdfUiMapper<UiPdfPage> = DefaultPdfUiMapper()
 ) {
     suspend fun load(path: String): UiPdfDocument {
         val bytes = resourceLoader.load(path)
@@ -22,3 +23,4 @@ class UiPdfLoader(
         return UiPdfDocument(uiPages)
     }
 }
+

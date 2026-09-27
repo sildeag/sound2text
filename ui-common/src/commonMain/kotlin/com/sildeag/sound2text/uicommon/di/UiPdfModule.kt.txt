@@ -1,0 +1,15 @@
+package com.sildeag.sound2text.uicommon.di
+
+import com.sildeag.sound2text.uicommon.mappers.DefaultPdfUiMapper
+import com.sildeag.sound2text.uicommon.models.UiPdfPage
+import com.sildeag.sound2text.uicommon.pdf.UiPdfLoader
+import com.sildeag.sound2text.uicommon.pdf.PdfViewModel
+import com.sildeag.sound2text.uicommon.pdf.PdfState
+import org.koin.dsl.module
+
+val uiPdfModule = module {
+    factory<PdfUiMapper<UiPdfPage>> { DefaultPdfUiMapper() }
+    factory { UiPdfLoader(get(), get(), get(), get()) }
+    factory { PdfState() }
+    factory { PdfViewModel(get(), get()) }
+}

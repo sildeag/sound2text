@@ -16,8 +16,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.sildeag.sound2text.core.stt.SttConfig
-import com.sildeag.sound2text.core.stt.SttModelInfo
+import com.sildeag.sound2text.uicommon.viewmodels.SttWizardViewModel
+
 @Composable
 fun SttWizardScreen(
     viewModel: SttWizardViewModel,

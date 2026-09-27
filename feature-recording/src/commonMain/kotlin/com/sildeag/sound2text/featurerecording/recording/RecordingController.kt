@@ -11,8 +11,8 @@ class RecordingController(
     private val sttService: SttService,
     private val scope: CoroutineScope
 ) {
-    private val _state = MutableStateFlow<RecordingState>(RecordingState.Idle)
-    val state: StateFlow<RecordingState> = _state
+    private val _state = MutableStateFlow<`RecordingState.txt`>(`RecordingState.txt`.Idle)
+    val state: StateFlow<`RecordingState.txt`> = _state
     private val _partial = MutableStateFlow("")
     val partial: StateFlow<String> = _partial
     private val _final = MutableStateFlow("")
@@ -21,7 +21,7 @@ class RecordingController(
     val errors: StateFlow<String?> = _errors
     fun start(collect: Any.(Any?) -> Unit) {
         scope.launch {
-            _state.value = RecordingState.Starting
+            _state.value = `RecordingState.txt`.Starting
             sttService.start()
             recordingSource.start { bytes ->
                 sttService.processAudio(bytes)
@@ -29,23 +29,23 @@ class RecordingController(
             sttService.partial.collect { text ->
                 _partial.value = text
             }
-            _state.value = RecordingState.Recording
+            _state.value = `RecordingState.txt`.Recording
         }
     }
     fun stop() {
         scope.launch {
-            _state.value = RecordingState.Stopping
+            _state.value = `RecordingState.txt`.Stopping
             recordingSource.stop()
-            _state.value = RecordingState.Processing
+            _state.value = `RecordingState.txt`.Processing
             val finalText = sttService.recognizeOnce()
             _final.value = finalText
             sttService.stop()
-            _state.value = RecordingState.Finished(null)
+            _state.value = `RecordingState.txt`.Finished(null)
         }
     }
     fun error(message: String) {
         _errors.value = message
-        _state.value = RecordingState.Error(message)
+        _state.value = `RecordingState.txt`.Error(message)
     }
 }
 

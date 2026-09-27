@@ -3,7 +3,7 @@ plugins {
     //id("internal.kmp.room")
 }
 
-val jfxVersion = libs.versions.javafx.ver.get() // Gets "21.0.2" from TOML
+val jfxVersion: String = libs.versions.javafx.ver.get() // Gets "21.0.2" from TOML
 
 kotlin {
     android {
@@ -15,11 +15,10 @@ kotlin {
             // commonMain dependencies are in internal.kmp.base
             //implementation(libs.androidx.room.runtime)
             implementation(libs.compose.mpp.ui)
-            implementation(libs.androidx.sqlite.bundled) // Bundled core SQLite
+
         }
         
         androidMain.dependencies {
-            implementation(libs.androidx.sqlite.framework)
             implementation(libs.bundles.itext)
             implementation(libs.pdfbox.android)
             // Android gets the spatial binary payload
@@ -27,7 +26,6 @@ kotlin {
         }
         jvmMain.dependencies {
             // Desktop native C driver via JDBC
-            implementation(libs.sqlite.jdbc)
             implementation(libs.bundles.itext)
             implementation(libs.pdfbox)
         }

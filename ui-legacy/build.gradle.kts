@@ -6,7 +6,7 @@ plugins {
     id("org.openjfx.javafxplugin")
 }
 
-val jfxVersion = libs.versions.javafx.ver.get()
+val jfxVersion: String = libs.versions.javafx.ver.get()
 
 kotlin {
     // Standard KMP JVM target

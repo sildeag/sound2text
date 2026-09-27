@@ -4,7 +4,7 @@ plugins {
 }
 
 
-val jfxVersion = libs.versions.javafx.ver.get()
+val jfxVersion: String = libs.versions.javafx.ver.get()
 
 buildkonfig {
     packageName = "com.sildeag.sound2text.platform.config"

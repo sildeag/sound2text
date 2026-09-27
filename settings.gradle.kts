@@ -1,3 +1,4 @@
+@file:Suppress("UnstableApiUsage")
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
@@ -75,6 +76,7 @@ include(
     ":feature-genealogy",
     ":feature-history",
     ":feature-pdf",
+    ":feature-pdfviewer",
     ":feature-pdfwizard",
     ":feature-recording",
     ":feature-settings",

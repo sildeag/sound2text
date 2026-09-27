@@ -1,5 +1,6 @@
 package com.sildeag.sound2text.uicommon.mappers
 
+import com.sildeag.sound2text.core.pdf.model.PdfPage
 import androidx.compose.ui.graphics.ImageBitmap
 import com.sildeag.sound2text.uicommon.models.UiPdfPage
 fun PdfPage.toUi(
@@ -13,4 +14,5 @@ fun PdfPage.toUi(
         bitmap = bitmap,
         width = width,
         height = height,
+        pageNumber = pageNumber,
     )

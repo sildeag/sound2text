@@ -2,7 +2,7 @@ plugins {
     id("internal.kmp.compose.library")
 }
 
-val jfxVersion = libs.versions.javafx.ver.get()
+val jfxVersion: String = libs.versions.javafx.ver.get()
 
 kotlin {
     android {

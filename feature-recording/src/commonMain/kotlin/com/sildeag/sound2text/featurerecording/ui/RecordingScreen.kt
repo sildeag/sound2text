@@ -7,7 +7,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.sildeag.sound2text.featurerecording.viewmodel.SttRecordingViewModel
-import com.sildeag.sound2text.featurerecording.recording.RecordingState
 import com.sildeag.sound2text.uicommon.screens.WaveformRenderer
 
 @Composable
@@ -59,20 +58,20 @@ fun RecordingScreen(
                     Text("Start Recording")
                 }
             }
-            RecordingState.Recording -> {
+            `RecordingState.txt`.Recording -> {
                 Button(onClick = { viewModel.stopRecording() }) {
                     Text("Stop Recording")
                 }
             }
-            RecordingState.Processing -> {
+            `RecordingState.txt`.Processing -> {
                 CircularProgressIndicator()
             }
-            is RecordingState.Error -> {
+            is `RecordingState.txt`.Error -> {
                 Button(onClick = { viewModel.startRecording() }) {
                     Text("Retry")
                 }
             }
-            RecordingState.Starting -> {
+            `RecordingState.txt`.Starting -> {
                 CircularProgressIndicator()
             }
         }

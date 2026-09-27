@@ -14,14 +14,16 @@ fun NoteListScreen(
     notes: List<Note>,
     onNoteSelected: (Note) -> Unit
 ) {
-    LazyColumn(modifier = Modifier.fillMaxSize()) {
+    LazyColumn(
+        modifier = Modifier.fillMaxSize()
+    ) {
         items(notes) { note ->
-            NoteCard(note = note, modifier = padding(
-                    8.dp,
-                    top = TODO(),
-                    end = TODO(),
-                    bottom = TODO()
-                ), onClick = onNoteSelected)
+            NoteCard(
+                note = note,
+                modifier = Modifier.padding(8.dp),
+                onClick = onNoteSelected
+            )
         }
     }
 }
+

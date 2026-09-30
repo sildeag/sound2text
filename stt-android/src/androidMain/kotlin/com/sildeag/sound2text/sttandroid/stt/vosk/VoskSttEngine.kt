@@ -65,4 +65,8 @@ class VoskSttEngine(
         recognizer = null
         model = null
     }
+
+    override suspend fun finish(): SttResult {
+        TODO("Not yet implemented")
+    }
 }

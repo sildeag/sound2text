@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.uicommon.stt
+package com.sildeag.sound2text.featurerecording.stt
 
 sealed interface SttUiLifecycle {
     object Idle : SttUiLifecycle

@@ -14,6 +14,10 @@ class UnifiedSttEngine(
         engines.forEach { it.stop() }
     }
 
+    override suspend fun finish(): SttResult {
+        TODO("Not yet implemented")
+    }
+
     override suspend fun processAudio(chunk: ByteArray): SttResult {
         // Try engines in order: Whisper (accurate), Vosk (fast), etc.
         for (engine in engines) {

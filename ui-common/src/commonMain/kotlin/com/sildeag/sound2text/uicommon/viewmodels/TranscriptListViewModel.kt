@@ -1,13 +1,13 @@
 package com.sildeag.sound2text.uicommon.viewmodels
 
+import com.sildeag.sound2text.core.transcription.TranscriptionRepository
 import com.sildeag.sound2text.uicommon.models.UiTranscript
 import com.sildeag.sound2text.uicommon.mappers.TranscriptUiMapper
-import com.sildeag.sound2text.core.transcript.TranscriptRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 class TranscriptListViewModel(
-    private val repo: TranscriptRepository,
+    private val repo: TranscriptionRepository,
     private val mapper: TranscriptUiMapper
 ) {
     private val _items =

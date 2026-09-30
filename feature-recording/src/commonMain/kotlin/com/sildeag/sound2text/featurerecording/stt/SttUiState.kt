@@ -1,4 +1,7 @@
-package com.sildeag.sound2text.uicommon.stt
+package com.sildeag.sound2text.featurerecording.stt
+
+import com.sildeag.sound2text.featurerecording.recording.RecordingState
+
 
 data class SttUiState(
     val lifecycle: SttUiLifecycle = SttUiLifecycle.Idle,
@@ -6,5 +9,5 @@ data class SttUiState(
     val finalText: String = "",
     val isSaving: Boolean = false,
     val errorMessage: String? = null,
-    val recordingState: com.sildeag.sound2text.featurerecording.recording.RecordingState.Starting
+    val recordingState: RecordingState = RecordingState.Idle
 )

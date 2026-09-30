@@ -7,9 +7,10 @@ import com.sildeag.sound2text.core.audio.toAmplitude
 import com.sildeag.sound2text.core.stt.engine.SttEngine
 import com.sildeag.sound2text.core.stt.model.SttResult
 import com.sildeag.sound2text.core.stt.streaming.SttStreamingController
-import com.sildeag.sound2text.featurerecording.recording.RecordingState
+import com.sildeag.sound2text.featurerecording.recording.RecordingState.*
 import com.sildeag.sound2text.featurerecording.storage.TranscriptStorage
-import com.sildeag.sound2text.uicommon.stt.SttUiState
+import com.sildeag.sound2text.featurerecording.stt.SttUiLifecycle
+import com.sildeag.sound2text.featurerecording.stt.SttUiState
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
@@ -19,32 +20,49 @@ class SttRecordingViewModel(
     private val storage: TranscriptStorage
 ) : ViewModel() {
 
-    private val controller = SttStreamingController(engine) { result ->
-        when (result) {
-            is SttResult.Partial -> onPartial(result.text)
-            is SttResult.Final -> onFinal(result.text)
-        d
+    private val _uiState = MutableStateFlow(
+        SttUiState(
+            lifecycle = SttUiLifecycle.Idle,
+            partialText = "",
+            finalText = "",
+            isSaving = false,
+            errorMessage = null,
+            recordingState = Idle
+        )
+    )
     val uiState: StateFlow<SttUiState> = _uiState
 
     private val _waveform = MutableStateFlow<List<Float>>(emptyList())
     val waveform: StateFlow<List<Float>> = _waveform
 
+    private val controller = SttStreamingController(engine) { result ->
+        when (result) {
+            is SttResult.Partial -> onPartial(result.text)
+            is SttResult.Final -> onFinal(result.text)
+            is SttResult.Error -> onError(result.message)
+        }
+    }
+
     fun startRecording() = viewModelScope.launch {
-        _uiState.update { it.copy(recordingState = RecordingState.Starting) }
+        _uiState.update { it.copy(recordingState = Starting) }
 
         controller.start()
 
-        _uiState.update { it.copy(recordingState = RecordingState.Recording) }
+        _uiState.update { it.copy(recordingState = Recording) }
 
         recordingSource.start { bytes ->
             val amp = bytes.toAmplitude()
             updateWaveform(amp)
-            controller.feed(bytes)
+
+            viewModelScope.launch {
+                controller.feed(bytes)
+            }
         }
+
     }
 
     fun stopRecording() = viewModelScope.launch {
-        _uiState.update { it.copy(recordingState = RecordingState.Processing) }
+        _uiState.update { it.copy(recordingState = Processing) }
 
         recordingSource.stop()
         controller.stop()
@@ -58,7 +76,7 @@ class SttRecordingViewModel(
         _uiState.update {
             it.copy(
                 finalText = text,
-                recordingState = RecordingState.Idle
+                recordingState = Idle
             )
         }
     }
@@ -66,7 +84,7 @@ class SttRecordingViewModel(
     private fun onError(message: String) {
         _uiState.update {
             it.copy(
-                recordingState = RecordingState.Error(message),
+                recordingState = Error(message),
                 errorMessage = message
             )
         }

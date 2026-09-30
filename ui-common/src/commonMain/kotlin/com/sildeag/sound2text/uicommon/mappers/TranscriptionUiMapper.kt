@@ -18,6 +18,7 @@ class TranscriptUiMapper {
                 "file" -> TranscriptSource.FileImport
                 "pdf" -> TranscriptSource.PdfCommentary
                 else -> TranscriptSource.Microphone
-            }
+            },
+            audioPath = core.audioPath
         )
 }

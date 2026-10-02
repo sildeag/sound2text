@@ -1,14 +1,8 @@
-package com.sildeag.sound2text.uicommon.viewmodels
-
-import com.sildeag.sound2text.core.pdf.render.PdfRenderer
-import com.sildeag.sound2text.uicommon.mappers.DefaultPdfUiMapper
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.update
 class PdfViewModel(
-    private val loader: PdfLoader, // platform loader
-    private val renderer: PdfRenderer, // platform renderer
-    private val mapper: DefaultPdfUiMapper // shared mapper
+    private val loader: PdfLoader,
+    private val renderer: PdfRenderer,
+    private val mapper: DefaultPdfUiMapper,
+    private val extractor: PdfTextExtractor? = null
 ) {
     private val _state = MutableStateFlow(PdfState())
     val state: StateFlow<PdfState> = _state
@@ -25,10 +19,20 @@ class PdfViewModel(
             false) }
     }
     suspend fun renderPage(index: Int) {
-        val bitmap = renderer.render(index)
+        val rendered = renderer.render(index)
         val corePage = loader.getPage(index)
-        val uiPage = mapper.map(corePage, bitmap,
-            bitmapWidth(bitmap), bitmapHeight(bitmap))
+        val uiPage = mapper.map(
+            corePage,
+            rendered.bitmap,
+            rendered.width,
+            rendered.height
+        )
         _state.update { it.copy(currentPage = uiPage) }
     }
+    suspend fun extractText(bytes: ByteArray) {
+        extractor ?: return
+        val text = extractor.extract(bytes)
+        _state.update { it.copy(extractedText = text) }
+    }
 }
+

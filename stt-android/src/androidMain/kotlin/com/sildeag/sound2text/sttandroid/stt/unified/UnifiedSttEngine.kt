@@ -1,23 +1,25 @@
-package com.sildeag.sound2text.sttandroid.stt.whisper
+package com.sildeag.sound2text.sttandroid.stt.unified
 
 import com.sildeag.sound2text.core.stt.engine.BaseSttEngine
+import com.sildeag.sound2text.core.stt.engine.UnifiedBackend
 import com.sildeag.sound2text.core.stt.model.SttResult
-class WhisperSttEngine(
-    private val whisper: WhisperBackend,
+
+class UnifiedSttEngine(
+    private val backend: UnifiedBackend,
     private val onPartial: (String) -> Unit,
     private val onFinal: (String) -> Unit,
     private val onError: (String) -> Unit
 ) : BaseSttEngine() {
     override suspend fun start() {
         try {
-            whisper.startSession()
+            backend.start()
         } catch (e: Exception) {
-            onError("Whisper start error: ${e.message}")
+            onError("Unified start error: ${e.message}")
         }
     }
     override suspend fun processAudio(chunk: ByteArray): SttResult {
         return try {
-            val result = whisper.processSamples(chunk)
+            val result = backend.process(chunk)
             if (result.isFinal) {
                 onFinal(result.text)
                 SttResult.Final(result.text)
@@ -26,23 +28,23 @@ class WhisperSttEngine(
                 SttResult.Partial(result.text)
             }
         } catch (e: Exception) {
-            val msg = "Whisper audio error: ${e.message}"
+            val msg = "Unified audio error: ${e.message}"
             onError(msg)
             SttResult.Error(msg)
         }
     }
     override suspend fun finish(): SttResult {
         return try {
-            val text = whisper.finalizeSession()
+            val text = backend.finish()
             onFinal(text)
             SttResult.Final(text)
         } catch (e: Exception) {
-            val msg = "Whisper finish error: ${e.message}"
+            val msg = "Unified finish error: ${e.message}"
             onError(msg)
             SttResult.Error(msg)
         }
     }
     override suspend fun stop() {
-        whisper.stopSession()
+        backend.stop()
     }
 }

@@ -1,6 +1,7 @@
 package com.sildeag.sound2text.sttdesktop.stt.vosk
 
 import com.sildeag.sound2text.core.stt.engine.SttEngine
+import com.sildeag.sound2text.core.stt.model.SttResult
 import org.vosk.Model
 import org.vosk.Recognizer
 
@@ -15,7 +16,7 @@ class VoskSttEngine(
     private var model: Model? = null
     private var recognizer: Recognizer? = null
 
-    override suspend fun start() {
+    suspend fun start() {
         try {
             model = Model(modelPath)
             recognizer = Recognizer(model, sampleRate.toFloat())
@@ -39,10 +40,14 @@ class VoskSttEngine(
         }
     }
 
-    override suspend fun stop() {
+    suspend fun stop() {
         recognizer?.close()
         model?.close()
         recognizer = null
         model = null
+    }
+
+    suspend fun finish(): SttResult {
+        TODO("Not yet implemented")
     }
 }

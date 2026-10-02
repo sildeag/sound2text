@@ -1,20 +1,23 @@
 package com.sildeag.sound2text.core.stt.services
 
-import com.sildeag.sound2text.core.stt.engine.SttEngine
+import com.sildeag.sound2text.core.stt.engine.BaseSttEngine
 import com.sildeag.sound2text.core.stt.model.SttResult
 import kotlinx.coroutines.flow.Flow
 
 class SttService(
-    private val engine: SttEngine
+    private val engine: BaseSttEngine
 ) {
     suspend fun transcribe(audio: Flow<ShortArray>): SttResult {
         engine.start()
 
         audio.collect { chunk ->
             val bytes = chunk.toByteArray()
+            // We ignore the returned SttResult because partials/finals
+            // are handled by callbacks in the engine.
             engine.processAudio(bytes)
         }
 
+        // The final result comes from finish()
         return engine.finish()
     }
 

@@ -1,5 +1,6 @@
 package com.sildeag.sound2text.featurepdf.state
 
+import com.sildeag.sound2text.featurepdf.models.UiPdfDocument
 import com.sildeag.sound2text.uicommon.models.UiPdfPage
 
 data class PdfState(

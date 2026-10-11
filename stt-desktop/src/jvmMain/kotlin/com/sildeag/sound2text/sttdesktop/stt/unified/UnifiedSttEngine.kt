@@ -21,10 +21,10 @@ class UnifiedSttEngine(
         return try {
             val result = backend.process(chunk)
             if (result.isFinal) {
-                onFinal(result.text)
+                //onFinal(result.text)
                 SttResult.Final(result.text)
             } else {
-                onPartial(result.text)
+                //onPartial(result.text)
                 SttResult.Partial(result.text)
             }
         } catch (e: Exception) {
@@ -36,7 +36,7 @@ class UnifiedSttEngine(
     override suspend fun finish(): SttResult {
         return try {
             val text = backend.finish()
-            onFinal(text)
+            //onFinal(text)
             SttResult.Final(text)
         } catch (e: Exception) {
             val msg = "Unified finish error: ${e.message}"

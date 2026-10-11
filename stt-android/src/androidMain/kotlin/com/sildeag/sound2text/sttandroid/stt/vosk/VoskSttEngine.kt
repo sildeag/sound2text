@@ -2,6 +2,8 @@ package com.sildeag.sound2text.sttandroid.stt.vosk
 
 import com.sildeag.sound2text.core.stt.engine.BaseSttEngine
 import com.sildeag.sound2text.core.stt.model.SttResult
+import com.sildeag.sound2text.core.stt.model.SttResult.*
+
 import org.vosk.Model
 import org.vosk.Recognizer
 import java.nio.ByteBuffer
@@ -51,15 +53,15 @@ class VoskSttEngine(
         }
     }
     override suspend fun finish(): SttResult {
-        val rec = recognizer ?: return SttResult.Error("Vosk engine not started")
+            val rec = recognizer ?: return Error("Vosk engine not started")
             return try {
                 val text = rec.finalResult
                 onFinal(text)
-                SttResult.Final(text)
+                Final(text)
             } catch (e: Exception) {
                 val msg = "Vosk finish error: ${e.message}"
                 onError(msg)
-                SttResult.Error(msg)
+                Error(msg)
             }
     }
     override suspend fun stop() {

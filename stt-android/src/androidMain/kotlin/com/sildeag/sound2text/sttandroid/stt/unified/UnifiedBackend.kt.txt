@@ -1,0 +1,28 @@
+package com.sildeag.sound2text.sttandroid.stt.unified
+
+import com.sildeag.sound2text.core.stt.engine.EngineType
+import com.sildeag.sound2text.core.stt.engine.SttEngine
+
+class UnifiedBackend(
+    private val vosk: SttEngine,
+    private val whisper: SttEngine
+) {
+    var current: EngineType = EngineType.WHISPER
+
+    private fun active(): SttEngine =
+        when (current) {
+            EngineType.VOSK -> vosk
+            EngineType.WHISPER -> whisper
+        }
+
+    suspend fun start() = active().start()
+
+    suspend fun process(chunk: ByteArray): BackendResult =
+        active().processAudio(chunk).toBackendResult()
+
+    suspend fun finish(): String =
+        active().finish().text
+
+    suspend fun stop() =
+        active().stop()
+}

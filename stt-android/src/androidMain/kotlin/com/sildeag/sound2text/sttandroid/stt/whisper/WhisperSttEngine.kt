@@ -10,19 +10,19 @@ class WhisperSttEngine(
 ) : BaseSttEngine() {
     override suspend fun start() {
         try {
-            whisper.startSession()
+            whisper.start()
         } catch (e: Exception) {
             onError("Whisper start error: ${e.message}")
         }
     }
     override suspend fun processAudio(chunk: ByteArray): SttResult {
         return try {
-            val result = whisper.processSamples(chunk)
+            val result = whisper.process(chunk)
             if (result.isFinal) {
-                onFinal(result.text)
+                //onFinal(result.text)
                 SttResult.Final(result.text)
             } else {
-                onPartial(result.text)
+                //onPartial(result.text)
                 SttResult.Partial(result.text)
             }
         } catch (e: Exception) {
@@ -33,8 +33,17 @@ class WhisperSttEngine(
     }
     override suspend fun finish(): SttResult {
         return try {
-            val text = whisper.finalizeSession()
-            onFinal(text)
+            whisper.finish()
+        } catch (e: Exception) {
+            val msg = "Whisper finish error: ${e.message}"
+            SttResult.Error(msg)
+        }
+    }
+    /*
+    override suspend fun finish(): SttResult {
+        return try {
+            val text = whisper.finish()
+            //onFinal(text)
             SttResult.Final(text)
         } catch (e: Exception) {
             val msg = "Whisper finish error: ${e.message}"
@@ -42,8 +51,10 @@ class WhisperSttEngine(
             SttResult.Error(msg)
         }
     }
+
+     */
     override suspend fun stop() {
-        whisper.stopSession()
+        whisper.stop()
     }
 }
 /*

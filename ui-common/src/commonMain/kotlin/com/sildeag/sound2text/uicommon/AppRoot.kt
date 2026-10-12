@@ -1,9 +1,10 @@
 package com.sildeag.sound2text.uicommon
 
+import PdfViewModel
 import androidx.compose.runtime.*
 import com.sildeag.sound2text.uicommon.screens.RecordingScreen
 import com.sildeag.sound2text.uicommon.screens.SettingsScreen
-import com.sildeag.sound2text.uicommon.pdf.PdfViewModel
+
 
 enum class AppScreen {
     Recording,

@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sildeag.sound2text.core.audio.RecordingSource
 import com.sildeag.sound2text.core.audio.toAmplitude
+import com.sildeag.sound2text.core.stt.engine.BaseSttEngine
 import com.sildeag.sound2text.core.stt.engine.SttEngine
 import com.sildeag.sound2text.core.stt.model.SttResult
 import com.sildeag.sound2text.core.stt.streaming.SttStreamingController

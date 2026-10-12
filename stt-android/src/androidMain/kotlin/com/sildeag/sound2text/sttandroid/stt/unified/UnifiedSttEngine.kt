@@ -32,7 +32,7 @@ class UnifiedSttEngine(
             val msg = "Unified audio error: ${e.message}"
             onError(msg)
             Error(msg)
-        } as SttResult
+        }
     }
     override suspend fun finish(): SttResult {
         return try {

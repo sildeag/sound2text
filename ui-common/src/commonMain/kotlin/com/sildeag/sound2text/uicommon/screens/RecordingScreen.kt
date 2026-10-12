@@ -9,7 +9,7 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun RecordingScreen(
-    onOpenPdf: (String, Int) -> Unit,
+    onOpenPdf: @Composable (String, Int) -> Unit,
     onOpenSettings: () -> Unit
 ) {
     Column(

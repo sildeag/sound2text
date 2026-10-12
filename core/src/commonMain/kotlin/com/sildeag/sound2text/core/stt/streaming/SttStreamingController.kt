@@ -1,18 +1,21 @@
 package com.sildeag.sound2text.core.stt.streaming
 
-import com.sildeag.sound2text.core.stt.engine.BaseSttEngine
+import com.sildeag.sound2text.core.stt.engine.SttEngine
 import com.sildeag.sound2text.core.stt.model.SttResult
 
 class SttStreamingController(
-    private val engine: BaseSttEngine,
+    private val engine: SttEngine,
     private val callback: (SttResult) -> Unit
 ) {
     suspend fun start() = engine.start()
+
     suspend fun feed(chunk: ByteArray) {
         val result = engine.processAudio(chunk)
         callback(result)
     }
+
     suspend fun stop() = engine.stop()
+
     suspend fun finish(): SttResult {
         val result = engine.finish()
         callback(result)

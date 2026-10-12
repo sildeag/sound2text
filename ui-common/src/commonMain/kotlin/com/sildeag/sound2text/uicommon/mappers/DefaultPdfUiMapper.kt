@@ -17,6 +17,6 @@ class DefaultPdfUiMapper : PdfUiMapper<UiPdfPage> {
             bitmap = bitmap,
             width = width,
             height = height,
-            pageNumber = core.pageNumber + 1
+            pageNumber = pageNumber + 1
         )
 }

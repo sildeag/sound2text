@@ -11,7 +11,7 @@ class TranscriptionController(
         pulse.toggle()
         return stt.transcribe(audio)
     }
-    fun stop() {
+    suspend fun stop() {
         pulse.toggle()
         stt.stop()
     }

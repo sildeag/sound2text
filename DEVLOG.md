@@ -4,8 +4,8 @@
 **Date: 2025-05-23**
 
 ### Technical Direction & Acknowledgements
-- **Architectural Guidance**: This project follows technical direction provided by Microsoft Copilot.
-- **Modernization Strategy**: Focused on early adoption of **Kotlin 2.3.10** and **AGP 9.0.1** to leverage the latest compiler performance and multiplatform features.
+- **Architectural Guidance**: This project follows technical direction provided by Microsoft Copilot and Google Gemini.
+- **Modernization Strategy**: Focused on early adoption of latest **AS**, **Kotlin**, and **AGP** to leverage the latest compiler performance and multiplatform features.
 - **Android Studio KMP/CMP**: This project has been assisted by Android Studio AI with Gradle KMP/CMP best practices.
 
 ### Key Updates

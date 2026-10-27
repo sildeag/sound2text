@@ -2,7 +2,7 @@ package com.sildeag.sound2text.featuresettings
 
 import androidx.lifecycle.ViewModel
 import com.sildeag.sound2text.core.config.AppSettings
-import com.sildeag.sound2text.core.settings.SettingsStore
+import com.sildeag.sound2text.settings.SettingsStore
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update

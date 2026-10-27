@@ -4,4 +4,7 @@ interface DefaultConfig {
     val language: String
     val sampleRate: Int
 }
-expect class DefaultConfigImpl() : DefaultConfig
+class DefaultConfigImpl : DefaultConfig {
+    override val language = "en"
+    override val sampleRate = 16000
+}

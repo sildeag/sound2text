@@ -3,7 +3,6 @@ import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 plugins {
     // Extend base KMP setup (No Android)
     id("internal.kmp.base")
-    id("org.jetbrains.compose")
     id("org.jetbrains.kotlin.plugin.compose")
 }
 

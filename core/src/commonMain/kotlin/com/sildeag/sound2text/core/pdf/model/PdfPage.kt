@@ -8,7 +8,7 @@ data class PdfPage(
     val width: Int,
     val height: Int,
     //val pageNumber: Int,
-    //val text: String
+    val text: String
  ) {
 
 }

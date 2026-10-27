@@ -8,7 +8,7 @@ interface SttEngine {
 
     suspend fun processAudio(
         chunk: ByteArray
-    ): SttResult
+    )
 
     suspend fun finish(): SttResult
 

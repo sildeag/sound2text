@@ -17,17 +17,17 @@ kotlin {
             implementation(libs.compose.mpp.ui)
 
         }
-        
+
         androidMain.dependencies {
-            implementation(libs.bundles.itext)
-            implementation(libs.pdfbox.android)
+            //implementation(libs.bundles.itext)
+            //implementation(libs.pdfbox.android)
             // Android gets the spatial binary payload
             //implementation(libs.spatialite.android)
         }
         jvmMain.dependencies {
             // Desktop native C driver via JDBC
-            implementation(libs.bundles.itext)
-            implementation(libs.pdfbox)
+            //implementation(libs.bundles.itext)
+            //implementation(libs.pdfbox)
         }
     }
 }

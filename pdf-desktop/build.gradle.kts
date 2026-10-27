@@ -17,8 +17,9 @@ kotlin {
         }
 
         jvmMain.dependencies {
-            implementation(libs.vosk.model.en)
-            implementation(libs.vosk.core)
+            implementation(libs.pdfbox)
+            implementation(libs.djl.api)
+            runtimeOnly(libs.djl.onnx)
         }
 
         androidMain.dependencies {

@@ -19,7 +19,6 @@ dependencies {
     //implementation(libs.room.gradle.plugin)
     implementation(libs.dokka.gradle.plugin) // Re-enabled for AGP 9.1+ compatibility
     implementation(libs.javafx.gradle.plugin)
-    implementation(kotlin("stdlib-jdk8"))
 }
 
 gradlePlugin {
@@ -34,14 +33,13 @@ kotlin {
     //jvmToolchain(8)
     java {
         toolchain {
-            // Forces build-logic to use Java 17+, allowing AGP 9.4.0 to resolve
-            languageVersion.set(JavaLanguageVersion.of(17))
+            languageVersion.set(JavaLanguageVersion.of(21))
         }
     }
 
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
         compilerOptions {
-            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
+            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21)
         }
     }
 }

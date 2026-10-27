@@ -1,9 +1,6 @@
 package com.sildeag.sound2text.sttdesktop.stt.unified
-
 import com.sildeag.sound2text.core.stt.engine.BaseSttEngine
 import com.sildeag.sound2text.core.stt.engine.UnifiedBackend
-import com.sildeag.sound2text.core.stt.model.SttResult
-
 class UnifiedSttEngine(
     private val backend: UnifiedBackend,
     private val onPartial: (String) -> Unit,
@@ -17,31 +14,25 @@ class UnifiedSttEngine(
             onError("Unified start error: ${e.message}")
         }
     }
-    override suspend fun processAudio(chunk: ByteArray): SttResult {
-        return try {
+    // Now cleanly overrides the Unit-returning parent method
+    override suspend fun processAudio(chunk: ByteArray) {
+        try {
             val result = backend.process(chunk)
             if (result.isFinal) {
-                //onFinal(result.text)
-                SttResult.Final(result.text)
+                onFinal(result.text)
             } else {
-                //onPartial(result.text)
-                SttResult.Partial(result.text)
+                onPartial(result.text)
             }
         } catch (e: Exception) {
-            val msg = "Unified audio error: ${e.message}"
-            onError(msg)
-            SttResult.Error(msg)
+            onError("Unified audio error: ${e.message}")
         }
     }
-    override suspend fun finish(): SttResult {
-        return try {
-            val text = backend.finish()
-            //onFinal(text)
-            SttResult.Final(text)
+    override suspend fun finish() {
+        try {
+            val textResult = backend.finish()
+            onFinal(textResult)
         } catch (e: Exception) {
-            val msg = "Unified finish error: ${e.message}"
-            onError(msg)
-            SttResult.Error(msg)
+            onError("Unified finish error: ${e.message}")
         }
     }
     override suspend fun stop() {

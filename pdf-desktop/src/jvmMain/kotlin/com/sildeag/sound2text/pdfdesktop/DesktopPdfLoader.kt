@@ -1,10 +1,5 @@
 package com.sildeag.sound2text.pdfdesktop
 
-
-import core.pdf.api.PdfLoader
-import core.pdf.api.LoadedPdf
-import core.pdf.model.PdfPage
-import core.pdf.model.PdfMetadata
 import com.itextpdf.kernel.pdf.PdfReader
 import com.itextpdf.kernel.pdf.PdfDocument
 import com.sildeag.sound2text.core.pdf.api.LoadedPdf
@@ -24,7 +19,8 @@ class DesktopPdfLoader(
             PdfPage(
                 index = index - 1,
                 width = page.pageSize.width.toInt(),
-                height = page.pageSize.height.toInt()
+                height = page.pageSize.height.toInt(),
+                text = "text from page is currently unassigned"
             )
         }
         val metadata = metadataExtractor.extract(pdf)

@@ -1,3 +1,30 @@
+// build-logic/src/main/kotlin/internal.android.application.gradle.kts
+plugins {
+    id("com.android.application")
+    id("org.jetbrains.kotlin.plugin.compose")
+    id("internal.dokka")
+    id("jacoco")
+}
+
+val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
+
+android {
+    compileSdk = libs.findVersion("android-compileSdk").get().requiredVersion.toInt()
+
+    defaultConfig {
+        applicationId = "com.sildeag.sound2text"
+        minSdk = libs.findVersion("android-minSdk").get().requiredVersion.toInt()
+        targetSdk = libs.findVersion("android-targetSdk").get().requiredVersion.toInt()
+        versionCode = 1
+        versionName = "1.0.0"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        compose = true
+    }
+}
+/*
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.plugin.compose")
@@ -53,3 +80,4 @@ dependencies {
     implementation(libs.findLibrary("core-ktx").get())
 }
 
+*/

@@ -14,7 +14,7 @@ kotlin {
             implementation(project(":stt-desktop"))
 
             //implementation(project(":stt-desktop"))
-            implementation(compose.desktop.currentOs)
+            //implementation(compose.desktop.currentOs)
             //implementation(libs.compose.material3)
             implementation(libs.bundles.itext)
             implementation(libs.vosk.model.en)
@@ -23,12 +23,15 @@ kotlin {
 
         jvmMain {
             dependencies {
+                implementation(libs.compose.desktop)
+                runtimeOnly(libs.compose.desktop.windows.x64)
             }
             resources.srcDir("src/jvmMain/resources")
         }
     }
 }
 
+/*
 compose.desktop {
     application {
         mainClass = "com.sildeag.sound2text.desktop.LauncherKt"
@@ -39,3 +42,4 @@ compose.desktop {
         }
     }
 }
+*/

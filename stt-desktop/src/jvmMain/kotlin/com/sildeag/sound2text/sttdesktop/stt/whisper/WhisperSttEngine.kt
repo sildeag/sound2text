@@ -1,6 +1,7 @@
 package com.sildeag.sound2text.sttandroid.stt.whisper
 
 import com.sildeag.sound2text.core.stt.engine.SttEngine
+import com.sildeag.sound2text.core.stt.model.SttResult
 
 class WhisperSttEngine(
     private val modelPath: String,
@@ -27,6 +28,10 @@ class WhisperSttEngine(
         } catch (e: Exception) {
             onError("Whisper audio error: ${e.message}")
         }
+    }
+
+    override suspend fun finish(): SttResult {
+        TODO("Not yet implemented")
     }
 
     override suspend fun stop() {

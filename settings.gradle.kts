@@ -4,10 +4,15 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 pluginManagement {
     includeBuild("build-logic")
     repositories {
-        google()
+        google {
+            content {
+                includeGroupByRegex("com\\.android.*")
+                includeGroupByRegex("com\\.google.*")
+                includeGroupByRegex("androidx.*")
+            }
+        }
+        mavenCentral() // <--- Make sure this is added here!
         gradlePluginPortal()
-        mavenCentral()
-
         // JetBrains Compose dev plugin repository
         maven("https://maven.pkg.jetbrains.space/public/p/compose/dev") {
             // Correct syntax block specifically for plugin management
@@ -18,10 +23,9 @@ pluginManagement {
     }
 }
 
-
-plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
-}
+//plugins {
+//    id("org.gradle.toolchains.foojay-resolver-convention") version "0.7.0"
+//}
 
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
@@ -30,24 +34,17 @@ dependencyResolutionManagement {
         mavenCentral()
         gradlePluginPortal()
         mavenLocal()
-
-        // JetBrains Compose dev artifacts repo
+        // JetBrains Staging Channel for Core Multiplatform Engine
         maven("https://maven.pkg.jetbrains.space/public/p/compose/dev") {
             content {
                 includeGroupAndSubgroups("org.jetbrains.compose")
+                includeGroupAndSubgroups("org.jetbrains.androidx")
+                includeGroupAndSubgroups("org.jetbrains.kotlin")
             }
         }
-
-        // JitPack legacy repository
-        maven("https://jitpack.io") {
-            content {
-                includeGroup("com.github")
-            }
-        }
-
-        // Dedicated legacy repositories
-        maven("itextsupport.com")
-        maven("clojars.org")
+        maven("https://jitpack.io") { content { includeGroup("com.github") } }
+        maven("https://repo.itextsupport.com/releases")
+        maven("https://repo.clojars.org/")
     }
 }
 

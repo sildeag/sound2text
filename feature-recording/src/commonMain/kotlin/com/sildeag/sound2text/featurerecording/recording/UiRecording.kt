@@ -10,5 +10,6 @@ data class UiRecording(
     val durationMs: Long = 0L,
     val filePath: String? = null,
     val lastError: String? = null,
-    val isRecording: Boolean = false
+    val isRecording: Boolean = false,
+    val status: String
 )

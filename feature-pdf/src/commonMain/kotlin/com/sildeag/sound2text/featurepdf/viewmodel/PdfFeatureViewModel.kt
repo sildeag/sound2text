@@ -47,7 +47,7 @@ class PdfFeatureViewModel(
 
                 _state.value = _state.value.copy(
                     document = doc,
-                    pages = doc.pages.map { it.toUi() },
+                    pages = doc.size.map { it.toUi() },
                     isLoading = false
                 )
 

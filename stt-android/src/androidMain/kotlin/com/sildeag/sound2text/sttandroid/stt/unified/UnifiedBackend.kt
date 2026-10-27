@@ -28,6 +28,25 @@ class UnifiedBackend(
     ): UnifiedBackendResult =
         activeBackend().process(chunk)
 
+
+
+    suspend fun transcribe(
+        chunks: Iterable<ByteArray>
+    ): SttTranscriptionData {
+        start()
+
+        return try {
+            chunks.forEach { process(it) }
+
+            SttTranscriptionData(
+                text = finish()
+            )
+        } finally {
+            stop()
+        }
+    }
+    ``
+
     override suspend fun finish(): SttResult =
         activeBackend().finish()
 

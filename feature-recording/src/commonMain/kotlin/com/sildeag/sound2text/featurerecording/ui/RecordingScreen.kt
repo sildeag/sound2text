@@ -6,6 +6,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.sildeag.sound2text.featurerecording.recording.RecordingState
 import com.sildeag.sound2text.featurerecording.viewmodel.SttRecordingViewModel
 import com.sildeag.sound2text.uicommon.screens.WaveformRenderer
 

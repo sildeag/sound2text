@@ -3,6 +3,7 @@ package com.sildeag.sound2text.sttdesktop.stt.unified
 import com.sildeag.sound2text.core.stt.engine.*
 import com.sildeag.sound2text.core.stt.engine.UnifiedBackend
 import com.sildeag.sound2text.core.stt.model.SttResult
+import com.sildeag.sound2text.core.stt.model.UnifiedBackendResult
 
 class UnifiedBackend(
     private val voskBackend: com.sildeag.sound2text.core.stt.engine.UnifiedBackend,
@@ -22,7 +23,7 @@ class UnifiedBackend(
 
     override suspend fun process(
         chunk: ByteArray
-    ): UnifiedBackendResult =
+    ): SttResult =
         activeBackend().process(chunk)
 
     override suspend fun finish(): SttResult =

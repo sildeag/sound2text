@@ -34,3 +34,18 @@ fun Toolbar(
         Row(content = actions)
     }
 }
+/*
+:uicommon
+
+navigation/
+    NavigationContainer.kt
+    NavigationHost.kt
+    NavigationViewModel.kt
+    Toolbar.kt
+    Route.kt
+
+features/
+    Feature.kt
+    FeatureRegistry.kt
+
+ */

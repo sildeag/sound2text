@@ -131,8 +131,8 @@ Sound2Text reflects direct experience with multiplatform setup — not just what
 
 ## 🛠 Technical Guidance from Copilot
 
-Sound2Text was developed with architectural and troubleshooting support from Microsoft Copilot, whose guidance helped clarify plugin alignment, TOML scoping, and multiplatform quirks.  
-Copilot assisted in validating decisions, troubleshooting edge cases, and shaping contributor‑friendly onboarding — including resource exclusions (`models/`, `sounds/`) and branching strategy.
+Sound2Text was developed with architectural and troubleshooting support from Microsoft Copilot, Google Gemini, and AS Gemini, whose guidance helped clarify plugin alignment, loosely coupled dynamic feature detection, TOML scoping, and multiplatform quirks.  
+Copilot assisted in development, validating decisions, and Sentinel; Google in troubleshooting KMP, edge cases, and shaping functionality.
 
 ## 📚 Documentation & Wiki
 

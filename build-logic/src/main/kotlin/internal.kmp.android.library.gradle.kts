@@ -11,21 +11,13 @@ val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
 kotlin {
     jvmToolchain(libs.findVersion("jvm").get().requiredVersion.toInt())
-
-    // Modern KMP Android Library target (AGP 9.1+)
-    @Suppress("OPT_IN_USAGE")
     android {
-        namespace = "${project.group}.${project.name.replace("-", "")}"
-        //namespace = project.group.toString()
+        namespace = "com.sildeag.sound2text." + project.name.replace("-", "")
         compileSdk = libs.findVersion("android-compileSdk").get().requiredVersion.toInt()
         minSdk = libs.findVersion("android-minSdk").get().requiredVersion.toInt()
-        
-        withHostTest { }
-        withDeviceTest { }
     }
 }
 
-// Jacoco setup
 jacoco {
     toolVersion = libs.findVersion("jacoco-ver").get().requiredVersion
 }

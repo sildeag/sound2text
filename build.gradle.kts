@@ -3,6 +3,29 @@ plugins {
     alias(libs.plugins.androidKmp) apply false
     alias(libs.plugins.androidApplication) apply false
     alias(libs.plugins.androidLibrary) apply false
+    // Kotlin
+    alias(libs.plugins.kotlinMultiplatform) apply false
+    alias(libs.plugins.kotlinx.serialization) apply false
+    // Compose Multiplatform
+    alias(libs.plugins.composeMultiplatform) apply false
+    alias(libs.plugins.composeCompiler) apply false
+    // Tooling. Ksp excluded because it requires significant down-grading of versions
+    //alias(libs.plugins.ksp) apply false
+    alias(libs.plugins.dokka) apply false
+    jacoco
+    id("internal.verification")
+}
+tasks.register("dokkaAll") {
+    dependsOn(subprojects.mapNotNull { sub ->
+        sub.tasks.findByName("dokkaGenerateModule") })
+}
+
+/*
+plugins {
+    // Android
+    alias(libs.plugins.androidKmp) apply false
+    alias(libs.plugins.androidApplication) apply false
+    alias(libs.plugins.androidLibrary) apply false
 
     // Kotlin
     alias(libs.plugins.kotlinJvm) apply false
@@ -37,3 +60,4 @@ if (File("scripts/draft-tasks.gradle.kts").exists()) {
 }
 
 
+*/

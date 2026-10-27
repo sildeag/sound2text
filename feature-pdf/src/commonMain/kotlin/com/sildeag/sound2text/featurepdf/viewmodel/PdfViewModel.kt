@@ -2,9 +2,13 @@ package com.sildeag.sound2text.featurepdf.viewmodel
 
 import com.sildeag.sound2text.core.pdf.extract.PdfTextExtractor
 import com.sildeag.sound2text.core.pdf.render.PdfRenderer
-import com.sildeag.sound2text.uicommon.mappers.DefaultPdfUiMapper
+import com.sildeag.sound2text.featurepdf.models.UiPdfDocument
+import com.sildeag.sound2text.featurepdf.models.UiPdfPageSummary
+import com.sildeag.sound2text.featurepdf.state.PdfState
+import com.sildeag.sound2text.featurepdf.storage.PdfLoader
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.update
 
 class PdfViewModel(
     private val loader: PdfLoader,
@@ -14,6 +18,7 @@ class PdfViewModel(
 ) {
     private val _state = MutableStateFlow(PdfState())
     val state: StateFlow<PdfState> = _state
+    @OptIn(ExperimentalStdlibApi::class)
     suspend fun load(path: String) {
         _state.update { it.copy(isLoading = true) }
         val coreDoc = loader.load(path)

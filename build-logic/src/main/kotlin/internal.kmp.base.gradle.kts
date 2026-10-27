@@ -37,6 +37,10 @@ kotlin {
     }
 }
 
+tasks.withType<Copy>().configureEach {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
 // Common Jacoco setup
 jacoco {
     toolVersion = libs.findVersion("jacoco-ver").get().requiredVersion

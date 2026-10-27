@@ -1,7 +1,7 @@
 package com.sildeag.sound2text.pdfdesktop
 
-import com.sildeag.sound2text.core.pdf.PdfForm
-import com.sildeag.sound2text.core.pdf.PdfFormScanner
+import com.sildeag.sound2text.core.pdf.io.PdfFormScanner
+import com.sildeag.sound2text.core.pdf.model.PdfForm
 import java.io.File
 
 class DesktopPdfFormScanner : PdfFormScanner {

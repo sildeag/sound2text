@@ -16,7 +16,7 @@ class VoskSttEngine(
     private var model: Model? = null
     private var recognizer: Recognizer? = null
 
-    suspend fun start() {
+    override suspend fun start() {
         try {
             model = Model(modelPath)
             recognizer = Recognizer(model, sampleRate.toFloat())
@@ -40,14 +40,14 @@ class VoskSttEngine(
         }
     }
 
-    suspend fun stop() {
+    override suspend fun finish(): SttResult {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun stop() {
         recognizer?.close()
         model?.close()
         recognizer = null
         model = null
-    }
-
-    suspend fun finish(): SttResult {
-        TODO("Not yet implemented")
     }
 }

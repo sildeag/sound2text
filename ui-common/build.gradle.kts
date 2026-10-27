@@ -46,7 +46,7 @@ kotlin {
         }
     }
 }
-
+/*
 compose.desktop {
     application {
         mainClass = "com.sildeag.sound2text.uicommon.MainKt"
@@ -57,3 +57,4 @@ compose.desktop {
         }
     }
 }
+*/

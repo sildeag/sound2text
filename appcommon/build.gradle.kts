@@ -6,7 +6,7 @@ plugins {
 }
 
 val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
-val composeMppVer = libs.findVersion("compose-mpp").get().requiredVersion
+val composeMppVer = libs.findVersion("compose-mpp-ver").get().requiredVersion
 
 kotlin {
     jvm()

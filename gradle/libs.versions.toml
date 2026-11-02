@@ -6,94 +6,92 @@
 [versions]
 
 # --- Core Toolchains (Upgraded to Modern Stack) ---
-kotlin-ver = "2.4.0"             # was 2.3.20
-agp = "9.6.0-alpha01"             # was 9.2.1 and earlier 8.8.0
+kotlin-ver = "2.4.0"
+agp = "9.6.0-alpha02"
 jvm = "21"
 
-android-compileSdk = "37"         # was 36 35 compileSd
+android-compileSdk = "37"
 android-minSdk = "24"
-android-targetSdk = "36"         # was 36 35
+android-targetSdk = "36"
 
-lifecycle = "2.8.7"
-
-# --- Compose ---
-compose-mpp = "1.8.0"
-compose-material-icons-ext-ver = "1.7.3"
-compose-mpp-material3-ver = "1.8.0" # was"1.11.0-alpha07"
-compose-mpp-androidx = "2.8.3" # was "2.10.0"   # Dedicated version for JetBrains androidx adapters
-compose-compiler = "2.4.0"        # Matches Kotlin version
-compose-bom-ver = "2024.10.01" # was "2026.05.01"    # was 2026.03.01
-
-activity-compose = "1.10.0"       # was 1.13.0
+# --- Jetpack & Core ---
+lifecycle-ver = "2.8.7"
+core-ktx-ver = "1.19.1" # was 1.19.0
+activity-compose-ver = "1.10.0"
 navigationevent-ver = "1.0.0"
+cardview-ver = "1.0.0"
 
-# Koin + KSP ---
-koin = "4.2.0"                    # was 4.2.1
-koin-annotations-ver = "1.4.0"    # was 2.3.1
-koin-compiler-ver = "4.2.0"   # was 2.3.1    # was 1.4.0
-ksp-ver = "2.1.10-1.0.31" # was "2.4.0-1.0.26"          # was 2.3.8
+# --- AndroidX Graphics ---
+graphics-core-ver = "1.0.4"
+graphics-path-ver = "1.1.0"
+graphics-shapes-ver = "1.1.0"
 
+# --- Compose (AndroidX & Multiplatform) ---
+compose-bom-ver = "2026.08.00" # was 2024.10.01
+compose-mpp-ver = "1.8.0"
+compose-mpp-material3-ver = "1.8.0"
+compose-mpp-androidx-ver = "2.8.3"
+compose-material-icons-ext-ver = "1.7.3"
+compose-compiler-ver = "2.4.0"
+runtime-ver = "1.11.2"
 
-# --- Coroutines ---
-coroutines = "1.10.1"             # was 1.11.0
+# --- KSP & Koin Ecosystem ---
+ksp-ver = "2.1.10-1.0.31"
+koin-ver = "4.2.0"
+koin-annotations-ver = "4.2.0"
+koin-plugin-ver = "1.2.1"
+
+# --- Coroutines & Concurrency ---
+coroutines-ver = "1.10.1"
 
 # --- Testing ---
-junit5-ver = "6.0.2"              # was 5.11.0
-androidx-junit-ver = "1.3.0"      # was 1.2.1
-espresso-ver = "3.7.0"            # was 3.6.1
-kotlin-test-ver = "2.4.0"         # was 2.3.20
+junit5-ver = "6.0.2"
+androidx-junit-ver = "1.3.0"
+espresso-ver = "3.7.0"
+kotlin-test-ver = "2.4.0"
+mockk-ver = "1.14.7"
 
-# --- JavaFX ---
-javafx-ver = "21.0.2"                 # was 23.0.1
+# --- UI & Desktop ---
+javafx-ver = "21.0.2"
+javafx-plugin-ver = "0.1.0"
+controlsfx-ver = "12.3.1"
+tilesfx-ver = "21.0.9"
+formsfx-ver = "11.6.0"
+ikonli-ver = "12.4.0"
+voyager-ver = "1.0.0"
 
-# --- Logging ---
-slf4j = "2.0.17"                  # was 2.0.16
-logback = "1.5.24"                # was 1.5.12
-kotlin-logging = "7.0.14"         # was 7.0.0
+# --- Logging & Serialization ---
+slf4j-ver = "2.0.17"
+logback-ver = "1.5.24"
+kotlin-logging-ver = "7.0.14"
+kotlinx-serialization-ver = "1.9.0"
+kotlinx-datetime-ver = "0.6.0"
+snakeyaml-ver = "2.5"
+json-ver = "20240303"
 
-# --- iText ---
-itext-ver = "9.7.0"               # was 9.5.0 and 8.0.5
-
-# --- PDFBox and OCR ---
-#pdfbox-ver = "3.0.3"
-#pdfbox-android-ver = "2.0.27.0"
+# --- Documents, OCR & Audio ---
+itext-ver = "9.7.0"
 pdfbox-ver = "2.0.29"
 pdfbox-android-ver = "2.0.27.0"
-djlCore-ver = "0.31.0"
-googleMlKitText-ver = "16.0.1"
-
-# --- Misc ---
-kotlinxSerialization = "1.9.0"    # was 1.7.3
-kotlinx-datetime = "0.6.0"
-mockk-ver = "1.14.7"              # was 1.13.13
-#jna-ver = "5.18.1"                # was 5.15.0
-snakeyaml-ver = "2.5"             # was 2.3
-dokka-ver = "2.2.0"               # was 2.1.0
-#vosk-ver = "0.3.38"
-#vosk-ver-android = "0.3.38"       # was 0.3.75
-controlsfx-ver = "12.3.1"         # was 11.2.1
-tilesfx-ver = "21.0.9"            # was 21.0.3
-formsfx-ver = "11.6.0"
-ikonli-ver = "12.4.0"             # was 12.3.1
-cardview-ver = "1.0.0"
-jacoco-ver = "0.8.12"
-javafx-plugin-ver = "0.1.0"
-voyager-ver = "1.0.0"
-build-konfig-ver = "0.15.1"
-
-# Core Vosk versions (Ensure you use the latest stable releases)
+djl-core-ver = "0.31.0"
+google-mlkit-text-ver = "16.0.1"
 vosk-core-ver = "0.3.45"
 vosk-android-ver = "0.3.75"
 jna-ver = "5.18.1"
 
-# --- SQLite ---
-#room-ver = "2.7.0"
+# --- SQLite & Storage ---
 sqlite-jdbc-ver = "3.45.1.0"
 spatialite-android-ver = "2.0.0"
 sqlite-bundled-ver = "2.6.2"
-sqliteFramework = "2.6.2"
-runtime = "1.11.2"
-datastoreCore = "1.2.1"
+sqlite-framework-ver = "2.6.2"
+datastore-core-ver = "1.2.1"
+
+# --- Build Tooling ---
+google-autoservice-ver = "1.1.1"
+dokka-ver = "2.2.0"
+build-konfig-ver = "0.15.1"
+jacoco-ver = "0.8.12"
+pdfCore = "1.0.0-beta01"
 
 
 # ============================================================
@@ -102,30 +100,29 @@ datastoreCore = "1.2.1"
 
 [plugins]
 # Kotlin
-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp-ver" }
-#room = { id = "androidx.room", version.ref = "room-ver" }
+
+#ksp = { id = "com.google.devtools.ksp", version.ref = "ksp-ver" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin-ver" }
 kotlinJvm           = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin-ver" }
+kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin-ver" }
 
 # Android
 androidLibrary      = { id = "com.android.library", version.ref = "agp" }
 androidApplication  = { id = "com.android.application", version.ref = "agp" }
 androidKmp          = { id = "com.android.kotlin.multiplatform.library", version.ref = "agp" }
 
-
 # Compose
-composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "compose-mpp" }
-composeDesktopApp    = { id = "org.jetbrains.compose.desktop.application", version.ref = "compose-mpp" }
-composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin-ver" }
+composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "compose-mpp-ver" }
+composeDesktopApp    = { id = "org.jetbrains.compose.desktop.application", version.ref = "compose-mpp-ver" }
+composeCompiler      = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin-ver" }
+# compose-desktop-current = { group = "org.jetbrains.compose.desktop", name = "desktop-jvm-windows-x64", version.ref = "compose-mpp-ver" }
 
+# Tooling & Infrastructure
+dokka         = { id = "org.jetbrains.dokka", version.ref = "dokka-ver" }
+javafx        = { id = "org.openjfx.javafxplugin", version.ref = "javafx-plugin-ver" }
+buildkonfig   = { id = "com.codingfeline.buildkonfig", version.ref = "build-konfig-ver" }
+koin-compiler = { id = "io.insert-koin.compiler.plugin", version.ref = "koin-plugin-ver" }
 
-
-# Tooling
-# ksp   = { id = "com.google.devtools.ksp", version.ref = "ksp-ver" }
-dokka = { id = "org.jetbrains.dokka", version.ref = "dokka-ver" }
-kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin-ver" }
-javafx = { id = "org.openjfx.javafxplugin", version.ref = "javafx-plugin-ver" }
-buildkonfig = { id = "com.codingfeline.buildkonfig", version.ref = "build-konfig-ver" }
 
 # ============================================================
 #                         LIBRARIES
@@ -134,147 +131,133 @@ buildkonfig = { id = "com.codingfeline.buildkonfig", version.ref = "build-konfig
 [libraries]
 
 # --- Plugin Artifacts (Required for build-logic) ---
-android-gradle-plugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
-kotlin-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin-ver" }
+android-gradle-plugin              = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
+kotlin-gradle-plugin               = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin-ver" }
 kotlin-serialization-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-serialization", version.ref = "kotlin-ver" }
-compose-gradle-plugin = { group = "org.jetbrains.compose", name = "compose-gradle-plugin", version.ref = "compose-mpp" }
-compose-compiler-gradle-plugin = { group = "org.jetbrains.kotlin", name = "compose-compiler-gradle-plugin", version.ref = "kotlin-ver" }
-ksp-gradle-plugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp-ver" }
-#room-gradle-plugin = { group = "androidx.room", name = "room-gradle-plugin", version.ref = "room-ver" }
-dokka-gradle-plugin = { group = "org.jetbrains.dokka", name = "dokka-gradle-plugin", version.ref = "dokka-ver" }
-javafx-gradle-plugin = { module = "org.openjfx.javafxplugin:org.openjfx.javafxplugin.gradle.plugin", version.ref = "javafx-plugin-ver" }
+compose-gradle-plugin              = { group = "org.jetbrains.compose", name = "compose-gradle-plugin", version.ref = "compose-mpp-ver" }
+compose-compiler-gradle-plugin     = { group = "org.jetbrains.kotlin", name = "compose-compiler-gradle-plugin", version.ref = "kotlin-ver" }
+ksp-gradle-plugin                  = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp-ver" }
+dokka-gradle-plugin                = { group = "org.jetbrains.dokka", name = "dokka-gradle-plugin", version.ref = "dokka-ver" }
+javafx-gradle-plugin               = { module = "org.openjfx.javafxplugin:org.openjfx.javafxplugin.gradle.plugin", version.ref = "javafx-plugin-ver" }
 
-# --- AndroidX Core ---
-core-ktx = { module = "androidx.core:core-ktx", version = "1.19.0" } # was 1.18.0
-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle" }
-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
-lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycle" }
-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle" }
-androidx-navigationevent = { module = "androidx.navigationevent:navigationevent", version.ref = "navigationevent-ver" }
+# --- AndroidX Core & Platform ---
+core-ktx                  = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx-ver" }
+lifecycle-runtime-ktx     = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle-ver" }
+lifecycle-viewmodel-ktx   = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle-ver" }
+lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycle-ver" }
+lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle-ver" }
+androidx-navigationevent  = { module = "androidx.navigationevent:navigationevent", version.ref = "navigationevent-ver" }
+cardview                  = { module = "androidx.cardview:cardview", version.ref = "cardview-ver" }
+
+# --- AndroidX Graphics ---
+androidx-graphics-core   = { group = "androidx.graphics", name = "graphics-core", version.ref = "graphics-core-ver" }
+androidx-graphics-path   = { group = "androidx.graphics", name = "graphics-path", version.ref = "graphics-path-ver" }
+androidx-graphics-shapes = { group = "androidx.graphics", name = "graphics-shapes", version.ref = "graphics-shapes-ver" }
+
 # --- Compose (AndroidX) ---
-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "compose-bom-ver" }
-
-# Change all of these to use explicit 'group' and 'name' properties:
-compose-ui = { group = "androidx.compose.ui", name = "ui" }
-compose-material = { group = "androidx.compose.material", name = "material" }
-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
-compose-material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended" }
-compose-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+compose-bom             = { module = "androidx.compose:compose-bom", version.ref = "compose-bom-ver" }
+compose-ui              = { group = "androidx.compose.ui", name = "ui" }
+compose-material        = { group = "androidx.compose.material", name = "material" }
+compose-material3       = { group = "androidx.compose.material3", name = "material3" }
+compose-material-icons-ext = { group = "org.jetbrains.compose.material", name = "material-icons-extended" }
+compose-tooling         = { group = "androidx.compose.ui", name = "ui-tooling" }
 compose-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
-
-# Duplicate check: You can safely delete this one since 'compose-tooling' points to the exact same artifact
-# androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
-
-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
+activity-compose        = { module = "androidx.activity:activity-compose", version.ref = "activity-compose-ver" }
+androidx-compose-runtime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "runtime-ver" }
 
 # --- Compose Multiplatform (JetBrains) ---
-compose-mpp-runtime = { group = "org.jetbrains.compose.runtime", name = "runtime", version.ref = "compose-mpp" }
-compose-mpp-foundation = { group = "org.jetbrains.compose.foundation", name = "foundation", version.ref = "compose-mpp" }
-compose-mpp-material3 = { group = "org.jetbrains.compose.material3", name = "material3", version.ref = "compose-mpp-material3-ver" }
+compose-mpp-runtime          = { group = "org.jetbrains.compose.runtime", name = "runtime", version.ref = "compose-mpp-ver" }
+compose-mpp-foundation       = { group = "org.jetbrains.compose.foundation", name = "foundation", version.ref = "compose-mpp-ver" }
+compose-mpp-material3        = { group = "org.jetbrains.compose.material3", name = "material3", version.ref = "compose-mpp-material3-ver" }
 compose-mpp-material-icons-ext = { group = "org.jetbrains.compose.material", name = "material-icons-extended", version.ref = "compose-material-icons-ext-ver" }
-compose-mpp-ui = { group = "org.jetbrains.compose.ui", name = "ui", version.ref = "compose-mpp" }
-#  CORRECT VERSION CATALOG SYNTAX
-compose-mpp-viewmodel = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "compose-mpp-androidx" }
-compose-desktop = { group = "org.jetbrains.compose.desktop", name = "desktop", version.ref = "compose-mpp" }
-compose-desktop-windows-x64 = { group = "org.jetbrains.compose.desktop", name = "desktop-jvm-windows-x64", version.ref = "compose-mpp" }
-compose-desktop-macos-x64   = { group = "org.jetbrains.compose.desktop", name = "desktop-jvm-macos-x64", version.ref = "compose-mpp" }
-compose-desktop-linux-x64   = { group = "org.jetbrains.compose.desktop", name = "desktop-jvm-linux-x64", version.ref = "compose-mpp" }
+compose-mpp-ui               = { group = "org.jetbrains.compose.ui", name = "ui", version.ref = "compose-mpp-ver" }
+compose-mpp-viewmodel        = { group = "org.jetbrains.androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "compose-mpp-androidx-ver" }
+compose-mpp-desktop     = { module = "org.jetbrains.compose.desktop:desktop", version.ref = "compose-mpp-ver" }
+compose-mpp-desktop-jvm = { module = "org.jetbrains.compose.desktop:desktop-jvm", version.ref = "compose-mpp-ver" }
+compose-desktop = { group = "org.jetbrains.compose.desktop", name = "desktop", version.ref = "compose-mpp-ver" }
+compose-desktop-windows-x64 = { group = "org.jetbrains.compose.desktop", name = "desktop-jvm-windows-x64", version.ref = "compose-mpp-ver" }
+compose-desktop-macos-x64   = { group = "org.jetbrains.compose.desktop", name = "desktop-jvm-macos-x64", version.ref = "compose-mpp-ver" }
+compose-desktop-linux-x64   = { group = "org.jetbrains.compose.desktop", name = "desktop-jvm-linux-x64", version.ref = "compose-mpp-ver" }
 
-
-
-# --- Koin ---
-koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
-koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
-koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koin" }
-koin-compose-android = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin" }
-koin-annotations = { module = "io.insert-koin:koin-annotations", version.ref = "koin-annotations-ver" }
-# koin-compiler = { module = "io.insert-koin:koin-ksp-compiler", version.ref = "koin-compiler-ver" } # Disabled as KSP not used
-koin-test = { module = "io.insert-koin:koin-test", version.ref = "koin" }
-koin-test-junit5 = { module = "io.insert-koin:koin-test-junit5", version.ref = "koin" }
+# --- Koin Ecosystem ---
+koin-core            = { module = "io.insert-koin:koin-core", version.ref = "koin-ver" }
+koin-android         = { module = "io.insert-koin:koin-android", version.ref = "koin-ver" }
+koin-annotations     = { module = "io.insert-koin:koin-annotations", version.ref = "koin-annotations-ver" }
+koin-ksp-compiler    = { module = "io.insert-koin:koin-ksp-api", version.ref = "koin-ver" }
+koin-compose         = { module = "io.insert-koin:koin-compose", version.ref = "koin-ver" }
+koin-compose-android = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin-ver" }
+koin-test            = { module = "io.insert-koin:koin-test", version.ref = "koin-ver" }
+koin-test-junit5     = { module = "io.insert-koin:koin-test-junit5", version.ref = "koin-ver" }
 
 # --- Coroutines ---
-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
+coroutines-core    = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines-ver" }
+coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines-ver" }
+coroutines-test    = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines-ver" }
 
-# --- JUnit 5 ---
-junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit5-ver" }
+# --- Testing ---
+junit-jupiter-api    = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit5-ver" }
 junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit5-ver" }
 junit-jupiter-params = { module = "org.junit.jupiter:junit-jupiter-params", version.ref = "junit5-ver" }
-androidx-junit = { module = "androidx.test.ext:junit", version.ref = "androidx-junit-ver" }
-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso-ver" }
-kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin-test-ver" }
+androidx-junit       = { module = "androidx.test.ext:junit", version.ref = "androidx-junit-ver" }
+espresso-core        = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso-ver" }
+kotlin-test          = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin-test-ver" }
+mockk                = { module = "io.mockk:mockk", version.ref = "mockk-ver" }
 
-# --- JavaFX ---
-javafx-base = { module = "org.openjfx:javafx-base", version.ref = "javafx-ver" }
+# --- JavaFX & Desktop UI ---
+javafx-base     = { module = "org.openjfx:javafx-base", version.ref = "javafx-ver" }
 javafx-controls = { module = "org.openjfx:javafx-controls", version.ref = "javafx-ver" }
-javafx-fxml = { module = "org.openjfx:javafx-fxml", version.ref = "javafx-ver" }
+javafx-fxml     = { module = "org.openjfx:javafx-fxml", version.ref = "javafx-ver" }
 javafx-graphics = { module = "org.openjfx:javafx-graphics", version.ref = "javafx-ver" }
-javafx-swing = { module = "org.openjfx:javafx-swing", version.ref = "javafx-ver" }
+javafx-swing    = { module = "org.openjfx:javafx-swing", version.ref = "javafx-ver" }
+controlsfx      = { module = "org.controlsfx:controlsfx", version.ref = "controlsfx-ver" }
+tilesfx         = { module = "eu.hansolo:tilesfx", version.ref = "tilesfx-ver" }
+formsfx         = { module = "com.dlsc.formsfx:formsfx-core", version.ref = "formsfx-ver" }
+ikonli          = { module = "org.kordamp.ikonli:ikonli-javafx", version.ref = "ikonli-ver" }
+voyager-navigator   = { group = "cafe.adriel.voyager", name = "voyagernavigator", version.ref = "voyager-ver" }
+voyager-transitions = { group = "cafe.adriel.voyager", name = "voyager-transitions", version.ref = "voyager-ver" }
 
 # --- iText ---
 itext-barcodes = { module = "com.itextpdf:barcodes", version.ref = "itext-ver" }
-itext-forms = { module = "com.itextpdf:forms", version.ref = "itext-ver" }
-itext-kernel = { module = "com.itextpdf:kernel", version.ref = "itext-ver" }
-itext-layout = { module = "com.itextpdf:layout", version.ref = "itext-ver" }
-itext-io = { module = "com.itextpdf:io", version.ref = "itext-ver" }
-itext-svg = { module = "com.itextpdf:svg", version.ref = "itext-ver" }
+itext-forms    = { module = "com.itextpdf:forms", version.ref = "itext-ver" }
+itext-kernel   = { module = "com.itextpdf:kernel", version.ref = "itext-ver" }
+itext-layout   = { module = "com.itextpdf:layout", version.ref = "itext-ver" }
+itext-io       = { module = "com.itextpdf:io", version.ref = "itext-ver" }
+itext-svg      = { module = "com.itextpdf:svg", version.ref = "itext-ver" }
 
-# --- PDFBox ---
-pdfbox = { module = "org.apache.pdfbox:pdfbox", version.ref = "pdfbox-ver" }
-pdfbox-android = { module = "com.tom-roush:pdfbox-android", version.ref = "pdfbox-android-ver"}
-djl-api = { module = "ai.djl:api", version.ref = "djlCore-ver" }
-djl-onnx = { module = "ai.djl.onnxruntime:onnxruntime-engine", version.ref = "djlCore-ver" }
-mlkit-text-recognition = { module = "com.google.android.gms:play-services-mlkittext-recognition", version.ref = "googleMlKitText-ver" }
+# --- PDFBox, OCR & Audio ---
+pdfbox                 = { module = "org.apache.pdfbox:pdfbox", version.ref = "pdfbox-ver" }
+pdfbox-android         = { module = "com.tom-roush:pdfbox-android", version.ref = "pdfbox-android-ver" }
+djl-api                = { module = "ai.djl:api", version.ref = "djl-core-ver" }
+djl-onnx               = { module = "ai.djl.onnxruntime:onnxruntime-engine", version.ref = "djl-core-ver" }
+mlkit-text-recognition = { module = "com.google.android.gms:play-services-mlkittext-recognition", version.ref = "google-mlkit-text-ver" }
+vosk-core              = { group = "com.alphacephei", name = "vosk", version.ref = "vosk-core-ver" }
+vosk-android           = { group = "com.alphacephei", name = "vosk-android", version.ref = "vosk-android-ver" }
+vosk-model-en          = { group = "com.alphacephei", name = "vosk-model-en", version.ref = "vosk-core-ver" }
+jna-android            = { group = "net.java.dev.jna", name = "jna", version.ref = "jna-ver" }
 
-# Logging
-slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
-logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
-kotlin-logging = { module = "io.github.oshai:kotlin-logging", version.ref = "kotlin-logging" }
+# --- Logging & Serialization ---
+slf4j-api                  = { module = "org.slf4j:slf4j-api", version.ref = "slf4j-ver" }
+logback-classic            = { module = "ch.qos.logback:logback-classic", version.ref = "logback-ver" }
+kotlin-logging             = { module = "io.github.oshai:kotlin-logging", version.ref = "kotlin-logging-ver" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization-ver" }
+kotlinx-datetime           = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime-ver" }
+snakeyaml                  = { module = "org.yaml:snakeyaml", version.ref = "snakeyaml-ver" }
+org-json                   = { module = "org.json:json", version.ref = "json-ver" }
 
-# --- Misc ---
-kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
-kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
-#vosk-model = { module = "com.alphacephei:vosk-model-en", version.ref = "vosk-ver" }
-#vosk-api = { module = "com.alphacephei:vosk", version.ref = "vosk-ver" }
-#vosk-android = { module = "com.alphacephei:vosk-android", version.ref = "vosk-ver-android" }
-mockk = { module = "io.mockk:mockk", version.ref = "mockk-ver" }
-#jna = { module = "net.java.dev.jna:jna", version.ref = "jna-ver" }
-snakeyaml = { module = "org.yaml:snakeyaml", version.ref = "snakeyaml-ver" }
-controlsfx = { module = "org.controlsfx:controlsfx", version.ref = "controlsfx-ver" }
-tilesfx = { module = "eu.hansolo:tilesfx", version.ref = "tilesfx-ver" }
-formsfx = { module = "com.dlsc.formsfx:formsfx-core", version.ref = "formsfx-ver" }
-ikonli = { module = "org.kordamp.ikonli:ikonli-javafx", version.ref = "ikonli-ver" }
-cardview = { module = "androidx.cardview:cardview", version.ref = "cardview-ver" }
-jacoco-ver = { module = "org.jacoco:org.jacoco.core", version.ref = "jacoco-ver" }
-voyager-navigator = { group = "cafe.adriel.voyager", name = "voyagernavigator", version.ref = "voyager-ver" }
-voyager-transitions = { group = "cafe.adriel.voyager", name = "voyager-transitions", version.ref = "voyager-ver" }
+# --- Multiplatform Room, SQLite & Storage ---
+# androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room-ver" }
+# androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room-ver" }
+androidx-sqlite-bundled   = { group = "androidx.sqlite", name = "sqlite-bundled", version.ref = "sqlite-bundled-ver" }
+androidx-sqlite-framework = { group = "androidx.sqlite", name = "sqlite-framework", version.ref = "sqlite-framework-ver" }
+spatialite-android        = { group = "com.github.sevar83", name = "android-spatialite", version.ref = "spatialite-android-ver" }
+sqlite-jdbc               = { group = "org.xerial", name = "sqlite-jdbc", version.ref = "sqlite-jdbc-ver" }
+androidx-datastore-core   = { group = "androidx.datastore", name = "datastore-core", version.ref = "datastore-core-ver" }
 
-
-# --- Multiplatform Room / SQLite Core ---
-#androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room-ver" }
-#androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room-ver" }
-androidx-sqlite-bundled = { group = "androidx.sqlite", name = "sqlite-bundled", version.ref = "sqlite-bundled-ver" }
-# ---Platform-specific Engines ---
-spatialite-android = { group = "com.github.sevar83", name = "android-spatialite", version.ref = "spatialite-android-ver" }
-sqlite-jdbc = { group = "org.xerial", name = "sqlite-jdbc", version.ref = "sqlite-jdbc-ver" }
-androidx-sqlite-framework = { group = "androidx.sqlite", name = "sqlite-framework", version.ref = "sqliteFramework" }
-androidx-compose-runtime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "runtime" }
-
-# --- Desktop / Core Dependencies ---
-# Main Vosk Core API for Desktop environments
-vosk-core = { group = "com.alphacephei", name = "vosk", version.ref = "vosk-core-ver" }
-
-# --- Android Specific Dependencies ---
-# Vosk Android SDK wrapper (AAR format)
-vosk-android = { group = "com.alphacephei", name = "vosk-android", version.ref = "vosk-android-ver" }
-# Required JNA dependency for Vosk Android native library integration
-jna-android = { group = "net.java.dev.jna", name = "jna", version.ref = "jna-ver" }
-
-# --- Vosk Small English Model ---
-# Pre-packaged small English model (distributed via Maven Central)
-vosk-model-en = { group = "com.alphacephei", name = "vosk-model-en", version.ref = "vosk-core-ver" }
-androidx-datastore-core = { group = "androidx.datastore", name = "datastore-core", version.ref = "datastoreCore" }
+# --- Misc Tooling ---
+google-autoservice-annotations = { group = "com.google.auto.service", name = "auto-service-annotations", version.ref = "google-autoservice-ver" }
+google-autoservice-processor   = { group = "com.google.auto.service", name = "auto-service", version.ref = "google-autoservice-ver" }
+jacoco-core                    = { module = "org.jacoco:org.jacoco.core", version.ref = "jacoco-ver" }
+androidx-pdf-core = { group = "androidx.pdf", name = "pdf-core", version.ref = "pdfCore" }
 
 
 # ============================================================
@@ -283,11 +266,10 @@ androidx-datastore-core = { group = "androidx.datastore", name = "datastore-core
 
 [bundles]
 koin-android = ["koin-core", "koin-android", "koin-compose-android"]
-koin-mpp = ["koin-core", "koin-annotations"]
-coroutines = ["coroutines-core", "coroutines-android"]
-testJvm = ["junit-jupiter-api", "junit-jupiter-engine", "kotlin-test", "mockk", "koin-test-junit5"]
-testAndroid = ["androidx-junit", "espresso-core"]
-javafx = ["javafx-base", "javafx-controls", "javafx-fxml", "javafx-graphics"]
-itext = ["itext-kernel","itext-forms","itext-layout","itext-io"]
-# pdfbox bundle removed
-logging = ["slf4j-api", "logback-classic", "kotlin-logging"]
+koin-mpp     = ["koin-core", "koin-annotations"]
+coroutines   = ["coroutines-core", "coroutines-android"]
+testJvm      = ["junit-jupiter-api", "junit-jupiter-engine", "kotlin-test", "mockk", "koin-test-junit5"]
+testAndroid  = ["androidx-junit", "espresso-core"]
+javafx       = ["javafx-base", "javafx-controls", "javafx-fxml", "javafx-graphics"]
+itext        = ["itext-kernel", "itext-forms", "itext-layout", "itext-io"]
+logging      = ["slf4j-api", "logback-classic", "kotlin-logging"]

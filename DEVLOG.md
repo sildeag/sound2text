@@ -1,7 +1,103 @@
+Developer Log: sound2text
+Milestone: Architectural Modernization, Plugin Decoupling & Gradle 10 Readiness
+Date: 2026-11-17
+
+1. Executive Summary & Technical Direction
+This milestone captures a foundational architectural overhaul of sound2text (a 26-module Kotlin Multiplatform and Compose Multiplatform application). To resolve build-graph bottlenecks, eliminate annotation-processing overhead, and ensure forward compatibility with Android Gradle Plugin (AGP) 9.x / 10.0, Kotlin 2.3.x–2.4.0, and Gradle 10, the project transitioned to a decoupled, ServiceLoader-driven plugin architecture backed by centralized convention plugins (build-logic).
+    • Architectural Guidance: Technical direction assisted by Google Gemini, Microsoft Copilot, and Android Studio AI for KMP/CMP and modern Gradle DSL best practices.
+    • Core Strategy: Early adoption of modern AGP KMP DSLs (com.android.kotlin.multiplatform.library), elimination of KSP/kapt bottlenecks, and strict modular isolation to support low-overhead builds on 8 GB RAM development hardware.
+
+2. Core Architectural Milestones
+A. Parallel Sandbox Validation (wac2wav)
+    • Strategy: Before migrating the full 26-module sound2text dependency graph, a streamlined parallel Kotlin Multiplatform sandbox (wac2wav) was established to isolate, benchmark, and validate architectural changes one feature at a time.
+    • Outcome: De-risked bleeding-edge toolchain upgrades (AGP 9.x, Kotlin 2.3.10–2.4.0, Koin 4.2.0) and proved dynamic feature discovery without destabilizing the primary repository.
+B. Loosely-Coupled :feature* Plugin Strategy (ServiceLoader Without KSP/kapt)
+    • Eliminating KSP/kapt: KSP was formally retired because its strict 1:1 compiler-version lock severely constrained Kotlin and AGP upgrades in sound2text.
+    • Pure KMP ServiceLoader Pattern: Feature modules (:feature*) now self-register via standard Java/Android ServiceLoader descriptors placed in src/commonMain/resources/META-INF/services/com.sildeag.sound2text.di.FeatureModuleProvider (containing the concrete FeatureModuleProvider implementation class name).
+    • Resource Deduplication: Configured duplicatesStrategy = DuplicatesStrategy.EXCLUDE on Copy tasks in internal.kmp.base.gradle.kts to prevent META-INF/services merge collisions during processResources.
+    • Benefit: Zero annotation-processing build overhead, decoupled feature compilation, and seamless dynamic discovery across Android and Desktop (JVM) targets.
+C. Unified Entry Point (:appcommon) & MasterDIModule.kt
+    • Common Application Entry: Consolidated shared UI, lifecycle, and initialization logic into :appcommon, providing a single cross-platform entry point for :ui-android and :ui-desktop.
+    • Dynamic DI Composition (MasterDIModule.kt): Implemented MasterDIModule.kt inside :appcommon to aggregate core infrastructure modules alongside all runtime-discovered :feature* Koin modules resolved via ServiceLoader. Adding or removing a feature module no longer requires modifying central DI wiring.
+D. Resolving Circular Dependencies via Dependency Inversion
+    • The Bottleneck: Previously, bidirectional coupling between the application shell and domain engines caused circular dependency errors and prevented clean module graph evaluation.
+    • The Fix: Restructured the dependency hierarchy so :appcommon sits cleanly above core domain modules, explicitly depending on :pdf-* (PDFBox / iText parsing and rendering) and :stt-* (Vosk / Whisper speech-to-text) modules, while :feature* modules depend downward on shared contracts (:core-* / :ui-common) without back-referencing :appcommon.
+
+3. Build System, Toolchain & Gradle 10 Modernization
+Toolchain Alignment & Native Runtime Fixes
+    • Toolchain Stack: Aligned on JDK 21, Kotlin 2.3.10+, AGP 9.1.0+ (validated through AGP 9.6 alpha/canary baselines), and Koin 4.2.0.
+    • Namespace Unification: Standardized module namespaces to com.sildeag.sound2text.[layer].[platform] and automated hyphen-stripping (${project.group}.${project.name.replace("-", "")}) in convention plugins.
+    • Compose Compiler & Desktop Native Packaging:
+        ◦ Replaced legacy Compose plugin hooks (onVariant NoSuchMethodError in AGP 9.6+) with Kotlin's built-in Compose compiler (id("org.jetbrains.kotlin.plugin.compose")) and explicit Version Catalog coordinates.
+        ◦ Removed hardcoded Skiko Windows runtime overrides (UnsatisfiedLinkError) and implemented dynamic cross-platform OS/architecture detection (windows-x64, macos-x64, macos-arm64, linux-x64) for JVM desktop targets and JavaFX dependencies.
+Gradle 10 Readiness & build-logic Convention Plugins
+    • Lazy Task Registration: Migrated Jacoco coverage tasks to the lazy tasks.register API to preserve configuration-cache compatibility.
+    • Directory APIs: Replaced deprecated buildDir references with layout.buildDirectory.
+    • Legacy Artifact Suppression: Applied archives configuration suppression to bypass pre-release AGP/Dokka artifact warnings.
+    • AGP 9+ KMP DSL Migration: Standardized all KMP library modules on com.android.kotlin.multiplatform.library via internal.kmp.library and internal.kmp.compose.library, keeping com.android.library strictly isolated to pure Android modules.
+
+4. Reference: Convention Plugin & Build Configuration
+Convention Plugin Matrix (build-logic)
+Module Type	Convention Plugin	Applied Plugins Under the Hood
+KMP Feature / Domain Modules	id("internal.kmp.library")	com.android.kotlin.multiplatform.library + org.jetbrains.kotlin.multiplatform + dokka
+KMP Compose UI Modules	id("internal.kmp.compose.library")	internal.kmp.base + com.android.kotlin.multiplatform.library + org.jetbrains.kotlin.plugin.compose
+Pure Android Library	id("internal.android.library")	com.android.library + org.jetbrains.kotlin.android
+Android App Entry (:app-android)	id("internal.android.application")	com.android.application + org.jetbrains.kotlin.android
+
+internal.kmp.library.gradle.kts (AGP 9+ DSL)
+import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
+import com.android.build.api.dsl.KotlinMultiplatformAndroidExtension
+
+plugins {
+    id("internal.kmp.base")
+    id("com.android.kotlin.multiplatform.library")
+    id("org.jetbrains.dokka")
+}
+
+val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
+
+configure<KotlinMultiplatformExtension> {
+    androidTarget()
+}
+
+extensions.configure<KotlinMultiplatformAndroidExtension> {
+    namespace = "${project.group}.${project.name.replace("-", "")}"
+    compileSdk = libs.findVersion("android-compileSdk").get().requiredVersion.toInt()
+    minSdk = libs.findVersion("android-minSdk").get().requiredVersion.toInt()
+}
+Cross-Platform JVM Desktop Target Helper
+fun currentOsDesktopTarget(): String {
+    val os = System.getProperty("os.name").lowercase()
+    val arch = System.getProperty("os.arch").lowercase()
+    val platform = when {
+        os.contains("win") -> "windows-x64"
+        os.contains("mac") -> if (arch == "aarch64" || arch == "arm64") "macos-arm64" else "macos-x64"
+        else -> "linux-x64"
+    }
+    return "org.jetbrains.compose.desktop:desktop-jvm-$platform"
+}
+Memory-Tuned gradle.properties Baseline
+# Performance & Configuration Cache (Tuned for 8 GB RAM constraint)
+org.gradle.jvmargs=-Xmx1536m -XX:MaxMetaspaceSize=512m -XX:+UseParallelGC -Dfile.encoding=UTF-8
+org.gradle.workers.max=2
+org.gradle.parallel=true
+org.gradle.caching=true
+org.gradle.daemon=true
+org.gradle.configuration-cache=true
+
+# AndroidX & Modern DSL
+android.useAndroidX=true
+android.nonTransitiveRClass=true
+
+5. Key Lessons Learned
+    1. Isolate High-Risk Upgrades in a Sandbox: Prototyping ServiceLoader + Koin 4.2 + AGP 9.x in a lean sandbox (wac2wav) saved significant refactoring time across 26 modules.
+    2. Avoid KSP on Bleeding-Edge Kotlin/AGP Stacks: Plain META-INF/services descriptors achieve zero-overhead dynamic DI registration without tying compiler upgrades to external annotation-processor release cycles.
+    3. Enforce Strict Unidirectional Module Graphs: Keeping :appcommon as the composition root above :pdf-*, :stt-*, and :feature* eliminates circular dependencies and maximizes Gradle parallel build caching.
+    4. Align Compose Compiler with Kotlin: Always pair org.jetbrains.kotlin.plugin.compose directly with the active Kotlin version and prefer com.android.kotlin.multiplatform.library over legacy com.android.library in all KMP modules.
 # Developer Log: sound2text
 
 ## Milestone: Project Modernization & Gradle 10 Readiness
-**Date: 2026-11-17**
+**Date: 2026-09-12**
 
 ### Technical Direction & Acknowledgements
 - **Architectural Guidance**: This project follows technical direction provided by Google Gemini and Microsoft Copilot.

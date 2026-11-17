@@ -501,4 +501,3 @@ If you are upgrading to AGP 9.0 Canary (e.g., Studio Canary / Rabbit 2):
 
 3. **Resource Duplication Fix:**  
    Added `duplicatesStrategy = DuplicatesStrategy.EXCLUDE` for `Copy` tasks in `internal.kmp.base.gradle.kts` to prevent duplicate `META-INF/services` file conflicts during processResources tasks.
-

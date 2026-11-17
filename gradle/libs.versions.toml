@@ -6,8 +6,8 @@
 [versions]
 
 # --- Core Toolchains (Upgraded to Modern Stack) ---
-kotlin-ver = "2.4.0"
-agp = "9.6.0-alpha02"
+kotlin-ver = "2.4.21"  # was 2.4.0
+agp = "9.6.0-alpha04"
 jvm = "21"
 
 android-compileSdk = "37"
@@ -92,6 +92,7 @@ dokka-ver = "2.2.0"
 build-konfig-ver = "0.15.1"
 jacoco-ver = "0.8.12"
 pdfCore = "1.0.0-beta01"
+uiGraphics = "1.12.1"
 
 
 # ============================================================
@@ -258,6 +259,7 @@ google-autoservice-annotations = { group = "com.google.auto.service", name = "au
 google-autoservice-processor   = { group = "com.google.auto.service", name = "auto-service", version.ref = "google-autoservice-ver" }
 jacoco-core                    = { module = "org.jacoco:org.jacoco.core", version.ref = "jacoco-ver" }
 androidx-pdf-core = { group = "androidx.pdf", name = "pdf-core", version.ref = "pdfCore" }
+androidx-compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics", version.ref = "uiGraphics" }
 
 
 # ============================================================

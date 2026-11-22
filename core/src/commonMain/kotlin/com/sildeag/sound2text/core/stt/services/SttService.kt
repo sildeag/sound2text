@@ -1,13 +1,12 @@
 package com.sildeag.sound2text.core.stt.services
 
 import com.sildeag.sound2text.core.stt.engine.BaseSttEngine
-import com.sildeag.sound2text.core.stt.model.SttResult
 import kotlinx.coroutines.flow.Flow
 
 class SttService(
     private val engine: BaseSttEngine
 ) {
-    suspend fun transcribe(audio: Flow<ShortArray>): SttResult {
+    suspend fun transcribe(audio: Flow<ShortArray>): String {
         engine.start()
 
         audio.collect { chunk ->

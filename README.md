@@ -9,14 +9,23 @@
 
 `sound2text` is an active engineering workbench rather than a finished end-user release. Architecture, module boundaries, and runtime wiring are evolving rapidly, so expect rough edges if you clone and build it today.
 
-### Current Status
-* **Project sync & modular structure:** Gradle syncs with convention plugins, version catalogs, `:di`, `:appcommon`, `:feature-pdf`, and `:pdf-*` modules in place.
-* **PDF & form workflow (`PdfWizard`):** Actively being refined across the PDF modules; runtime behavior may still change as edge cases are ironed out.
-* **Audio & speech-to-text (`:feature-stt` / `:feature-recording` / `:stt-*`):** Being cleaned up and consolidated in the companion `wac2wav` workspace before porting back cleanly into `sound2text`.
+## Current Status
 
-### What to Expect on a Fresh Clone
-* **Build vs. runtime:** A clean Gradle sync does not guarantee any execution path works end-to-end yet, particularly where dynamic feature loading, native binaries/models, or local file paths are involved.
-* **Breaking changes:** Module names, DI bindings, and internal APIs may shift without notice while refactoring is underway.
+`sound2text` is in active development as its architecture is refactored into decoupled, dynamically loaded feature plugins.
+
+- **Architecture & Build System:** Core infrastructure—including Gradle convention plugins, version catalogs, and Koin-based dynamic feature discovery—is in place and compiles cleanly.
+- **PDF & Form Workflow (`:feature-pdf` / `PdfWizard`):** Actively being migrated into `sound2text`. Running `./gradlew :appcommon:run` works locally in testing (currently limited to displaying one or more dynamic features), though those changes are pending on GitHub alongside updated `:core` and `:ui-common` modules. To avoid duplicate rework, integration on this repo is paused while `:feature-stt` and `:stt-*` are consolidated in the companion `wac2wav` workspace—both will be ported over together once ready.
+- **Speech-to-Text (`:feature-stt` & `:stt-*`):** Offline transcription engines (Vosk and Whisper) are being wired up and stabilized in `wac2wav` prior to migration into this repository.
+
+## What to Expect on a Fresh Clone
+
+If you clone and open this repository in Android Studio or IntelliJ IDEA today:
+
+- **Gradle Sync:** Syncs and resolves dependencies cleanly out of the box.
+- **Desktop Execution:** On the current public `main` branch, `:appcommon` does not yet have a complete end-to-end execution path because the updated `:core` and `:ui-common` modules are still awaiting push. Once synced with local changes, `./gradlew :appcommon:run` launches the dynamic feature shell.
+- **Android Target:** Requires the remaining `:feature-stt` and `:feature-pdf` migrations to complete before full end-to-end workflows are available on device.
+
+## Exploring Kotlin Multiplatform
 
 If you are exploring the [Kotlin Multiplatform](https://kotlinlang.org/docs/multiplatform.html) structure or experimenting with the modules, feel free to open an issue or discussion with what you ran into—just keep in mind some pieces are still mid-flight.
 

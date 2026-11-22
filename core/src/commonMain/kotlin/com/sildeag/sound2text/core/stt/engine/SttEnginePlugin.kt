@@ -10,9 +10,9 @@ interface SttEnginePlugin {
 }
 
 /*
-package com.sildeag.sound2text.core.stt.engine
-import com.sildeag.sound2text.core.stt.model.ModelDescriptor
-import com.sildeag.sound2text.core.stt.model.SttModelInfo
+package com.sildeag.wac2wav.core.stt.engine
+import com.sildeag.wac2wav.core.stt.model.ModelDescriptor
+import com.sildeag.wac2wav.core.stt.model.SttModelInfo
 interface SttEnginePlugin {
     val engineName: String
     val displayName: String

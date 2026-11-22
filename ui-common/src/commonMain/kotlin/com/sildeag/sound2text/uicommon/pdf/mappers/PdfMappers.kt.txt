@@ -1,0 +1,19 @@
+package com.sildeag.wac2wav.featurepdf.mappers
+
+import com.sildeag.wac2wav.core.pdf.model.PdfPage
+import androidx.compose.ui.graphics.ImageBitmap
+import com.sildeag.wac2wav.featurepdf.models.UiPdfPage
+
+fun PdfPage.toUi(
+    bitmap: ImageBitmap,
+    width: Int,
+    height: Int
+): UiPdfPage =
+    UiPdfPage(
+        index = index,
+        text = text,
+        bitmap = bitmap,
+        width = width,
+        height = height,
+        pageNumber = index + 1,
+    )

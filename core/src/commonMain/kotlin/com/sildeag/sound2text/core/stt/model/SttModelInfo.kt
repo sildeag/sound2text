@@ -7,7 +7,7 @@ interface SttModelInfo {
 }
 
 /*
-package com.sildeag.sound2text.core.stt.model
+package com.sildeag.wac2wav.core.stt.model
 
 interface SttModelInfo {
     val engineName: String        // "vosk", "whisper", "unified"

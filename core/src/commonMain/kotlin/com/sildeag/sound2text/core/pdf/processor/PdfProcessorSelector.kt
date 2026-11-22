@@ -5,7 +5,7 @@ class PdfProcessorSelector(
     private val pdfbox: PdfProcessor?,
     private val unified: PdfProcessor
 ) {
-    fun select(name: String): PdfProcessor = when (name.lowercase()) {
+    fun select(engineKey: String): PdfProcessor = when (engineKey.lowercase()) {
         "itext" -> itext ?: unified
         "pdfbox" -> pdfbox ?: unified
         "unified" -> unified

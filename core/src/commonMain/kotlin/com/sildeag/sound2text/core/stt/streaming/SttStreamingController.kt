@@ -1,94 +1,32 @@
 package com.sildeag.sound2text.core.stt.streaming
-
 import com.sildeag.sound2text.core.stt.engine.SttEngine
 import com.sildeag.sound2text.core.stt.model.SttResult
-
 class SttStreamingController(
     private val engine: SttEngine,
     private val callback: (SttResult) -> Unit
 ) {
-    suspend fun start() = engine.start()
-
-    suspend fun feed(chunk: ByteArray) {
-        val result = engine.processAudio(chunk)
-        callback(result)
-    }
-
-    suspend fun stop() = engine.stop()
-
-    suspend fun finish(): SttResult {
-        val result = engine.finish()
-        callback(result)
-        return result
-    }
-}
-/*
-import com.sildeag.sound2text.core.stt.engine.SttEngine
-import com.sildeag.sound2text.core.stt.model.SttResult
-class SttStreamingController(
-    private val engine: SttEngine,
-    private val onResult: (SttResult) -> Unit
-) {
     suspend fun start() {
-        engine.start()
-    }
-    suspend fun stop() {
-        engine.stop()
+        try {
+            engine.start()
+        } catch (e: Exception) {
+            callback(SttResult.Error("Streaming start failed: ${e.message}"))
+        }
     }
     suspend fun feed(chunk: ByteArray) {
-        val result = engine.processAudio(chunk)
-        onResult(result)
+        try {
+            engine.processAudio(chunk)
+        } catch (e: Exception) {
+            callback(SttResult.Error("Streaming feed failed: ${e.message}"))
+        }
     }
-}
-
-
-
-import com.sildeag.sound2text.core.stt.engine.SttEngine
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.SharedFlow
-import kotlinx.coroutines.launch
-
-class SttStreamingController(
-    private val engine: SttEngine
-) {
-    private val scope = CoroutineScope(Dispatchers.Default + SupervisorJob())
-
-    private val _partial = MutableSharedFlow<String>(replay = 1)
-    val partial: SharedFlow<String> = _partial
-
-    private val _final = MutableSharedFlow<String>(replay = 1)
-    val final: SharedFlow<String> = _final
-
-    private val _errors = MutableSharedFlow<String>(replay = 1)
-    val errors: SharedFlow<String> = _errors
-
-
-    suspend fun startStreaming (
-
-    ) {
-        engine.startStreaming(
-            onPartial = { text ->
-                scope.launch { _partial.emit(text) }
-            },
-            onFinal = { text ->
-                scope.launch { _final.emit(text) }
-            },
-            onError = { msg ->
-                scope.launch { _errors.emit(msg) }
-            }
-        )
-    }
-
-    fun processAudio(bytes: ByteArray) {
-        engine.processAudio(bytes)
-    }
-
     suspend fun stop() {
         engine.stop()
     }
+    suspend fun finish() {
+        try {
+            engine.finish()
+        } catch (e: Exception) {
+            callback(SttResult.Error("Streaming finish failed: ${e.message}"))
+        }
+    }
 }
-
- */

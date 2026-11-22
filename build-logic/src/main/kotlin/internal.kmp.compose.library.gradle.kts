@@ -31,6 +31,51 @@ configure<KotlinMultiplatformExtension> {
     }
 }
 
+/**
+ * WORKAROUND: AGP 9.0+ KMP Library Metadata Resolution Bug
+ * Neutralizes 'androidHostTestResolvableDependenciesMetadata' to prevent Gradle
+ * sync deadlocks or consistency-lock crashes in KMP Android library modules.
+ */
+configurations.configureEach {
+    if (name.contains("androidHostTestResolvableDependenciesMetadata")) {
+        @Suppress("UnstableApiUsage")
+        isCanBeResolved = false
+    }
+}
+/*
+import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
+
+plugins {
+    id("internal.kmp.base")
+    id("com.android.kotlin.multiplatform.library")
+    id("org.jetbrains.kotlin.plugin.compose")
+}
+
+val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
+
+configure<KotlinMultiplatformExtension> {
+    android {
+        namespace = "com.sildeag.sound2text." + project.name.replace("-", "")
+        compileSdk = libs.findVersion("android-compileSdk").get().requiredVersion.toInt()
+        minSdk = libs.findVersion("android-minSdk").get().requiredVersion.toInt()
+
+        // 1. REMOVED withHostTest {} completely to stop the early method exception.
+    }
+
+    sourceSets {
+        val commonMain = getByName("commonMain") {
+            dependencies {
+                implementation(libs.findLibrary("compose-mpp-runtime").get())
+                implementation(libs.findLibrary("compose-mpp-foundation").get())
+                implementation(libs.findLibrary("compose-mpp-material3").get())
+                implementation(libs.findLibrary("compose-mpp-material-icons-ext").get())
+                implementation(libs.findLibrary("compose-mpp-viewmodel").get())
+                implementation(libs.findLibrary("koin-compose").get())
+            }
+        }
+    }
+}
+
 // 2. Safe Fallback: Satisfy any internal tasks looking for the configuration
 // by explicitly neutralizing it at the root configuration collection level.
 configurations.configureEach {
@@ -39,6 +84,7 @@ configurations.configureEach {
         isCanBeResolved = false
     }
 }
+*/
 
 /*
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension

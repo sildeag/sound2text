@@ -1,0 +1,10 @@
+package sound2text.pdfdesktop.itext
+
+import sound2text.core.pdf.forms.PdfFormDescriptor
+import sound2text.core.pdf.forms.PdfFormDiscovery
+
+class createPdfFormDiscovery(): PdfFormDiscovery {
+    override suspend fun discoverForms(basePath: String): List<PdfFormDescriptor> {
+        TODO("Not yet implemented")
+    }
+} // =  ITextFormDiscovery()

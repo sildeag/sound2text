@@ -11,12 +11,19 @@ import kotlinx.coroutines.launch
 class FormDiscoveryViewModel(
     private val manager: SttFormManager
 ) : ViewModel() {
-    private val _forms = MutableStateFlow<Map<String,
-            List<PdfForm>>>(emptyMap())
+    private val _forms = MutableStateFlow<Map<String, List<PdfForm>>>(emptyMap())
     val forms = _forms.asStateFlow()
+    private val _selectedFormBytes = MutableStateFlow<ByteArray?>(null)
+    val selectedFormBytes = _selectedFormBytes.asStateFlow()
     fun loadForms() {
         viewModelScope.launch {
             _forms.value = manager.discoverForms("forms")
+        }
+    }
+    fun selectForm(form: PdfForm, loadBytes: suspend (PdfForm) -> ByteArray) {
+        viewModelScope.launch {
+            val bytes = loadBytes(form)
+            _selectedFormBytes.value = bytes
         }
     }
 }

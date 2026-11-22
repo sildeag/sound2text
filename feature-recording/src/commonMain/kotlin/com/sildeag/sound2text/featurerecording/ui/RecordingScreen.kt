@@ -59,21 +59,24 @@ fun RecordingScreen(
                     Text("Start Recording")
                 }
             }
-            `RecordingState.txt`.Recording -> {
+            RecordingState.Recording -> {
                 Button(onClick = { viewModel.stopRecording() }) {
                     Text("Stop Recording")
                 }
             }
-            `RecordingState.txt`.Processing -> {
+            RecordingState.Processing -> {
                 CircularProgressIndicator()
             }
-            is `RecordingState.txt`.Error -> {
+            is RecordingState.Error -> {
                 Button(onClick = { viewModel.startRecording() }) {
                     Text("Retry")
                 }
             }
-            `RecordingState.txt`.Starting -> {
+            RecordingState.Starting -> {
                 CircularProgressIndicator()
+            }
+            RecordingState.Stopping -> {
+                Text("Stop Recording")
             }
         }
     }

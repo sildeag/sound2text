@@ -1,6 +1,6 @@
 package com.sildeag.sound2text.featurepdfwizard.controller
 
-import com.sildeag.sound2text.uicommon.pdfwizard.viewmodel.PdfWizardViewModel
+import com.sildeag.sound2text.featurepdfwizard.viewmodels.PdfWizardViewModel
 import com.sildeag.sound2text.uicommon.state.PdfWizardWorkflowStep
 
 class PdfWizardController(

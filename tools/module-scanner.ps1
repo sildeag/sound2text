@@ -62,9 +62,10 @@ function Get-KtModuleName {
     return $parts[-1]
 }
 
-function Print-CodeBlock {
+function PrintCodeBlock {
     param([string]$FilePath)
 
+    Write-Host " File is $FilePath "
     Write-Host "      ----- CODE BEGIN -----"
     try {
         Get-Content $FilePath | ForEach-Object {
@@ -77,7 +78,16 @@ function Print-CodeBlock {
     Write-Host ""
 }
 
-function Scan-Module {
+function NormalizeModuleName {
+    param([string]$ModuleName)
+    if ($ModuleName.StartsWith(":")) {
+        return $ModuleName.Substring(1)
+    }
+    return $ModuleName
+}
+
+
+function ScanModule {
     param([string]$ModuleName)
 
     Write-Host ""
@@ -86,6 +96,7 @@ function Scan-Module {
     Write-Host "============================================================"
 
     foreach ($src in $sourceSets) {
+        $ModuleName = NormalizeModuleName($ModuleName)
         $srcPath = Join-Path $BasePath $ModuleName |
                 Join-Path -ChildPath "src\$src\kotlin"
 
@@ -115,14 +126,14 @@ function Scan-Module {
             Write-Host "      KtModule: $ktmodule"
             Write-Host ""
 
-            if ($ShowCode) {
-                Print-CodeBlock -FilePath $file.FullName
-            }
+            #if ($ShowCode) {
+                PrintCodeBlock -FilePath $file.FullName
+            #}
         }
     }
 }
 
 # Run scanner
 foreach ($mod in $Modules) {
-    Scan-Module -ModuleName $mod
+    ScanModule -ModuleName $mod
 }

@@ -1,4 +1,4 @@
-package com.sildeag.sound2text.uicommon.pdfwizard.viewmodel
+package com.sildeag.sound2text.featurepdfwizard.viewmodels
 
 import com.sildeag.sound2text.core.dispatchers.DispatcherProvider
 import com.sildeag.sound2text.core.pdf.model.PdfDocument

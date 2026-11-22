@@ -1,0 +1,15 @@
+package sound2text.pdfdesktop.itext
+
+import sound2text.core.pdf.forms.PdfFormDescriptor
+
+import pdf.PdfFormEngineFactory
+import pdf.PdfFormPlugin
+
+class ITextFormPlugin : PdfFormPlugin {
+    override val engineName: String = "itext"
+    override fun createFactory(): PdfFormEngineFactory =
+        ITextFormEngineFactory()
+    override fun discoverForms(basePath: String):
+            List<PdfFormDescriptor> =
+        ITextFormDiscovery().discoverForms(basePath)
+}

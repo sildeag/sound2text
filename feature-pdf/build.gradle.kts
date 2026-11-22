@@ -4,10 +4,12 @@ plugins {
 }
 
 val jfxVersion: String = libs.versions.javafx.ver.get() // Gets "21.0.2" from TOML
+//val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
+//val jfxVersion = libs.findVersion("javafx-ver").get().requiredVersion
 
 kotlin {
  android {
-  namespace = "com.sildeag.sound2text.feature.pdf"
+  namespace = "com.sildeag.sound2text.featurepdf"
  }
 
  sourceSets {

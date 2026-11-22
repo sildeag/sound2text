@@ -1,99 +1,83 @@
-package com.sildeag.sound2text.featurepdf
+package com.sildeag.sound2text.featurepdf.viewmodel
 
 import com.sildeag.sound2text.core.dispatchers.DispatcherProvider
-import com.sildeag.sound2text.core.pdf.render.PdfRenderer
-import com.sildeag.sound2text.core.pdf.extract.PdfTextExtractor
-import com.sildeag.sound2text.core.resource.ResourceLoader
 import com.sildeag.sound2text.core.logging.Logger
-import com.sildeag.sound2text.core.pdf.processor.PdfProcessorSelector
-import com.sildeag.sound2text.uicommon.mappers.toUi
+import com.sildeag.sound2text.core.pdf.extract.PdfTextExtractor
+import com.sildeag.sound2text.core.pdf.render.PdfRenderer
+import com.sildeag.sound2text.featurepdf.PdfFeatureActions
+import com.sildeag.sound2text.featurepdf.PdfFeatureState
+import com.sildeag.sound2text.uicommon.pdf.processor.UiPdfProcessor
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-
 class PdfFeatureViewModel(
-    private val processorSelector: PdfProcessorSelector,
+    private val uiPdfProcessor: UiPdfProcessor,
     private val renderer: PdfRenderer,
     private val extractor: PdfTextExtractor,
-    private val resources: ResourceLoader,
     private val dispatchers: DispatcherProvider,
     private val logger: Logger
 ) {
-
     private val scope = CoroutineScope(SupervisorJob() + dispatchers.default)
-
     private val _state = MutableStateFlow(PdfFeatureState())
-    val state: StateFlow<PdfFeatureState> = _state
-
+    val state: StateFlow<PdfFeatureState> = _state.asStateFlow()
     fun dispatch(action: PdfFeatureActions) {
         when (action) {
-            is PdfFeatureActions.LoadPdf -> loadPdf(action.bytes)
+            is PdfFeatureActions.LoadUiPdf -> loadUiPdf(action.bytes)
             is PdfFeatureActions.RenderPage -> renderPage(action.pageIndex)
             is PdfFeatureActions.ExtractText -> extractText(action.bytes)
         }
     }
-
-    private fun loadPdf(bytes: ByteArray) {
+    private fun loadUiPdf(bytes: ByteArray) {
         scope.launch {
-            _state.value = _state.value.copy(isLoading = true)
-
-            val processor = processorSelector.select("unified")
-
+            _state.update { it.copy(isLoading = true, error = null) }
             try {
-                val doc = withContext(dispatchers.io) { processor.loadPdf(bytes) }
-
-                _state.value = _state.value.copy(
-                    document = doc,
-                    pages = doc.size.map { it.toUi() },
-                    isLoading = false
-                )
-
+                val uiPages = withContext(dispatchers.io) {
+                    uiPdfProcessor.loadUiPdf(bytes)
+                }
+                _state.update { it.copy(pages = uiPages, isLoading = false) }
             } catch (t: Throwable) {
                 logger.e("PdfFeature", "Failed to load PDF", t)
-                _state.value = _state.value.copy(
-                    error = t.message,
-                    isLoading = false
-                )
+                _state.update {
+                    it.copy(error = t.message ?: "Unknown error", isLoading =
+                        false)
+                }
             }
         }
     }
-
     private fun renderPage(index: Int) {
         scope.launch {
-            //val page = _state.value.pages.getOrNull(index) ?: return@launch
-            val corePage = _state.value.corePages[index]
             try {
                 val rendered = withContext(dispatchers.io) {
-                    renderer.renderPage(corePage)
+                    renderer.render(index)
                 }
-                logger.d("PdfFeature", "Rendered page $index (${rendered.size} bytes)")
+                logger.d("PdfFeature",
+                    "Rendered page $index dimensions: ${rendered.width}x${rendered.height}")
             } catch (t: Throwable) {
-                logger.e("PdfFeature", "Failed to render page", t)
+                logger.e("PdfFeature", "Failed to render page $index", t)
             }
         }
     }
-
     private fun extractText(bytes: ByteArray) {
         scope.launch {
-            _state.value = _state.value.copy(isLoading = true)
-
+            _state.update { it.copy(isLoading = true, error = null) }
             try {
-                val text = withContext(dispatchers.io) {
+                val textList = withContext(dispatchers.io) {
                     extractor.extractText(bytes)
                 }
-                _state.value = _state.value.copy(
-                    extractedText = text,
-                    isLoading = false
-                )
+                _state.update {
+                    it.copy(extractedText = textList, isLoading = false)
+                }
             } catch (t: Throwable) {
                 logger.e("PdfFeature", "Failed to extract text", t)
-                _state.value = _state.value.copy(
-                    error = t.message,
-                    isLoading = false
-                )
+                _state.update {
+                    it.copy(error = t.message ?: "Failed to extract text",
+                        isLoading = false)
+                }
             }
         }
     }

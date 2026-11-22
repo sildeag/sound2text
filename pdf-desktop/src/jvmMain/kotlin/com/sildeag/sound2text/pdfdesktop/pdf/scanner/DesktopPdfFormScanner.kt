@@ -1,0 +1,22 @@
+package com.sildeag.sound2text.pdfdesktop.pdf.scanner
+
+import com.sildeag.sound2text.core.pdf.io.PdfFormScanner
+import com.sildeag.sound2text.core.pdf.model.PdfForm
+import java.io.File
+
+class DesktopPdfFormScanner : PdfFormScanner {
+    override suspend fun scan(basePath: String): List<PdfForm> {
+        val url = javaClass.classLoader.getResource(basePath)
+            ?: return emptyList()
+        val dir = File(url.toURI())
+        return dir.listFiles { f -> f.extension == "pdf" }
+            ?.map { file ->
+                PdfForm(
+                    id = file.nameWithoutExtension,
+                    name = file.nameWithoutExtension,
+                    path = "$basePath/${file.name}"
+                )
+            }
+            ?: emptyList()
+    }
+}

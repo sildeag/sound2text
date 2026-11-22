@@ -11,12 +11,9 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
+            implementation(libs.androidx.navigationevent)
+            implementation(project(":di"))
             implementation(project(":core"))
-            implementation(project(":platform"))
-
-            //implementation( project(":appcommon"))
-            implementation(libs.bundles.itext)
-            // implementation(libs.vosk.api)
         }
         
         jvmMain.dependencies {
@@ -45,6 +42,10 @@ kotlin {
             implementation(libs.bundles.testJvm)
         }
     }
+}
+// build.gradle.kts (Root or ui-common module)
+tasks.withType<org.jetbrains.kotlin.gradle.plugin.mpp.MetadataDependencyTransformationTask>().configureEach {
+    notCompatibleWithConfigurationCache("Metadata dependency transformation serialization issue in KGP")
 }
 /*
 compose.desktop {

@@ -219,7 +219,7 @@ extensions.configure<KotlinMultiplatformAndroidExtension> {
 ## 3. Dynamic Namespace & SDK Logic Breakdown
 
 - **Dynamic Namespace:** `${project.group}.${project.name.replace("-", "")}`  
-  Automatically converts a module name like `:ui-common` under group `com.sildeag.wac2wav` into `com.sildeag.wac2wav.uicommon`.
+  Automatically converts a module name like `:ui-common` under group `sound2text` into `sound2text`.
 - **Centralized SDK Versions:**  
   Pulls `android-compileSdk` and `android-minSdk` directly from `gradle/libs.versions.toml`:
   ```toml
@@ -243,7 +243,7 @@ This document summarizes the build and toolchain configuration for running **Kot
   * In Kotlin (`kotlinc`), annotation processors are **not** invoked natively unless KSP or kapt is configured.
 * **The Pure KMP Solution (Zero Build Overhead):**
   * Java/Android `ServiceLoader` reads plain-text files from `src/commonMain/resources/META-INF/services/com.sildeag.wac2wav.di.FeatureModuleProvider`.
-  * Placing the provider class name (e.g., `com.sildeag.wac2wav.feature1.Feature1Provider`) in this file allows `ServiceLoader` to resolve feature modules dynamically across Android and Desktop/JVM with zero compiler plugins.
+  * Placing the provider class name (e.g., `sound2text`) in this file allows `ServiceLoader` to resolve feature modules dynamically across Android and Desktop/JVM with zero compiler plugins.
 
 ---
 
@@ -356,7 +356,7 @@ Android namespaces cannot contain hyphens (`-`). Use string manipulation for dyn
 namespace = "${project.group}.${project.name.replace("-", "")}"
 ```
 
-- Module `:ui-common` under group `com.sildeag.wac2wav` automatically becomes valid Java package `com.sildeag.wac2wav.uicommon`.
+- Module `:ui-common` under group `sound2text` automatically becomes valid Java package `sound2text`.
 
 ---
 

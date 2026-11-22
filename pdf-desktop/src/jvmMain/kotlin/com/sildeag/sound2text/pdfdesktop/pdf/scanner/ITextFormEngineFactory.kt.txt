@@ -1,0 +1,10 @@
+package sound2text.pdfdesktop.itext
+
+import sound2text.core.pdf.forms.PdfFormDescriptor
+import pdf.PdfFormEngine
+import pdf.PdfFormEngineFactory
+
+class ITextFormEngineFactory : PdfFormEngineFactory {
+    override fun load(descriptor: PdfFormDescriptor): PdfFormEngine =
+        ITextFormEngine(descriptor)
+}

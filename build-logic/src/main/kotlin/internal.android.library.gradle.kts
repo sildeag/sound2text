@@ -16,6 +16,26 @@ android {
     }
 }
 /*
+// build-logic/src/main/kotlin/internal.android.library.gradle.kts
+plugins {
+    id("com.android.library")
+    id("org.jetbrains.kotlin.plugin.compose")
+    id("internal.dokka")
+    id("jacoco")
+}
+
+val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
+
+android {
+    namespace = project.group.toString()
+    compileSdk = libs.findVersion("android-compileSdk").get().requiredVersion.toInt()
+    defaultConfig {
+        minSdk = libs.findVersion("android-minSdk").get().requiredVersion.toInt()
+    }
+}
+
+ */
+/*
 import org.jetbrains.dokka.gradle.DokkaExtension
 
 plugins {

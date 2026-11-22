@@ -5,6 +5,21 @@
 [![Docs](https://img.shields.io/badge/docs-online-blue)](https://sildeag.github.io/sound2text/)
 [![License](https://img.shields.io/github/license/sildeag/sound2text)](LICENSE)
 
+## Work in Progress
+
+`sound2text` is an active engineering workbench rather than a finished end-user release. Architecture, module boundaries, and runtime wiring are evolving rapidly, so expect rough edges if you clone and build it today.
+
+### Current Status
+* **Project sync & modular structure:** Gradle syncs with convention plugins, version catalogs, `:di`, `:appcommon`, `:feature-pdf`, and `:pdf-*` modules in place.
+* **PDF & form workflow (`PdfWizard`):** Actively being refined across the PDF modules; runtime behavior may still change as edge cases are ironed out.
+* **Audio & speech-to-text (`:feature-stt` / `:feature-recording` / `:stt-*`):** Being cleaned up and consolidated in the companion `wac2wav` workspace before porting back cleanly into `sound2text`.
+
+### What to Expect on a Fresh Clone
+* **Build vs. runtime:** A clean Gradle sync does not guarantee any execution path works end-to-end yet, particularly where dynamic feature loading, native binaries/models, or local file paths are involved.
+* **Breaking changes:** Module names, DI bindings, and internal APIs may shift without notice while refactoring is underway.
+
+If you are exploring the [Kotlin Multiplatform](https://kotlinlang.org/docs/multiplatform.html) structure or experimenting with the modules, feel free to open an issue or discussion with what you ran into—just keep in mind some pieces are still mid-flight.
+
 Sound2Text is a cross‑platform application and audio‑to‑text pipeline built with Kotlin Multiplatform.  
 It captures spoken input — from a microphone or from audio files — and converts it into structured text using pluggable speech‑to‑text engines.  
 The project is designed to support real applications such as populating PDF form fields, capturing genealogical memories, recording medical notes, and enabling multilingual voice‑driven data entry.

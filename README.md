@@ -64,8 +64,10 @@ The project began with a simple, real‑world need:
 From there, the concept expanded to support other human‑scale tasks:
 
 - capturing family stories and genealogical memories
+- parsing PDF census and other information into GEDCOM
 - recording medical notes for patient records
 - enabling voice‑driven data entry
+- creating a database bridge to other applications
 - supporting multilingual workflows (starting with English and Spanish)
 
 Sound2Text aims to make speech input accessible and useful without requiring specialized hardware or heavyweight frameworks.
@@ -144,10 +146,10 @@ Sound2Text reflects direct experience with multiplatform setup — not just what
 
 ---
 
-## 🛠 Technical Guidance from Copilot and Google Gemini
+## 🛠 Technical Guidance from Google Gemini and Copilot
 
-Sound2Text was developed with architectural and troubleshooting support from Microsoft Copilot, Google Gemini, and AS Gemini, whose guidance helped clarify plugin alignment, loosely coupled dynamic feature detection, TOML scoping, and multiplatform quirks.  
-Copilot assisted in development, validating decisions, and Sentinel; Google in troubleshooting KMP, edge cases, and shaping functionality.
+Sound2Text was developed with architectural and troubleshooting support from Google Gemini, Microsoft Copilot and AS Gemini, whose guidance helped clarify plugin alignments, loosely coupled dynamic feature detection, TOML scoping, and multiplatform quirks.  
+Copilot assisted in original development, validating decisions, and Sentinel; AS Gemini in troubleshooting KMP, edge cases, and shaping functionality.
 
 ## 📚 Documentation & Wiki
 
